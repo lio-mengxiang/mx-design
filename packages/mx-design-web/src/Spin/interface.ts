@@ -1,0 +1,42 @@
+import { CSSProperties, ReactNode } from 'react';
+
+/**
+ * @title Spin
+ */
+export interface SpinProps {
+  style?: CSSProperties;
+  className?: string | string[];
+  children?: ReactNode;
+  /**
+   * @zh 是否为加载状态
+   * @en Whether is loading status
+   */
+  loading?: boolean;
+  /**
+   * @zh 加载动画的尺寸
+   * @en The size of loading icon
+   */
+  size?: string;
+  /**
+   * @zh 自定义元素，非图标，不附带旋转效果。可用于设置为 gif 图片等。
+   * @en Customize element which won't be rotated automatically, such as image/gif.
+   */
+  element?: ReactNode;
+  /**
+   * @zh 加载的文案
+   * @en Customize description content when Spin has children
+   */
+  tip?: string | ReactNode;
+  /**
+   * @zh 延迟显示加载的时间 (ms)
+   * @en Specifies a delay(ms) for loading state
+   */
+  delay?: number;
+
+  /**
+   * @zh 是否为块级元素
+   * @en Whether it is a block-level element
+   * @version 2.29.0
+   */
+  block?: boolean;
+}

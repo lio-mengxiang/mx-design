@@ -1,0 +1,21 @@
+node_modules
+.DS_Store
+coverage
+.idea
+es
+lib
+dist
+esm
+cjs
+package-lock.json
+pnpm-lock.yaml
+types
+temp*
+
+
+
+# eslint
+.eslintcache
+
+# stylelint
+.stylelintcache

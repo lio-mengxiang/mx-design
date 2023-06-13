@@ -1,0 +1,28 @@
+# editorconfig.org
+
+#zh 主要是用来抹平编辑器差异的，比如文件编码，缩进格式等
+#en It is mainly used to smooth out editor differences, such as file encoding, indentation format, etc.
+
+#zh 表示是最顶层的配置文件，设为 true 时，停止向上查找
+#en Indicates that it is the topmost configuration file, when set to true, stop searching upwards
+root = true
+
+[*]
+#zh 设置编码，值为latin1、utf-8、utf-8-bom、utf-16be和utf-16le
+#en Set the encoding, the values are latin1, utf-8, utf-8-bom, utf-16be and utf-16le
+charset = utf-8
+#zh 设置换行符，值为lf、cr和crlf，lf是linux的标准
+#en Set the newline character, the value is lf, cr and crlf, lf is the standard of linux
+end_of_line = lf
+#zh 设置缩进为 tab 或 space
+#en set indentation to tab or space
+indent_style = space
+#zh 设置缩进所占列数，如果 indent_style 为 tab，则以 tab_width 值作为缩进宽度
+#en Set the number of columns occupied by indentation, if indent_style is tab, use tab_width value as the indentation width
+indent_size = 2
+#zh 设为 true 表示会去除行尾的空白字符
+#en Set to true to remove whitespace characters at the end of the line
+trim_trailing_whitespace = true
+#zh 设为 true 表示使文件以一个空白行结尾
+#en Set to true to end the file with a blank line
+insert_final_newline = true

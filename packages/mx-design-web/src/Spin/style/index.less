@@ -1,0 +1,71 @@
+@import '../../../../mx-design-theme/src/base_style/base.less';
+
+@spin-prefix-cls: ~'@{prefix}-spin';
+
+.@{spin-prefix-cls} {
+  display: inline-block;
+}
+
+.@{spin-prefix-cls}-block {
+  display: block;
+}
+
+.@{spin-prefix-cls}-with-tip {
+  text-align: center;
+}
+
+.@{spin-prefix-cls}-icon {
+  color: var(--spin-icon-color);
+  font-size: 20px;
+}
+
+.@{spin-prefix-cls}-tip {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--spin-icon-color);
+}
+
+.@{spin-prefix-cls}-loading-layer {
+  text-align: center;
+  user-select: none;
+}
+
+.@{spin-prefix-cls}-children {
+  position: relative;
+}
+
+.@{spin-prefix-cls}-children::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-spin-layer-bg);
+  opacity: 0;
+  transition: opacity 0.1s cubic-bezier(0, 0, 1, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+.@{spin-prefix-cls}-loading {
+  position: relative;
+  user-select: none;
+
+  .@{spin-prefix-cls}-loading-layer-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  .@{spin-prefix-cls}-children::after {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

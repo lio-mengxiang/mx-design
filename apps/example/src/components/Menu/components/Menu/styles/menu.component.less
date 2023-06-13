@@ -1,0 +1,44 @@
+.base() {
+  position: relative;
+  margin-bottom: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0 12px;
+  line-height: 40px;
+  border-radius: var(--border-radius-small);
+  padding-left: 24px;
+  transition: all 0.2s linear 0s;
+}
+
+.mx-menu {
+  position: fixed;
+  top: 72px;
+  overflow: auto;
+  width: 260px;
+  height: calc(100vh - 72px);
+}
+
+.mx-menu-inner-container {
+  width: 228px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+
+.mx-menu-group {
+  .mx-menu-title {
+    .base();
+    color: var(--text-color-secondary);
+  }
+
+  .mx-menu-item {
+    cursor: pointer;
+    .base();
+  }
+
+  .mx-menu-selected {
+    background-color: var(--bg-color-component);
+    color: var(--brand-color)
+  }
+}

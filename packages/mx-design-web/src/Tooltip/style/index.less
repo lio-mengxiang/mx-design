@@ -1,0 +1,18 @@
+@import '../../../../mx-design-theme/src/base_style/base.less';
+
+@tooltip-prefix-cls: ~'@{prefix}-tooltip';
+
+.@{tooltip-prefix-cls} {
+  .@{prefix}-popup__content {
+    display: inline-block;
+    border: 0;
+    z-index: var(--z-index-tooltip);
+    margin-bottom: 1px;
+    max-width: var(--tooltip-max-width);
+    word-break: break-word;
+    box-sizing: border-box;
+    border-radius: var(--tooltip-border-radius);
+    background-color: var(--gray-color-13);
+    color: var(--text-color-anti);
+  }
+}

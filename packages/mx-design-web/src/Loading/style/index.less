@@ -1,0 +1,50 @@
+@import '../../../../mx-design-theme/src/base_style/base.less';
+
+@loading-prefix-cls: ~'@{prefix}-loading';
+
+@keyframes mx-route {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.@{loading-prefix-cls}-container {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  &-1 {
+    background-color: transparent;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: inherit;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    animation: mx-route 1s ease-in-out infinite;
+    box-sizing: border-box;
+  }
+
+  &-2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.5;
+    border-style: dotted;
+    background-color: transparent;
+    border-radius: 50%;
+    border-color: inherit;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    animation: mx-route 1s ease-in-out infinite;
+    animation-delay: 0.2s;
+    box-sizing: border-box;
+  }
+}

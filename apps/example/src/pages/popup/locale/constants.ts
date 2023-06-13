@@ -1,0 +1,10 @@
+export const NAME_SPACE_POPUP = 'POPUP';
+export const Basic = 'Basic';
+export const TriggerMode = 'TriggerMode';
+export const DifferentTrigger = 'DifferentTrigger';
+export const Position = 'Position';
+export const FloatingLayer = 'FloatingLayer';
+export const Controlled = 'Controlled';
+export const Mount = 'Mount';
+export const Disabled = 'Disabled';
+export const Dynamic = 'Dynamic';

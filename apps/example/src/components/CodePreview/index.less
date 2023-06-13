@@ -1,0 +1,74 @@
+@import (reference) '../../styles/common.less';
+
+@w-code-preview: ~ "mx-code-preview";
+
+.@{w-code-preview} {
+  &-demo {
+    position: relative;
+    padding: 48px;
+    border: 1px solid var(--component-border);
+    border-radius: var(--border-radius-medium);
+    overflow: auto;
+    min-width: 100px;
+
+    &-error {
+      z-index: 2;
+      margin-bottom: 0;
+      color: #dc3545
+    }
+
+    &-source.error {
+      display: none;
+    }
+  }
+
+  &-operations {
+    display: flex;
+    justify-content: flex-end;
+    padding: 12px 0;
+  }
+
+  &-edit-icon {
+    .btn-circle;
+    border: none;
+    width: 28px;
+    height: 28px;
+  }
+
+  &-edit-icon.open {
+    color: var(--success-color-active);
+  }
+
+  &-edit-text {
+    color: var(--text-color-secondary);
+    padding: 4px 0 4px 12px;
+    font-size: 12px;
+  }
+
+  &-code-container {
+    overflow: hidden;
+  }
+
+}
+
+.ͼ1 .cm-scroller,
+.ͼ3s.cm-editor .cm-scroller {
+  line-height: 1.6em;
+  font-family: Menlo, Consolas;
+}
+
+.cm-gutters {
+  opacity: 0.4;
+}
+
+.ͼ1.cm-focused {
+  outline: none;
+}
+
+.cm-gutters {
+  opacity: 1;
+}
+
+.cm-editor {
+  padding: 24px 48px;
+}

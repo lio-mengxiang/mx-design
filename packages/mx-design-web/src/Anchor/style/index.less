@@ -1,0 +1,84 @@
+@import '../../../../mx-design-theme/src/base_style/base.less';
+
+@anchor-prefix-cls: ~'@{prefix}-anchor';
+
+.@{anchor-prefix-cls} {
+  position: relative;
+  width: var(--anchor-width);
+  overflow: auto;
+
+  &-line {
+    &-slider {
+      position: absolute;
+      height: var(--anchor-line-slider-height);
+      width: var(--anchor-line-width);
+      margin-top: calc(((var(--anchor-font-size-title) * var(--anchor-line-height-base))) / 2 + var(--anchor-title-padding-vertical) - (var(--anchor-line-slider-height) / 2));
+      background-color: var(--anchor-color);
+      left: 0;
+      top: 0;
+      transition: top 0.2 var(--transition-timing-function-standard);
+      z-index: 1;
+    }
+  }
+
+  &-list {
+    margin-left: calc(var(--anchor-line-margin-right) - var(--anchor-title-padding-horizontal) + var(--anchor-line-width));
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      background-color: var(--anchor-color-bg-line);
+      width: var(--anchor-line-width);
+      left: calc(var(--anchor-title-padding-horizontal) - var(--anchor-line-margin-right) - var(--anchor-line-width));
+    }
+  }
+
+  &-link {
+    margin-bottom: var(--anchor-title-margin-bottom);
+
+    &-title {
+      color: var(--anchor-color-title);
+      line-height: var(--anchor-line-height-base);
+      font-size: var(--anchor-font-size-title);
+      margin-bottom: var(--anchor-title-margin-bottom);
+      padding: var(--anchor-title-padding-vertical) var(--anchor-title-padding-horizontal);
+      text-decoration: none;
+      cursor: pointer;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: block;
+      white-space: nowrap;
+      border-radius: var(--anchor-border-radius-title-hover);
+    }
+
+    &-title:hover {
+      color: var(--anchor-color);
+    }
+
+    &-active>&-title {
+      transition: all 0.1s var(--transition-timing-function-linear);
+      color: var(--anchor-color);
+      font-weight: 500;
+    }
+  }
+
+  &-link &-link {
+    margin-left: var(--anchor-item-inner-margin-left);
+  }
+
+  // Lineless
+  &-lineless &-list {
+    margin-left: 0;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &-lineless &-link-active>&-link-title {
+    background-color: var(--anchor-lineless-bg-title_active);
+    font-weight: 500;
+  }
+}

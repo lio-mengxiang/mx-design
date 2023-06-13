@@ -1,0 +1,36 @@
+{
+  "name": "@mx-design/web-utils",
+  "version": "0.1.2",
+  "description": "web utils functions lib for mx-design",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "types": "types/index.d.ts",
+  "license": "MIT",
+  "files": [
+    "types",
+    "lib",
+    "esm",
+    "README.md",
+    "README.zh.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "clean": "rimraf ./node_modules",
+    "build:cjs": "rimraf ./lib & tsc -p ./tsconfigCommonJS.json",
+    "build:esm": "rimraf ./esm && tsc -p ./tsconfig.json",
+    "build:types": "rimraf ./types && tsc --outDir types -d --emitDeclarationOnly",
+    "build": "npm run build:cjs && npm run build:esm && npm run build:types"
+  },
+  "dependencies": {
+    "chalk": "4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.12",
+    "rimraf": "3.0.2",
+    "ts-node": "10.9.1",
+    "typescript": "5.0.4"
+  }
+}

@@ -1,0 +1,18 @@
+@import (reference) '../../../styles/common.less';
+
+.menu-container {
+  position: relative;
+  width: 260px;
+  flex-shrink: 0;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color: var(--bg-color-container);
+  box-shadow: var(--shadow-out-right);
+
+  .menu-collapse-btn {
+    position: fixed;
+    top: 240px;
+    z-index: 2;
+    .btn-circle;
+  }
+}

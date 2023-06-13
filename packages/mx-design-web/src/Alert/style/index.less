@@ -1,0 +1,115 @@
+@import '../../../../mx-design-theme/src/base_style/base.less';
+
+@alert-prefix-cls: ~'@{prefix}-alert';
+
+.@{alert-prefix-cls} {
+  display: flex;
+  position: relative;
+  padding: var(--alert-padding);
+  border-radius: var(--alert-border-radius);
+  background-color: var(--alert-color-bg);
+  box-shadow: var(--alert-box-shadow);
+  overflow: hidden;
+  box-sizing: border-box;
+  pointer-events: auto;
+
+
+  &-icon {
+    font-size: var(--alert-font-size-icon);
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &-info {
+    background-color: var(--alert-info-bg-color);
+    color: var(--alert-info-color);
+  }
+
+  &-info &-icon {
+    color: var(--alert-info-color);
+  }
+
+  &-success {
+    background-color: var(--alert-success-bg-color);
+    color: var(--alert-success-color);
+  }
+
+  &-success &-icon {
+    color: var(--alert-success-color);
+  }
+
+  &-warning {
+    background-color: var(--alert-warning-bg-color);
+    color: var(--alert-warning-color);
+  }
+
+  &-warning &-icon {
+    color: var(--alert-warning-color);
+  }
+
+  &-error {
+    background-color: var(--alert-error-bg-color);
+    color: var(--alert-error-color);
+  }
+
+  &-error &-icon {
+    color: var(--alert-error-color);
+  }
+
+  &-loading {
+    background-color: var(--alert-loading-bg-color);
+    color: var(--alert-loading-color);
+  }
+
+  &-loading &-icon {
+    color: var(--alert-loading-color);
+  }
+
+  &-left {
+    padding-right: 8px;
+    display: flex;
+    align-items: center;
+    height: 24px;
+  }
+
+  &-right {
+    flex: 1;
+    word-break: break-word;
+  }
+
+  &-right_padding {
+    padding-right: 20px;
+  }
+
+  &-title {
+    font-size: var(--alert-font-size-title);
+    font-weight: 500;
+    margin-bottom: var(--alert-title-margin-bottom);
+    line-height: 1.4;
+  }
+
+  &-info &-title {
+    color: var(--alert-info-color);
+  }
+
+  &-content {
+    font-size: var(--alert-font-size-content);
+    line-height: 1.68;
+  }
+
+  &-operation-wrapper {
+    margin-left: 12px
+  }
+
+  & &-close-btn {
+    position: absolute;
+    cursor: pointer;
+    top: 16px;
+    right: 16px;
+    font-size: 12px;
+
+    >svg {
+      position: relative;
+    }
+  }
+}

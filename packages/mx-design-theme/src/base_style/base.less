@@ -1,0 +1,50 @@
+@prefix: mx;
+
+// .@{prefix}-btn-ripple:after {
+//   content: "";
+//   display: block;
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+//   left: -100%;
+//   top: 0;
+//   pointer-events: none;
+//   background: rgba(0, 0, 0, 20%);
+//   transform: translateX(100%);
+//   opacity: 0;
+//   transition: transform 300ms cubic-bezier(.38, 0, .24, 1), opacity 300ms linear
+// }
+
+.@{prefix}-btn-down:active {
+  // left: 110%;
+  // transform: translateX(0%);
+  // transition: 0s;
+  // opacity: 1;
+  // border-color: var(--brand-color-hover);
+  top: 1px;
+}
+
+.@{prefix}-btn-ripple {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.text-ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.icon-hover(@prefixCls, @inner-height, @bg-height) {
+  .@{prefix}-icon-hover.@{prefixCls}-icon-hover::before {
+    width: @bg-height;
+    height: @bg-height;
+  }
+}
+
+.icon-hover-bg(@prefixCls, @background-color-hover) {
+  .@{prefix}-icon-hover.@{prefixCls}-icon-hover:hover::before {
+    background-color: @background-color-hover;
+  }
+}
