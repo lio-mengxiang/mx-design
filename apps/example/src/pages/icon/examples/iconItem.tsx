@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import styles from '../style/index.module.less';
 import copy from 'copy-to-clipboard';
 import { useMessage } from '@mx-design/web';
+import styles from '../style/index.module.less';
 
 function IconItem({ Icon, Item }) {
   const controls = useAnimation();

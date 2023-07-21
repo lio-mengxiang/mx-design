@@ -14,8 +14,8 @@ export function useStateWithPromise<T>(defaultVal: T): [T, (updater: any) => Pro
 
   return [
     state.value,
-    (updater) => {
-      return new Promise((resolve) => {
+    (updater) =>
+      new Promise((resolve) => {
         setState((prevState) => {
           let nextVal = updater;
           if (typeof updater === 'function') {
@@ -26,7 +26,6 @@ export function useStateWithPromise<T>(defaultVal: T): [T, (updater: any) => Pro
             resolve,
           };
         });
-      });
-    },
+      }),
   ];
 }

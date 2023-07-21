@@ -1,9 +1,9 @@
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
+import { isString } from '@mx-design/web-utils';
+import { useMergeRefs } from '@mx-design/hooks';
 import AnchorContext from './context';
 import { AnchorLinkProps } from './interface';
 import { ConfigContext } from '../ConfigProvider';
-import { isString } from '@mx-design/web-utils';
-import { useMergeRefs } from '@mx-design/hooks';
 import { isNotNullUndefined } from './utils';
 import { useLinkClassNames } from './hooks';
 

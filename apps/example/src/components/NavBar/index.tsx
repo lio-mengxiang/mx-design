@@ -9,7 +9,7 @@ function NavBar() {
     <div className={styles['navbar-container']}>
       <Space>
         <Logo />
-        <div className={styles['navbar-author']}>交流微信：a2298613245</div>
+        <div className={styles['navbar-author']}>交流微信(wechat)：a2298613245</div>
       </Space>
       <Space size={28} className={cs(styles['navbar-space-horizontal'], styles['navbar-right-content'])}>
         <SelectLang />

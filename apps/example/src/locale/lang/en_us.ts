@@ -6,6 +6,7 @@ import { NAME_SPACE_ANCHOR, en_us_anchor } from '@/pages/anchor/locale';
 import { NAME_SPACE_BUTTON, en_us_button } from '@/pages/button/locale';
 import { NAME_SPACE_CHECKBOX, en_us_checkbox } from '@/pages/checkbox/locale';
 import { NAME_SPACE_EMPTY, en_us_empty } from '@/pages/empty/locale';
+import { NAME_SPACE_GRID_LAYOUT, en_us_gridLayout } from '@/pages/gridLayout/locale';
 import { NAME_SPACE_ICON, en_us_icon } from '@/pages/icon/locale';
 import { NAME_SPACE_MESSAGE, en_us_message } from '@/pages/message/locale';
 import { NAME_SPACE_NOTIFICATION, en_us_notification } from '@/pages/notification/locale';
@@ -14,6 +15,7 @@ import { NAME_SPACE_RADIO, en_us_radio } from '@/pages/radio/locale';
 import { NAME_SPACE_SPACE, en_us_space } from '@/pages/space/locale';
 import { NAME_SPACE_SPIN, en_us_spin } from '@/pages/spin/locale';
 import { NAME_SPACE_TOOLTIP, en_us_tooltip } from '@/pages/tooltip/locale';
+import { NAME_SPACE_DROPDOWN, en_us_dropdown } from '@/pages/dropdown/locale';
 
 export const en_us = {
   [NAME_SPACE_BUTTON]: en_us_button,
@@ -32,4 +34,6 @@ export const en_us = {
   [NAME_SPACE_CHECKBOX]: en_us_checkbox,
   [NAME_SPACE_RADIO]: en_us_radio,
   [NAME_SPACE_TOOLTIP]: en_us_tooltip,
+  [NAME_SPACE_GRID_LAYOUT]: en_us_gridLayout,
+  [NAME_SPACE_DROPDOWN]: en_us_dropdown,
 };

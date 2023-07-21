@@ -1,11 +1,11 @@
 import React, { forwardRef, useContext, useImperativeHandle } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { useMergeProps } from '@mx-design/hooks';
 import useStore from './store';
 import { ConfigContext } from '../ConfigProvider';
 import { useClassNames } from './hooks';
 import { TOP_RIGHT } from './constants';
 import { Portal } from '../Portal';
-import { useMergeProps } from '@mx-design/hooks';
 import NotificationWrapper from './notificationWrapper';
 // types
 import { IPosition, NotificationManagerProps, NotificationProps } from './interface';
@@ -15,6 +15,22 @@ export interface IRef {
   remove: (id: number) => void;
   clearAll: () => void;
   update: (id: number, options: NotificationProps) => void;
+}
+
+function NotificationItem({ state, position, getPrefixCls, props, remove }) {
+  const notifications = state[position];
+  // classnames
+  const { wrapperClassNames } = useClassNames({ getPrefixCls, position });
+
+  return (
+    <div role="region" aria-live="polite" key={position} className={wrapperClassNames}>
+      <AnimatePresence initial={false}>
+        {notifications.map((notice) => (
+          <NotificationWrapper key={notice.id} position={position} {...props} {...notice} remove={remove} />
+        ))}
+      </AnimatePresence>
+    </div>
+  );
 }
 
 const defaultProps = {
@@ -33,21 +49,9 @@ function NotificationProvider(baseProps: NotificationManagerProps, ref) {
   const { add, remove, state, clearAll, update } = useStore(position);
 
   const stateKeys = Object.keys(state) as Array<keyof typeof state>;
-  const notificationList = stateKeys.map((position) => {
-    const notifications = state[position];
-    // classnames
-    const { wrapperClassNames } = useClassNames({ getPrefixCls, position });
-
-    return (
-      <div role="region" aria-live="polite" key={position} className={wrapperClassNames}>
-        <AnimatePresence initial={false}>
-          {notifications.map((notice) => (
-            <NotificationWrapper key={notice.id} position={position} {...props} {...notice} remove={remove} />
-          ))}
-        </AnimatePresence>
-      </div>
-    );
-  });
+  const notificationList = stateKeys.map((position, index) => (
+    <NotificationItem key={index} state={state} position={position} getPrefixCls={getPrefixCls} props={props} remove={remove} />
+  ));
 
   useImperativeHandle<any, IRef>(ref, () => ({
     add,

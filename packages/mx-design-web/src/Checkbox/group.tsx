@@ -1,9 +1,9 @@
 import React, { useContext, PropsWithChildren, useState } from 'react';
+import { useMergeValue } from '@mx-design/hooks';
+import { isArray, isObject } from '@mx-design/web-utils';
 import Checkbox from './checkbox';
 import { ConfigContext } from '../ConfigProvider';
 import { useGroupClassNames } from './hooks';
-import { useMergeValue } from '@mx-design/hooks';
-import { isArray, isObject } from '@mx-design/web-utils';
 import { CheckboxGroupContext } from './checkboxGroupContext';
 // type
 import type { CheckboxGroupProps } from './interface';
@@ -47,14 +47,10 @@ function Group<T extends string | number>(props: PropsWithChildren<CheckboxGroup
           onGroupChange: onChange,
           disabled,
           registerValue: (value) => {
-            setAllOptionValues((allOptionValues) => {
-              return Array.from(new Set([...allOptionValues, value]));
-            });
+            setAllOptionValues((allOptionValues) => Array.from(new Set([...allOptionValues, value])));
           },
           unRegisterValue: (value) => {
-            setAllOptionValues((allOptionValues) => {
-              return allOptionValues.filter((x) => x !== value);
-            });
+            setAllOptionValues((allOptionValues) => allOptionValues.filter((x) => x !== value));
           },
         }}
       >

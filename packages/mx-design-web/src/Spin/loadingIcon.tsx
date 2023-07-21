@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { ConfigProviderProps } from '../ConfigProvider';
 import { SpinProps } from './interface';
-import { Loading } from '../Loading';
+import { IconLoading } from '../Icon';
 
 interface loadingIconProps {
   prefixCls?: ConfigProviderProps['prefixCls'];
@@ -12,5 +12,5 @@ interface loadingIconProps {
 export const LoadingIcon: FC<loadingIconProps> = function (props) {
   const { prefixCls, size, element } = props;
 
-  return <span className={`${prefixCls}-icon`}>{element || <Loading size={size} />}</span>;
+  return <span className={`${prefixCls}-icon`}>{element || <IconLoading spin size={size} />}</span>;
 };

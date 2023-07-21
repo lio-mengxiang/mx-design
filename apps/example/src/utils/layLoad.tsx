@@ -1,5 +1,5 @@
 import React, { ReactNode, Suspense } from 'react';
-import { Spin } from '../../../../packages/mx-design-web/src/Spin';
+import { Spin } from '@mx-design/web';
 
 export function layLoad(Component: React.LazyExoticComponent<any>): ReactNode {
   return (

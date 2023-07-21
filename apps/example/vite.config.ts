@@ -11,6 +11,7 @@ export default ({ mode }) =>
     resolve: {
       alias: {
         '@': resolvePath('./src'),
+        '@mx-design/web': resolvePath('../../packages/mx-design-web/src'),
       },
     },
     server: {

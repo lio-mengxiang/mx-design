@@ -26,6 +26,6 @@ export function useGroupClassNames(props: getClassNamesProps) {
         className
       ),
     }),
-    [error, direction, className, prefixCls, status]
+    [error, direction, className, prefixCls]
   );
 }

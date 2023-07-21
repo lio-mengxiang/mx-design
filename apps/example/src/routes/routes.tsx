@@ -18,3 +18,5 @@ export const AnchorExample = load(() => import('@/pages/anchor'));
 export const CheckboxExample = load(() => import('@/pages/checkbox'));
 export const RadioExample = load(() => import('@/pages/radio'));
 export const TooltipExample = load(() => import('@/pages/tooltip'));
+export const GridLayoutExample = load(() => import('@/pages/gridLayout'));
+export const DropDownExample = load(() => import('@/pages/dropdown'));

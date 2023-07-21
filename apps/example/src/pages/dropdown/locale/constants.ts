@@ -1,0 +1,10 @@
+export const NAME_SPACE_DROPDOWN = 'DROPDOWN';
+export const Basic = 'Basic';
+export const Other = 'Other';
+export const DifferentTrigger = 'DifferentTrigger';
+export const Position = 'Position';
+export const FloatingLayer = 'FloatingLayer';
+export const Controlled = 'Controlled';
+export const Mount = 'Mount';
+export const Disabled = 'Disabled';
+export const Dynamic = 'Dynamic';

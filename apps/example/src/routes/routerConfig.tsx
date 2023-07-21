@@ -21,6 +21,8 @@ import {
   CheckboxExample,
   RadioExample,
   TooltipExample,
+  GridLayoutExample,
+  DropDownExample,
 } from './routes';
 import { Page404 } from '@/components/Status/404';
 import {
@@ -30,7 +32,9 @@ import {
   BUTTON_KEY,
   CHECKBOX_KEY,
   COMPONENTS_KEY,
+  DROPDOWN_KEY,
   EMPTY_KEY,
+  GRID_LAYOUT_KEY,
   ICON_KEY,
   MESSAGE_KEY,
   NOTIFICATION_KEY,
@@ -71,10 +75,12 @@ export const routerConfig = [
           { path: CHECKBOX_KEY, element: <CheckboxExample /> },
           { path: RADIO_KEY, element: <RadioExample /> },
           { path: TOOLTIP_KEY, element: <TooltipExample /> },
+          { path: GRID_LAYOUT_KEY, element: <GridLayoutExample /> },
+          { path: DROPDOWN_KEY, element: <DropDownExample /> },
           { path: '*', element: <Navigate to={BUTTON_KEY} replace /> },
         ],
       },
-      { path: `${COMPONENTS_KEY}/`, element: <Navigate to={`${COMPONENTS_KEY}/${BUTTON_KEY}`} replace /> },
+      { path: `${COMPONENTS_KEY}/`, elemen2: <Navigate to={`${COMPONENTS_KEY}/${BUTTON_KEY}`} replace /> },
     ],
   },
   {

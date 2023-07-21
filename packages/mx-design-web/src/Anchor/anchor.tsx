@@ -1,10 +1,10 @@
 import React, { forwardRef, useContext, useEffect, useImperativeHandle, useRef } from 'react';
+import { useMergeProps, useIsFirstRender, useStateWithPromise, debounceByRaf } from '@mx-design/hooks';
 import { Affix } from '../Affix';
 import { ConfigContext } from '../ConfigProvider';
 import AnchorContext from './context';
 import { createNestedLink, getContainer, getEleInViewport, scrollIntoView, setActiveLink } from './utils';
 import Link from './link';
-import { useMergeProps, useIsFirstRender, useStateWithPromise, debounceByRaf } from '@mx-design/hooks';
 import { useClassNames } from './hooks';
 // type
 import { AnchorProps } from './interface';
@@ -85,10 +85,6 @@ function Anchor(baseProps: AnchorPropsWithChildren, ref) {
   });
 
   useEffect(() => {
-    onScroll();
-  }, []);
-
-  useEffect(() => {
     scrollContainer.current?.addEventListener('scroll', onScroll);
     return () => {
       scrollContainer.current?.removeEventListener('scroll', onScroll);
@@ -96,10 +92,9 @@ function Anchor(baseProps: AnchorPropsWithChildren, ref) {
   }, [propScrollContainer, onScroll]);
 
   useEffect(() => {
-    if (!isFirstRender) {
-      onScroll();
-    }
-  }, [propScrollContainer]);
+    onScroll();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFirstRender, propScrollContainer]);
 
   useEffect(() => {
     const link = linkMap.current.get(currentLink);
@@ -113,7 +108,7 @@ function Anchor(baseProps: AnchorPropsWithChildren, ref) {
     () => ({
       onScroll,
     }),
-    []
+    [onScroll]
   );
 
   const content = (

@@ -1,14 +1,30 @@
 import React, { forwardRef, useContext, useImperativeHandle } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { useMergeProps } from '@mx-design/hooks';
 import useStore from './store';
 import { ConfigContext } from '../ConfigProvider';
 import { useClassNames } from './hooks';
 import { TOP } from './constants';
 import { Portal } from '../Portal';
-import { useMergeProps } from '@mx-design/hooks';
 import MessageWrapper from './messageWrapper';
 // types
 import { IPosition, MessageManagerProps, MessageProps } from './interface';
+
+function MessageItem({ state, position, getPrefixCls, props, remove }) {
+  const messages = state[position];
+  // classnames
+  const { wrapperClassNames } = useClassNames({ getPrefixCls, position });
+
+  return (
+    <div role="region" aria-live="polite" key={position} className={wrapperClassNames}>
+      <AnimatePresence initial={false}>
+        {messages.map((notice) => (
+          <MessageWrapper key={notice.id} position={position} {...props} {...notice} remove={remove} />
+        ))}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export interface IToastRef {
   add: (noticeProps: MessageProps) => number;
@@ -34,21 +50,10 @@ function MessageProvider(baseProps: MessageManagerProps, ref) {
   const { add, remove, state, clearAll, update } = useStore(position);
 
   const stateKeys = Object.keys(state) as Array<keyof typeof state>;
-  const notificationList = stateKeys.map((position) => {
-    const notifications = state[position];
-    // classnames
-    const { wrapperClassNames } = useClassNames({ getPrefixCls, position });
 
-    return (
-      <div role="region" aria-live="polite" key={position} className={wrapperClassNames}>
-        <AnimatePresence initial={false}>
-          {notifications.map((notice) => (
-            <MessageWrapper key={notice.id} position={position} {...props} {...notice} remove={remove} />
-          ))}
-        </AnimatePresence>
-      </div>
-    );
-  });
+  const messageList = stateKeys.map((position, index) => (
+    <MessageItem key={index} state={state} position={position} getPrefixCls={getPrefixCls} props={props} remove={remove} />
+  ));
 
   useImperativeHandle<any, IToastRef>(ref, () => ({
     add,
@@ -57,7 +62,7 @@ function MessageProvider(baseProps: MessageManagerProps, ref) {
     update,
   }));
 
-  return <Portal attach={document.body}>{notificationList}</Portal>;
+  return <Portal attach={document.body}>{messageList}</Portal>;
 }
 
 const MessageProviderComponent = forwardRef(MessageProvider);

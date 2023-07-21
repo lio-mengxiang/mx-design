@@ -1,10 +1,10 @@
 import React, { memo, useContext, forwardRef } from 'react';
+import { useMergeProps } from '@mx-design/hooks';
 import { ConfigContext } from '../ConfigProvider/configProvider';
 import { emptyImage, getDesDefault } from './utils';
 import { useClassNames } from './hooks';
 import { useLocale } from '../locale/useLocal/useLocal';
 import { EMPTY_NAMESPACE } from './constants';
-import { useMergeProps } from '@mx-design/hooks';
 // type
 import type { EmptyProps } from './interface';
 

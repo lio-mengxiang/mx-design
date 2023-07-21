@@ -1,10 +1,10 @@
 import React, { useContext, useRef, useEffect } from 'react';
+import { isFunction, omit } from '@mx-design/web-utils';
+import { useMergeProps, useMergeValue } from '@mx-design/hooks';
 import Group from './group';
 import { ConfigContext } from '../ConfigProvider';
 import IconCheck from './icon-check';
 import { CheckboxGroupContext } from './checkboxGroupContext';
-import { isFunction, omit } from '@mx-design/web-utils';
-import { useMergeProps, useMergeValue } from '@mx-design/hooks';
 import { getMergeProps } from './utils';
 import { useClassNames } from './hooks';
 // type
@@ -48,7 +48,7 @@ function Checkbox<T extends string | number>(baseProps: CheckboxProps<T>, ref) {
     return () => {
       context.unRegisterValue(value);
     };
-  }, [value]);
+  }, [context, value]);
 
   // function
   const onChange = function (e) {

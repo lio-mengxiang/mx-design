@@ -1,3 +1,4 @@
+import React from 'react';
 import type { IPosition } from '../interface';
 
 export function getCardStyle(position: IPosition): React.CSSProperties {

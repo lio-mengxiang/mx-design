@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import ComponentInnerLayout from '@/components/Layout/ComponentInnerLayout';
 import { NAME_SPACE_SPIN } from './locale';
 import { useLocale } from '@/locale/useLocal/useLocal';

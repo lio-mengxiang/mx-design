@@ -51,4 +51,4 @@ export function MxConfigProvider(baseProps: PropsWithChildren<ConfigProviderProp
   );
 }
 
-MxConfigProvider.displayName = 'ConfigProvider';
+MxConfigProvider.displayName = 'MxConfigProvider';

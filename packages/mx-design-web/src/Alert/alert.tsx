@@ -1,11 +1,12 @@
 import React, { forwardRef, useContext, useState } from 'react';
+import { useMergeProps } from '@mx-design/hooks';
 import { ConfigContext } from '../ConfigProvider';
 import { IconClose } from '../Icon';
 import { useClassNames } from './hooks';
-import { useMergeProps } from '@mx-design/hooks';
 import { renderIcon } from '../Common/renderIcon';
 // type
 import type { AlertProps } from './interface';
+
 type IAlertProps = AlertProps & { _onClose?: (...args: any) => void };
 
 const defaultProps = {
@@ -41,6 +42,7 @@ function Alert(baseProps: IAlertProps, ref) {
     useClassNames({ getPrefixCls, type, closable, className });
 
   return (
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       {isShow && (
         <div className={itemClassNames} style={style} role="alert" ref={ref}>

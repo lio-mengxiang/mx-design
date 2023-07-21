@@ -1,8 +1,8 @@
 import React, { useEffect, forwardRef, useCallback, useImperativeHandle, useRef, useContext } from 'react';
-import { getScrollContainer, calcTopAndBottom, fixedDom, getFixedTop, fixedPlaceholder } from './utils';
-import { ConfigContext } from '../ConfigProvider';
 import { useMergeProps, debounceByRaf } from '@mx-design/hooks';
 import { isFunction } from '@mx-design/web-utils';
+import { getScrollContainer, calcTopAndBottom, fixedDom, getFixedTop, fixedPlaceholder } from './utils';
+import { ConfigContext } from '../ConfigProvider';
 // type
 import type { AffixProps } from './interface';
 import type { ScrollContainerElement } from './utils';
@@ -29,7 +29,6 @@ function Affix(baseProps: AffixProps, ref) {
     debounceByRaf(() => {
       const affixDom = affixRef.current;
       const affixWrapDom = affixWrapRef.current;
-      console.log('affixWrapDom: ', affixWrapDom);
       const scrollContainerDom = scrollContainer.current;
       if (!affixDom || !affixWrapDom || !scrollContainerDom) return;
 

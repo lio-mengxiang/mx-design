@@ -1,7 +1,8 @@
 // thx chakra ui
 import React, { forwardRef } from 'react';
 import { Icon } from './icon';
-import { IconProps } from './interface';
+// type
+import type { IconProps } from './interface';
 
 interface CreateIconOptions {
   /**

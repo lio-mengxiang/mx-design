@@ -1,10 +1,10 @@
 import React, { useContext, useRef } from 'react';
+import { useMergeProps, useMergeValue } from '@mx-design/hooks';
+import { isFunction, omit } from '@mx-design/web-utils';
 import Group from './group';
 import { ConfigContext } from '../ConfigProvider';
-import { useMergeProps, useMergeValue } from '@mx-design/hooks';
 import { RadioGroupContext } from './radioContext';
 import { getMergeProps } from './utils';
-import { isFunction, omit } from '@mx-design/web-utils';
 import { useClassNames } from './hooks';
 // types
 import type { RadioGroupContextProps, RadioProps } from './interface';

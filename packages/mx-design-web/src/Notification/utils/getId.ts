@@ -1,4 +1,4 @@
-import { NotificationProps } from '../interface';
+import type { NotificationProps } from '../interface';
 
 let count = 1;
 export function getId(noticeProps: NotificationProps) {

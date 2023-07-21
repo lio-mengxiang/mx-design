@@ -5,6 +5,8 @@ import { callFuncWithDelay, getRefDom } from '../utils';
 import { DELAY, ESC_KEY, NO_DELAY } from '../constants';
 
 export function useTrigger({ content, disabled, trigger, visible, setVisibleChange, popupElement }) {
+  const hasPopupMouseDown = useRef(false);
+  const mouseDownTimer = useRef(0);
   const visibleTimer = useRef(null);
   const triggerRef = useRef<HTMLElement>(null);
   // 禁用和无内容时不展示
@@ -12,9 +14,9 @@ export function useTrigger({ content, disabled, trigger, visible, setVisibleChan
 
   // 点击 trigger overlay 以外的元素关闭
   useEffect(() => {
-    if (!shouldToggle) return;
+    if (!shouldToggle || trigger === 'hover') return;
     const handleDocumentClick = (e: any) => {
-      if (getRefDom(triggerRef)?.contains?.(e.target) || popupElement?.contains?.(e.target)) {
+      if (getRefDom(triggerRef)?.contains?.(e.target) || hasPopupMouseDown.current) {
         return;
       }
       visible && setVisibleChange(false, { e, trigger: 'document' });
@@ -25,7 +27,7 @@ export function useTrigger({ content, disabled, trigger, visible, setVisibleChan
       document.removeEventListener('mousedown', handleDocumentClick);
       document.removeEventListener('touchend', handleDocumentClick);
     };
-  }, [shouldToggle, visible, setVisibleChange, triggerRef, popupElement]);
+  }, [shouldToggle, visible, setVisibleChange, triggerRef, popupElement, trigger]);
 
   // 弹出内容交互处理
   function getPopupProps(): any {
@@ -46,6 +48,20 @@ export function useTrigger({ content, disabled, trigger, visible, setVisibleChan
             callback: () => setVisibleChange(false, { e, trigger: 'trigger-element-hover' }),
           });
         }
+      },
+      onMouseDown: () => {
+        clearTimeout(mouseDownTimer.current);
+        hasPopupMouseDown.current = true;
+        mouseDownTimer.current = window.setTimeout(() => {
+          hasPopupMouseDown.current = false;
+        });
+      },
+      onTouchEnd: () => {
+        clearTimeout(mouseDownTimer.current);
+        hasPopupMouseDown.current = true;
+        mouseDownTimer.current = window.setTimeout(() => {
+          hasPopupMouseDown.current = false;
+        });
       },
     };
   }

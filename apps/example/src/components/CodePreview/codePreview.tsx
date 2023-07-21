@@ -6,12 +6,12 @@ import { IconCode } from '@mx-design/web';
 import { motion, AnimatePresence } from 'framer-motion';
 import { materialDark, materialLight } from '@uiw/codemirror-theme-material';
 import { ErrorMessage } from './errorMessage';
-
-import type { CodePreviewProps } from './interface';
 import { useCodePreview } from './hooks';
-import './index.less';
 import { ConfigContext } from '../ConfigProvider';
 import { DARK, LIGHT } from '@/utils/setTheme/constants';
+import './index.less';
+//type
+import type { CodePreviewProps } from './interface';
 
 const prefixCls = 'mx-code-preview';
 const getTheme = (theme) => {

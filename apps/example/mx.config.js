@@ -1,5 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
+
 const resolvePath = (r) => path.resolve(__dirname, r);
 
 module.exports = {
@@ -18,8 +19,5 @@ module.exports = {
 
   setOutput: (config) => {
     config.filename = 'js/[chunkhash:8].index.js';
-  },
-  setConfig: (config) => {
-    config.output.publicPath = '/mx-design/';
   },
 };

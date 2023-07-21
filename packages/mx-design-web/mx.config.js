@@ -1,5 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
+
 const resolvePath = (r) => path.resolve(__dirname, r);
 
 module.exports = {

@@ -130,7 +130,7 @@ module.exports = {
     * @zh 单行长度不能超过140
     * @en 140 characters maximum per line
     */
-    'max-len': [2, { code: 140 }],
+    'max-len': [0, { code: 140 }],
     /**
      * @zh 该规则检查您在代码块前是否存在空格
      * @en This rule checks if you have spaces before code blocks
@@ -348,6 +348,11 @@ module.exports = {
     'react/default-props-match-prop-types': 0,
     'react/static-property-placement': 0,
     'react/jsx-no-bind': 0,
-    'no-unused-expressions': 0
+    'no-unused-expressions': 0,
+    'no-nested-ternary': 0,
+    'jsx-a11y/label-has-associated-control': 0,
+    'react/jsx-no-constructed-context-values': 0,
+    'react/no-unescaped-entities': 0,
+    'no-restricted-syntax': 0
   },
 };

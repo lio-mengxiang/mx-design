@@ -18,4 +18,6 @@ export const ANCHOR_KEY = 'anchor';
 export const CHECKBOX_KEY = 'checkbox';
 export const RADIO_KEY = 'radio';
 export const TOOLTIP_KEY = 'tooltip';
+export const GRID_LAYOUT_KEY = 'gridLayout';
+export const DROPDOWN_KEY = 'dropdown';
 export const DATA_INPUT_KEY = 'data-input';

@@ -36,15 +36,22 @@
   text-overflow: ellipsis;
 }
 
-.icon-hover(@prefixCls, @inner-height, @bg-height) {
-  .@{prefix}-icon-hover.@{prefixCls}-icon-hover::before {
-    width: @bg-height;
-    height: @bg-height;
-  }
-}
 
-.icon-hover-bg(@prefixCls, @background-color-hover) {
-  .@{prefix}-icon-hover.@{prefixCls}-icon-hover:hover::before {
-    background-color: @background-color-hover;
+.scrollbar(@size: 6px, @borderSize: 0px) {
+  // Firefox 等浏览器标准支持的滚动条样式设置
+  scrollbar-color: rgb(242, 243, 245) transparent;
+  scrollbar-width: thin;
+
+  // Safari/Chrome 中滚动条样式设置
+  &::-webkit-scrollbar {
+    width: @size;
+    height: @size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: @borderSize solid transparent;
+    background-clip: content-box;
+    background-color: var(--scrollbar-color);
+    border-radius: @size * 2 - 1px;
   }
 }

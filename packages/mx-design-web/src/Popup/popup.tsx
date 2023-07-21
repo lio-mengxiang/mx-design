@@ -14,11 +14,12 @@ const defaultProps = {
   placement: 'top',
   showArrow: false,
   trigger: 'hover',
+  isCloseClickAway: false,
 } as const;
 
-const Popup = forwardRef((baseProps: PropsWithChildren<PopupProps>, ref: React.RefObject<PopupRef>) => {
+const Popup = forwardRef((baseProps: PopupProps, ref: React.RefObject<PopupRef>) => {
   const { getPrefixCls, componentConfig } = useContext(ConfigContext);
-  const props = useMergeProps<PropsWithChildren<PopupProps>>(baseProps, defaultProps, componentConfig?.Popup);
+  const props = useMergeProps<PopupProps>(baseProps, defaultProps, componentConfig?.Popup);
   const {
     trigger,
     content,
@@ -50,9 +51,16 @@ const Popup = forwardRef((baseProps: PropsWithChildren<PopupProps>, ref: React.R
     defaultValue: false,
   });
 
-  const setVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
-    onVisibleChange(visible);
-    props.onVisibleChange?.(visible, context);
+  const setVisibleChange = (newVisible: boolean, context: PopupVisibleChangeContext) => {
+    onVisibleChange(newVisible);
+    // uncontrolled
+    if (props.visible === undefined && visible !== newVisible) {
+      props.onVisibleChange?.(newVisible, context);
+    }
+    // controlled
+    if (props.visible !== undefined && props.visible !== newVisible) {
+      props.onVisibleChange?.(newVisible, context);
+    }
   };
 
   const [popupElement, setPopupElement] = useState(null);
@@ -64,7 +72,7 @@ const Popup = forwardRef((baseProps: PropsWithChildren<PopupProps>, ref: React.R
   // 判断展示浮层
   const showOverlay = useMemo(() => {
     if (!content) return false;
-    return visible || popupElement;
+    return visible || !!popupElement;
   }, [content, visible, popupElement]);
 
   const { getTriggerNode, getPopupProps, triggerRef } = useTrigger({
@@ -90,6 +98,7 @@ const Popup = forwardRef((baseProps: PropsWithChildren<PopupProps>, ref: React.R
     clearTimeout(updateTimeRef.current);
     updateTimeRef.current = setTimeout(() => popperRef.current?.update?.(), 0);
   });
+
   useEffect(() => () => clearTimeout(updateTimeRef.current), []);
 
   function handleScroll(e: React.WheelEvent<HTMLDivElement>) {
@@ -114,42 +123,29 @@ const Popup = forwardRef((baseProps: PropsWithChildren<PopupProps>, ref: React.R
     return { ...overlayStyle };
   }
 
-  const overlay = showOverlay && (
+  const overlay = showOverlay && visible && (
     <AnimatePresence>
-      {visible && (
-        <Portal attach={attach} ref={portalRef}>
-          <div
-            ref={(node) => {
-              if (node) {
-                popupRef.current = node;
-                setPopupElement(node);
-              }
-            }}
-            style={{ ...styles.popper, zIndex, ...getOverlayStyle(overlayStyle) }}
-            className={popupRefCls}
-            {...attributes.popper}
-            {...getPopupProps()}
-          >
-            <motion.div
-              variants={applyPopupSlide(placement)}
-              animate="animate"
-              exit="exit"
-              initial="initial"
-              transition={{
-                type: 'spring',
-                stiffness: 260,
-                damping: 20,
-                duration: 10,
-              }}
-            >
-              <div ref={contentRef} className={contentRefCls} style={getOverlayStyle(overlayInnerStyle)} onScroll={handleScroll}>
-                {content}
-                {showArrow ? <div style={styles.arrow} className={arrowCls} /> : null}
-              </div>
-            </motion.div>
-          </div>
-        </Portal>
-      )}
+      <Portal attach={attach} ref={portalRef}>
+        <div
+          ref={(node) => {
+            if (node) {
+              popupRef.current = node;
+              setPopupElement(node);
+            }
+          }}
+          style={{ ...styles.popper, zIndex, ...getOverlayStyle(overlayStyle) }}
+          className={popupRefCls}
+          {...attributes.popper}
+          {...getPopupProps()}
+        >
+          <motion.div variants={applyPopupSlide(placement)} animate="animate" exit="exit" initial="initial">
+            <div ref={contentRef} className={contentRefCls} style={getOverlayStyle(overlayInnerStyle)} onScroll={handleScroll}>
+              {content}
+              {showArrow ? <div style={styles.arrow} className={arrowCls} /> : null}
+            </div>
+          </motion.div>
+        </div>
+      </Portal>
     </AnimatePresence>
   );
 

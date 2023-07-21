@@ -1,24 +1,26 @@
-import { MutableRefObject, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { ZN_CH, EN_US } from '../locale/constants';
 import { SMALL_SIZE, MEDIUM_SIZE, LARGE_SIZE } from './constants';
 import type { EmptyProps } from '../Empty';
 import type { IconProps } from '../Icon';
 import type { NotificationManagerProps } from '../Notification';
-import type { IRef } from '../Notification/notification';
 import type { ButtonProps } from '../Button';
 import type { PopupProps } from '../Popup';
 import type { SpinProps } from '../Spin';
 import type { SpaceProps } from '../Space';
 import type { TooltipProps } from '../Tooltip';
-// import type { DropdownProps } from '../Dropdown/interface';
-// import type { TableProps } from '../Table/interface';
+import type { DropdownProps } from '../Dropdown';
 import type { CheckboxProps } from '../Checkbox';
 import type { AlertProps } from '../Alert';
-import type { IToastRef } from '../Message/messageProvider';
 import type { AffixProps } from '../Affix';
 import type { AnchorProps } from '../Anchor';
 import type { MessageProps } from '../Message';
 import type { RadioProps } from '../Radio';
+import type { HorizontalMenuMenuProps } from '../Menu/HorizontalMenu/interface';
+import type { GridLayoutProps } from '../GridLayout/interface';
+import type { IToastRef } from '../Message/messageProvider';
+import type { IRef } from '../Notification/notification';
+// import type { TableProps } from '../Table/interface';
 
 export interface ComponentConfig {
   Empty?: Partial<EmptyProps>;
@@ -30,14 +32,16 @@ export interface ComponentConfig {
   Space?: Partial<SpaceProps>;
   // Menu?: Partial<MenuProps>;
   Tooltip?: Partial<TooltipProps>;
-  // Dropdown?: Partial<DropdownProps>;
-  // Table?: Partial<TableProps>;
+  Dropdown?: Partial<DropdownProps>;
   Checkbox?: Partial<CheckboxProps>;
   Radio?: Partial<RadioProps>;
   Alert?: Partial<AlertProps>;
   Affix?: Partial<AffixProps>;
   Anchor?: Partial<AnchorProps>;
   Message?: Partial<MessageProps>;
+  HorizontalMenu?: Partial<HorizontalMenuMenuProps>;
+  GridLayout?: Partial<GridLayoutProps>;
+  // Table?: Partial<TableProps<any>>;
 }
 
 /**
@@ -81,6 +85,6 @@ export interface ConfigProviderProps {
    * @en Empty component in component.
    */
   renderEmpty?: (componentName?: string) => ReactNode;
-  _notificationRef?: MutableRefObject<IRef>;
-  _toastRef?: MutableRefObject<IToastRef>;
+  _toastRef?: React.RefObject<IToastRef>;
+  _notificationRef?: React.RefObject<IRef>;
 }

@@ -9,7 +9,9 @@ import { useLang, useTheme } from './hooks';
 import './styles/common.less';
 import '@mx-design/theme/esm/base_style/index.js';
 import '@mx-design/theme/esm/color_style/index.js';
-import '@mx-design/theme/esm/token_style/index.js';
+// import '@mx-design/theme/esm/token_style/index.js';
+// 调试模式
+import '../../../packages/mx-design-theme/src/token_style/index';
 
 function App() {
   const [lang, setLang] = useLang();

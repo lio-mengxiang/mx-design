@@ -5,7 +5,7 @@ import { Spin, IconLoading } from '@mx-design/web';
 
 function App() {
   return (
-    <Spin loading={true} size={30} element={<IconLoading spin />} block={false}>
+    <Spin loading={true} size={30} element={<IconFavorite spin />} block={false}>
       <div
         style={{ width: 360, }}
       >

@@ -22,7 +22,8 @@
     "@uiw/codemirror-theme-material": "4.19.16",
     "babel-plugin-transform-remove-imports": "1.7.0",
     "framer-motion": "10.12.4",
-    "@loadable/component": "^5.13.2"
+    "@loadable/component": "^5.13.2",
+    "copy-to-clipboard": "3.3.3"
   },
   "pnpm": {
     "peerDependencyRules": {

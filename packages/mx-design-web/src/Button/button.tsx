@@ -1,9 +1,9 @@
 import React, { useContext, useRef, forwardRef, ReactNode, MouseEventHandler } from 'react';
+import { useMergeProps } from '@mx-design/hooks';
 import Group from './group';
 import Anchor from './anchor';
 import { ConfigContext } from '../ConfigProvider';
 import { useClassNames } from './hooks';
-import { useMergeProps } from '@mx-design/hooks';
 // type
 import type { ButtonProps } from './interface';
 import { Loading } from '../Loading';

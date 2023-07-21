@@ -6,7 +6,7 @@ export function applyPopupSlide(placement: PopupProps['placement']): Variants {
     return {
       initial: {
         opacity: 0,
-        y: '20%',
+        y: 10,
       },
       animate: {
         opacity: 1,
@@ -14,7 +14,7 @@ export function applyPopupSlide(placement: PopupProps['placement']): Variants {
       },
       exit: {
         opacity: 0,
-        y: '-20%',
+        y: -10,
       },
     };
   }
@@ -22,7 +22,7 @@ export function applyPopupSlide(placement: PopupProps['placement']): Variants {
     return {
       initial: {
         opacity: 0,
-        y: '-20%',
+        y: -10,
       },
       animate: {
         opacity: 1,
@@ -30,7 +30,7 @@ export function applyPopupSlide(placement: PopupProps['placement']): Variants {
       },
       exit: {
         opacity: 0,
-        y: '20%',
+        y: 10,
       },
     };
   }
@@ -38,7 +38,7 @@ export function applyPopupSlide(placement: PopupProps['placement']): Variants {
     return {
       initial: {
         opacity: 0,
-        x: '20%',
+        x: 10,
       },
       animate: {
         opacity: 1,
@@ -46,7 +46,7 @@ export function applyPopupSlide(placement: PopupProps['placement']): Variants {
       },
       exit: {
         opacity: 0,
-        x: '-20%',
+        x: -10,
       },
     };
   }
@@ -54,7 +54,7 @@ export function applyPopupSlide(placement: PopupProps['placement']): Variants {
     return {
       initial: {
         opacity: 0,
-        x: '-20%',
+        x: -10,
       },
       animate: {
         opacity: 1,
@@ -62,7 +62,7 @@ export function applyPopupSlide(placement: PopupProps['placement']): Variants {
       },
       exit: {
         opacity: 0,
-        x: '20%',
+        x: 10,
       },
     };
   }
