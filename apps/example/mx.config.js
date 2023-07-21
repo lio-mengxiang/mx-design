@@ -13,11 +13,14 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@': resolvePath('./src')
+      '@': resolvePath('./src'),
     },
   },
 
   setOutput: (config) => {
     config.filename = 'js/[chunkhash:8].index.js';
+  },
+  setConfig: (config) => {
+    config.output.publicPath = '/mx-design/';
   },
 };
