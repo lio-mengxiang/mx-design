@@ -67,6 +67,9 @@
     }
   },
   "lint-staged": {
-    "{apps,packages}/**/!(*react-icon)/*.{js,ts}": "eslint --cache --fix"
+    "{apps,packages}/**/!(*react-icon)/*.{js,ts}": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ]
   }
 }
