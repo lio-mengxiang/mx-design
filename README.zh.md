@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-
+<br />
 mx-design努力做到github上最好的关于如何搭建react组件库的教程项目, 教程包含了组件库的项目搭建教程、组件库工程化教程、实现组件库的教程，最终建立一个可在生产环境可用的react组件库，并且尽量保证代码质量、高性能、高拓展性
 
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)

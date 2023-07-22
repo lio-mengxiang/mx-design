@@ -3,9 +3,10 @@
 </div>
 
 <div align="center">
-
+<br />
 mx-design want to create the best tutorial project on github about how to build a react component library. The tutorial includes project building tutorials, frontend tooling related to the project building tutorials , building react components tutorials, and finally builds a library that can be used in a production environment.Meanwhile, I will try to ensure code quality, high performance, and high scalability
-
+<br />
+  
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 </div>
