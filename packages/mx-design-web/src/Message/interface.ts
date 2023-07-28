@@ -1,5 +1,6 @@
 import { BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT, TOP, TOP_LEFT, TOP_RIGHT } from './constants';
 import { AlertProps } from '../Alert';
+import type { IPosition } from '../Notification';
 
 /**
  * @title Toast
@@ -32,6 +33,7 @@ export interface MessageCardProps extends MessageProps {
   remove: (...args: any[]) => void;
   position: IPosition;
   componentName?: 'Notification' | 'Toaster';
+  themeStyle?: Record<string, any>;
 }
 
 export interface MessageStates {
@@ -42,5 +44,3 @@ export interface MessageStates {
   [BOTTOM]: MessageProps[];
   [BOTTOM_RIGHT]: MessageProps[];
 }
-
-export type IPosition = typeof TOP | typeof TOP_LEFT | typeof TOP_RIGHT | typeof BOTTOM_LEFT | typeof BOTTOM | typeof BOTTOM_RIGHT;

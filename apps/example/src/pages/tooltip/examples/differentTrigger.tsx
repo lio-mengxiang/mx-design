@@ -9,7 +9,7 @@ function App() {
       <Tooltip trigger="hover" showArrow content="Hover me">
         <Button>Hover me</Button>
       </Tooltip>
-      <Tooltip trigger="click" showArrow content="Click me">
+      <Tooltip themeStyle={{ '--popup-wrapper-color': 'red' }} trigger="click" showArrow content="Click me">
         <Button onClick={() => console.log('Custom events')}>Click me</Button>
       </Tooltip>
       <Tooltip trigger="context-menu" showArrow content="Right click">

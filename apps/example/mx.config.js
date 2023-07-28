@@ -14,6 +14,7 @@ module.exports = {
   resolve: {
     alias: {
       '@': resolvePath('./src'),
+      '@mx-design/web': resolvePath('../../packages/mx-design-web/src'),
     },
   },
 
@@ -21,6 +22,6 @@ module.exports = {
     config.filename = 'js/[chunkhash:8].index.js';
   },
   setConfig: (config) => {
-    config.output.publicPath = '/mx-design/';
+    if (config.mode === 'production') config.output.publicPath = '/mx-design/';
   },
 };

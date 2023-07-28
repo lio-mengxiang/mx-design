@@ -1,3 +1,3 @@
-export * from './interface';
-import './style/index.less';
+export { default as NcTooltip } from './Tooltip.nc';
 export { default as Tooltip } from './Tooltip';
+export * from './interface';

@@ -6,9 +6,9 @@ import { Alert } from '../Alert';
 // type
 import type { MessageCardProps } from './interface';
 
-function messageWrapper(props: MessageCardProps) {
+function MessageWrapper(props: MessageCardProps) {
   const { onMouseEnter, onMouseLeave } = useTimer(props);
-  const { icon, type, style, title, content, operation, closable, showIcon, className, remove, id, onClose, position } = props;
+  const { icon, type, style, title, content, operation, closable, showIcon, className, remove, id, onClose, position, themeStyle } = props;
 
   const toastStyle = useMemo(() => getCardStyle(position), [position]);
 
@@ -27,6 +27,7 @@ function messageWrapper(props: MessageCardProps) {
       <Alert
         icon={icon}
         type={type}
+        themeStyle={themeStyle}
         style={style}
         title={title}
         content={content}
@@ -43,6 +44,6 @@ function messageWrapper(props: MessageCardProps) {
   );
 }
 
-messageWrapper.displayName = 'messageWrapper';
+MessageWrapper.displayName = 'MessageWrapper';
 
-export default messageWrapper;
+export default MessageWrapper;

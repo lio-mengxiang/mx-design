@@ -8,7 +8,8 @@ import { TOP } from './constants';
 import { Portal } from '../Portal';
 import MessageWrapper from './messageWrapper';
 // types
-import { IPosition, MessageManagerProps, MessageProps } from './interface';
+import type { MessageManagerProps, MessageProps } from './interface';
+import type { IPosition } from '../Notification';
 
 function MessageItem({ state, position, getPrefixCls, props, remove }) {
   const messages = state[position];

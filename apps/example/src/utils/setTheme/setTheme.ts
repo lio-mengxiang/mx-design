@@ -1,10 +1,9 @@
 import { setLocalStorage } from '@mx-design/web-utils';
-import { THEME, THEME_MODE } from './constants';
+import { THEME } from './constants';
 
 export function setTheme(_setTheme) {
-  return (theme, isReRender = true) => {
-    setLocalStorage(THEME, theme);
-    document.body.setAttribute(THEME_MODE, theme);
-    isReRender && _setTheme(theme);
+  return (themeName) => {
+    setLocalStorage(THEME, themeName);
+    _setTheme(themeName);
   };
 }

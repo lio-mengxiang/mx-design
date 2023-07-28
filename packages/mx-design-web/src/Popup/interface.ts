@@ -4,6 +4,7 @@ import { PortalProps } from '../Portal';
 
 export interface PopupProps {
   children: ReactNode;
+  themeStyle?: Record<string, any>;
   /**
    * 制定挂载节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body
    * @default 'body'

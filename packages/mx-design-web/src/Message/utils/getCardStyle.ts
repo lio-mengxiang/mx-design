@@ -1,6 +1,7 @@
-import type { IPosition } from '../interface';
+import type { CSSProperties } from 'react';
+import type { IPosition } from '../../Notification';
 
-export function getCardStyle(position: IPosition): React.CSSProperties {
+export function getCardStyle(position: IPosition): CSSProperties {
   const isRighty = position.includes('right');
   const isLefty = position.includes('left');
 

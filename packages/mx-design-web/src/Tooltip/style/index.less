@@ -1,4 +1,5 @@
-@import '../../../../mx-design-theme/src/base_style/base.less';
+@import (reference) '../../Style/base.less';
+@import './cssVariables.less';
 
 @tooltip-prefix-cls: ~'@{prefix}-tooltip';
 
@@ -12,7 +13,7 @@
     word-break: break-word;
     box-sizing: border-box;
     border-radius: var(--tooltip-border-radius);
-    background-color: var(--gray-color-13);
-    color: var(--text-color-anti);
+    background-color: var(--tooltip-bg-color);
+    color: var(--tooltip-color);
   }
 }

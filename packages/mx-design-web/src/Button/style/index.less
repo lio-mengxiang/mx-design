@@ -1,5 +1,6 @@
 @import './token.less';
-@import '../../../../mx-design-theme/src/base_style/base.less';
+@import (reference) '../../Style/base.less';
+@import './cssVariables.less';
 
 @btn-prefix-cls: ~'@{prefix}-btn';
 
@@ -177,6 +178,11 @@
   .@{btn-prefix-cls}:not(:last-child) {
     border-right: 1px solid rgba(255, 255, 255, 20%);
   }
+}
+
+
+.@{prefix}-btn-down:active {
+  top: 1px;
 }
 
 body[theme='dark'] {

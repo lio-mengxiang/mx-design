@@ -1,6 +1,7 @@
 import type { PopupProps } from '../Popup';
 
 export interface TooltipProps extends PopupProps {
+  themeStyle?: Record<string, any>;
   /**
    * 浮层出现位置
    * @default top

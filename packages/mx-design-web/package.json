@@ -1,6 +1,6 @@
 {
   "name": "@mx-design/web",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "mxDesign Component for React",
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -35,13 +35,13 @@
   "scripts": {
     "clean": "rimraf ./node_modules",
     "build:types": "rimraf types && tsc -d --emitDeclarationOnly",
-    "build:es": "rimraf esm && mx buildLib --mode esm --copy-less",
+    "build:es": "rimraf esm && mx buildLib --mode esm --copy-less --less-2-css",
     "build:cjs": "rimraf lib && mx buildLib --mode cjs --copy-less --less-2-css",
     "build": "pnpm run build:types && pnpm run build:cjs && pnpm run build:es"
   },
   "peerDependencies": {
-    "react": ">=17",
-    "react-dom": ">=17"
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "dependencies": {
     "@mx-design/web-utils": "0.1.2",

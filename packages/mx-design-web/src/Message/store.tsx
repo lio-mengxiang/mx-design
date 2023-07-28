@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT, TOP, TOP_LEFT, TOP_RIGHT } from './constants';
 import { getId, findToast, getToastPosition } from './utils';
 // types
-import type { IPosition, MessageStates, MessageProps } from './interface';
+import type { MessageStates, MessageProps } from './interface';
+import type { IPosition } from '../Notification';
 
 // state
 const initialState = {
@@ -26,7 +27,7 @@ function useStore(defaultPosition: IPosition) {
           const isExist = getToastPosition<MessageStates>(preState, noticeProps.id);
           if (isExist) return preState;
         }
-        const position = noticeProps['position'] || defaultPosition;
+        const position = noticeProps.position || defaultPosition;
         const isTop = position.includes('top');
         const toasts = isTop
           ? [{ ...noticeProps, id }, ...(preState[position] ?? [])]
@@ -69,9 +70,7 @@ function useStore(defaultPosition: IPosition) {
         if (!position) return prevState;
         return {
           ...prevState,
-          [position]: prevState[position].filter((notice) => {
-            return notice.id !== id;
-          }),
+          [position]: prevState[position].filter((notice) => notice.id !== id),
         };
       });
     },

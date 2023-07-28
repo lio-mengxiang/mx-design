@@ -6,6 +6,7 @@ import { CSSProperties, ChangeEvent, ReactNode, HTMLAttributes } from 'react';
 export interface RadioProps<T = any> extends Omit<HTMLAttributes<HTMLLabelElement>, 'children' | 'className' | 'onChange'> {
   style?: CSSProperties;
   className?: string | string[];
+  themeStyle?: Record<string, any>;
   /**
    * @zh 是否禁用
    * @en Whether the radio is disabled
@@ -39,6 +40,7 @@ export interface RadioProps<T = any> extends Omit<HTMLAttributes<HTMLLabelElemen
  */
 export interface RadioGroupProps {
   style?: CSSProperties;
+  themeStyle?: Record<string, any>;
   className?: string | string[];
   disabled?: boolean;
   /**

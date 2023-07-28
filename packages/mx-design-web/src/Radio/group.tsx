@@ -1,17 +1,28 @@
 import React, { useContext } from 'react';
-import Radio from './radio';
-import { ConfigContext } from '../ConfigProvider';
 import { useMergeValue } from '@mx-design/hooks';
 import { isArray, isObject } from '@mx-design/web-utils';
+import Radio from './radio.nc';
+import { ConfigContext } from '../ConfigProvider';
 import { RadioGroupContext } from './radioContext';
-import { useGroupClassNames } from './hooks';
+import { useGroupClassNames, useStyles } from './hooks';
 // types
 import type { RadioGroupProps, RadioGroupContextProps } from './interface';
 
 function Group(props: RadioGroupProps) {
   // props
   const { getPrefixCls } = useContext(ConfigContext);
-  const { style, className, name, children, direction = 'horizontal', type = 'radio', mode = 'outline', options, disabled } = props;
+  const {
+    style,
+    themeStyle,
+    className,
+    name,
+    children,
+    direction = 'horizontal',
+    type = 'radio',
+    mode = 'outline',
+    options,
+    disabled,
+  } = props;
 
   // state
   const [value, setValue] = useMergeValue(undefined, {
@@ -21,6 +32,8 @@ function Group(props: RadioGroupProps) {
 
   // classnames
   const { wrapperCls } = useGroupClassNames({ direction, className, getPrefixCls, type, mode, disabled });
+  // style
+  const { wrapperStyle } = useStyles({ style, themeStyle });
 
   // functions
   const onChangeValue = (v: any, event): void => {
@@ -34,7 +47,7 @@ function Group(props: RadioGroupProps) {
   };
 
   return (
-    <div className={wrapperCls} role="radiogroup" style={style}>
+    <div className={wrapperCls} role="radiogroup" style={wrapperStyle}>
       <RadioGroupContext.Provider
         value={{
           onChangeValue,

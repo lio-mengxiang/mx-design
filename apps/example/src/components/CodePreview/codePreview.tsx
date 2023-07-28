@@ -29,7 +29,7 @@ export const variants = {
 
 const style = { maxHeight: '500px', overflow: 'auto' };
 
-const CodePreview = (props: CodePreviewProps) => {
+function CodePreview(props: CodePreviewProps) {
   const { code: _Code = '', dependencies = {} } = props;
   const { theme } = useContext(ConfigContext);
 
@@ -89,7 +89,7 @@ const CodePreview = (props: CodePreviewProps) => {
       </AnimatePresence>
     </>
   );
-};
+}
 
 CodePreview.displayName = 'CodePreview';
 

@@ -6,6 +6,7 @@ import { ReactNode, CSSProperties } from 'react';
 export interface EmptyProps {
   style?: CSSProperties;
   className?: string | string[];
+  themeStyle?: Record<string, any>;
   /**
    * @zh 显示文案
    * @en Description of empty content

@@ -6,6 +6,7 @@ import { CSSProperties, ReactNode } from 'react';
 export interface SpinProps {
   style?: CSSProperties;
   className?: string | string[];
+  themeStyle?: Record<string, any>;
   children?: ReactNode;
   /**
    * @zh 是否为加载状态

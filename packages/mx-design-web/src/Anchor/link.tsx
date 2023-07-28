@@ -27,7 +27,7 @@ function Link(baseProps: AnchorLinkProps, ref) {
     return () => {
       removeLink && removeLink(href);
     };
-  }, [href]);
+  }, [addLink, href, removeLink]);
 
   return (
     <div className={linkCls} style={style} ref={useMergeRefs(ref, linkRef)} {...rest}>

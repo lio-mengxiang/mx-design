@@ -6,6 +6,7 @@ import React, { CSSProperties, ReactNode } from 'react';
 export interface AnchorProps {
   className?: string | string[];
   style?: CSSProperties;
+  themeStyle?: Record<string, any>;
   /**
    * @zh 滚动容器。传入选择器或者dom元素。
    * @en Scrolling container. Pass in selector or DOM Element

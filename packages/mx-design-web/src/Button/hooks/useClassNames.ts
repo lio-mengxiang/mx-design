@@ -1,7 +1,7 @@
 import { ReactNode, useMemo } from 'react';
 import { cs } from '@mx-design/web-utils';
 import { ConfigProviderProps } from '../../ConfigProvider';
-import { ButtonProps } from '../interface';
+import type { ButtonProps } from '../interface';
 
 interface getClassNamesProps {
   getPrefixCls: ConfigProviderProps['getPrefixCls'];

@@ -50,6 +50,10 @@ export interface ComponentConfig {
 export interface ConfigProviderProps {
   componentConfig?: ComponentConfig;
   /**
+   * 全局组件库主题色
+   */
+  globalCssVariables?: Record<string, any>;
+  /**
    * @zh 当前语言
    * @en Current language
    * @defaultValue zn_ch

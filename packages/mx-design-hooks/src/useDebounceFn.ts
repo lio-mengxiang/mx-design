@@ -2,7 +2,7 @@ import { useCallback, useEffect } from 'react';
 import { debounce } from '@mx-design/web-utils';
 import useMemoizedFn from './useMemoizedFn';
 
-const useDebounceFn = <T extends (...args: any) => any>(func: T, delay: number, immediate: boolean) => {
+export const useDebounceFn = <T extends (...args: any) => any>(func: T, delay: number, immediate?: boolean) => {
   const callback = useMemoizedFn(func);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -11,5 +11,3 @@ const useDebounceFn = <T extends (...args: any) => any>(func: T, delay: number, 
 
   return debounced;
 };
-
-export default useDebounceFn;

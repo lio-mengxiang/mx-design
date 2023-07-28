@@ -7,6 +7,11 @@ export interface AlertProps {
   style?: CSSProperties;
   className?: string | string[];
   /**
+   * @zh 单独设置组件css自定义变量
+   * @en Set component custom css variables individually
+   */
+  themeStyle?: Record<string, any>;
+  /**
    * @zh 通知标题
    * @en Notification title
    */
@@ -25,6 +30,7 @@ export interface AlertProps {
   /**
    * @zh 自定义图标
    * @en Custom icon
+   * @default true
    */
   icon?: ReactNode;
   /**
@@ -42,5 +48,10 @@ export interface AlertProps {
    * @en Whether to show the close button
    */
   closable?: boolean;
+  /**
+   * @zh Alert类型
+   * @en Alert type
+   * @default info
+   */
   type?: 'info' | 'success' | 'error' | 'warning' | 'loading';
 }

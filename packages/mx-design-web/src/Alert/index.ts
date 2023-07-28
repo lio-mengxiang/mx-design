@@ -1,4 +1,3 @@
-import './style/index.less';
-
-export * from './interface';
+export { default as NcAlert } from './alert.nc';
 export { default as Alert } from './alert';
+export * from './interface';

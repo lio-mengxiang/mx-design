@@ -8,7 +8,8 @@ import styles from './styles/index.module.less';
 function ComponentLayout() {
   const location = useLocation();
   useLayoutEffect(() => {
-    document.documentElement.scrollTop = document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   }, [location.pathname]);
 
   return (

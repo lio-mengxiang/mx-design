@@ -5,6 +5,5 @@
     "paths": {
       "@/*": ["src/*"]
     }
-  },
-  "include": ["./src", "src/pages/dropdown/examples/.tsx"]
+  }
 }

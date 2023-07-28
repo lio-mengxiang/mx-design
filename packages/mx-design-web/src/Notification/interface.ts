@@ -75,6 +75,7 @@ export interface NotificationCardProps extends NotificationProps {
   remove: (...args: any[]) => void;
   position: IPosition;
   componentName?: 'Notification' | 'Toaster';
+  themeStyle?: Record<string, any>;
 }
 
 export interface NoticesState {

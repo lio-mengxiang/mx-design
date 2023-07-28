@@ -12,8 +12,7 @@ function App() {
     },
     {
       label: 'Option 2',
-      value: '2',
-      disabled: true,
+      value: '2'
     },
     {
       label: 'Option 3',
@@ -27,21 +26,12 @@ function App() {
   ];
 
   return (
-    <>
-    <div>
-      <RadioGroup
-        defaultValue='1'
-        options={options}
-        style={{ marginBottom: '20px' }}
-      />
-      </div>
       <div>
         <RadioGroup
           direction='vertical'
           options={options}
         />
       </div>
-    </>
   );
 };`;
 

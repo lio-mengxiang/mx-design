@@ -9,6 +9,7 @@ export interface CheckboxProps<T extends React.ReactText = any>
   extends Omit<React.HTMLAttributes<HTMLLabelElement>, 'children' | 'className' | 'onChange'> {
   style?: CSSProperties;
   className?: string | string[];
+  themeStyle?: Record<string, any>;
   /**
    * @zh 是否禁用
    * @en Whether to disable
@@ -56,6 +57,7 @@ export interface CheckboxProps<T extends React.ReactText = any>
 export interface CheckboxGroupProps<T extends string | number> {
   style?: CSSProperties;
   className?: string | string[];
+  themeStyle?: Record<string, any>;
   /**
    * @zh 整组失效
    * @en Whether to disable all checkboxes in the group

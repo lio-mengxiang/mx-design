@@ -1,9 +1,9 @@
 import React, { useContext, PropsWithChildren, useState } from 'react';
 import { useMergeValue } from '@mx-design/hooks';
 import { isArray, isObject } from '@mx-design/web-utils';
-import Checkbox from './checkbox';
+import Checkbox from './checkbox.nc';
 import { ConfigContext } from '../ConfigProvider';
-import { useGroupClassNames } from './hooks';
+import { useGroupClassNames, useStyles } from './hooks';
 import { CheckboxGroupContext } from './checkboxGroupContext';
 // type
 import type { CheckboxGroupProps } from './interface';
@@ -11,7 +11,7 @@ import type { CheckboxGroupProps } from './interface';
 function Group<T extends string | number>(props: PropsWithChildren<CheckboxGroupProps<T>>) {
   // props
   const { getPrefixCls } = useContext(ConfigContext);
-  const { disabled, options, style, className, error, children, direction = 'horizontal' } = props;
+  const { disabled, options, style, themeStyle, className, error, children, direction = 'horizontal' } = props;
 
   // state
   const [value, setValue] = useMergeValue([], {
@@ -22,6 +22,8 @@ function Group<T extends string | number>(props: PropsWithChildren<CheckboxGroup
 
   // classnames
   const { wrapperCls } = useGroupClassNames({ error, direction, className, getPrefixCls });
+  // style
+  const { wrapperStyle } = useStyles({ style, themeStyle });
 
   // function
   const onChange = function (optionValue, checked: boolean, e: Event) {
@@ -39,7 +41,7 @@ function Group<T extends string | number>(props: PropsWithChildren<CheckboxGroup
   };
 
   return (
-    <span className={wrapperCls} style={style}>
+    <span className={wrapperCls} style={wrapperStyle}>
       <CheckboxGroupContext.Provider
         value={{
           isCheckboxGroup: true,

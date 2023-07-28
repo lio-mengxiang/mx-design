@@ -1,9 +1,9 @@
-interface IDebounced<T extends (...args: any) => any> {
+export interface IDebounced<T extends (...args: any) => any> {
   cancel: () => void;
   (...args: any[]): ReturnType<T>;
 }
 
-export function debounce<T extends(...args: any) => any>(func: T, wait: number, immediate?: boolean): IDebounced<T> {
+export function debounce<T extends (...args: any) => any>(func: T, wait: number, immediate?: boolean): IDebounced<T> {
   let timeout: number | null;
   let result: any;
 
