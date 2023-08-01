@@ -32,8 +32,6 @@ export function useClassNames(props: getClassNamesProps) {
           [`${prefixCls}-icon-only`]: iconOnly || (!children && children !== 0 && iconNode),
           [`${prefixCls}-disabled`]: disabled,
           [`${prefixCls}-loading`]: loading,
-          [`${prefixCls}-down`]: !disabled && !loading,
-          [`${prefixCls}-scale`]: !disabled && !loading,
         },
         className
       ),
