@@ -55,6 +55,8 @@ function Checkbox<T extends string | number>(baseProps: CheckboxProps<T>, ref) {
 
   // function
   const onChange = function (e) {
+    console.log('e.target.checked: ', e.target.checked);
+
     e.persist();
     e.stopPropagation();
     if (context.isCheckboxGroup) {

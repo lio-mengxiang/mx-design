@@ -15,6 +15,12 @@
       color:~'@{btn-@{type}-color-text-hover}';
       background-color:~'@{btn-@{type}-color-bg-hover}';
     }
+
+    &:not(.@{btn-prefix-cls}-loading):active {
+      border-color:~'@{btn-@{type}-color-border-active}';
+      color:~'@{btn-@{type}-color-text-active}';
+      background-color:~'@{btn-@{type}-color-bg-active}';
+    }
   }
 
   .@{btn-prefix-cls}-@{type}.@{btn-prefix-cls}-disabled {
@@ -35,6 +41,12 @@
       border-color:~'@{btn-@{type}-color-border-@{status}-hover}';
       color:~'@{btn-@{type}-color-text-@{status}-hover}';
       background-color:~'@{btn-@{type}-color-bg-@{status}-hover}';
+    }
+
+    &:not(.@{btn-prefix-cls}-loading):active {
+      border-color:~'@{btn-@{type}-color-border-@{status}-active}';
+      color:~'@{btn-@{type}-color-text-@{status}-active}';
+      background-color:~'@{btn-@{type}-color-bg-@{status}-active}';
     }
   }
 
@@ -177,16 +189,5 @@
 
   .@{btn-prefix-cls}:not(:last-child) {
     border-right: 1px solid rgba(255, 255, 255, 20%);
-  }
-}
-
-
-.@{prefix}-btn-down:active {
-  top: 1px;
-}
-
-body[theme='dark'] {
-  .@{btn-prefix-cls}-brand.@{btn-prefix-cls}-disabled {
-    color: rgba(255, 255, 255, 30%);
   }
 }

@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import styles from './styles/index.module.less';
+import Mask from './mask';
 
 function PageNav() {
-  return <div className={styles['page-nav-container']}>测试</div>;
+  const [isShowMask, setShowMask] = useState(false);
+
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  return <>{isShowMask ? <Mask /> : null}</>;
 }
 export default PageNav;

@@ -53,7 +53,7 @@ function Button(baseProps: ButtonProps, ref) {
   const { wrapperStyle } = useStyles({ style, themeStyle });
 
   const handleClick: MouseEventHandler = (event): void => {
-    if (loading) {
+    if (loading || disabled) {
       event?.preventDefault?.();
       return;
     }

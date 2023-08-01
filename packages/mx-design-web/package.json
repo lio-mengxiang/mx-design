@@ -1,6 +1,6 @@
 {
   "name": "@mx-design/web",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "mxDesign Component for React",
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -52,8 +52,9 @@
     "framer-motion": "10.12.4",
     "@popperjs/core": "2.11.7",
     "react-fast-compare": "3.2.1",
-    "react-is": "18.2.0",
-    "dayjs": "1.11.7"
+    "dayjs": "1.11.7",
+    "react-hotkeys-hook": "^4.4.0",
+    "react-focus-lock": "^2.8.1"
   },
   "devDependencies": {
     "@types/node": "18.11.12",

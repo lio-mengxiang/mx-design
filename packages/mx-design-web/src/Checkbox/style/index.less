@@ -46,7 +46,7 @@
       left: 50%;
       transform: translateX(-50%) translateY(-50%) scale(0.8);
       position: absolute;
-      transition: all 0.2s linear;
+      transition: all 0.1s linear;
     }
 
     // indeterminate
@@ -71,7 +71,7 @@
       margin: 0 auto;
       display: block;
       width: var(--checkbox-size-check-icon);
-      transition: transform 0.2s linear;
+      transition: transform 0.1s linear;
     }
   }
 
@@ -82,6 +82,7 @@
   &-checked &-mask {
     &-icon {
       transform: scale(1);
+      color: var(--checkbox-color-checked-icon);
     }
 
     &::before {
@@ -108,7 +109,7 @@
       opacity: 1;
       background: var(--checkbox-indeterminate-color-bg);
       transform: translateX(-50%) translateY(-50%) scale(1);
-      transition: transform 0.3s var(--transition-timing-function-overshoot);
+      transition: transform 0.1s var(--transition-timing-function-overshoot);
     }
   }
 

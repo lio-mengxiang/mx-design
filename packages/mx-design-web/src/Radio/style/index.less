@@ -38,7 +38,7 @@
     width: var(--radio-layout-height);
     border-radius: 50%;
     position: relative;
-    transition: border 0.2s linear;
+    transition: border 0.1s linear;
 
     &::after {
       display: inline-block;
@@ -46,13 +46,12 @@
       position: absolute;
       content: '';
       border-radius: 50%;
-      background-color: var(--radio-color-bg);
       width: calc(var(--radio-layout-height) - var(--radio-border-width) * 2);
       height: calc(var(--radio-layout-height) - var(--radio-border-width) * 2);
       top: 0;
       left: 0;
       transform: scale(1);
-      transition: transform 0.2s linear;
+      transition: transform 0.1s linear;
     }
   }
 
@@ -132,7 +131,7 @@
   line-height: 1;
   cursor: pointer;
   border-radius: var(--radio-button-border-radius);
-  transition: all .2s linear;
+  transition: all .1s linear;
 
   &-inner {
     padding: var(--radio-button-padding-horizontal);
@@ -146,7 +145,7 @@
   &.@{radio-prefix-cls}-checked {
     background-color: var(--bg-color-container-select);
     color: var(--radio-button-color-hover-text);
-    transition: all .2s linear;
+    transition: all .1s linear;
   }
 
   &.@{radio-prefix-cls}-disabled {
@@ -173,18 +172,3 @@
     margin-bottom: 20px;
   }
 }
-
-// // dark mode
-// @{arco-theme-tag} {
-//   &[arco-theme='dark'] {
-
-//     .@{radio-prefix-cls}-button.@{radio-prefix-cls}-checked,
-//     .@{radio-prefix-cls}-button:not(.@{radio-prefix-cls}-disabled):hover {
-//       background-color: var(--radio-button-color-bg_active_dark);
-//     }
-
-//     .@{radio-prefix-cls}-button::after {
-//       background-color: var(--radio-group-button-color-bg_dark);
-//     }
-//   }
-// }

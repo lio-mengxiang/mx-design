@@ -26,7 +26,7 @@ function Anchor(props: AnchorProps, ref) {
   const { anchorProps, href, disabled, style, classNames, InnerContent, handleClick, rest } = props;
 
   return (
-    <a ref={ref} {...rest} {...getAnchorProps(anchorProps, disabled, href)} style={style} className={classNames} onClick={handleClick}>
+    <a ref={ref} {...rest} {...getAnchorProps(anchorProps, disabled, href)} onClick={handleClick}>
       {InnerContent}
     </a>
   );

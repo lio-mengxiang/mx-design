@@ -20,6 +20,7 @@ import type { HorizontalMenuMenuProps } from '../Menu/HorizontalMenu/interface';
 import type { GridLayoutProps } from '../GridLayout/interface';
 import type { IToastRef } from '../Message/messageProvider';
 import type { IRef } from '../Notification/notification';
+// import type { ModalProps } from '../Modal/interface';
 // import type { TableProps } from '../Table/interface';
 
 export interface ComponentConfig {
@@ -42,6 +43,7 @@ export interface ComponentConfig {
   HorizontalMenu?: Partial<HorizontalMenuMenuProps>;
   GridLayout?: Partial<GridLayoutProps>;
   // Table?: Partial<TableProps<any>>;
+  // Modal?: Partial<ModalProps>;
 }
 
 /**
