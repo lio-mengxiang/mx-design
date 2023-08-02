@@ -1,5 +1,5 @@
 import React from 'react';
-import { Basic, Column, Position, Dense, Responsive } from './constants';
+import { Basic, Column, Position, HolyGrail, ContainerAlign, ContainerJustify } from './constants';
 
 export const en_us_gridLayout = {
   [Basic]: {
@@ -24,12 +24,15 @@ export const en_us_gridLayout = {
     title: 'Customize child element placement',
     desc: (
       <>
-        You can use the <code className="mx-code">left</code> and <code className="mx-code">top</code> props to set the{' '}
-        <code className="mx-code">grid-column-start</code> and <code className="mx-code">grid-row-start</code> CSS properties
+        Implementing the Holy Grail layout is simple using a grid layout, where the <code className="mx-code">rows</code> attribute
+        corresponds to the one in the gird layout
+        <code className="mx-code">grid-template-rows</code>. In this example, we set the first and last lines to at least 45px height and
+        use the auto keyword to make their height adaptive to the content height. If the middle row is set to 1fr, its width ADAPTS to the
+        remaining space (width) of the parent container.
       </>
     ),
   },
-  [Dense]: {
+  [HolyGrail]: {
     title: 'Style and className',
     desc: (
       <div>
@@ -37,13 +40,19 @@ export const en_us_gridLayout = {
       </div>
     ),
   },
-  [Responsive]: {
-    title: 'Responsive Layout',
+  [ContainerAlign]: {
+    title: 'Vertical alignment',
     desc: (
       <div>
-        The <code className="mx-code">grid-template-columns</code> CSS property can great help in building responsive layouts. When the
-        columns prop is a number, it is a shorthand for <code className="mx-code">grid-template-columns</code> and we use
-        <code className="mx-code">repeat(columns, 1fr)</code> to set columns.
+        Vertical alignment of rows can be modified using the <code className="mx-code">alignContent</code>
+      </div>
+    ),
+  },
+  [ContainerJustify]: {
+    title: 'Horizontal alignment',
+    desc: (
+      <div>
+        Horizontal alignment of columns can be modified using the <code className="mx-code">justifyContent</code>
       </div>
     ),
   },
