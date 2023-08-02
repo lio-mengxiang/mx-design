@@ -1,11 +1,15 @@
 import { basic } from './basic';
 import { column } from './column';
 import { position } from './position';
-import { dense } from './dense';
+import { holyGrail } from './holyGrail';
+import { containerAlign } from './containerAlign';
+import { containerJustify } from './containerJustify';
 
 export const exampleList = {
   [basic.namespace]: basic,
   [column.namespace]: column,
   [position.namespace]: position,
-  [dense.namespace]: dense,
+  [holyGrail.namespace]: holyGrail,
+  [containerAlign.namespace]: containerAlign,
+  [containerJustify.namespace]: containerJustify,
 };

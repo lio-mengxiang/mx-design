@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { debounce } from '@mx-design/web-utils';
+// type
 import type { SpinProps } from '../interface';
 
 interface debounceLoadingProps {

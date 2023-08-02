@@ -1,5 +1,5 @@
 import React from 'react';
-import { Basic, Column, Position, Dense, Responsive } from './constants';
+import { Basic, Column, Position, HolyGrail, ContainerAlign, ContainerJustify } from './constants';
 
 export const zn_ch_gridLayout = {
   [Basic]: {
@@ -28,21 +28,29 @@ export const zn_ch_gridLayout = {
       </>
     ),
   },
-  [Dense]: {
-    title: '密集布局',
+  [HolyGrail]: {
+    title: '圣杯布局',
     desc: (
       <div>
-        默认情况，使用row <code className="mx-code">overlayInnerStyle</code> 来设置不同的颜色
+        使用grid布局实现圣杯布局是很简单的，其中<code className="mx-code">rows</code>属性对应gird布局中的
+        <code className="mx-code">grid-template-rows</code>。
+        在这个例子中，我们将第一行和最后一行设置为至少高度为45px，使用auto关键字让其高度自适应内容高度。中间行设置为1fr，则它的宽度会自适应父容器剩余的空间（宽度）
       </div>
     ),
   },
-  [Responsive]: {
-    title: '自适应布局',
+  [ContainerAlign]: {
+    title: '垂直对齐',
     desc: (
       <div>
-        css 属性<code className="mx-code">grid-template-columns</code> 可以很好地帮助我们建立自适应布局. 当 columns 属性是数字, ，也就是
-        css属性<code className="mx-code">grid-template-columns</code> 在GridLayout组件里的简写，内部使用了
-        <code className="mx-code">repeat(columns, 1fr)</code> 去设置columns.
+        可以使用<code className="mx-code">alignContent</code>来修改行的垂直对齐
+      </div>
+    ),
+  },
+  [ContainerJustify]: {
+    title: '水平对齐',
+    desc: (
+      <div>
+        可以使用<code className="mx-code">justifyContent</code>修改列的水平对齐
       </div>
     ),
   },

@@ -5,14 +5,13 @@ export interface GridLayoutProps {
   rows?: number | string;
   gap?: string;
   areas?: string[];
-  minRowHeight?: string;
   alignContent?: string;
   justifyContent?: string;
   flow?: string;
   height?: string;
   style?: Record<string, any>;
   children: ReactNode;
-  className?: any;
+  className?: string;
 }
 
 export interface CellProps {
@@ -24,5 +23,5 @@ export interface CellProps {
   left?: number;
   top?: number;
   children: ReactNode;
-  className?: any;
+  className?: string;
 }

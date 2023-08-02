@@ -10,14 +10,12 @@ const defaultProps = {
   gap: '8px',
   flow: 'row',
   height: 'auto',
-  minRowHeight: '20px',
 };
 
 function GridLayout(baseProps: GridLayoutProps) {
   const { componentConfig } = useContext(ConfigContext);
   const props = useMergeProps<GridLayoutProps>(baseProps, defaultProps, componentConfig?.GridLayout);
-  const { columns, height, gap, areas, minRowHeight, alignContent, rows, justifyContent, flow, children, style, className, ...rest } =
-    props;
+  const { columns, height, gap, areas, alignContent, rows, justifyContent, flow, children, style, className, ...rest } = props;
 
   const mergeStyle: Record<string, any> = {
     display: 'grid',
@@ -31,9 +29,9 @@ function GridLayout(baseProps: GridLayoutProps) {
     // eslint-disable-next-line max-len
     // @en When passed a number, it is a shorthand for specifying the number of rows, bisects the height, and adapts. If it is a string, use the string as the value, for example: 100px
     gridTemplateRows: frGetter(rows),
-    // @zh 当传递一个数字时，它是指定行数的简写，平分宽度，自适应。如果是字符串，就以字符串当做值，例如:100px
+    // @zh 当传递一个数字时，它是指定列数的简写，平分宽度，自适应。如果是字符串，就以字符串当做值，例如:100px
     // eslint-disable-next-line max-len
-    // @en When passed a number, it is a shorthand for specifying the number of rows, bisects the width, and adapts. If it is a string, use the string as the value, for example: 100px
+    // @en When passed a number, it is a shorthand for specifying the number of columns, bisects the width, and adapts. If it is a string, use the string as the value, for example: 100px
     gridTemplateColumns: frGetter(columns),
     gap,
     // @zh 传递一个字符串数组，例如 [“a a”，“b c”]。 默认不提供
