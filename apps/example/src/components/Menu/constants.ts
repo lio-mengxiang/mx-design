@@ -9,6 +9,7 @@ import {
   DATA_INPUT_KEY,
   DATA_SHOW_KEY,
   EMPTY_KEY,
+  GRID_LAYOUT_KEY,
   ICON_KEY,
   LAYOUT_TITLE_KEY,
   MESSAGE_KEY,
@@ -57,6 +58,10 @@ export const menuList = [
       {
         title: SPACE_KEY,
         path: `/${COMPONENTS_KEY}/${SPACE_KEY}`,
+      },
+      {
+        title: GRID_LAYOUT_KEY,
+        path: `/${COMPONENTS_KEY}/${GRID_LAYOUT_KEY}`,
       },
     ],
   },

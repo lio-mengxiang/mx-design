@@ -19,6 +19,7 @@ import {
   CHECKBOX_KEY,
   RADIO_KEY,
   TOOLTIP_KEY,
+  GRID_LAYOUT_KEY,
 } from '@/constants';
 
 export const zn_ch_site_menu = {
@@ -42,4 +43,5 @@ export const zn_ch_site_menu = {
   [CHECKBOX_KEY]: '复选框 Checkbox',
   [RADIO_KEY]: '单选框 Radio',
   [TOOLTIP_KEY]: '文字提示 Tooltip',
+  [GRID_LAYOUT_KEY]: '布局 GridLayout',
 };

@@ -19,6 +19,7 @@ import {
   DATA_INPUT_KEY,
   RADIO_KEY,
   TOOLTIP_KEY,
+  GRID_LAYOUT_KEY,
 } from '@/constants';
 
 export const en_us_site_menu = {
@@ -42,4 +43,5 @@ export const en_us_site_menu = {
   [CHECKBOX_KEY]: 'Checkbox',
   [RADIO_KEY]: 'Radio',
   [TOOLTIP_KEY]: 'Tooltip',
+  [GRID_LAYOUT_KEY]: 'GridLayout',
 };
