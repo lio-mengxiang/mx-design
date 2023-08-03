@@ -6,7 +6,7 @@ export const en_us_button = {
     title: 'Basic',
     desc: (
       <>
-        There are<code className="mx-code">brand</code>、<code className="mx-code">outline</code> 和 and
+        There are<code className="mx-code">brand</code>、<code className="mx-code">outline</code> and
         <code className="mx-code">text button</code>types
       </>
     ),
