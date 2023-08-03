@@ -42,7 +42,7 @@ thanks to star...
 
 ## Tutorial Directory (Continue to update, welcome to pay attention!)
 
-## About the cli packaging tool
+## Implement a cli packaging tool
 
 - [React component Library Setup Guide - Packaging output](./tutorial/mx-design-cli/theory/README.md)
 - [How do I create a cli tool for packaging React UI library](./tutorial/mx-design-cli/cli/README.md)
@@ -50,6 +50,6 @@ thanks to star...
 - [Two advanced function tricks](./tutorial/mx-design-cli/tricks/README.md)
 
 
-## About React component library
+## Implement React UI library
 
 - [gridLayout Component tutorial](./tutorial/mx-deisgn-ui/gridLayout/README.md)
