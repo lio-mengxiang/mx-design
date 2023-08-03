@@ -6,7 +6,7 @@
 <br />
 mx-design want to create the best tutorial project on github about how to build a react component library. The tutorial includes project building tutorials, frontend tooling related to the project building tutorials , building react components tutorials, and finally builds a library that can be used in a production environment.Meanwhile, I will try to ensure code quality, high performance, and high scalability
 <br />
-  
+
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 </div>
@@ -40,4 +40,16 @@ Here are all the tutorials. Follow along with the code in this library.
 
 thanks to star...
 
-## Tutorial Directory (Iterating...)
+## Tutorial Directory (Continue to update, welcome to pay attention!)
+
+## About the cli packaging tool
+
+- [React component Library Setup Guide - Packaging output](./tutorial/mx-design-cli/theory/README.md)
+- [How do I create a cli tool for packaging React UI library](./tutorial/mx-design-cli/cli/README.md)
+  - [Before doing so, you need to understand the use of the command line parser, commander.js](https://github.com/tj/commander.js/blob/master/Readme.md)
+- [Two advanced function tricks](./tutorial/mx-design-cli/tricks/README.md)
+
+
+## About React component library
+
+- [gridLayout Component tutorial](./tutorial/mx-deisgn-ui/gridLayout/README.md)
