@@ -3,7 +3,7 @@ import { AlertProps } from '../Alert';
 import type { IPosition } from '../Notification';
 
 /**
- * @title Toast
+ * @title Message
  */
 export interface MessageProps extends AlertProps {
   /**
@@ -43,4 +43,11 @@ export interface MessageStates {
   [BOTTOM_LEFT]: MessageProps[];
   [BOTTOM]: MessageProps[];
   [BOTTOM_RIGHT]: MessageProps[];
+}
+
+export interface IMessageRef {
+  add: (noticeProps: MessageProps) => number;
+  remove: (id: number) => void;
+  clearAll: () => void;
+  update: (id: number, options: MessageProps) => void;
 }

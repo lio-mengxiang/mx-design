@@ -14,13 +14,13 @@ import type { CheckboxProps } from '../Checkbox';
 import type { AlertProps } from '../Alert';
 import type { AffixProps } from '../Affix';
 import type { AnchorProps } from '../Anchor';
-import type { MessageProps } from '../Message';
 import type { RadioProps } from '../Radio';
 import type { HorizontalMenuMenuProps } from '../Menu/HorizontalMenu/interface';
 import type { GridLayoutProps } from '../GridLayout/interface';
-import type { IToastRef } from '../Message/messageProvider';
-import type { IRef } from '../Notification/notification';
-// import type { ModalProps } from '../Modal/interface';
+import type { MessageProps, IMessageRef } from '../Message';
+import type { INotificationRef } from '../Notification/NotificationProvider';
+import type { ModalProps } from '../Modal/interface';
+import { IModalRef } from '../Modal/modalProvider';
 // import type { TableProps } from '../Table/interface';
 
 export interface ComponentConfig {
@@ -43,7 +43,7 @@ export interface ComponentConfig {
   HorizontalMenu?: Partial<HorizontalMenuMenuProps>;
   GridLayout?: Partial<GridLayoutProps>;
   // Table?: Partial<TableProps<any>>;
-  // Modal?: Partial<ModalProps>;
+  Modal?: Partial<ModalProps>;
 }
 
 /**
@@ -91,6 +91,7 @@ export interface ConfigProviderProps {
    * @en Empty component in component.
    */
   renderEmpty?: (componentName?: string) => ReactNode;
-  _toastRef?: React.RefObject<IToastRef>;
-  _notificationRef?: React.RefObject<IRef>;
+  _messageRef?: React.RefObject<IMessageRef>;
+  _notificationRef?: React.RefObject<INotificationRef>;
+  _modalRef?: React.RefObject<IModalRef>;
 }

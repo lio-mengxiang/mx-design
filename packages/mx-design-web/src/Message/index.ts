@@ -1,4 +1,4 @@
-export { default as MessageProvider } from './messageProvider';
-export { default as useNcMessage } from './useMessage.nc';
-export { default as useMessage } from './useMessage';
+export * from './components/MessageProvider';
+export * from './hooks/useMessage.nc';
+export * from './hooks/useMessage';
 export * from './interface';

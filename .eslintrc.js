@@ -353,6 +353,7 @@ module.exports = {
     'jsx-a11y/label-has-associated-control': 0,
     'react/jsx-no-constructed-context-values': 0,
     'react/no-unescaped-entities': 0,
-    'no-restricted-syntax': 0
+    'no-restricted-syntax': 0,
+    'react/jsx-no-useless-fragment': 0
   },
 };

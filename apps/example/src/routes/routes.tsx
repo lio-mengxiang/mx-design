@@ -20,3 +20,4 @@ export const RadioExample = load(() => import('@/pages/radio'));
 export const TooltipExample = load(() => import('@/pages/tooltip'));
 export const GridLayoutExample = load(() => import('@/pages/gridLayout'));
 export const DropDownExample = load(() => import('@/pages/dropdown'));
+export const ModalExample = load(() => import('@/pages/modal'));

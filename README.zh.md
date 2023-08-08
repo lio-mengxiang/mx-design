@@ -20,7 +20,7 @@ mx-design努力做到github上最好的关于如何搭建react组件库的教程
 
 安装npm包
 ```bash
-pnpm init
+pnpm run init
 ```
 启动组件预览网页
 ```bash

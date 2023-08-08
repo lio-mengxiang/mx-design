@@ -22,7 +22,7 @@ mx-design want to create the best tutorial project on github about how to build 
 Install npm packages
 
 ```bash
-pnpm init
+pnpm run init
 ```
 start the component preview page
 

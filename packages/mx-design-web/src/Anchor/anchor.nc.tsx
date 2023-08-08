@@ -96,7 +96,6 @@ function Anchor(baseProps: AnchorPropsWithChildren, ref) {
 
   useEffect(() => {
     onScroll();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFirstRender, propScrollContainer]);
 
   useEffect(() => {

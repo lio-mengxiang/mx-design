@@ -16,6 +16,7 @@ import { NAME_SPACE_SPACE, zn_ch_space } from '@/pages/space/locale';
 import { NAME_SPACE_SPIN, zn_ch_spin } from '@/pages/spin/locale';
 import { NAME_SPACE_TOOLTIP, zn_ch_tooltip } from '@/pages/tooltip/locale';
 import { NAME_SPACE_DROPDOWN, zn_ch_dropdown } from '@/pages/dropdown/locale';
+import { NAME_SPACE_MODAL, zn_ch_modal } from '@/pages/modal/locale';
 
 export const zn_ch = {
   [NAME_SPACE_BUTTON]: zn_ch_button,
@@ -36,4 +37,5 @@ export const zn_ch = {
   [NAME_SPACE_TOOLTIP]: zn_ch_tooltip,
   [NAME_SPACE_GRID_LAYOUT]: zn_ch_gridLayout,
   [NAME_SPACE_DROPDOWN]: zn_ch_dropdown,
+  [NAME_SPACE_MODAL]: zn_ch_modal,
 };

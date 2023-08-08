@@ -23,6 +23,7 @@ import {
   TooltipExample,
   GridLayoutExample,
   DropDownExample,
+  ModalExample,
 } from './routes';
 import { Page404 } from '@/components/Status/404';
 import {
@@ -37,6 +38,7 @@ import {
   GRID_LAYOUT_KEY,
   ICON_KEY,
   MESSAGE_KEY,
+  MODAL_KEY,
   NOTIFICATION_KEY,
   POPUP_KEY,
   RADIO_KEY,
@@ -77,6 +79,7 @@ export const routerConfig = [
           { path: TOOLTIP_KEY, element: <TooltipExample /> },
           { path: GRID_LAYOUT_KEY, element: <GridLayoutExample /> },
           { path: DROPDOWN_KEY, element: <DropDownExample /> },
+          { path: MODAL_KEY, element: <ModalExample /> },
           { path: '*', element: <Navigate to={BUTTON_KEY} replace /> },
         ],
       },
