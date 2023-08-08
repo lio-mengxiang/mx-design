@@ -8,6 +8,8 @@ import { Portal } from '../Portal';
 import { applyPopupSlide, getRefDom } from './utils';
 import { ConfigContext } from '../ConfigProvider';
 import { useClassNames, useTrigger } from './hooks';
+import { passive } from './constants';
+import { PopupCard } from './popupCard';
 
 const defaultProps = {
   attach: 'body',
@@ -17,6 +19,7 @@ const defaultProps = {
   isCloseClickAway: false,
 } as const;
 
+// hover->setVisibleChange->onVisibleChange->setPopupElement->
 const Popup = forwardRef((baseProps: PopupProps, ref: React.RefObject<PopupRef>) => {
   const { getPrefixCls, componentConfig } = useContext(ConfigContext);
   const props = useMergeProps<PopupProps>(baseProps, defaultProps, componentConfig?.Popup);
@@ -91,7 +94,7 @@ const Popup = forwardRef((baseProps: PopupProps, ref: React.RefObject<PopupRef>)
     placement,
     ...popperOptions,
   });
-  const { styles, attributes } = popperRef.current;
+  const { styles, attributes, state, update } = popperRef.current;
 
   const updateTimeRef = useRef(null);
 
@@ -128,25 +131,29 @@ const Popup = forwardRef((baseProps: PopupProps, ref: React.RefObject<PopupRef>)
   const overlay = showOverlay && visible && (
     <AnimatePresence>
       <Portal attach={attach} ref={portalRef}>
-        <div
-          ref={(node) => {
-            if (node) {
-              popupRef.current = node;
-              setPopupElement(node);
-            }
-          }}
-          style={{ ...styles.popper, zIndex, ...getOverlayStyle(overlayStyle), ...themeStyle }}
-          className={popupRefCls}
-          {...attributes.popper}
-          {...getPopupProps()}
-        >
-          <motion.div variants={applyPopupSlide(placement)} animate="animate" exit="exit" initial="initial">
-            <div ref={contentRef} className={contentRefCls} style={getOverlayStyle(overlayInnerStyle)} onScroll={handleScroll}>
-              {content}
-              {showArrow ? <div style={styles.arrow} className={arrowCls} /> : null}
-            </div>
-          </motion.div>
-        </div>
+        <PopupCard
+          visible={visible}
+          popupRef={popupRef}
+          setPopupElement={setPopupElement}
+          styles={styles}
+          zIndex={zIndex}
+          getOverlayStyle={getOverlayStyle}
+          overlayStyle={overlayStyle}
+          themeStyle={themeStyle}
+          popupRefCls={popupRefCls}
+          attributes={attributes}
+          getPopupProps={getPopupProps}
+          placement={placement}
+          contentRefCls={contentRefCls}
+          contentRef={contentRef}
+          overlayInnerStyle={overlayInnerStyle}
+          content={content}
+          showArrow={showArrow}
+          arrowCls={arrowCls}
+          handleScroll={handleScroll}
+          state={state}
+          update={update}
+        />
       </Portal>
     </AnimatePresence>
   );

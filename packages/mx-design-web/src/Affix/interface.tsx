@@ -37,3 +37,7 @@ export interface AffixProps {
   style?: CSSProperties;
   children?: ReactNode;
 }
+
+export interface AffixRef {
+  handleScroll: () => void;
+}

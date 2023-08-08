@@ -1,4 +1,4 @@
-import type { Options as PopperOptions, State as PopperState, Instance as PopperInstance } from '@popperjs/core';
+import type { Options as PopperOptions, State as PopperState, Instance as PopperInstance } from '../Popper-js/interface';
 
 export type Options = Partial<PopperOptions>;
 

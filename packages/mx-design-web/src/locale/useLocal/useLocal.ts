@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { type Ilocal, mx_local } from '../index';
 import { transformLocale } from './transformLocale';
-import { ConfigContext } from '../../ConfigProvider/configProvider';
+import { ConfigContext } from '../../ConfigProvider';
 
 type localeProps<T> = {
   namespace: T;

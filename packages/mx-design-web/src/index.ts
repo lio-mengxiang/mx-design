@@ -17,4 +17,5 @@ export * from './Checkbox';
 export * from './Radio';
 export * from './GridLayout';
 export * from './Dropdown';
+export * from './Modal';
 export * from './Style';
