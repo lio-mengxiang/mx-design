@@ -1,23 +1,14 @@
 // code form @popper-js（Modify parts of the source code）
 import { log } from '@mx-design/web-utils';
-import {
-  areValidElements,
-  cleanupModifierEffects,
-  getCompositeRect,
-  getOffsetParent,
-  listScrollParents,
-  mergeByName,
-  runModifierEffects,
-} from './utils';
+import { areValidElements, getCompositeRect, getOffsetParent, mergeByName } from './utils';
 import getLayoutRect from './utils/getLayoutRect';
 import { INVALID_ELEMENT_ERROR } from './constants';
 import debounce from './debounce';
-import { computeStyles, flip, offset, popperOffsets } from './modifiers';
-import { isElement } from './utils/isElement';
+import { computeAffixStyles, offset, popperOffsets } from './modifiers';
 // type
 import type { State, OptionsGeneric, Instance, VirtualElement, Options } from './interface';
 
-const defaultModifiers = [popperOffsets, computeStyles, offset, flip];
+const defaultModifiers = [popperOffsets, computeAffixStyles, offset];
 
 const DEFAULT_OPTIONS = {
   placement: 'bottom' as const,
@@ -25,14 +16,14 @@ const DEFAULT_OPTIONS = {
   strategy: 'absolute' as const,
 };
 
-export function createPopper(
+export function createAffixPopper(
   reference: Element | VirtualElement,
   popper: HTMLElement,
   options: Partial<OptionsGeneric<any>> = {}
 ): Instance {
   let state: Partial<Instance['state']> = {
     placement: 'bottom',
-    orderedModifiers: [],
+    orderedModifiers: mergeByName([...defaultModifiers, ...options.modifiers]),
     options: { ...DEFAULT_OPTIONS, ...options },
     modifiersData: {},
     elements: {
@@ -43,27 +34,15 @@ export function createPopper(
     styles: {},
   };
 
-  const effectCleanupFns = [];
   let isDestroyed = false;
 
   const instance = {
     state,
     setOptions(options: OptionsGeneric<any>) {
-      cleanupModifierEffects(effectCleanupFns);
-
       state.options = {
         ...state.options,
         ...options,
       };
-
-      state.scrollParents = {
-        reference: isElement(reference) ? listScrollParents(reference as Element) : [],
-        popper: listScrollParents(popper),
-      };
-
-      const orderedModifiers = mergeByName([...defaultModifiers, ...state.options.modifiers]);
-      state.orderedModifiers = orderedModifiers.filter((m) => m.enabled);
-      runModifierEffects(state as State, instance as Instance, effectCleanupFns);
 
       return instance.update();
     },
@@ -90,12 +69,6 @@ export function createPopper(
         reference: getCompositeRect(reference, getOffsetParent(popper), options.strategy),
         popper: getLayoutRect(popper),
       };
-      // Modifiers have the ability to reset the current update cycle. The
-      // most common use case for this is the `flip` modifier changing the
-      // placement, which then needs to re-run all the modifiers, because the
-      // logic was previously ran for the previous placement and is therefore
-      // stale/incorrect
-      state.reset = false;
 
       state.placement = state.options.placement;
 
@@ -137,16 +110,9 @@ export function createPopper(
     ),
 
     destroy() {
-      cleanupModifierEffects(effectCleanupFns);
       isDestroyed = true;
     },
   };
-
-  instance.setOptions(options as OptionsGeneric<any>).then((state) => {
-    if (!isDestroyed && options.onFirstUpdate) {
-      options.onFirstUpdate(state);
-    }
-  });
 
   return instance as Instance;
 }

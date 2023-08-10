@@ -11,10 +11,12 @@ interface IGetCalcTopProps {
  */
 export const getCalcTop = ({ scrollContainer, wrapToTop }: IGetCalcTopProps) => {
   let containerToTop = 0;
+  let scrollContainerTop = 0;
   if (scrollContainer instanceof HTMLElement) {
     containerToTop = scrollContainer.getBoundingClientRect().top;
+    scrollContainerTop = scrollContainer.getBoundingClientRect().top;
   }
   const calcTop = wrapToTop - containerToTop;
 
-  return { calcTop, containerToTop };
+  return { calcTop, containerToTop, scrollContainerTop };
 };

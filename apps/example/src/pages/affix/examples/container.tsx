@@ -35,7 +35,9 @@ function App() {
         overflowY: 'auto',
         overscrollBehavior: 'none',
       }}
-      ref={setContainer}
+      ref={(ref)=>{
+        setContainer(ref)
+      }}
     >
       <div style={backgroundStyle}>
         <Affix
@@ -44,6 +46,7 @@ function App() {
           zIndex={5}
           onFixedChange={handleFixedChange}
           ref={affixRef}
+          isInScrollContainer
         >
           <Button>affixed: {\`\${affixed}\`}</Button>
         </Affix>

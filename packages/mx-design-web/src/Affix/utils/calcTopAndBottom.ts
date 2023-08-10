@@ -17,7 +17,7 @@ interface ICalcTopAndBottomProps {
  */
 export const calcTopAndBottom = ({ affixWrap, scrollContainer, offsetBottom }: ICalcTopAndBottomProps) => {
   const { top: wrapToTop = 0, height: wrapHeight = 0, width: wrapWidth } = affixWrap.getBoundingClientRect() ?? { top: 0 };
-  const { calcTop, containerToTop } = getCalcTop({ scrollContainer, wrapToTop });
+  const { calcTop, containerToTop, scrollContainerTop } = getCalcTop({ scrollContainer, wrapToTop });
   const { calcBottom } = getCalcBottom({ scrollContainer, offsetBottom, wrapHeight, containerToTop });
-  return { calcTop, containerToTop, calcBottom, wrapToTop, wrapWidth, wrapHeight };
+  return { calcTop, containerToTop, calcBottom, wrapToTop, wrapWidth, wrapHeight, scrollContainerTop };
 };

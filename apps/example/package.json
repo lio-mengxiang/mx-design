@@ -6,7 +6,7 @@
     "clean": "rimraf ./node_modules",
     "start": "vite",
     "start:webpack": "cross-env NODE_ENV=development mx dev",
-    "build": "rm -rf ./dist && cross-env NODE_ENV=production mx buildSite"
+    "build:site": "rm -rf ./dist && cross-env NODE_ENV=production mx buildSite"
   },
   "dependencies": {
     "@mx-design/web-utils": "0.1.3",

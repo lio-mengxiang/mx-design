@@ -12,9 +12,17 @@ function AffixNc(baseProps: AffixProps, ref) {
   const { getPrefixCls, componentConfig } = useContext(ConfigContext);
   // props
   const props = useMergeProps<AffixProps>(baseProps, defaultProps, componentConfig?.Affix);
-  const { children, zIndex, container, offsetBottom, offsetTop, className, style, onFixedChange } = props;
+  const { children, zIndex, container, offsetBottom, offsetTop, className, style, onFixedChange, isInScrollContainer } = props;
   // data store
-  const { handleScroll, affixWrapRef, affixRef } = useStore({ getPrefixCls, zIndex, container, offsetBottom, offsetTop, onFixedChange });
+  const { handleScroll, affixWrapRef, affixRef } = useStore({
+    getPrefixCls,
+    zIndex,
+    container,
+    offsetBottom,
+    offsetTop,
+    onFixedChange,
+    isInScrollContainer,
+  });
 
   // export handleScroll
   useImperativeHandle<any, AffixRef>(ref, () => ({

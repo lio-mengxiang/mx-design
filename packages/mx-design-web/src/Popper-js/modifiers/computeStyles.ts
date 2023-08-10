@@ -3,7 +3,7 @@ import { getBasePlacement, getDocumentElement, getOffsetParent, getVariation } f
 // type
 import type { PositioningStrategy, Offsets, Modifier, ModifierArguments, Rect, BasePlacement, Variation } from '../interface';
 
-const unsetSides = {
+export const unsetSides = {
   top: 'auto',
   right: 'auto',
   bottom: 'auto',
@@ -13,7 +13,7 @@ const unsetSides = {
 // Round the offsets to the nearest suitable subpixel based on the DPR.
 // Zooming can change the DPR, but it seems to report a value that will
 // cleanly divide the values into the appropriate subpixels.
-function roundOffsetsByDPR({ x, y }, win: Window): Offsets {
+export function roundOffsetsByDPR({ x, y }, win: Window): Offsets {
   const dpr = win.devicePixelRatio || 1;
 
   return {
