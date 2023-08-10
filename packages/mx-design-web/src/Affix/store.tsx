@@ -1,12 +1,19 @@
 import { useEffect, useCallback, useRef } from 'react';
 import { debounceByRaf } from '@mx-design/hooks';
 import { isFunction, isWindow } from '@mx-design/web-utils';
-import { getScrollContainer, calcTopAndBottom, fixedDom, getFixedTop, fixedPlaceholder } from './utils';
-import { getNodeName } from '../Popper-js/utils/getNodeName';
+import {
+  getScrollContainer,
+  calcTopAndBottom,
+  fixedDom,
+  getFixedTop,
+  fixedPlaceholder,
+  isNeedListParent,
+  addScrollEvent,
+  removeScrollEvent,
+} from './utils';
 // type
 import type { ScrollContainerElement } from './utils';
 import { isHTMLElement } from '../Popper-js/utils/isHTMLElement';
-import { listScrollParents } from '../Popper-js/utils';
 
 export function useStore(props) {
   // data
@@ -86,34 +93,15 @@ export function useStore(props) {
   useEffect(() => {
     scrollContainer.current = getScrollContainer(container);
     let scrollParentsList = [];
-    const needListParent =
-      isInScrollContainer &&
-      isHTMLElement(scrollContainer.current) &&
-      ['html', 'body', '#document'].indexOf(getNodeName(scrollContainer.current)) <= 0;
+    const needListParent = isNeedListParent({ isInScrollContainer, scrollContainer });
 
     if (isWindow(scrollContainer.current) || isHTMLElement(scrollContainer.current)) {
       handleScroll();
       scrollContainer.current.addEventListener('scroll', handleScroll);
-      if (needListParent) {
-        scrollParentsList = listScrollParents(scrollContainer.current as HTMLElement);
-        scrollParentsList.forEach((element) => {
-          element.addEventListener('scroll', handleScroll);
-        });
-      } else {
-        scrollContainer.current.addEventListener('scroll', handleScroll);
-      }
+      scrollParentsList = addScrollEvent({ needListParent, scrollContainer, handleScroll });
       window.addEventListener('resize', handleScroll);
-
       return () => {
-        if (needListParent) {
-          scrollParentsList = listScrollParents(scrollContainer.current as HTMLElement);
-          scrollParentsList.forEach((element) => {
-            element.removeEventListener('scroll', handleScroll);
-          });
-        } else {
-          scrollContainer.current!.removeEventListener('scroll', handleScroll);
-        }
-
+        removeScrollEvent({ scrollParentsList, needListParent, scrollContainer, handleScroll });
         window.removeEventListener('resize', handleScroll);
       };
     }

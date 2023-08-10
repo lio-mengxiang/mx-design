@@ -3,4 +3,7 @@ export * from './fixedDom';
 export * from './getScrollContainer';
 export * from './getFixedTop';
 export * from './fixedPlaceholder';
+export * from './isNeedListParent';
 export * from './fixedDom';
+export * from './addScrollEvent';
+export * from './removeScrollEvent';

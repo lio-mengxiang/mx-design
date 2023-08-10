@@ -87,7 +87,7 @@ export function createPopper(
       }
 
       state.rects = {
-        reference: getCompositeRect(reference, getOffsetParent(popper), options.strategy),
+        reference: getCompositeRect(reference, getOffsetParent(popper)),
         popper: getLayoutRect(popper),
       };
       // Modifiers have the ability to reset the current update cycle. The
