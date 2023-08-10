@@ -13,6 +13,7 @@
   overflow: hidden;
   box-sizing: border-box;
   pointer-events: auto;
+  align-items: center;
 
 
   &-icon {
@@ -69,12 +70,13 @@
   &-left {
     padding-right: 8px;
     display: flex;
-    align-items: center;
-    height: 24px;
+    align-self: start;
   }
 
   &-right {
     flex: 1;
+    display: flex;
+    flex-direction: column;
     word-break: break-word;
   }
 
@@ -86,7 +88,7 @@
     font-size: var(--alert-font-size-title);
     font-weight: 500;
     margin-bottom: var(--alert-title-margin-bottom);
-    line-height: 1.4;
+    line-height: 17px;
   }
 
   &-info &-title {
@@ -95,7 +97,7 @@
 
   &-content {
     font-size: var(--alert-font-size-content);
-    line-height: 1.68;
+    line-height: 1;
   }
 
   &-operation-wrapper {

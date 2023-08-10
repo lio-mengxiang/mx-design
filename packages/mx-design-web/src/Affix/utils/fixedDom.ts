@@ -1,8 +1,5 @@
-import { getOffsetParent } from '../../Popper-js/utils';
-import { getNodeName } from '../../Popper-js/utils/getNodeName';
-import { getParentNode } from '../../Popper-js/utils/getParentNode';
-import { isContainingBlock } from '../../Popper-js/utils/isContainingBlock';
 import { isHTMLElement } from '../../Popper-js/utils/isHTMLElement';
+import { getContainingBlock } from './getContainingBlock';
 
 interface IFixedDomProps {
   affixDom: HTMLDivElement;
@@ -20,7 +17,8 @@ interface IFixedDomProps {
 export const fixedDom = ({ affixDom, prefixCls, fixedTop, wrapWidth, wrapHeight, zIndex }: IFixedDomProps) => {
   affixDom.className = prefixCls;
   const offsetParent = getContainingBlock(affixDom);
-  affixDom.style.top = `${isHTMLElement(offsetParent) ? (fixedTop as number) - offsetParent.getBoundingClientRect().top : fixedTop}px`;
+  const top = (isHTMLElement(offsetParent) ? offsetParent.getBoundingClientRect().top : 0) + (fixedTop as number);
+  affixDom.style.top = `${top}px`;
   affixDom.style.width = `${wrapWidth}px`;
   affixDom.style.height = `${wrapHeight}px`;
 
@@ -28,12 +26,3 @@ export const fixedDom = ({ affixDom, prefixCls, fixedTop, wrapWidth, wrapHeight,
     affixDom.style.zIndex = `${zIndex}`;
   }
 };
-
-export function getContainingBlock(element: Element) {
-  let currentNode: any = element.parentElement;
-  while (currentNode) {
-    if (isContainingBlock(currentNode)) return currentNode;
-    currentNode = currentNode.parentElement;
-  }
-  return null;
-}

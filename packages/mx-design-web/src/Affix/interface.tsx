@@ -33,6 +33,11 @@ export interface AffixProps {
    * @en Triggered when the fixed state changes
    */
   onFixedChange?: (affixed: boolean, context: { top: number }) => void;
+  /**
+   * @zh 如果固钉元素container，也就是指定滚动的容器不是window,并且希望滚动的时候不超出滚动容器，请设置这个参数为true
+   * @en et this parameter to true if the pinned container element specifies a scroll container other than window and you want to scroll within the scroll container
+   */
+  isInScrollContainer?: boolean;
   className?: string;
   style?: CSSProperties;
   children?: ReactNode;
