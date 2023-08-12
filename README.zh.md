@@ -1,5 +1,6 @@
 <div align="center" style="margin-bottom: 24px">
-    <img alt="Mx Design Logo" width="300" src="./assets/logo.png"/>
+    <img alt="Mx Design Logo" width="300" src="./assets/logo.png#gh-light-mode-only"/>
+    <img alt="Mx Design Logo" width="300" src="./assets/logo.dark.png#gh-light-mode-only#gh-dark-mode-only"/>
 </div>
 
 <div align="center">
