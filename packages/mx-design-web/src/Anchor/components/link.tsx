@@ -1,11 +1,11 @@
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
 import { isString } from '@mx-design/web-utils';
 import { useMergeRefs } from '@mx-design/hooks';
-import AnchorContext from './context';
-import { AnchorLinkProps } from './interface';
-import { ConfigContext } from '../ConfigProvider';
-import { isNotNullUndefined } from './utils';
-import { useLinkClassNames } from './hooks';
+import AnchorContext from '../context';
+import { AnchorLinkProps } from '../interface';
+import { ConfigContext } from '../../ConfigProvider';
+import { isNotNullUndefined } from '../utils';
+import { useLinkClassNames } from '../hooks';
 
 function Link(baseProps: AnchorLinkProps, ref) {
   // context
@@ -53,4 +53,4 @@ const AnchorLinkComponent = forwardRef<HTMLDivElement, AnchorLinkProps>(Link);
 
 AnchorLinkComponent.displayName = 'AnchorLink';
 
-export default AnchorLinkComponent;
+export { AnchorLinkComponent as Link };

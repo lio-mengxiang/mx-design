@@ -1,15 +1,15 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import React, { forwardRef, ReactNode, useContext, useEffect, useRef } from 'react';
 import FocusLock from 'react-focus-lock';
 import { useMergeProps } from '@mx-design/hooks';
 import { cs } from '@mx-design/web-utils';
-import { ConfigContext } from '../ConfigProvider';
-import { maskAnimation, modalAnimation } from './constants';
-import { useGetIcon, useOverflowHidden } from './hooks';
+import { ConfigContext } from '../../ConfigProvider';
+import { duration1, duration2, maskAnimation, modalAnimation } from '../constants';
+import { useGetIcon, useModalClassNames, useOverflowHidden, useStyles } from '../hooks';
 import ModalCard from './modalCard';
-import { Portal } from '../Portal';
+import { Portal } from '../../Portal';
 // type
-import type { ModalProps } from './interface';
+import type { ModalProps } from '../interface';
 import type { IModalRef } from './modalProvider';
 
 type IModalProps = ModalProps & IModalRef['remove'];
@@ -18,10 +18,8 @@ const defaultProps: Partial<IModalProps> = {
   mask: true,
   withoutLine: false,
   maskClosable: true,
-  footer: true,
   footerAlign: 'right',
   focusLock: true,
-  autoFocus: false,
   closable: true,
   getMountContainer: () => document.body,
 };
@@ -51,14 +49,22 @@ export function Modal(baseProps: ModalProps, ref) {
     footer,
     footerAlign,
     focusLock,
-    autoFocus,
     getMountContainer,
     onCancel,
     onOk,
     afterClose,
     afterOpen,
     content,
+    className,
+    style,
+    themeStyle,
   } = props;
+
+  // style
+  const { wrapperStyle } = useStyles({ style, themeStyle });
+
+  // classname
+  const { maskCls, wrapperCls } = useModalClassNames({ getPrefixCls, maskStyle, className });
 
   const prefixCls = getPrefixCls('modal');
   const modalWrapperRef = useRef<HTMLDivElement>(null);
@@ -76,14 +82,16 @@ export function Modal(baseProps: ModalProps, ref) {
       }, 100);
     }
   };
-  const onEscExit = (event: React.KeyboardEvent) => {
-    if (visible && event.key === 'Escape') {
-      event.stopPropagation();
+
+  const onEscExit = (e: React.KeyboardEvent) => {
+    if (visible && e.key === 'Escape') {
+      e.stopPropagation();
       onCancel();
     }
   };
 
   useEffect(() => {
+    console.log('modalWrapperRef: ', modalWrapperRef);
     modalWrapperRef.current?.focus();
   }, [visible]);
 
@@ -118,16 +126,17 @@ export function Modal(baseProps: ModalProps, ref) {
           <>
             {mask ? (
               <motion.div
-                className={cs(`${prefixCls}-mask`, maskStyle)}
+                className={maskCls}
                 variants={maskAnimation}
                 animate="animate"
                 exit="exit"
                 initial="initial"
-                transition={{ duration: 0.1 }}
+                transition={duration1}
               />
             ) : null}
             <div
-              className={cs(`${prefixCls}-container`)}
+              className={wrapperCls}
+              style={wrapperStyle}
               ref={modalWrapperRef}
               onClick={onClickMask}
               onKeyDown={onEscExit}
@@ -142,11 +151,11 @@ export function Modal(baseProps: ModalProps, ref) {
                 ref={ref}
                 role="dialog"
                 variants={modalAnimation}
+                className={prefixCls}
                 animate="animate"
-                transition={{ duration: 0.2 }}
+                transition={duration2}
                 exit="exit"
                 initial="initial"
-                className={cs(`${prefixCls}`)}
                 onAnimationComplete={(definition) => {
                   if (definition === 'animate') {
                     afterOpen?.();

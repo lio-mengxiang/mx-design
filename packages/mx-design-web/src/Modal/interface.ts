@@ -22,14 +22,16 @@ export interface ModalProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'
   cancelText?: string;
   okButtonProps?: ButtonProps;
   cancelButtonProps?: ButtonProps;
-  footer?: boolean;
+  footer?: ReactNode;
   footerAlign?: ModalAlignType;
   focusLock?: boolean;
-  autoFocus?: boolean;
   onCancel?: () => void;
   onOk?: (e?: MouseEvent) => Promise<any> | void;
   afterOpen?: () => void;
   afterClose?: () => void;
+  style?: CSSProperties;
+  className?: string;
+  themeStyle?: Record<string, any>;
   content: ReactNode;
   /**
    * @zh 指定弹出框挂载的父节点

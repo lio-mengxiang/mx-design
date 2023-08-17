@@ -110,7 +110,7 @@ export const darkTheme = {
   '--text-color-link': 'var(--brand-color-8)',
 
   // divide color
-  '--border-level-1-color': 'var(--gray-color-11)',
+  '--border-level-1-color': 'var(--gray-color-10)',
   // border color
   '--border-level-2-color': 'var(--gray-color-9)',
   // shadow color

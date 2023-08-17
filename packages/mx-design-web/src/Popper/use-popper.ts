@@ -21,7 +21,7 @@ export const usePopper = (referenceElement?: Element | VirtualElement, popperEle
   const optionsWithDefaults = {
     onFirstUpdate: options.onFirstUpdate,
     placement: options.placement || 'bottom',
-    strategy: 'absolute',
+    strategy: options.strategy || 'absolute',
     modifiers: options.modifiers || EMPTY_MODIFIERS,
   };
 

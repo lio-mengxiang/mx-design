@@ -13,6 +13,7 @@ const defaultProps = {
   position: TOP as IPosition,
   duration: 3000,
   showIcon: true,
+  closable: true,
   type: 'info',
 };
 

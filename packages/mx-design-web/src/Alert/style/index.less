@@ -68,7 +68,7 @@
   }
 
   &-left {
-    padding-right: 8px;
+    padding-right: var(--alert-icon-padding-right);
     display: flex;
     align-self: start;
   }
@@ -81,14 +81,14 @@
   }
 
   &-right_padding {
-    padding-right: 20px;
+    padding-right: var(--alert-right-padding);
   }
 
   &-title {
     font-size: var(--alert-font-size-title);
     font-weight: 500;
     margin-bottom: var(--alert-title-margin-bottom);
-    line-height: 17px;
+    line-height: 18px;
   }
 
   &-info &-title {
@@ -105,10 +105,9 @@
   }
 
   & &-close-btn {
-    position: absolute;
+    height: 18px;
     cursor: pointer;
-    top: 16px;
-    right: 16px;
+    align-self: start;
     font-size: 12px;
 
     >svg {

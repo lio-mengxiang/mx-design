@@ -1,6 +1,6 @@
 import React from 'react';
 // types
-import type { CSSProperties } from 'react';
+import type { CSSProperties, ReactElement } from 'react';
 import type { MenuItemProps } from '../Menu/HorizontalMenu/interface';
 import type { PopupProps, PopupVisibleChangeContext } from '../Popup';
 
@@ -40,7 +40,7 @@ export interface DropdownProps {
   /**
    * 透传  Popup 组件属性，方便更加自由地控制。比如使用 popupProps.overlayStyle 设置浮层样式
    */
-  popupProps?: Omit<PopupProps, 'children' | 'content' | 'popperOptions'>;
+  popupProps?: Omit<PopupProps, 'children' | 'content' | 'visible' | 'isCloseClickAway'>;
   /**
    * 触发下拉显示的方式
    * @default hover
@@ -54,6 +54,10 @@ export interface DropdownProps {
    * 控制下拉框是否默认打开
    */
   defaultPopupVisible?: boolean;
+  /**
+   * 自定义下拉菜单元素
+   */
+  customElement?: ReactElement;
   /**
    * 控制下拉框是否默认打开(受控模式)
    */

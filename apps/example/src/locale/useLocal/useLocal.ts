@@ -10,7 +10,7 @@ type localeProps<T> = {
   namespace: T;
 };
 
-export function useLocale<T extends keyof Ilocal['zn_ch']>({ namespace }: localeProps<T>) {
+export function useLocale<T extends keyof Ilocal['zh_cn']>({ namespace }: localeProps<T>) {
   const { lang } = useContext(ConfigContext);
   if (!LANG_LIST.includes(lang)) {
     console.error('There is an error in the passed language property');

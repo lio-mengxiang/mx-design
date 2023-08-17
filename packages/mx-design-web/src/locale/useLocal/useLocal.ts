@@ -7,7 +7,7 @@ type localeProps<T> = {
   namespace: T;
 };
 
-export function useLocale<T extends keyof Ilocal['zn_ch']>({ namespace }: localeProps<T>) {
+export function useLocale<T extends keyof Ilocal['zh_cn']>({ namespace }: localeProps<T>) {
   const { lang } = useContext(ConfigContext);
 
   const getLocalConfig = mx_local[lang];

@@ -15,7 +15,7 @@
   &__content {
     position: relative;
     background: var(--popup-wrapper-color);
-    box-shadow: var(--popup-box-shadow);
+    border: 1px solid var(--border-level-1-color);
     border-radius: var(--popup-border-radius);
     padding: var(--popup-padding);
     font-size: 14px;
@@ -28,18 +28,17 @@
 .@{popup-prefix-cls}__arrow {
   position: absolute;
   z-index: 1;
-  background: inherit;
+  background-color: inherit;
 
   &::before {
     position: absolute;
-    content: "";
+    content: '';
     width: var(--popup-arrow-width);
     height: var(--popup-arrow-width);
     transform: rotate(45deg);
-    background: inherit;
+    background-color: inherit;
   }
 }
-
 
 .content-placement-top();
 .content-placement-bottom();

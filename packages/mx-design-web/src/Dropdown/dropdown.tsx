@@ -33,6 +33,7 @@ function Dropdown(baseProps: DropdownProps) {
     popupVisible,
     maxHeight,
     maxWidth,
+    customElement,
   } = props;
 
   // classnames
@@ -50,6 +51,12 @@ function Dropdown(baseProps: DropdownProps) {
   });
 
   const renderPopup = () => {
+    if (customElement) {
+      return React.cloneElement(customElement, {
+        ...(typeof disabled === 'boolean' ? { disabled, visible: isPopupVisible } : { visible: isPopupVisible }),
+        onClickMenuItem: handleMenuClick,
+      });
+    }
     if (!Array.isArray(droplist) || droplist.length === 0) return null;
     return (
       <HorizontalMenu
@@ -76,11 +83,11 @@ function Dropdown(baseProps: DropdownProps) {
       overlayInnerClassName={cs(dropdownClass, className, popupProps?.overlayInnerClassName)}
       overlayInnerStyle={{ ...style, maxHeight, maxWidth }}
       onVisibleChange={changePopupVisible}
-      {...omit(popupProps, ['children', 'content', 'popperOptions', 'onVisibleChange', 'visible', 'isCloseClickAway'])}
+      {...omit(popupProps, ['children', 'content', 'visible', 'isCloseClickAway'])}
     >
       {React.isValidElement(arrayChildren?.[0])
         ? React.cloneElement(arrayChildren?.[0] as ReactElement, {
-            ...(typeof disabled === 'boolean' ? { disabled, visible: popupVisible } : { visible: popupVisible }),
+            ...(typeof disabled === 'boolean' ? { disabled, visible: isPopupVisible } : { visible: isPopupVisible }),
           })
         : arrayChildren?.[0]}
     </Popup>

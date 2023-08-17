@@ -1,6 +1,6 @@
 import React from 'react';
 import { baseAnchorLinkProps } from '../interface';
-import Link from '../link';
+import { Link } from '../components';
 
 export function createNestedLink(items?: baseAnchorLinkProps[]) {
   return Array.isArray(items)

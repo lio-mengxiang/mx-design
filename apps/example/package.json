@@ -23,7 +23,8 @@
     "babel-plugin-transform-remove-imports": "1.7.0",
     "framer-motion": "10.12.4",
     "@loadable/component": "^5.13.2",
-    "copy-to-clipboard": "3.3.3"
+    "copy-to-clipboard": "3.3.3",
+    "@uiw/react-markdown-preview": "4.1.15"
   },
   "pnpm": {
     "peerDependencyRules": {

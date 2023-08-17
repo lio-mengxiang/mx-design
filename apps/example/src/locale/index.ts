@@ -1,9 +1,9 @@
-import { EN_US, ZN_CH } from './constants';
+import { EN_US, ZH_CN } from './constants';
 import { en_us } from './lang/en_us';
-import { zn_ch } from './lang/zh_ch';
+import { zh_cn } from './lang/zh_ch';
 
 const local = {
-  [ZN_CH]: zn_ch,
+  [ZH_CN]: zh_cn,
   [EN_US]: en_us,
 } as const;
 

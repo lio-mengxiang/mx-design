@@ -48,6 +48,7 @@ import {
 } from '@/constants';
 import AppLayout from '@/components/Layout/AppLayout';
 import ComponentLayout from '@/components/Layout/ComponentLayout';
+import { componentsMenuList } from './constans';
 
 export const routerConfig = [
   {
@@ -60,7 +61,7 @@ export const routerConfig = [
     children: [
       {
         path: COMPONENTS_KEY,
-        element: <ComponentLayout />,
+        element: <ComponentLayout menuList={componentsMenuList} />,
         errorElement: <ErrorBoundary />,
         children: [
           { path: ALERT_KEY, element: <AlertExample /> },
@@ -83,38 +84,7 @@ export const routerConfig = [
           { path: '*', element: <Navigate to={BUTTON_KEY} replace /> },
         ],
       },
-      { path: `${COMPONENTS_KEY}/`, elemen2: <Navigate to={`${COMPONENTS_KEY}/${BUTTON_KEY}`} replace /> },
-    ],
-  },
-  {
-    path: '/docs',
-    element: <AppLayout />,
-    children: [
-      {
-        path: COMPONENTS_KEY,
-        element: <ComponentLayout />,
-        errorElement: <ErrorBoundary />,
-        children: [
-          { path: ALERT_KEY, element: <AlertExample /> },
-          { path: ICON_KEY, element: <IconExample /> },
-          { path: POPUP_KEY, element: <PopupExample /> },
-          { path: SPIN_KEY, element: <SpinExample /> },
-          { path: EMPTY_KEY, element: <EmptyExample /> },
-          { path: SPACE_KEY, element: <SpaceExample /> },
-          { path: BUTTON_KEY, element: <ButtonExample /> },
-          { path: NOTIFICATION_KEY, element: <NotificationExample /> },
-          { path: MESSAGE_KEY, element: <MessageExample /> },
-          { path: ANCHOR_KEY, element: <AnchorExample /> },
-          { path: AFFIX_KEY, element: <AffixExample /> },
-          { path: CHECKBOX_KEY, element: <CheckboxExample /> },
-          { path: RADIO_KEY, element: <RadioExample /> },
-          { path: TOOLTIP_KEY, element: <TooltipExample /> },
-          { path: GRID_LAYOUT_KEY, element: <GridLayoutExample /> },
-          { path: DROPDOWN_KEY, element: <DropDownExample /> },
-          { path: '*', element: <Navigate to={BUTTON_KEY} replace /> },
-        ],
-      },
-      { path: `${COMPONENTS_KEY}/`, elemen2: <Navigate to={`${COMPONENTS_KEY}/${BUTTON_KEY}`} replace /> },
+      { path: `${COMPONENTS_KEY}/`, element: <Navigate to={`${COMPONENTS_KEY}/${BUTTON_KEY}`} replace /> },
     ],
   },
   {

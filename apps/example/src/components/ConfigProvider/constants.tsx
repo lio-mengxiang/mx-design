@@ -1,3 +1,3 @@
-import { ZN_CH } from '../../locale/constants';
+import { ZH_CN } from '../../locale/constants';
 
-export const DEFAULT_LOCALE = ZN_CH;
+export const DEFAULT_LOCALE = ZH_CN;

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { ZN_CH, EN_US } from '../locale/constants';
+import { ZH_CN, EN_US } from '../locale/constants';
 import { SMALL_SIZE, MEDIUM_SIZE, LARGE_SIZE } from './constants';
 import type { EmptyProps } from '../Empty';
 import type { IconProps } from '../Icon';
@@ -20,7 +20,8 @@ import type { GridLayoutProps } from '../GridLayout/interface';
 import type { MessageProps, IMessageRef } from '../Message';
 import type { INotificationRef } from '../Notification/NotificationProvider';
 import type { ModalProps } from '../Modal/interface';
-import { IModalRef } from '../Modal/modalProvider';
+import type { IModalRef } from '../Modal';
+
 // import type { TableProps } from '../Table/interface';
 
 export interface ComponentConfig {
@@ -58,9 +59,9 @@ export interface ConfigProviderProps {
   /**
    * @zh 当前语言
    * @en Current language
-   * @defaultValue zn_ch
+   * @defaultValue zh_cn
    */
-  lang?: typeof ZN_CH | typeof EN_US;
+  lang?: typeof ZH_CN | typeof EN_US;
   /**
    * @zh 配置组件的默认尺寸，只会对支持`size`属性的组件生效。
    * @en Configure the default size of the component, which will only take effect for components that support the `size` property.

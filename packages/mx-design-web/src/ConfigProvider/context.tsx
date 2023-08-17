@@ -5,7 +5,7 @@ import { lightTheme } from '../Style/lightTheme';
 // type
 import type { INotificationRef } from '../Notification/NotificationProvider';
 import type { IMessageRef } from '../Message';
-import type { IModalRef } from '../Modal/modalProvider';
+import type { IModalRef } from '../Modal';
 import type { ConfigProviderProps } from './interface';
 
 const _notificationRef = React.createRef<INotificationRef>();

@@ -29,6 +29,7 @@ export function mapToStyles({
   variation,
   offsets,
   position,
+  isFixed,
 }: {
   popper: HTMLElement;
   popperRect: Rect;
@@ -36,6 +37,7 @@ export function mapToStyles({
   variation?: Variation;
   offsets: Partial<{ x: number; y: number; centerOffset: number }>;
   position: PositioningStrategy;
+  isFixed: boolean;
 }) {
   let { x = 0, y = 0 } = offsets;
 
@@ -44,41 +46,41 @@ export function mapToStyles({
   // eslint-disable-next-line no-prototype-builtins
   const hasY = offsets.hasOwnProperty('y');
 
-  let sideX: string = left;
-  let sideY: string = top;
+  const sideX: string = left;
+  const sideY: string = top;
 
   const win: Window = window;
 
-  let offsetParent = getOffsetParent(popper);
-  let heightProp = 'clientHeight';
-  let widthProp = 'clientWidth';
+  // let offsetParent = getOffsetParent(popper);
+  // let heightProp = 'clientHeight';
+  // let widthProp = 'clientWidth';
 
-  if (offsetParent === window) {
-    offsetParent = getDocumentElement(popper);
+  // if (offsetParent === window) {
+  //   offsetParent = getDocumentElement(popper);
 
-    if (getComputedStyle(offsetParent).position !== 'static' && position === 'absolute') {
-      heightProp = 'scrollHeight';
-      widthProp = 'scrollWidth';
-    }
-  }
+  //   if (getComputedStyle(offsetParent).position !== 'static' && position === 'absolute') {
+  //     heightProp = 'scrollHeight';
+  //     widthProp = 'scrollWidth';
+  //   }
+  // }
 
-  if (placement === top || ((placement === left || placement === right) && variation === end)) {
-    // Positioning reference change
-    sideY = bottom;
-    const offsetY = offsetParent[heightProp];
-    y -= offsetY - popperRect.height;
-  }
+  // if (placement === top || ((placement === left || placement === right) && variation === end)) {
+  //   // Positioning reference change
+  //   sideY = bottom;
+  //   const offsetY = offsetParent[heightProp];
+  //   y -= offsetY - popperRect.height;
+  // }
 
-  if (placement === left || ((placement === top || placement === bottom) && variation === end)) {
-    // Positioning reference change
-    sideX = right;
-    const offsetX = offsetParent[widthProp];
-    x -= offsetX - popperRect.width;
-  }
+  // if (placement === left || ((placement === top || placement === bottom) && variation === end)) {
+  //   // Positioning reference change
+  //   sideX = right;
+  //   const offsetX = offsetParent[widthProp];
+  //   x -= offsetX - popperRect.width;
+  // }
 
   const commonStyles = {
     position,
-    ...unsetSides,
+    // ...unsetSides,
   };
 
   ({ x, y } = roundOffsetsByDPR({ x, y }, window));
@@ -100,6 +102,7 @@ function computeStyles({ state }: ModifierArguments<any>) {
     variation: getVariation(state.placement),
     popper: state.elements.popper,
     popperRect: state.rects.popper,
+    isFixed: state.options.strategy === 'fixed',
   };
 
   if (state.modifiersData.popperOffsets != null) {

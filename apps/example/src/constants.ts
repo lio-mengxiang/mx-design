@@ -9,6 +9,7 @@ export const SPIN_KEY = 'spin';
 export const EMPTY_KEY = 'empty';
 export const DATA_SHOW_KEY = 'data-show';
 export const COMPONENTS_KEY = 'components';
+// export const DOCS_KEY = 'docs';
 export const AFFIX_KEY = 'affix';
 export const NAVIGATE_KEY = 'navigate';
 export const LAYOUT_TITLE_KEY = 'layout-title';

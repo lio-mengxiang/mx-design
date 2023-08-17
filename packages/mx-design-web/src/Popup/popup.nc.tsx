@@ -1,15 +1,15 @@
-import React, { forwardRef, useState, useRef, useMemo, useEffect, useImperativeHandle, useContext, PropsWithChildren } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { useMergeValue, useMutationObservable, useMergeProps } from '@mx-design/hooks';
+import React, { forwardRef, useState, useRef, useMemo, useEffect, useImperativeHandle, useContext } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import { useMergeValue, useMergeProps } from '@mx-design/hooks';
 import { debounce } from '@mx-design/web-utils';
 import { usePopper } from '../Popper/use-popper';
-import { PopupRef, PopupProps, PopupVisibleChangeContext } from './interface';
 import { Portal } from '../Portal';
-import { applyPopupSlide, getRefDom } from './utils';
+import { getRefDom } from './utils';
 import { ConfigContext } from '../ConfigProvider';
-import { useClassNames, useTrigger } from './hooks';
-import { passive } from './constants';
+import { useClassNames, useTrigger, useResizeObserver } from './hooks';
 import { PopupCard } from './popupCard';
+// type
+import type { PopupRef, PopupProps, PopupVisibleChangeContext } from './interface';
 
 const defaultProps = {
   attach: 'body',
@@ -19,7 +19,7 @@ const defaultProps = {
   isCloseClickAway: false,
 } as const;
 
-// hover->setVisibleChange->onVisibleChange->setPopupElement->
+// hover->setVisibleChange->onVisibleChange->setPopupElement
 const Popup = forwardRef((baseProps: PopupProps, ref: React.RefObject<PopupRef>) => {
   const { getPrefixCls, componentConfig } = useContext(ConfigContext);
   const props = useMergeProps<PopupProps>(baseProps, defaultProps, componentConfig?.Popup);
@@ -99,9 +99,19 @@ const Popup = forwardRef((baseProps: PopupProps, ref: React.RefObject<PopupRef>)
   const updateTimeRef = useRef(null);
 
   // 监听 trigger 节点或内容变化动态更新 popup 定位
-  useMutationObservable(getRefDom(triggerRef), () => {
+  useResizeObserver(getRefDom(triggerRef), () => {
     clearTimeout(updateTimeRef.current);
-    updateTimeRef.current = setTimeout(() => popperRef.current?.update?.(), 0);
+    updateTimeRef.current = setTimeout(() => {
+      popperRef.current?.update?.();
+    }, 0);
+  });
+
+  // 监听 popupRef 节点或内容变化动
+  useResizeObserver(popupRef?.current, () => {
+    clearTimeout(updateTimeRef.current);
+    updateTimeRef.current = setTimeout(() => {
+      popperRef.current?.update?.();
+    }, 0);
   });
 
   useEffect(() => () => clearTimeout(updateTimeRef.current), []);
@@ -129,33 +139,31 @@ const Popup = forwardRef((baseProps: PopupProps, ref: React.RefObject<PopupRef>)
   }
 
   const overlay = showOverlay && visible && (
-    <AnimatePresence>
-      <Portal attach={attach} ref={portalRef}>
-        <PopupCard
-          visible={visible}
-          popupRef={popupRef}
-          setPopupElement={setPopupElement}
-          styles={styles}
-          zIndex={zIndex}
-          getOverlayStyle={getOverlayStyle}
-          overlayStyle={overlayStyle}
-          themeStyle={themeStyle}
-          popupRefCls={popupRefCls}
-          attributes={attributes}
-          getPopupProps={getPopupProps}
-          placement={placement}
-          contentRefCls={contentRefCls}
-          contentRef={contentRef}
-          overlayInnerStyle={overlayInnerStyle}
-          content={content}
-          showArrow={showArrow}
-          arrowCls={arrowCls}
-          handleScroll={handleScroll}
-          state={state}
-          update={update}
-        />
-      </Portal>
-    </AnimatePresence>
+    <Portal attach={attach} ref={portalRef}>
+      <PopupCard
+        visible={visible}
+        popupRef={popupRef}
+        setPopupElement={setPopupElement}
+        styles={styles}
+        zIndex={zIndex}
+        getOverlayStyle={getOverlayStyle}
+        overlayStyle={overlayStyle}
+        themeStyle={themeStyle}
+        popupRefCls={popupRefCls}
+        attributes={attributes}
+        getPopupProps={getPopupProps}
+        placement={placement}
+        contentRefCls={contentRefCls}
+        contentRef={contentRef}
+        overlayInnerStyle={overlayInnerStyle}
+        content={content}
+        showArrow={showArrow}
+        arrowCls={arrowCls}
+        handleScroll={handleScroll}
+        state={state}
+        update={update}
+      />
+    </Portal>
   );
 
   useImperativeHandle(ref, () => ({
@@ -169,7 +177,7 @@ const Popup = forwardRef((baseProps: PopupProps, ref: React.RefObject<PopupRef>)
   return (
     <>
       {triggerNode}
-      {overlay}
+      <AnimatePresence>{overlay}</AnimatePresence>
     </>
   );
 });

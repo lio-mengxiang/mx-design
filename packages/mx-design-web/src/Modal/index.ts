@@ -1,4 +1,4 @@
-export { default as ModalProvider } from './modalProvider';
-export { default as useNcModal } from './useModal.nc';
-export { default as useModal } from './useModal';
+export * from './hooks/useModal';
+export * from './hooks/useModal.nc';
+export * from './components/modalProvider';
 export * from './interface';

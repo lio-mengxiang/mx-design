@@ -1,11 +1,10 @@
 import React, { ReactNode } from 'react';
 import { cs } from '@mx-design/web-utils';
-import { Button } from '../Button';
-import { IconClose } from '../Icon';
-import { useLocale } from '../locale/useLocal/useLocal';
-import { MODAL_NAMESPACE } from './constants';
+import { Footer } from './footer';
+import { IconClose } from '../../Icon';
 // type
-import type { ModalProps } from './interface';
+import type { ModalProps } from '../interface';
+import { useCardClassNames } from '../hooks';
 
 export interface ModalCardProps
   extends Pick<
@@ -56,17 +55,12 @@ export function ModalCard(props: ModalCardProps) {
     type,
   } = props;
 
-  const [locale] = useLocale({ namespace: MODAL_NAMESPACE });
+  const { cardContainerCls, iconCls, contentCls } = useCardClassNames({ prefixCls, withoutLine, closable, withoutPadding });
 
   return (
     <>
       {title && (
-        <div
-          className={cs(`${prefixCls}-title-container`, {
-            [`${prefixCls}-title-border`]: !withoutLine,
-            [`${prefixCls}-title-closable`]: closable,
-          })}
-        >
+        <div className={cardContainerCls}>
           <div className={`${prefixCls}-title`}>
             {normalIcon && <span className={cs(`${prefixCls}-title-icon`, `${prefixCls}-${type}-title-icon`)}>{normalIcon}</span>}
             <span className={`${prefixCls}-title-name`}>{title}</span>
@@ -74,7 +68,7 @@ export function ModalCard(props: ModalCardProps) {
           {closable && (
             <>
               {closeElement || (
-                <div className={`${prefixCls}-icon`} onClick={onCancel}>
+                <div className={iconCls} onClick={onCancel}>
                   <IconClose />
                 </div>
               )}
@@ -82,32 +76,20 @@ export function ModalCard(props: ModalCardProps) {
           )}
         </div>
       )}
-      <>
-        {content && (
-          <div
-            className={cs(`${prefixCls}-content`, {
-              [`${prefixCls}-content-no-padding`]: withoutPadding,
-              [`${prefixCls}-content-border`]: !withoutLine,
-            })}
-          >
-            {content}
-          </div>
-        )}
-      </>
-      {footer !== undefined ? (
-        footer
-      ) : (
-        <div className={cs(`${prefixCls}-footer`, `${prefixCls}-footer-align-${footerAlign}`)}>
-          {!hideCancel && (
-            <Button className={`${prefixCls}-btn`} onClick={onCancel} {...cancelButtonProps}>
-              {cancelText || locale.CANCEL_TEXT}
-            </Button>
-          )}
-          <Button loading={okLoading} onClick={onOk} {...okButtonProps}>
-            {okText || locale.OK_TEXT}
-          </Button>
-        </div>
-      )}
+      <>{content && <div className={contentCls}>{content}</div>}</>
+      <Footer
+        okLoading={okLoading}
+        hideCancel={hideCancel}
+        okButtonProps={okButtonProps}
+        cancelButtonProps={cancelButtonProps}
+        footer={footer}
+        footerAlign={footerAlign}
+        onCancel={onCancel}
+        onOk={onOk}
+        prefixCls={prefixCls}
+        okText={okText}
+        cancelText={cancelText}
+      />
     </>
   );
 }

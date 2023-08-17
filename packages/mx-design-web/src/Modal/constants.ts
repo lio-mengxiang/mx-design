@@ -1,5 +1,5 @@
 import { Variants } from 'framer-motion';
-import { EN_US, ZN_CH } from '../locale/constants';
+import { EN_US, ZH_CN } from '../locale/constants';
 
 export const modalAnimation: Variants = {
   initial: {
@@ -35,8 +35,11 @@ export const MODAL_LOCAL = {
     OK_TEXT: 'Ok',
     CANCEL_TEXT: 'Cancel',
   },
-  [ZN_CH]: {
+  [ZH_CN]: {
     OK_TEXT: '确定',
     CANCEL_TEXT: '取消',
   },
 };
+
+export const duration1 = { duration: 0.1 };
+export const duration2 = { duration: 0.2 };

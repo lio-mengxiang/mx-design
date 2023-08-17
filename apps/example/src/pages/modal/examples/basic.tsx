@@ -8,6 +8,8 @@ function App() {
   return (
     <Button
       onClick={() => {
+  console.log('Moda2l: ', Modal, Modal.add);
+
         const modalId = Modal.add({
           title: 'Modal Title',
           content: (

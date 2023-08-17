@@ -5,7 +5,7 @@ import Menu from '../Menu';
 // style
 import styles from './styles/index.module.less';
 
-function ComponentLayout() {
+function ComponentLayout({ menuList }) {
   const location = useLocation();
   useLayoutEffect(() => {
     document.documentElement.scrollTop = 0;
@@ -15,7 +15,7 @@ function ComponentLayout() {
   return (
     <AnimatePresence>
       <div className={styles['app-container']}>
-        <Menu />
+        <Menu menuList={menuList} />
         <Outlet />
       </div>
     </AnimatePresence>

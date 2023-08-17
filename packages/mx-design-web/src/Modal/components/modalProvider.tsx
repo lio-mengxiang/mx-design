@@ -1,9 +1,9 @@
-import React, { forwardRef, useImperativeHandle } from 'react';
-import { Modal } from './modal.nc';
-import useStore from './store';
+import React, { forwardRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { Modal } from './modal.nc';
+import useStore from '../store';
 // type
-import type { ModalProps } from './interface';
+import type { ModalProps } from '../interface';
 
 export interface IModalRef {
   add: (modalProps: ModalProps) => ModalProps['id'];
@@ -16,14 +16,14 @@ function ModalProvider(_, ref) {
   // state
   const { add, remove, modals, clearAll, update } = useStore();
 
-  if (!ref.current)
+  if (!ref.current) {
     ref.current = {
       add,
       remove,
       clearAll,
       update,
     };
-  console.log('modals: ', modals);
+  }
 
   return (
     <div>
@@ -40,4 +40,4 @@ const ModalProviderComponent = forwardRef(ModalProvider);
 
 ModalProviderComponent.displayName = 'ModalProvider';
 
-export default ModalProviderComponent;
+export { ModalProviderComponent as ModalProvider };

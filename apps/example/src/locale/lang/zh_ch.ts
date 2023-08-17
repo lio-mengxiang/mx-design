@@ -18,7 +18,7 @@ import { NAME_SPACE_TOOLTIP, zn_ch_tooltip } from '@/pages/tooltip/locale';
 import { NAME_SPACE_DROPDOWN, zn_ch_dropdown } from '@/pages/dropdown/locale';
 import { NAME_SPACE_MODAL, zn_ch_modal } from '@/pages/modal/locale';
 
-export const zn_ch = {
+export const zh_cn = {
   [NAME_SPACE_BUTTON]: zn_ch_button,
   [NAME_SPACE_POPUP]: zn_ch_popup,
   [NAME_SPACE_SITE_MENU]: zn_ch_site_menu,
