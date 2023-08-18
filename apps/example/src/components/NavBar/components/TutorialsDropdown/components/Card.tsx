@@ -10,10 +10,10 @@ export function Card({ Icon, title, text, onClick, onClickMenuItem }) {
         onClickMenuItem();
       }}
     >
-      <Icon className={styles.text} />
-      <div style={styles['content-conatiner']}>
-        <span>{title}</span>
-        <div style={styles.text}>{text}</div>
+      <Icon className={styles.icon} />
+      <div className={styles['content-conatiner']}>
+        <span className={styles.title}>{title}</span>
+        <div className={styles.text}>{text}</div>
       </div>
     </div>
   );
