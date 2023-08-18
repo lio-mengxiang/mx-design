@@ -1,7 +1,7 @@
 import { useMergeValue } from '@mx-design/hooks';
-import type { PopupVisibleChangeContext } from '../../Popup';
+import type { PopupVisibleChangeContext } from '../Popup';
 // type
-import type { DropdownProps } from '../interface';
+import type { DropdownProps } from './interface';
 
 interface StoreProps extends Pick<DropdownProps, 'hideAfterItemClick' | 'onClick' | 'defaultPopupVisible' | 'popupVisible'> {
   onVisibleChange: DropdownProps['popupProps']['onVisibleChange'];

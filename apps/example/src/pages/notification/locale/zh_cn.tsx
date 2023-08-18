@@ -1,7 +1,7 @@
 import React from 'react';
 import { Basic, Different, Update, Position, CustomBtn, CustomIcon, CustomStyle } from './constants';
 
-export const zn_ch_notification = {
+export const zh_cn_notification = {
   [Basic]: {
     title: '基本用法',
     desc: '最简单的例子',

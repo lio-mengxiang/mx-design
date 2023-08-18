@@ -1,7 +1,7 @@
 import React from 'react';
 import { All, Basic, Controlled, CustomContent, CustomIcon, Group } from './constants';
 
-export const zn_ch_checkbox = {
+export const zh_cn_checkbox = {
   [Basic]: {
     title: '基础多选框',
     desc: '基础的选中操作',

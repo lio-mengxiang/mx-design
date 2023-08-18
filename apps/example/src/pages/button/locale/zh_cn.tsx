@@ -1,7 +1,7 @@
 import React from 'react';
 import { Basic, Disabled, Group, Icon, Loading, Long, Status } from './constants';
 
-export const zn_ch_button = {
+export const zh_cn_button = {
   [Basic]: {
     title: '基本用法',
     desc: (

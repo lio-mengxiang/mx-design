@@ -1,7 +1,7 @@
 import React from 'react';
 import { Align, Basic, Size, Split, Vertical } from './constants';
 
-export const zn_ch_space = {
+export const zh_cn_space = {
   [Basic]: {
     title: '基本用法',
     desc: <>间距组件的基本用法</>,

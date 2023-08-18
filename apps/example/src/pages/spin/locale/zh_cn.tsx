@@ -1,7 +1,7 @@
 import React from 'react';
 import { Basic, Container, Custom, Delay, Size, Tip } from './constants';
 
-export const zn_ch_spin = {
+export const zh_cn_spin = {
   [Basic]: {
     title: '基本用法',
     desc: '一个简单的 loading 状态',

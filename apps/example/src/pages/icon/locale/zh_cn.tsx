@@ -1,7 +1,7 @@
 import React from 'react';
 import { Basic, Custom, Data, DirectionIndicator, Editable, IconFont, InteractiveButton, Loading, PromptSuggestion } from './constants';
 
-export const zn_ch_icon = {
+export const zh_cn_icon = {
   [Basic]: {
     title: '基础用法',
     desc: (

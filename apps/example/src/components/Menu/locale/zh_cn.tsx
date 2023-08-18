@@ -22,7 +22,7 @@ import {
   GRID_LAYOUT_KEY,
 } from '@/constants';
 
-export const zn_ch_site_menu = {
+export const zh_cn_site_menu = {
   [MESSAGE_TITLE_KEY]: '消息提醒',
   [MESSAGE_KEY]: '全局提醒 Message',
   [POPUP_KEY]: '弹出层 Popup',

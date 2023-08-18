@@ -1,7 +1,7 @@
 import React from 'react';
 import { Basic, Controlled, DifferentTrigger, Disabled, Dynamic, FloatingLayer, Mount, Position, TriggerMode } from './constants';
 
-export const zn_ch_popup = {
+export const zh_cn_popup = {
   [Basic]: {
     title: '基础弹出层',
     desc: (

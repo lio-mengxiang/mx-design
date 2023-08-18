@@ -1,1 +1,1 @@
-export * from './TutorialsDropdown';
+export * from './components';

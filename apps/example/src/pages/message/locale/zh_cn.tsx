@@ -1,7 +1,7 @@
 import React from 'react';
 import { Basic, Different, Custom, Update, Close, Position, ShowClose } from './constants';
 
-export const zn_ch_message = {
+export const zh_cn_message = {
   [Basic]: {
     title: '基本用法',
     desc: '最简单的例子',

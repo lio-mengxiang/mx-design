@@ -1,7 +1,7 @@
 import React from 'react';
 import { Basic, DifferentTrigger, FloatingLayer, Position } from './constants';
 
-export const zn_ch_tooltip = {
+export const zh_cn_tooltip = {
   [Basic]: {
     title: '基础用法',
     desc: '',

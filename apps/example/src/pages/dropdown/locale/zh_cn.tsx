@@ -1,7 +1,7 @@
 import React from 'react';
 import { Basic, Position, Disabled, DifferentTrigger } from './constants';
 
-export const zn_ch_dropdown = {
+export const zh_cn_dropdown = {
   [Basic]: {
     title: '基础弹出层',
     desc: '基础下拉菜单',

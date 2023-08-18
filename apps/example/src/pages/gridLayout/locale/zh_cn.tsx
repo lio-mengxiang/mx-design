@@ -1,7 +1,7 @@
 import React from 'react';
 import { Basic, Column, Position, HolyGrail, ContainerAlign, ContainerJustify } from './constants';
 
-export const zn_ch_gridLayout = {
+export const zh_cn_gridLayout = {
   [Basic]: {
     title: '基础用法',
     desc: (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Basic, Type, Custom, Closable, NoIcon, Operation, Title } from './constants';
 
-export const zn_ch_alert = {
+export const zh_cn_alert = {
   [Basic]: {
     title: '基本用法',
     desc: '展现需要关注的信息，适用于简短的警告提示',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Basic, Container } from './constants';
 
-export const zn_ch_affix = {
+export const zh_cn_affix = {
   [Basic]: {
     title: '基础固钉',
     desc: (

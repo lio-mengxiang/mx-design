@@ -1,7 +1,7 @@
 import React from 'react';
 import { Basic, Affix, Lineless, ScrollBoundary } from './constants';
 
-export const zn_ch_anchor = {
+export const zh_cn_anchor = {
   [Basic]: {
     title: '基本用法',
     desc: (

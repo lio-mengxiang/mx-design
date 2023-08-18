@@ -1,7 +1,7 @@
 import React from 'react';
 import { Basic, CustomIcon, CustomPic } from './constants';
 
-export const zn_ch_empty = {
+export const zh_cn_empty = {
   [Basic]: {
     title: '基本用法',
     desc: 'Empty 空状态组件的基础用法',

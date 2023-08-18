@@ -1,7 +1,7 @@
 import React from 'react';
 import { Basic, Async, Footer, Update, Close, Position, ShowClose } from './constants';
 
-export const zn_ch_modal = {
+export const zh_cn_modal = {
   [Basic]: {
     title: '基本用法',
     desc: '最简单的例子',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Basic, Controlled, CustomContent, Group } from './constants';
 
-export const zn_ch_radio = {
+export const zh_cn_radio = {
   [Basic]: {
     title: '基础多选框',
     desc: '基础的选中操作',
