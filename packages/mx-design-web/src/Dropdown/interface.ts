@@ -7,6 +7,7 @@ import type { PopupProps, PopupVisibleChangeContext } from '../Popup';
 export interface DropdownProps {
   style?: CSSProperties;
   className?: string | string[];
+  themeStyle?: Record<string, any>;
   /**
    * 浮层出现位置
    * @default top

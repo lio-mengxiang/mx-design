@@ -34,6 +34,7 @@ function Dropdown(baseProps: DropdownProps) {
     maxHeight,
     maxWidth,
     customElement,
+    themeStyle,
   } = props;
 
   // classnames
@@ -80,7 +81,7 @@ function Dropdown(baseProps: DropdownProps) {
       showArrow={false}
       content={renderPopup()}
       visible={isPopupVisible}
-      overlayInnerClassName={cs(dropdownClass, className, popupProps?.overlayInnerClassName)}
+      overlayInnerClassName={cs(dropdownClass, className, popupProps?.overlayInnerClassName, themeStyle)}
       overlayInnerStyle={{ ...style, maxHeight, maxWidth }}
       onVisibleChange={changePopupVisible}
       {...omit(popupProps, ['children', 'content', 'visible', 'isCloseClickAway'])}
