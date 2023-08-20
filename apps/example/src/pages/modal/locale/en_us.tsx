@@ -1,5 +1,6 @@
+/* eslint-disable quotes */
 import React from 'react';
-import { Basic, Async, Footer, Update, Close, Position, ShowClose } from './constants';
+import { Basic, Async, Footer, Feedback, Update, Position } from './constants';
 
 export const en_us_modal = {
   [Basic]: {
@@ -19,29 +20,32 @@ export const en_us_modal = {
       </>
     ),
   },
-  [Update]: {
-    title: 'Update',
-    desc: 'By specifying the id, the existing Message can be updated',
-  },
-  [Position]: {
-    title: 'Position',
-    desc: <>Message has 6 different positions: "top" | "top-left" | "top-right" | "bottom-left" | "bottom" | "bottom-right"。</>,
-  },
-  [Close]: {
-    title: 'Manual close',
+  [Feedback]: {
+    title: 'Message Modal Dialog',
     desc: (
       <>
-        <code className="mx-code"> Message.remove(id)</code> can close the notification，
-        <code className="mx-code"> Message.clearAll()</code>
-        can close all the notification
+        There are four types of message modal dialog: <code className="mx-code">info</code>, <code className="mx-code">success</code>,
+        <code className="mx-code">warning</code>,<code className="mx-code">error</code>
+        Only a button is provided to close message modal dialog
       </>
     ),
   },
-  [ShowClose]: {
-    title: 'Closable',
+  [Position]: {
+    title: 'Customize Position',
     desc: (
       <>
-        Set <code className="mx-code">closable</code> to show the close button
+        Use css local variables to customize the distance from the top of the viewport, using the method
+        <code className="mx-code">{"themeStyle: { '--modal-top': 'xx distance' }"}</code>, If you want to center, you need to use
+        <code className="mx-code">calc(50% - modal half the height)</code>
+      </>
+    ),
+  },
+  [Update]: {
+    title: 'Update and Close',
+    desc: (
+      <>
+        Manually update and close the dialog which created by
+        <code className="mx-code">Modal</code>
       </>
     ),
   },

@@ -10,3 +10,4 @@ export * from './useForceUpdate';
 export * from './debounceByRaf';
 export * from './useStateWithPromise';
 export * from './useClipboard';
+export * from './useHover';

@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import React, { forwardRef, ReactNode, useContext, useEffect, useRef } from 'react';
 import FocusLock from 'react-focus-lock';
 import { useMergeProps } from '@mx-design/hooks';
-import { cs } from '@mx-design/web-utils';
 import { ConfigContext } from '../../ConfigProvider';
 import { duration1, duration2, maskAnimation, modalAnimation } from '../constants';
 import { useGetIcon, useModalClassNames, useOverflowHidden, useStyles } from '../hooks';
@@ -39,7 +38,7 @@ export function Modal(baseProps: ModalProps, ref) {
     okLoading,
     maskClosable,
     maskStyle,
-    hideCancel,
+    hideCancelBtn,
     closable,
     closeElement,
     okText,
@@ -86,12 +85,11 @@ export function Modal(baseProps: ModalProps, ref) {
   const onEscExit = (e: React.KeyboardEvent) => {
     if (visible && e.key === 'Escape') {
       e.stopPropagation();
-      onCancel();
+      onCancel?.();
     }
   };
 
   useEffect(() => {
-    console.log('modalWrapperRef: ', modalWrapperRef);
     modalWrapperRef.current?.focus();
   }, [visible]);
 
@@ -101,7 +99,7 @@ export function Modal(baseProps: ModalProps, ref) {
       title={title}
       withoutLine={withoutLine}
       okLoading={okLoading}
-      hideCancel={hideCancel}
+      hideCancelBtn={hideCancelBtn}
       closable={closable}
       closeElement={closeElement}
       okButtonProps={okButtonProps}
@@ -148,6 +146,7 @@ export function Modal(baseProps: ModalProps, ref) {
                 onClick={(e) => {
                   e.stopPropagation();
                 }}
+                tabIndex={-1}
                 ref={ref}
                 role="dialog"
                 variants={modalAnimation}

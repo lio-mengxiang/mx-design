@@ -35,6 +35,7 @@ function Dropdown(baseProps: DropdownProps) {
     maxWidth,
     customElement,
     themeStyle,
+    visibleStatus,
   } = props;
 
   // classnames
@@ -53,10 +54,12 @@ function Dropdown(baseProps: DropdownProps) {
 
   const renderPopup = () => {
     if (customElement) {
-      return React.cloneElement(customElement, {
-        ...(typeof disabled === 'boolean' ? { disabled, visible: isPopupVisible } : { visible: isPopupVisible }),
-        onClickMenuItem: handleMenuClick,
-      });
+      return visibleStatus
+        ? React.cloneElement(customElement, {
+            ...(typeof disabled === 'boolean' ? { disabled, visible: isPopupVisible } : { visible: isPopupVisible }),
+            onClickMenuItem: handleMenuClick,
+          })
+        : customElement;
     }
     if (!Array.isArray(droplist) || droplist.length === 0) return null;
     return (
@@ -87,10 +90,12 @@ function Dropdown(baseProps: DropdownProps) {
       {...omit(popupProps, ['children', 'content', 'visible', 'isCloseClickAway'])}
     >
       {React.isValidElement(arrayChildren?.[0])
-        ? React.cloneElement(arrayChildren?.[0] as ReactElement, {
-            ...(typeof disabled === 'boolean' ? { disabled, visible: isPopupVisible } : { visible: isPopupVisible }),
-          })
-        : arrayChildren?.[0]}
+        ? visibleStatus
+          ? React.cloneElement(arrayChildren?.[0] as ReactElement, {
+              ...(typeof disabled === 'boolean' ? { disabled, visible: isPopupVisible } : { visible: isPopupVisible }),
+            })
+          : arrayChildren?.[0]
+        : null}
     </Popup>
   );
 }

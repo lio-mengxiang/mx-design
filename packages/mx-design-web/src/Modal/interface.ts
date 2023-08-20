@@ -15,7 +15,7 @@ export interface ModalProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'
   title?: ReactNode | string;
   maskStyle?: CSSProperties;
   maskClosable?: boolean;
-  hideCancel?: boolean;
+  hideCancelBtn?: boolean;
   closable?: boolean;
   closeElement?: ReactNode;
   okText?: string;

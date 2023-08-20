@@ -5,6 +5,7 @@ import { IconClose } from '../../Icon';
 // type
 import type { ModalProps } from '../interface';
 import { useCardClassNames } from '../hooks';
+import IconHover from '../../Common/hover';
 
 export interface ModalCardProps
   extends Pick<
@@ -14,7 +15,7 @@ export interface ModalCardProps
     | 'title'
     | 'withoutLine'
     | 'okLoading'
-    | 'hideCancel'
+    | 'hideCancelBtn'
     | 'closable'
     | 'closeElement'
     | 'okButtonProps'
@@ -38,7 +39,7 @@ export function ModalCard(props: ModalCardProps) {
     title,
     withoutLine,
     okLoading,
-    hideCancel,
+    hideCancelBtn,
     closable,
     closeElement,
     okButtonProps,
@@ -68,28 +69,30 @@ export function ModalCard(props: ModalCardProps) {
           {closable && (
             <>
               {closeElement || (
-                <div className={iconCls} onClick={onCancel}>
+                <IconHover className={iconCls} onClick={onCancel}>
                   <IconClose />
-                </div>
+                </IconHover>
               )}
             </>
           )}
         </div>
       )}
       <>{content && <div className={contentCls}>{content}</div>}</>
-      <Footer
-        okLoading={okLoading}
-        hideCancel={hideCancel}
-        okButtonProps={okButtonProps}
-        cancelButtonProps={cancelButtonProps}
-        footer={footer}
-        footerAlign={footerAlign}
-        onCancel={onCancel}
-        onOk={onOk}
-        prefixCls={prefixCls}
-        okText={okText}
-        cancelText={cancelText}
-      />
+      {footer !== null && (
+        <Footer
+          okLoading={okLoading}
+          hideCancelBtn={hideCancelBtn}
+          okButtonProps={okButtonProps}
+          cancelButtonProps={cancelButtonProps}
+          footer={footer}
+          footerAlign={footerAlign}
+          onCancel={onCancel}
+          onOk={onOk}
+          prefixCls={prefixCls}
+          okText={okText}
+          cancelText={cancelText}
+        />
+      )}
     </>
   );
 }

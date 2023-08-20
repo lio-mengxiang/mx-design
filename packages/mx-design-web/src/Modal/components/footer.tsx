@@ -10,7 +10,7 @@ export interface FooterProps
   extends Pick<
     ModalProps,
     | 'okLoading'
-    | 'hideCancel'
+    | 'hideCancelBtn'
     | 'okButtonProps'
     | 'cancelButtonProps'
     | 'footer'
@@ -25,7 +25,7 @@ export interface FooterProps
 
 export function Footer(props: FooterProps) {
   // props
-  const { okLoading, hideCancel, okButtonProps, cancelButtonProps, footer, footerAlign, onCancel, onOk, prefixCls, okText, cancelText } =
+  const { okLoading, hideCancelBtn, okButtonProps, cancelButtonProps, footer, footerAlign, onCancel, onOk, prefixCls, okText, cancelText } =
     props;
 
   const [locale] = useLocale({ namespace: MODAL_NAMESPACE });
@@ -36,7 +36,7 @@ export function Footer(props: FooterProps) {
         <div className={cs(`${prefixCls}-footer`, `${prefixCls}-footer-align-${footerAlign}`)}>{footer}</div>
       ) : (
         <div className={cs(`${prefixCls}-footer`, `${prefixCls}-footer-align-${footerAlign}`)}>
-          {!hideCancel && (
+          {!hideCancelBtn && (
             <Button className={`${prefixCls}-btn`} onClick={onCancel} {...cancelButtonProps}>
               {cancelText || locale.CANCEL_TEXT}
             </Button>

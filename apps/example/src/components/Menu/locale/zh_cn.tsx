@@ -20,6 +20,7 @@ import {
   RADIO_KEY,
   TOOLTIP_KEY,
   GRID_LAYOUT_KEY,
+  MODAL_KEY,
 } from '@/constants';
 
 export const zh_cn_site_menu = {
@@ -44,4 +45,5 @@ export const zh_cn_site_menu = {
   [RADIO_KEY]: '单选框 Radio',
   [TOOLTIP_KEY]: '文字提示 Tooltip',
   [GRID_LAYOUT_KEY]: '布局 GridLayout',
+  [MODAL_KEY]: '对话框 Modal',
 };

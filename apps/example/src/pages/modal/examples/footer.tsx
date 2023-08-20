@@ -7,23 +7,58 @@ function App() {
   const Modal = useModal();
   return (
     <Space>
-    <Button
-      onClick={() => {
-        const modalId = Modal.add({
-          title: 'Modal Title',
-          content: (
-            <div>
-              You can customize modal body text by the current situation. This modal will be closed immediately once you press the OK
-              button.
-            </div>
-          ),
-          visible: true,
-          footer: <Button onClick={() => Modal.remove(modalId)}>customize Button</Button>
-        });
-      }}
-    >
-      Open Modal
-    </Button>
+      <Button
+        onClick={() => {
+          const modalId = Modal.add({
+            title: 'Modal Title',
+            content: (
+              <div>
+                You can customize modal footer
+              </div>
+            ),
+            visible: true,
+            onCancel: () => Modal.remove(modalId),
+            footer: <Button onClick={() => Modal.remove(modalId)}>OK</Button>
+          });
+        }}
+      >
+        Open Modal with customized footer
+      </Button>
+      <Button
+        onClick={() => {
+          const modalId = Modal.add({
+            title: 'Modal Title',
+            content: (
+              <div>
+                You can customize modal footer
+              </div>
+            ),
+            visible: true,
+            footerAlign: 'left',
+            onCancel: () => Modal.remove(modalId),
+            footer: <Button onClick={() => Modal.remove(modalId)}>I'm left</Button>
+          });
+        }}
+      >
+         Open Modal with customized footer
+      </Button>
+      <Button
+        onClick={() => {
+          const modalId = Modal.add({
+            title: 'Modal Title',
+            content: (
+              <div>
+                You can customize modal footer
+              </div>
+            ),
+            visible: true,
+            onCancel: () => Modal.remove(modalId),
+            footer: null
+          });
+        }}
+      >
+        Open Modal without footer
+      </Button>
     </Space>
   );
 }`;

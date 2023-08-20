@@ -1,5 +1,6 @@
+/* eslint-disable quotes */
 import React from 'react';
-import { Basic, Async, Footer, Update, Close, Position, ShowClose } from './constants';
+import { Basic, Async, Footer, Feedback, Update, Position } from './constants';
 
 export const zh_cn_modal = {
   [Basic]: {
@@ -14,36 +15,34 @@ export const zh_cn_modal = {
     title: '自定义页脚',
     desc: (
       <>
-        传入 <code className="mx-code"> okButtonProps</code> 和 <code className="mx-code"> cancelButtonProps</code>{' '}
-        可分别自定义确定按钮和取消按钮的 props。如果 <code className="mx-code"> okButtonProps</code> 和{' '}
+        传入 <code className="mx-code"> okButtonProps</code> 和 <code className="mx-code"> cancelButtonProps</code>
+        可分别自定义确定按钮和取消按钮的 props。如果 <code className="mx-code"> okButtonProps</code> 和
         <code className="mx-code"> cancelButtonProps</code> 仍然不能满足需要的话，可以直接传入
         <code className="mx-code"> footer</code>来自定义页脚内容
       </>
     ),
   },
-  [Update]: {
-    title: '更新全局提醒内容',
-    desc: '通过指定 id，可以更新已经存在的全局提示',
+  [Feedback]: {
+    title: '消息提示',
+    desc: (
+      <>
+        有 <code className="mx-code">info</code>, <code className="mx-code">success</code>, <code className="mx-code">warning</code>,
+        <code className="mx-code">error</code> 四种类型的消息提示，仅提供一个确认按钮用于关闭消息提示对话框。
+      </>
+    ),
   },
   [Position]: {
-    title: '全局提示的位置',
-    desc: <>全局提示有 6 种不同的弹出位置，分别为"top" | "top-left" | "top-right" | "bottom-left" | "bottom" | "bottom-right"</>,
-  },
-  [Close]: {
-    title: '手动控制关闭',
+    title: '自定义位置',
     desc: (
       <>
-        <code className="mx-code"> Message.remove(id)</code> 能手动关闭通知，<code className="mx-code"> Message.clearAll()</code>
-        能关闭所有通知
+        使用 css 局部变量自定义距离视口顶部的距离，使用方法：
+        <code className="mx-code">{"themeStyle: { '--modal-top': 'xx距离' }"}</code>, 如果要居中，需要使用
+        <code className="mx-code">calc(50% - modal框一半的高度)</code>
       </>
     ),
   },
-  [ShowClose]: {
-    title: '显示关闭按钮',
-    desc: (
-      <>
-        设置 <code className="mx-code">closable</code> 来显示关闭按钮
-      </>
-    ),
+  [Update]: {
+    title: '手动更新和移除',
+    desc: <>手动更新和关闭通过 Modal的方法创建的对话框</>,
   },
 };
