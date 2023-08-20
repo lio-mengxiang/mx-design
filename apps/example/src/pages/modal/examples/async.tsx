@@ -16,7 +16,7 @@ function App() {
           onCancel: () => Modal.remove(modalId),
           okLoading: false,
           onOk: () => {
-            Modal.update({ id: modalId, okLoading: true });
+            Modal.update(modalId, { okLoading: true });
             new Promise((res) => {
               setTimeout(() => {
                 res('complete');
