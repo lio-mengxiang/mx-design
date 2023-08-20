@@ -3,6 +3,8 @@
 
 @message-prefix-cls: ~'@{prefix}-modal';
 
+.icon-hover(50%, var(--modal-icon-hover-bg), var(--modal-icon-hover-size));
+
 .@{message-prefix-cls}-container {
   position: fixed;
   cursor: auto;
@@ -83,19 +85,11 @@
   border-bottom: 1px solid var(--border-level-1-color);
 }
 
-
 .@{message-prefix-cls}-icon {
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  &:focus {
-    color: red
-  }
 }
 
 .@{message-prefix-cls}-content {

@@ -63,5 +63,6 @@ export interface DropdownProps {
    * 控制下拉框是否默认打开(受控模式)
    */
   popupVisible?: boolean;
+  visibleStatus?: boolean;
   children: React.ReactNode;
 }

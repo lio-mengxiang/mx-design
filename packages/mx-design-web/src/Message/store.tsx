@@ -41,7 +41,7 @@ function useStore(defaultPosition: IPosition) {
       return noticeProps?.id ? noticeProps?.id : id;
     },
 
-    update: (id: number, options: MessageProps) => {
+    update: (id: MessageProps['id'], options: MessageProps) => {
       if (!id) return;
 
       setState((preState) => {

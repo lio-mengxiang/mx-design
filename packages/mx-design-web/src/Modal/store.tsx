@@ -30,12 +30,12 @@ function useStore() {
       });
     },
 
-    update: (modalProps: ModalProps) => {
-      if (!modalProps?.id) return;
+    update: (id: ModalProps['id'], modalProps: ModalProps) => {
+      if (!id) return;
 
       setModals((preState) => {
         const nextState = [...preState];
-        const index = findIndexById(preState, modalProps.id);
+        const index = findIndexById(preState, id);
 
         if (index !== -1) {
           nextState[index] = {

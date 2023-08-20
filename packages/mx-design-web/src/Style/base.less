@@ -27,7 +27,6 @@
   text-overflow: ellipsis;
 }
 
-
 .scrollbar(@size: 6px, @borderSize: 0px) {
   // FINotificationRefox 等浏览器标准支持的滚动条样式设置
   scrollbar-color: rgb(242, 243, 245) transparent;
@@ -44,5 +43,44 @@
     background-clip: content-box;
     background-color: var(--scrollbar-color);
     border-radius: @size * 2 - 1px;
+  }
+}
+
+.icon-hover(@icon-hover-border-radius,@icon-hover-color-bg, @icon-bg-height) {
+  .@{prefix}-icon-hover {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    line-height: 0;
+
+    .@{prefix}-icon {
+      position: relative;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      border-radius: @icon-hover-border-radius;
+      background-color: transparent;
+      box-sizing: border-box;
+      transition: background-color 0.1s linear;
+    }
+
+    &:hover::before {
+      background-color: @icon-hover-color-bg;
+    }
+
+    &.@{prefix}-icon-hover-disabled::before {
+      opacity: 0;
+    }
+
+    &::before {
+      top: 50%;
+      left: 50%;
+      height: @icon-bg-height;
+      width: @icon-bg-height;
+      transform: translate(-50%, -50%);
+    }
   }
 }
