@@ -14,6 +14,7 @@ import {
   LAYOUT_TITLE_KEY,
   MESSAGE_KEY,
   MESSAGE_TITLE_KEY,
+  MODAL_KEY,
   NAVIGATE_KEY,
   NOTIFICATION_KEY,
   POPUP_KEY,
@@ -69,6 +70,10 @@ export const componentsMenuList = [
       {
         title: NOTIFICATION_KEY,
         path: `/${COMPONENTS_KEY}/${NOTIFICATION_KEY}`,
+      },
+      {
+        title: MODAL_KEY,
+        path: `/${COMPONENTS_KEY}/${MODAL_KEY}`,
       },
     ],
   },

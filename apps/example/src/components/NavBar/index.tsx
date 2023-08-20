@@ -12,7 +12,7 @@ function NavBar() {
           <Logo />
           <div className={styles['navbar-author']}>组件和教程还在补充中, 欢迎微信加群交流(wechat)：a2298613245</div>
         </Space>
-        <Space size={28} className={cs(styles['navbar-space-horizontal'], styles['navbar-right-content'])}>
+        <Space size={6} className={cs(styles['navbar-space-horizontal'], styles['navbar-right-content'])}>
           <DropdownButton />
           <GithubLink />
           <SelectLang />
