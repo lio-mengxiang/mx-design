@@ -5,7 +5,7 @@ import { IconClose } from '../../Icon';
 // type
 import type { ModalProps } from '../interface';
 import { useCardClassNames } from '../hooks';
-import IconHover from '../../Common/hover';
+import { IconHover } from '../../Common';
 
 export interface ModalCardProps
   extends Pick<

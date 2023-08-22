@@ -1,3 +1,2 @@
-export { default as NcTooltip } from './Tooltip.nc';
-export { default as Tooltip } from './Tooltip';
+export * from './components';
 export * from './interface';

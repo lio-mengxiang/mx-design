@@ -127,9 +127,9 @@ module.exports = {
      */
     quotes: [2, 'single'],
     /**
-    * @zh 单行长度不能超过140
-    * @en 140 characters maximum per line
-    */
+     * @zh 单行长度不能超过140
+     * @en 140 characters maximum per line
+     */
     'max-len': [0, { code: 140 }],
     /**
      * @zh 该规则检查您在代码块前是否存在空格
@@ -327,9 +327,9 @@ module.exports = {
      */
     'react/button-has-type': 0,
     /**
-    * @zh 规定对象字面量中花括号换行格式的规则
-    * @en Rules for formatting curly brace breaks in object literals
-    */
+     * @zh 规定对象字面量中花括号换行格式的规则
+     * @en Rules for formatting curly brace breaks in object literals
+     */
     'object-curly-newline': 0,
     /**
      * @zh 用于检查代码中对象或数组字面量末尾是否存在额外的逗号
@@ -354,6 +354,7 @@ module.exports = {
     'react/jsx-no-constructed-context-values': 0,
     'react/no-unescaped-entities': 0,
     'no-restricted-syntax': 0,
-    'react/jsx-no-useless-fragment': 0
+    'react/jsx-no-useless-fragment': 0,
+    'arrow-body-style': 0,
   },
 };
