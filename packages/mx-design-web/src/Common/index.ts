@@ -1,2 +1,2 @@
-export * from './hover';
+export * from './Hover';
 export * from './renderIcon';
