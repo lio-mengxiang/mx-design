@@ -9,7 +9,7 @@ interface HoverProps extends React.HTMLAttributes<HTMLSpanElement> {
   onClick?: (e) => void;
 }
 
-export default function IconHover(props: PropsWithChildren<HoverProps>) {
+export function IconHover(props: PropsWithChildren<HoverProps>) {
   const { children, className, disabled, prefix, ...rest } = props;
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('icon-hover');

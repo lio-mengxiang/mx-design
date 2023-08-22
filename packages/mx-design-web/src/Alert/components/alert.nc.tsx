@@ -3,7 +3,7 @@ import { useMergeProps } from '@mx-design/hooks';
 import { ConfigContext } from '../../ConfigProvider';
 import { IconClose } from '../../Icon';
 import { useClassNames, useStyles } from '../hooks';
-import { renderIcon } from '../../Common/renderIcon';
+import { renderIcon } from '../../Common';
 // type
 import type { AlertProps } from '../interface';
 

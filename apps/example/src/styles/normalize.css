@@ -29,6 +29,14 @@ body {
   color: var(--text-color-primary);
 }
 
+input,
+textarea,
+keygen,
+select,
+button {
+  font-size: 14px;
+}
+
 /* Sections
    ========================================================================== */
 
