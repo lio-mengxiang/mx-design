@@ -19,34 +19,30 @@ mx-design努力做到github上最好的关于如何搭建react组件库的教程
 
 ## 启动项目
 
-安装npm包
+安装 npm 包
+
 ```bash
 pnpm run init
 ```
+
 启动组件预览网页
+
 ```bash
 pnpm start:site
 ```
 
 ## 说明
 
-目前只有我一个人在做，加上本身我自己的工作也有不少任务，所以工作量有点大，正在不断地添加新的组件和写教程，请谅解初期组件较少的问题（预计2023年会完成）。
+目前只有我一个人在做，加上本身我自己的工作也有不少任务，所以工作量有点大，正在不断地添加新的组件和写教程，请谅解初期组件较少的问题（预计 2023 年会完成）。
 
 所有组件和配置文件有中文和英文教程。
 
 下面是所有教程的内容，请结合本库的代码学习。
 
-感谢star...
+感谢 star...
 
 ## 教程目录 (迭代中...)
 
-## 实现组件库开发环境和打包环境配置的Cli工具
+- [实现组件库开发环境和打包环境配置的 Cli 工具](https://github.com/lio-mengxiang/mx-design-cli/issues/16)
 
-- [React 组件库搭建指南-打包输出](./tutorial/mx-design-cli/theory/README.zh.md)
-- [如何创建一个cli工具来打包React组件库](./tutorial/mx-design-cli/cli/README.zh.md)
-  - [在此之前，你需要明白命令行解析工具commander.js的用法](https://github.com/tj/commander.js/blob/master/Readme_zh-CN.md)
-- [2个高级函数技巧！【mx-design-cli第一个稳定版 发布啦】](./tutorial/mx-design-cli/tricks/README.zh.md)
-
-## 实现组件库
-
-- [gridLayout组件教程](./tutorial/mx-deisgn-ui/gridLayout/README.zh.md)
+- [组件库教程](./tutorial/mx-deisgn-ui/gridLayout/README.zh.md)

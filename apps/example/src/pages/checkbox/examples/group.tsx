@@ -28,11 +28,10 @@ function App() {
   return (
     <div>
       <CheckboxGroup
-        options={['Option A', 'Option B', 'Option C']}
+        options={options}
         style={{ display: 'block', marginBottom: 16 }}
+        onChange={(value)=> console.log(value)}
       />
-
-
     </div>
   );
 };`;

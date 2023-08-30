@@ -1,33 +1,41 @@
 @import (reference) '../../Style/base.less';
 @import './cssVariables.less';
 
-@message-prefix-cls: ~'@{prefix}-modal';
+@modal-prefix-cls: ~'@{prefix}-modal';
 
 .icon-hover(50%, var(--modal-icon-hover-bg), var(--modal-icon-hover-size));
 
-.@{message-prefix-cls}-container {
+.@{modal-prefix-cls}-container {
   position: fixed;
   cursor: auto;
   overflow: auto;
   text-align: center;
   left: 0;
   top: 0;
-  width: 100vw;
+  width: 100%;
   bottom: 0;
   z-index: var(--z-index-modal);
 }
 
-.@{message-prefix-cls}-mask {
+.@{modal-prefix-cls}-container-no-mask {
+  pointer-events: none;
+
+  .@{modal-prefix-cls} {
+    pointer-events: auto;
+  }
+}
+
+.@{modal-prefix-cls}-mask {
   z-index: var(--z-index-modal);
   position: fixed;
   left: 0;
   top: 0;
-  width: 100vw;
+  width: 100%;
   bottom: 0;
   background-color: var(--modal-mask-bg);
 }
 
-.@{message-prefix-cls} {
+.@{modal-prefix-cls} {
   box-sizing: content-box;
   display: inline-block;
   position: relative;
@@ -40,7 +48,7 @@
   border: 1px solid var(--modal-border-color);
 }
 
-.@{message-prefix-cls}-title-container {
+.@{modal-prefix-cls}-title-container {
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -48,61 +56,61 @@
   padding: var(--modal-title-padding);
 }
 
-.@{message-prefix-cls}-title {
+.@{modal-prefix-cls}-title {
   display: flex;
   align-items: center;
 }
 
-.@{message-prefix-cls}-title-name {
+.@{modal-prefix-cls}-title-name {
   font-size: 16px;
   font-weight: 600;
 }
 
-.@{message-prefix-cls}-title-icon {
+.@{modal-prefix-cls}-title-icon {
   margin-right: 12px;
   display: flex;
   align-items: center;
   font-size: var(--modal-icon-size);
 }
 
-.@{message-prefix-cls}-info-title-icon {
+.@{modal-prefix-cls}-info-title-icon {
   color: var(--brand-color);
 }
 
-.@{message-prefix-cls}-warning-title-icon {
+.@{modal-prefix-cls}-warning-title-icon {
   color: var(--warning-color);
 }
 
-.@{message-prefix-cls}-error-title-icon {
+.@{modal-prefix-cls}-error-title-icon {
   color: var(--error-color);
 }
 
-.@{message-prefix-cls}-success-title-icon {
+.@{modal-prefix-cls}-success-title-icon {
   color: var(--success-color);
 }
 
-.@{message-prefix-cls}-title-border {
+.@{modal-prefix-cls}-title-border {
   border-bottom: 1px solid var(--border-level-1-color);
 }
 
-.@{message-prefix-cls}-icon {
+.@{modal-prefix-cls}-icon {
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.@{message-prefix-cls}-content {
+.@{modal-prefix-cls}-content {
   font-weight: 400;
   line-height: 22px;
   padding: var(--modal-content-padding);
 }
 
-.@{message-prefix-cls}-content-border {
+.@{modal-prefix-cls}-content-border {
   border-bottom: 1px solid var(--border-level-1-color);
 }
 
-.@{message-prefix-cls}-footer {
+.@{modal-prefix-cls}-footer {
   display: flex;
   align-items: center;
   width: 100%;
@@ -110,18 +118,18 @@
   padding: var(--modal-footer-padding);
 }
 
-.@{message-prefix-cls}-footer-align-right {
+.@{modal-prefix-cls}-footer-align-right {
   justify-content: right;
 }
 
-.@{message-prefix-cls}-footer-align-center {
+.@{modal-prefix-cls}-footer-align-center {
   justify-content: center;
 }
 
-.@{message-prefix-cls}-footer-align-left {
+.@{modal-prefix-cls}-footer-align-left {
   justify-content: left;
 }
 
-.@{message-prefix-cls}-btn {
+.@{modal-prefix-cls}-btn {
   margin-right: 8px;
 }

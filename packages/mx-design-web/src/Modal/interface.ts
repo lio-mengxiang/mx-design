@@ -26,7 +26,7 @@ export interface ModalProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'
   footerAlign?: ModalAlignType;
   focusLock?: boolean;
   onCancel?: () => void;
-  onOk?: (e?: MouseEvent) => Promise<any> | void;
+  onOk?: <T = any>(e?: MouseEvent) => T;
   afterOpen?: () => void;
   afterClose?: () => void;
   style?: CSSProperties;
@@ -39,9 +39,4 @@ export interface ModalProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'
    * @defaultValue () => document.body
    */
   getMountContainer?: () => HTMLElement;
-}
-
-export interface ModalShowProps extends ModalProps {
-  blockOkHide?: boolean;
-  blockCancelHide?: boolean;
 }

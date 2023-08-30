@@ -18,6 +18,7 @@ import { NAME_SPACE_TOOLTIP, zh_cn_tooltip } from '@/pages/tooltip/locale';
 import { NAME_SPACE_DROPDOWN, zh_cn_dropdown } from '@/pages/dropdown/locale';
 import { NAME_SPACE_MODAL, zh_cn_modal } from '@/pages/modal/locale';
 import { NAME_SPACE_NAV_BAR, zh_cn_nav_bar } from '@/components/NavBar/components/TutorialsDropdown/locale';
+import { NAME_SPACE_DRAWER, zh_cn_drawer } from '@/pages/drawer/locale';
 
 export const zh_cn = {
   [NAME_SPACE_BUTTON]: zh_cn_button,
@@ -40,4 +41,5 @@ export const zh_cn = {
   [NAME_SPACE_DROPDOWN]: zh_cn_dropdown,
   [NAME_SPACE_MODAL]: zh_cn_modal,
   [NAME_SPACE_NAV_BAR]: zh_cn_nav_bar,
+  [NAME_SPACE_DRAWER]: zh_cn_drawer,
 };

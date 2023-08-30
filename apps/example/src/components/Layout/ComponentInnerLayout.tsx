@@ -1,6 +1,6 @@
 import React from 'react';
-import AnchorList from '../AnchorList';
 import { motion } from 'framer-motion';
+import AnchorList from '../AnchorList';
 import { initial, exit, animate } from './constants';
 // style
 import styles from './styles/index.module.less';

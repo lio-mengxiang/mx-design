@@ -43,16 +43,16 @@ function CodePreview(props: CodePreviewProps) {
           [`${prefixCls}-demo-error`]: !!state.error,
         })}
       >
-        <div>
+        <>
           <ErrorMessage message={state.error} />
           <div
             className={cs(`${prefixCls}-demo-source`, {
               error: !!state.error,
             })}
           >
-            <div>{Element ? <Element /> : null}</div>
+            <>{Element ? <Element /> : null}</>
           </div>
-        </div>
+        </>
       </div>
       <div className={`${prefixCls}-operations`}>
         <button

@@ -3,6 +3,7 @@ import { omit } from '@mx-design/web-utils';
 import { NotificationProvider } from '../Notification';
 import { MessageProvider } from '../Message';
 import { ModalProvider } from '../Modal';
+import { DrawerProvider } from '../Drawer';
 import { useGlobalTheme } from './hooks/useGlobalTheme';
 import { defaultProps } from './context';
 // types
@@ -14,7 +15,7 @@ export const ConfigContext = createContext<ConfigProviderProps>({
 
 export function MxConfigProvider(baseProps: PropsWithChildren<ConfigProviderProps>) {
   const props = useMemo(() => ({ ...defaultProps, ...baseProps }), [baseProps]);
-  const { prefixCls, globalCssVariables, children, _messageRef, _notificationRef, _modalRef } = props;
+  const { prefixCls, globalCssVariables, children, _messageRef, _notificationRef, _modalRef, _drawerRef } = props;
   const getPrefixCls = useCallback(
     (componentName: string, customPrefix?: string) => `${customPrefix || prefixCls || defaultProps.prefixCls}-${componentName}`,
     [prefixCls]
@@ -33,6 +34,7 @@ export function MxConfigProvider(baseProps: PropsWithChildren<ConfigProviderProp
   return (
     <ConfigContext.Provider value={config}>
       <MessageProvider ref={_messageRef} />
+      <DrawerProvider ref={_drawerRef} />
       <NotificationProvider ref={_notificationRef} />
       <ModalProvider ref={_modalRef} />
       {children}

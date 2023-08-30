@@ -24,6 +24,7 @@ import {
   GridLayoutExample,
   DropDownExample,
   ModalExample,
+  DrawerExample,
 } from './routes';
 import { Page404 } from '@/components/Status/404';
 import {
@@ -33,6 +34,7 @@ import {
   BUTTON_KEY,
   CHECKBOX_KEY,
   COMPONENTS_KEY,
+  DRAWER_KEY,
   DROPDOWN_KEY,
   EMPTY_KEY,
   GRID_LAYOUT_KEY,
@@ -48,7 +50,7 @@ import {
 } from '@/constants';
 import AppLayout from '@/components/Layout/AppLayout';
 import ComponentLayout from '@/components/Layout/ComponentLayout';
-import { componentsMenuList } from './constans';
+import { componentsMenuList } from './constants';
 
 export const routerConfig = [
   {
@@ -81,6 +83,7 @@ export const routerConfig = [
           { path: GRID_LAYOUT_KEY, element: <GridLayoutExample /> },
           { path: DROPDOWN_KEY, element: <DropDownExample /> },
           { path: MODAL_KEY, element: <ModalExample /> },
+          { path: DRAWER_KEY, element: <DrawerExample /> },
           { path: '*', element: <Navigate to={BUTTON_KEY} replace /> },
         ],
       },

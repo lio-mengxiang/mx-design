@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { Modal } from './modal.nc';
+import { Modal } from './modal';
 import useStore from '../store';
 // type
 import type { ModalProps } from '../interface';

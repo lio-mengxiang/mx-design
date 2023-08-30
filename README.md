@@ -25,6 +25,7 @@ Install npm packages
 ```bash
 pnpm run init
 ```
+
 start the component preview page
 
 ```bash
@@ -33,7 +34,7 @@ pnpm start:site
 
 ## introduction
 
-At present, I am only working on it by myself, and I have many tasks in my  work, so the workload is a little heavy. I am constantly adding new components and writing tutorials. Please understand the problem of fewer components in the early stage (expected to be completed in 2023).
+At present, I am only working on it by myself, and I have many tasks in my work, so the workload is a little heavy. I am constantly adding new components and writing tutorials. Please understand the problem of fewer components in the early stage (expected to be completed in 2023).
 
 All components and configuration files have tutorials in Chinese and English.
 
@@ -43,14 +44,6 @@ thanks to star...
 
 ## Tutorial Directory (Continue to update, welcome to pay attention!)
 
-## Implement a cli packaging tool
+- [Implement a cli packaging tool](https://github.com/lio-mengxiang/mx-design-cli/issues/19)
 
-- [React component Library Setup Guide - Packaging output](./tutorial/mx-design-cli/theory/README.md)
-- [How do I create a cli tool for packaging React UI library](./tutorial/mx-design-cli/cli/README.md)
-  - [Before doing so, you need to understand the use of the command line parser, commander.js](https://github.com/tj/commander.js/blob/master/Readme.md)
-- [Two advanced function tricks](./tutorial/mx-design-cli/tricks/README.md)
-
-
-## Implement React UI library
-
-- [gridLayout Component tutorial](./tutorial/mx-deisgn-ui/gridLayout/README.md)
+- [React UI Component tutorial](https://github.com/lio-mengxiang/mx-design/issues/16)

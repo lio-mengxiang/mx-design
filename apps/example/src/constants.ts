@@ -22,4 +22,5 @@ export const TOOLTIP_KEY = 'tooltip';
 export const GRID_LAYOUT_KEY = 'gridLayout';
 export const DROPDOWN_KEY = 'dropdown';
 export const MODAL_KEY = 'modal';
+export const DRAWER_KEY = 'drawer';
 export const DATA_INPUT_KEY = 'data-input';

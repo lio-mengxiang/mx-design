@@ -2,10 +2,10 @@ import React, { ReactNode } from 'react';
 import { cs } from '@mx-design/web-utils';
 import { Footer } from './footer';
 import { IconClose } from '../../Icon';
-// type
-import type { ModalProps } from '../interface';
 import { useCardClassNames } from '../hooks';
 import { IconHover } from '../../Common';
+// type
+import type { ModalProps } from '../interface';
 
 export interface ModalCardProps
   extends Pick<
@@ -60,7 +60,7 @@ export function ModalCard(props: ModalCardProps) {
 
   return (
     <>
-      {title && (
+      {title !== null && (
         <div className={cardContainerCls}>
           <div className={`${prefixCls}-title`}>
             {normalIcon && <span className={cs(`${prefixCls}-title-icon`, `${prefixCls}-${type}-title-icon`)}>{normalIcon}</span>}
@@ -77,7 +77,7 @@ export function ModalCard(props: ModalCardProps) {
           )}
         </div>
       )}
-      <>{content && <div className={contentCls}>{content}</div>}</>
+      <div className={contentCls}>{content}</div>
       {footer !== null && (
         <Footer
           okLoading={okLoading}

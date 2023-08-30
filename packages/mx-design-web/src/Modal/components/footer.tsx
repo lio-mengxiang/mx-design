@@ -37,7 +37,7 @@ export function Footer(props: FooterProps) {
       ) : (
         <div className={cs(`${prefixCls}-footer`, `${prefixCls}-footer-align-${footerAlign}`)}>
           {!hideCancelBtn && (
-            <Button className={`${prefixCls}-btn`} onClick={onCancel} {...cancelButtonProps}>
+            <Button status="default" className={`${prefixCls}-btn`} onClick={onCancel} {...cancelButtonProps}>
               {cancelText || locale.CANCEL_TEXT}
             </Button>
           )}

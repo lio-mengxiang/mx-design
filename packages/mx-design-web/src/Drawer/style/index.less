@@ -1,0 +1,140 @@
+@import (reference) '../../Style/base.less';
+@import './cssVariables.less';
+
+@drawer-prefix-cls: ~'@{prefix}-drawer';
+
+.icon-hover(50%, var(--drawer-icon-hover-bg), var(--drawer-icon-hover-size));
+
+.@{drawer-prefix-cls}-scroll {
+  overflow-y: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.@{drawer-prefix-cls}-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--drawer-mask-bg);
+}
+
+.@{drawer-prefix-cls}-top {
+  top: 0;
+}
+
+.@{drawer-prefix-cls}-right {
+  right: 0;
+}
+
+.@{drawer-prefix-cls}-left {
+  left: 0;
+}
+
+.@{drawer-prefix-cls}-bottom {
+  bottom: 0;
+}
+
+.@{drawer-prefix-cls} {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: var(--drawer-bg);
+}
+
+.@{drawer-prefix-cls}-root-wrapper {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: var(--z-index-modal);
+}
+
+.@{drawer-prefix-cls}-root-wrapper-no-mask {
+  pointer-events: none;
+
+  .@{drawer-prefix-cls} {
+    pointer-events: auto;
+  }
+}
+
+.@{drawer-prefix-cls}-root-wrapper-fixed {
+  position: fixed;
+}
+
+.@{drawer-prefix-cls}-root-wrapper-absolute {
+  position: absolute;
+}
+
+.@{drawer-prefix-cls}-header {
+  box-sizing: border-box;
+  display: flex;
+  height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--drawer-title-padding);
+  border-bottom: 1px solid var(--border-level-1-color);
+}
+
+.@{drawer-prefix-cls}-title {
+  display: flex;
+  align-items: center;
+}
+
+.@{drawer-prefix-cls}-title-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.@{drawer-prefix-cls}-title-icon {
+  display: flex;
+  align-items: center;
+  font-size: var(--drawer-icon-size);
+}
+
+.@{drawer-prefix-cls}-title-border {
+  border-bottom: 1px solid var(--border-level-1-color);
+}
+
+.@{drawer-prefix-cls}-icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.@{drawer-prefix-cls}-content {
+  flex: 1;
+  padding: var(--drawer-content-padding);
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: auto;
+}
+
+.@{drawer-prefix-cls}-footer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--drawer-footer-padding);
+  border-top: 1px solid var(--border-level-1-color);
+}
+
+.@{drawer-prefix-cls}-footer-align-right {
+  justify-content: right;
+}
+
+.@{drawer-prefix-cls}-footer-align-center {
+  justify-content: center;
+}
+
+.@{drawer-prefix-cls}-footer-align-left {
+  justify-content: left;
+}
+
+.@{drawer-prefix-cls}-btn {
+  margin-right: 8px;
+}

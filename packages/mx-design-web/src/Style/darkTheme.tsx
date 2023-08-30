@@ -148,11 +148,11 @@ export const darkTheme = {
   // z-index
   '--z-index-popup-base': 1000,
   '--z-index-affix': 'calc(var(--z-index-popup-base) - 1)', // 999
-  '--z-index-popup': 'var(--z-index-popup-base)', // 1000
+  '--z-index-popup': 'calc(var(--z-index-popup-base) + 1)', // 1001
   '--z-index-drawer': 'calc(var(--z-index-popup-base) + 1)', // 1001
   '--z-index-modal': 'calc(var(--z-index-popup-base) + 1)', // 1001
-  '--z-index-tooltip': 'var(--z-index-popup-base)', // 1000
-  '--z-index-message': 'calc(var(--z-index-popup-base) + 3)', // 1003
-  '--z-index-notification': 'calc(var(--z-index-popup-base) + 3)', // 1003
+  '--z-index-tooltip': 'calc(var(--z-index-popup-base) + 1)', // 1001
+  '--z-index-message': 'calc(var(--z-index-popup-base) + 100)', // 1100
+  '--z-index-notification': 'calc(var(--z-index-popup-base) + 50)', // 1050
   '--z-index-image-preview': 'calc(var(--z-index-popup-base) + 1);', // 1001
 };

@@ -18,6 +18,7 @@ import { NAME_SPACE_TOOLTIP, en_us_tooltip } from '@/pages/tooltip/locale';
 import { NAME_SPACE_DROPDOWN, en_us_dropdown } from '@/pages/dropdown/locale';
 import { NAME_SPACE_MODAL, en_us_modal } from '@/pages/modal/locale';
 import { NAME_SPACE_NAV_BAR, en_us_nav_bar } from '@/components/NavBar/components/TutorialsDropdown/locale';
+import { NAME_SPACE_DRAWER, en_us_drawer } from '@/pages/drawer/locale';
 
 export const en_us = {
   [NAME_SPACE_BUTTON]: en_us_button,
@@ -40,4 +41,5 @@ export const en_us = {
   [NAME_SPACE_DROPDOWN]: en_us_dropdown,
   [NAME_SPACE_MODAL]: en_us_modal,
   [NAME_SPACE_NAV_BAR]: en_us_nav_bar,
+  [NAME_SPACE_DRAWER]: en_us_drawer,
 };

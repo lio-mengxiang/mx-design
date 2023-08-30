@@ -1,6 +1,6 @@
 @import (reference) '../../styles/common.less';
 
-@w-code-preview: ~ "mx-code-preview";
+@w-code-preview: ~'mx-code-preview';
 
 .@{w-code-preview} {
   &-demo {
@@ -8,13 +8,13 @@
     padding: 48px;
     border: 1px solid var(--border-level-2-color);
     border-radius: var(--border-radius-medium);
-    overflow: auto;
+    overflow: hidden;
     min-width: 100px;
 
     &-error {
       z-index: 2;
       margin-bottom: 0;
-      color: #dc3545
+      color: #dc3545;
     }
 
     &-source.error {
@@ -48,7 +48,6 @@
   &-code-container {
     overflow: hidden;
   }
-
 }
 
 .ͼ1 .cm-scroller,

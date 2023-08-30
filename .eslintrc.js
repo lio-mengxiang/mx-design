@@ -356,5 +356,6 @@ module.exports = {
     'no-restricted-syntax': 0,
     'react/jsx-no-useless-fragment': 0,
     'arrow-body-style': 0,
+    'jsx-a11y/no-noninteractive-tabindex': 0,
   },
 };

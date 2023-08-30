@@ -18,4 +18,5 @@ export * from './Radio';
 export * from './GridLayout';
 export * from './Dropdown';
 export * from './Modal';
+export * from './Drawer';
 export * from './Style';

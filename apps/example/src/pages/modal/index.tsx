@@ -5,7 +5,7 @@ import { useLocale } from '@/locale/useLocal/useLocal';
 import { ComponentCodeBlock } from '@/components/DemoBlock';
 import { exampleList } from './examples';
 
-function SpinExample() {
+function ModalExample() {
   const [local] = useLocale<typeof NAME_SPACE_MODAL>({ namespace: NAME_SPACE_MODAL });
   const dataList = useMemo(
     () =>
@@ -33,4 +33,4 @@ function SpinExample() {
     </ComponentInnerLayout>
   );
 }
-export default SpinExample;
+export default ModalExample;

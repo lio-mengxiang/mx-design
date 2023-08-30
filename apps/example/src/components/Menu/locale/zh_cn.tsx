@@ -21,14 +21,15 @@ import {
   TOOLTIP_KEY,
   GRID_LAYOUT_KEY,
   MODAL_KEY,
+  DRAWER_KEY,
 } from '@/constants';
 
 export const zh_cn_site_menu = {
   [MESSAGE_TITLE_KEY]: '消息提醒',
+  [BASIC_KEY]: '基础',
   [MESSAGE_KEY]: '全局提醒 Message',
   [POPUP_KEY]: '弹出层 Popup',
   [EMPTY_KEY]: '空状态 Empty',
-  [BASIC_KEY]: '基础',
   [ICON_KEY]: '图标 Icon',
   [ALERT_KEY]: '警告提示 Alert',
   [BUTTON_KEY]: '按钮 Button',
@@ -36,7 +37,7 @@ export const zh_cn_site_menu = {
   [SPIN_KEY]: '加载中 Spin',
   [AFFIX_KEY]: '固定 Affix',
   [NAVIGATE_KEY]: '导航',
-  [LAYOUT_TITLE_KEY]: '导航',
+  [LAYOUT_TITLE_KEY]: '布局',
   [SPACE_KEY]: '间距 Space',
   [NOTIFICATION_KEY]: '消息通知 Notification',
   [ANCHOR_KEY]: '锚点 Anchor',
@@ -46,4 +47,5 @@ export const zh_cn_site_menu = {
   [TOOLTIP_KEY]: '文字提示 Tooltip',
   [GRID_LAYOUT_KEY]: '布局 GridLayout',
   [MODAL_KEY]: '对话框 Modal',
+  [DRAWER_KEY]: '抽屉 Drawer',
 };
