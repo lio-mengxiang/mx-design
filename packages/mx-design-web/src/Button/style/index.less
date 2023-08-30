@@ -1,68 +1,67 @@
-@import './token.less';
 @import (reference) '../../Style/base.less';
+@import (reference) './token.less';
 @import './cssVariables.less';
 
 @btn-prefix-cls: ~'@{prefix}-btn';
 
 .btn-type(@type) {
   .@{btn-prefix-cls}-@{type}:not(.@{btn-prefix-cls}-disabled) {
-    background-color:~'@{btn-@{type}-color-bg}';
-    color:~'@{btn-@{type}-color-text}';
-    border: 1px solid~'@{btn-@{type}-color-border}';
+    background-color: ~'@{btn-@{type}-color-bg}';
+    color: ~'@{btn-@{type}-color-text}';
+    border: 1px solid~ '@{btn-@{type}-color-border}';
 
     &:not(.@{btn-prefix-cls}-loading):hover {
-      border-color:~'@{btn-@{type}-color-border-hover}';
-      color:~'@{btn-@{type}-color-text-hover}';
-      background-color:~'@{btn-@{type}-color-bg-hover}';
+      border-color: ~'@{btn-@{type}-color-border-hover}';
+      color: ~'@{btn-@{type}-color-text-hover}';
+      background-color: ~'@{btn-@{type}-color-bg-hover}';
     }
 
     &:not(.@{btn-prefix-cls}-loading):active {
-      border-color:~'@{btn-@{type}-color-border-active}';
-      color:~'@{btn-@{type}-color-text-active}';
-      background-color:~'@{btn-@{type}-color-bg-active}';
+      border-color: ~'@{btn-@{type}-color-border-active}';
+      color: ~'@{btn-@{type}-color-text-active}';
+      background-color: ~'@{btn-@{type}-color-bg-active}';
     }
 
     &:focus-visible {
-      box-shadow: 0 0 0 @btn-box-shadow-radius~'@{btn-@{type}-color-box-shadow}';
+      box-shadow: 0 0 0 @btn-box-shadow-radius~ '@{btn-@{type}-color-box-shadow}';
     }
   }
 
   .@{btn-prefix-cls}-@{type}.@{btn-prefix-cls}-disabled {
-    background-color:~'@{btn-@{type}-color-bg-disabled}';
-    color:~'@{btn-@{type}-color-text-disabled}';
-    border: 1px solid~'@{btn-@{type}-color-border-disabled}';
+    background-color: ~'@{btn-@{type}-color-bg-disabled}';
+    color: ~'@{btn-@{type}-color-text-disabled}';
+    border: 1px solid~ '@{btn-@{type}-color-border-disabled}';
     cursor: not-allowed;
   }
-
 }
 
 .btn-status(@type, @status) {
   .@{btn-prefix-cls}-@{type}.@{btn-prefix-cls}-status-@{status}:not(.@{btn-prefix-cls}-disabled) {
-    background-color:~'@{btn-@{type}-color-bg-@{status}}';
-    color:~'@{btn-@{type}-color-text-@{status}}';
-    border-color:~'@{btn-@{type}-color-border-@{status}}';
+    background-color: ~'@{btn-@{type}-color-bg-@{status}}';
+    color: ~'@{btn-@{type}-color-text-@{status}}';
+    border-color: ~'@{btn-@{type}-color-border-@{status}}';
 
     &:not(.@{btn-prefix-cls}-loading):hover {
-      border-color:~'@{btn-@{type}-color-border-@{status}-hover}';
-      color:~'@{btn-@{type}-color-text-@{status}-hover}';
-      background-color:~'@{btn-@{type}-color-bg-@{status}-hover}';
+      border-color: ~'@{btn-@{type}-color-border-@{status}-hover}';
+      color: ~'@{btn-@{type}-color-text-@{status}-hover}';
+      background-color: ~'@{btn-@{type}-color-bg-@{status}-hover}';
     }
 
     &:not(.@{btn-prefix-cls}-loading):active {
-      border-color:~'@{btn-@{type}-color-border-@{status}-active}';
-      color:~'@{btn-@{type}-color-text-@{status}-active}';
-      background-color:~'@{btn-@{type}-color-bg-@{status}-active}';
+      border-color: ~'@{btn-@{type}-color-border-@{status}-active}';
+      color: ~'@{btn-@{type}-color-text-@{status}-active}';
+      background-color: ~'@{btn-@{type}-color-bg-@{status}-active}';
     }
 
     &:focus-visible {
-      box-shadow: 0 0 0 @btn-box-shadow-radius~'@{btn-color-box-shadow_@{status}}';
+      box-shadow: 0 0 0 @btn-box-shadow-radius~ '@{btn-color-box-shadow_@{status}}';
     }
   }
 
   .@{btn-prefix-cls}-@{type}.@{btn-prefix-cls}-status-@{status}.@{btn-prefix-cls}-disabled {
-    color:~'@{btn-@{type}-color-text-@{status}-disabled}';
-    background-color:~'@{btn-@{type}-color-bg-@{status}-disabled}';
-    border: 1px solid~'@{btn-@{type}-color-border-@{status}-disabled}';
+    color: ~'@{btn-@{type}-color-text-@{status}-disabled}';
+    background-color: ~'@{btn-@{type}-color-bg-@{status}-disabled}';
+    border: 1px solid~ '@{btn-@{type}-color-border-@{status}-disabled}';
   }
 }
 
@@ -84,7 +83,7 @@
   line-height: 1.5715;
   border-radius: @btn-radius;
 
-  >a:only-child {
+  > a:only-child {
     /* stylelint-disable-next-line value-keyword-case */
     color: currentColor;
   }
@@ -96,7 +95,6 @@
   &:active:not(.@{btn-prefix-cls}-loading):not(.@{btn-prefix-cls}-disabled) {
     transition: none;
   }
-
 
   &:empty {
     display: inline-block;
@@ -143,22 +141,20 @@
     width: 32px;
   }
 
-  >svg+span {
+  > svg + span {
     margin-left: 8px;
   }
 
-  >span+span {
+  > span + span {
     margin-left: 8px;
   }
 }
-
 
 .btn-type(outline);
 .btn-status(outline, warning);
 .btn-status(outline, error);
 .btn-status(outline, success);
 .btn-status(outline, default);
-
 
 .btn-type(brand);
 .btn-status(brand, warning);
@@ -171,7 +167,6 @@
 .btn-status(text, error);
 .btn-status(text, success);
 .btn-status(text, default);
-
 
 .@{btn-prefix-cls}-group {
   display: inline-block;

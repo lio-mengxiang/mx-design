@@ -18,7 +18,8 @@
     "site/*",
     "es/**/style/**",
     "esm/**/style/**",
-    "*.less"
+    "*.less",
+    "*.css"
   ],
   "publishConfig": {
     "access": "public",
