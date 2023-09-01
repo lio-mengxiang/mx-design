@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react';
+
 export interface CodePreviewProps {
   /**
    * `JSX` source code
@@ -7,4 +9,5 @@ export interface CodePreviewProps {
    * Dependent component
    */
   dependencies?: Record<string, any>;
+  demoContainerStyle: CSSProperties;
 }

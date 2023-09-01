@@ -20,4 +20,7 @@ function App() {
 export const basic = {
   code,
   namespace: Basic,
+  demoContainerStyle: {
+    zIndex: 2,
+  },
 };

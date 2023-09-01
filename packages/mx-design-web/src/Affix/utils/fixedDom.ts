@@ -17,7 +17,7 @@ interface IFixedDomProps {
 export const fixedDom = ({ affixDom, prefixCls, fixedTop, wrapWidth, wrapHeight, zIndex }: IFixedDomProps) => {
   affixDom.className = prefixCls;
   const offsetParent = getContainingBlock(affixDom);
-  const top = (isHTMLElement(offsetParent) ? offsetParent.getBoundingClientRect().top : 0) + (fixedTop as number);
+  const top = (fixedTop as number) - (isHTMLElement(offsetParent) ? offsetParent.getBoundingClientRect().top : 0);
   affixDom.style.top = `${top}px`;
   affixDom.style.width = `${wrapWidth}px`;
   affixDom.style.height = `${wrapHeight}px`;

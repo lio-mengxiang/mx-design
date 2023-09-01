@@ -30,7 +30,7 @@ export const variants = {
 const style = { maxHeight: '500px', overflow: 'auto' };
 
 function CodePreview(props: CodePreviewProps) {
-  const { code: _Code = '', dependencies = {} } = props;
+  const { code: _Code = '', dependencies = {}, demoContainerStyle } = props;
   const { theme } = useContext(ConfigContext);
 
   const { state, showEdit, setShowEdit, onChange } = useCodePreview({ code: _Code, dependencies, ...props });
@@ -42,6 +42,7 @@ function CodePreview(props: CodePreviewProps) {
         className={cs(`${prefixCls}-demo`, {
           [`${prefixCls}-demo-error`]: !!state.error,
         })}
+        style={demoContainerStyle}
       >
         <>
           <ErrorMessage message={state.error} />
