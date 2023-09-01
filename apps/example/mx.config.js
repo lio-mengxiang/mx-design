@@ -14,7 +14,8 @@ module.exports = {
   resolve: {
     alias: {
       '@': resolvePath('./src'),
-      '@mx-design/web': resolvePath('../../packages/mx-design-web/src'),
+      // '@mx-design/web/dist/mx-design.css': resolvePath('../../packages/mx-design-web/src/Style/entry.less'),
+      // '@mx-design/web': resolvePath('../../packages/mx-design-web/src'),
     },
   },
 

@@ -22,7 +22,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@mx-design/cli": "2.3.2",
+    "@mx-design/cli": "2.3.5",
     "@types/jsdom": "21.1.1",
     "@types/node": "18.11.10",
     "@types/react": "18.0.26",

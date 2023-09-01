@@ -1,4 +1,10 @@
-import '../style/index.less';
-import { useNcMessage } from './useMessage.nc';
+import { useContext } from 'react';
+import { ConfigContext } from '../../ConfigProvider';
+// type
+import type { IMessageRef } from '../interface';
 
-export { useNcMessage as useMessage };
+export function useMessage(): IMessageRef {
+  const { _messageRef } = useContext(ConfigContext);
+
+  return _messageRef.current;
+}

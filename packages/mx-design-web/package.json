@@ -18,8 +18,7 @@
     "site/*",
     "es/**/style/**",
     "esm/**/style/**",
-    "*.less",
-    "*.css"
+    "*.less"
   ],
   "publishConfig": {
     "access": "public",
@@ -38,7 +37,8 @@
     "build:types": "rimraf types && tsc -d --emitDeclarationOnly",
     "build:es": "rimraf esm && mx buildLib --mode esm --copy-less --less-2-css",
     "build:cjs": "rimraf lib && mx buildLib --mode cjs --copy-less --less-2-css",
-    "build": "pnpm run build:types && pnpm run build:cjs && pnpm run build:es"
+    "build:umd": "rimraf dist && mx buildLib --mode umd --entry src/Style/entry.ts,src/index.ts --output-name mx-design",
+    "build": "pnpm run build:types && pnpm run build:cjs && pnpm run build:es && pnpm run build:umd"
   },
   "peerDependencies": {
     "react": ">=18",

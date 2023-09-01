@@ -1,5 +1,3 @@
-import './style/index.less';
-
 export type { IconProps } from './interface';
 export { Icon } from './icon';
 export { createFromIconfont } from './IconFont';

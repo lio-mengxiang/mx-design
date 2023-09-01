@@ -1,7 +1,7 @@
 import React, { useContext, PropsWithChildren, useState } from 'react';
 import { useMergeValue } from '@mx-design/hooks';
 import { isArray, isObject } from '@mx-design/web-utils';
-import { NcCheckbox } from './checkbox.nc';
+import { Checkbox } from './checkbox';
 import { ConfigContext } from '../../ConfigProvider';
 import { useGroupClassNames, useStyles } from '../hooks';
 import { CheckboxGroupContext } from '../checkboxGroupContext';
@@ -60,16 +60,16 @@ function Group<T extends string | number>(props: PropsWithChildren<CheckboxGroup
           ? options.map((option) => {
               if (isObject(option)) {
                 return (
-                  <NcCheckbox disabled={disabled || option.disabled} key={option.value} value={option.value}>
+                  <Checkbox disabled={disabled || option.disabled} key={option.value} value={option.value}>
                     {option.label}
-                  </NcCheckbox>
+                  </Checkbox>
                 );
               }
 
               return (
-                <NcCheckbox disabled={disabled} key={option} value={option}>
+                <Checkbox disabled={disabled} key={option} value={option}>
                   {option}
-                </NcCheckbox>
+                </Checkbox>
               );
             })
           : children}

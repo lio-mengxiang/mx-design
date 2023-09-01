@@ -8,6 +8,7 @@ import { themeMap, useLang, useTheme } from './hooks';
 
 import './styles/common.less';
 import './styles/normalize.css';
+import '@mx-design/web/dist/mx-design.css';
 
 function App() {
   const [lang, setLang] = useLang();

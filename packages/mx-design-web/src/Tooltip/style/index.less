@@ -2,6 +2,7 @@
 @import './cssVariables.less';
 
 @tooltip-prefix-cls: ~'@{prefix}-tooltip';
+@popup-prefix-cls: ~'@{prefix}-popup';
 
 .@{tooltip-prefix-cls} {
   .@{prefix}-popup__content {
@@ -15,5 +16,10 @@
     border-radius: var(--tooltip-border-radius);
     background-color: var(--tooltip-bg-color);
     color: var(--tooltip-color);
+  }
+}
+.@{tooltip-prefix-cls}[data-popper-placement] .@{popup-prefix-cls}__arrow {
+  &::before {
+    border: none;
   }
 }

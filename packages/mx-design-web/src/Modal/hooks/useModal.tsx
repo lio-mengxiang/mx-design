@@ -1,4 +1,9 @@
-import '../style/index.less';
-import { useNcModal } from './useModal.nc';
+import { useContext } from 'react';
+import { ConfigContext } from '../../ConfigProvider';
+import type { IModalRef } from '../components/modalProvider';
 
-export { useNcModal as useModal };
+export function useModal(): IModalRef {
+  const { _modalRef } = useContext(ConfigContext);
+
+  return _modalRef.current;
+}

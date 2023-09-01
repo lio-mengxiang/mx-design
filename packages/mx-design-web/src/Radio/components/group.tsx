@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useMergeValue } from '@mx-design/hooks';
 import { isArray, isObject } from '@mx-design/web-utils';
-import { NcRadio } from './radio.nc';
+import { Radio } from './radio';
 import { ConfigContext } from '../../ConfigProvider';
 import { RadioGroupContext } from '../radioContext';
 import { useGroupClassNames, useStyles } from '../hooks';
@@ -62,15 +62,15 @@ function Group(props: RadioGroupProps) {
           ? options.map((option, index) => {
               if (isObject(option)) {
                 return (
-                  <NcRadio key={option.value} disabled={disabled || option.disabled} value={option.value}>
+                  <Radio key={option.value} disabled={disabled || option.disabled} value={option.value}>
                     {option.label}
-                  </NcRadio>
+                  </Radio>
                 );
               }
               return (
-                <NcRadio key={index} value={option} disabled={disabled}>
+                <Radio key={index} value={option} disabled={disabled}>
                   {option}
-                </NcRadio>
+                </Radio>
               );
             })
           : children}
