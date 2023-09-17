@@ -1,4 +1,4 @@
-import { ZH_CN } from '../locale/constants';
+import { ZH_CN } from '../Locale/constants';
 
 export const PREFIX_CLS = 'mx';
 export const MEDIUM_SIZE = 'medium';

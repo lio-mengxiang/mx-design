@@ -3,8 +3,6 @@
 
 @drawer-prefix-cls: ~'@{prefix}-drawer';
 
-.icon-hover(50%, var(--drawer-icon-hover-bg), var(--drawer-icon-hover-size));
-
 .@{drawer-prefix-cls}-scroll {
   overflow-y: auto;
   height: 100%;
@@ -42,6 +40,7 @@
   height: 100%;
   position: absolute;
   background-color: var(--drawer-bg);
+  .icon-hover(50%, var(--drawer-icon-hover-bg), var(--drawer-icon-hover-size));
 }
 
 .@{drawer-prefix-cls}-root-wrapper {

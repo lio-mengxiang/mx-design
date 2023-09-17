@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
 import ComponentInnerLayout from '@/components/Layout/ComponentInnerLayout';
-import { NAME_SPACE_CHECKBOX } from './locale';
+import { CHECKBOX_KEY } from '@/constants';
 import { useLocale } from '@/locale/useLocal/useLocal';
 import { ComponentCodeBlock } from '@/components/DemoBlock';
 import { exampleList } from './examples';
 
 function CheckboxExample() {
-  const [local] = useLocale<typeof NAME_SPACE_CHECKBOX>({ namespace: NAME_SPACE_CHECKBOX });
+  const [local] = useLocale<typeof CHECKBOX_KEY>({ namespace: CHECKBOX_KEY });
   const dataList = useMemo(
     () =>
       Object.keys(local).map((key) => ({

@@ -1,4 +1,3 @@
-export const NAME_SPACE_ICON = 'ICON';
 export const Basic = 'Basic';
 export const Loading = 'Loading';
 export const Custom = 'Custom';

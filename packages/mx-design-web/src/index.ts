@@ -19,4 +19,6 @@ export * from './GridLayout';
 export * from './Dropdown';
 export * from './Modal';
 export * from './Drawer';
+export * from './Tag';
+export * from './Input';
 export * from './Style';

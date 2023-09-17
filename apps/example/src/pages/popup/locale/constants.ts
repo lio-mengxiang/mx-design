@@ -1,4 +1,3 @@
-export const NAME_SPACE_POPUP = 'POPUP';
 export const Basic = 'Basic';
 export const TriggerMode = 'TriggerMode';
 export const DifferentTrigger = 'DifferentTrigger';

@@ -1,4 +1,3 @@
-export const NAME_SPACE_BUTTON = 'BUTTON';
 export const Basic = 'Basic';
 export const Icon = 'Icon';
 export const Status = 'Status';

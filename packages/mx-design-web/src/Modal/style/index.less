@@ -3,8 +3,6 @@
 
 @modal-prefix-cls: ~'@{prefix}-modal';
 
-.icon-hover(50%, var(--modal-icon-hover-bg), var(--modal-icon-hover-size));
-
 .@{modal-prefix-cls}-container {
   position: fixed;
   cursor: auto;
@@ -46,6 +44,7 @@
   border-radius: var(--modal-radius);
   background-color: var(--modal-bg);
   border: 1px solid var(--modal-border-color);
+  .icon-hover(50%, var(--modal-icon-hover-bg), var(--modal-icon-hover-size));
 }
 
 .@{modal-prefix-cls}-title-container {

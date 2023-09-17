@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
 import ComponentInnerLayout from '@/components/Layout/ComponentInnerLayout';
-import { NAME_SPACE_MODAL } from './locale';
+import { MODAL_KEY } from '@/constants';
 import { useLocale } from '@/locale/useLocal/useLocal';
 import { ComponentCodeBlock } from '@/components/DemoBlock';
 import { exampleList } from './examples';
 
 function ModalExample() {
-  const [local] = useLocale<typeof NAME_SPACE_MODAL>({ namespace: NAME_SPACE_MODAL });
+  const [local] = useLocale<typeof MODAL_KEY>({ namespace: MODAL_KEY });
   const dataList = useMemo(
     () =>
       Object.keys(local).map((key) => ({

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Variants } from 'framer-motion';
-import { EN_US, ZH_CN } from '../locale/constants';
+import { EN_US, ZH_CN } from '../Locale/constants';
 import type { DrawerPlacement } from './interface';
 
 export function drawerAnimation(placement?: DrawerPlacement): Variants {

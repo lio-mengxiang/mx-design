@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
 import ComponentInnerLayout from '@/components/Layout/ComponentInnerLayout';
-import { NAME_SPACE_ALERT } from './locale';
 import { useLocale } from '@/locale/useLocal/useLocal';
 import { ComponentCodeBlock } from '@/components/DemoBlock';
 import { exampleList } from './examples';
+import { ALERT_KEY } from '@/constants';
 
 function AlertExample() {
-  const [local] = useLocale<typeof NAME_SPACE_ALERT>({ namespace: NAME_SPACE_ALERT });
+  const [local] = useLocale<typeof ALERT_KEY>({ namespace: ALERT_KEY });
   const dataList = useMemo(
     () =>
       Object.keys(local).map((key) => ({

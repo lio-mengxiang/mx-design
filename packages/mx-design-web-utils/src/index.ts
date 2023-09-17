@@ -13,3 +13,4 @@ export * from './localStorage';
 export * from './pick';
 export * from './noop';
 export * from './throttle';
+export * from './dom';

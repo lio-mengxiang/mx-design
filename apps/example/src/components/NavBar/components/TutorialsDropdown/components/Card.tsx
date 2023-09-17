@@ -1,10 +1,11 @@
 import React from 'react';
+import { cs } from '@mx-design/web-utils';
 import styles from '../styles/index.module.less';
 
-export function Card({ Icon, title, text, onClick, onClickMenuItem }) {
+export function Card({ Icon, title, text, onClick, onClickMenuItem, isLast }) {
   return (
     <div
-      className={styles.card}
+      className={cs(styles.card, { [styles.bottom]: !isLast })}
       onClick={() => {
         onClick();
         onClickMenuItem();

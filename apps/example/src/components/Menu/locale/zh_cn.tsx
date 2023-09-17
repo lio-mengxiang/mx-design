@@ -22,6 +22,8 @@ import {
   GRID_LAYOUT_KEY,
   MODAL_KEY,
   DRAWER_KEY,
+  INPUT_KEY,
+  TAG_KEY,
 } from '@/constants';
 
 export const zh_cn_site_menu = {
@@ -48,4 +50,6 @@ export const zh_cn_site_menu = {
   [GRID_LAYOUT_KEY]: '布局 GridLayout',
   [MODAL_KEY]: '对话框 Modal',
   [DRAWER_KEY]: '抽屉 Drawer',
+  [INPUT_KEY]: '输入框 Input',
+  [TAG_KEY]: '标签 Tag',
 };

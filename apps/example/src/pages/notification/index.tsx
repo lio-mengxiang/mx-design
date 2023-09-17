@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
 import ComponentInnerLayout from '@/components/Layout/ComponentInnerLayout';
-import { NAME_SPACE_NOTIFICATION } from './locale';
+import { NOTIFICATION_KEY } from '@/constants';
 import { useLocale } from '@/locale/useLocal/useLocal';
 import { ComponentCodeBlock } from '@/components/DemoBlock';
 import { exampleList } from './examples';
 
 function SpinExample() {
-  const [local] = useLocale<typeof NAME_SPACE_NOTIFICATION>({ namespace: NAME_SPACE_NOTIFICATION });
+  const [local] = useLocale<typeof NOTIFICATION_KEY>({ namespace: NOTIFICATION_KEY });
   const dataList = useMemo(
     () =>
       Object.keys(local).map((key) => ({

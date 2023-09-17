@@ -45,10 +45,9 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@mx-design/web-utils": "0.1.2",
-    "@mx-design/node-utils": "0.1.2",
+    "@mx-design/web-utils": "0.1.4",
+    "@mx-design/node-utils": "0.1.3",
     "@mx-design/hooks": "0.1.1",
-    "@mx-design/theme": "0.1.0",
     "@babel/runtime": "7.20.6",
     "framer-motion": "10.12.4",
     "react-fast-compare": "3.2.1",

@@ -1,4 +1,3 @@
-export const NAME_SPACE_SPIN = 'SPIN';
 export const Basic = 'Basic';
 export const Container = 'Container';
 export const Tip = 'Tip';

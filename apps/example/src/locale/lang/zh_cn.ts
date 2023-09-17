@@ -1,45 +1,72 @@
 import { NAME_SPACE_SITE_MENU, zh_cn_site_menu } from '@/components/Menu/locale';
 import { NAME_SPACE_STATUS, zh_cn_status } from '@/components/Status/locale';
-import { NAME_SPACE_AFFIX, zh_cn_affix } from '@/pages/affix/locale';
-import { NAME_SPACE_ALERT, zh_cn_alert } from '@/pages/alert/locale';
-import { NAME_SPACE_ANCHOR, zh_cn_anchor } from '@/pages/anchor/locale';
-import { NAME_SPACE_BUTTON, zh_cn_button } from '@/pages/button/locale';
-import { NAME_SPACE_CHECKBOX, zh_cn_checkbox } from '@/pages/checkbox/locale';
-import { NAME_SPACE_EMPTY, zh_cn_empty } from '@/pages/empty/locale';
-import { NAME_SPACE_GRID_LAYOUT, zh_cn_gridLayout } from '@/pages/gridLayout/locale';
-import { NAME_SPACE_ICON, zh_cn_icon } from '@/pages/icon/locale';
-import { NAME_SPACE_MESSAGE, zh_cn_message } from '@/pages/message/locale';
-import { NAME_SPACE_NOTIFICATION, zh_cn_notification } from '@/pages/notification/locale';
-import { NAME_SPACE_POPUP, zh_cn_popup } from '@/pages/popup/locale';
-import { NAME_SPACE_RADIO, zh_cn_radio } from '@/pages/radio/locale';
-import { NAME_SPACE_SPACE, zh_cn_space } from '@/pages/space/locale';
-import { NAME_SPACE_SPIN, zh_cn_spin } from '@/pages/spin/locale';
-import { NAME_SPACE_TOOLTIP, zh_cn_tooltip } from '@/pages/tooltip/locale';
-import { NAME_SPACE_DROPDOWN, zh_cn_dropdown } from '@/pages/dropdown/locale';
-import { NAME_SPACE_MODAL, zh_cn_modal } from '@/pages/modal/locale';
 import { NAME_SPACE_NAV_BAR, zh_cn_nav_bar } from '@/components/NavBar/components/TutorialsDropdown/locale';
-import { NAME_SPACE_DRAWER, zh_cn_drawer } from '@/pages/drawer/locale';
+// components
+import { zh_cn_affix } from '@/pages/affix/locale';
+import { zh_cn_alert } from '@/pages/alert/locale';
+import { zh_cn_anchor } from '@/pages/anchor/locale';
+import { zh_cn_button } from '@/pages/button/locale';
+import { zh_cn_checkbox } from '@/pages/checkbox/locale';
+import { zh_cn_empty } from '@/pages/empty/locale';
+import { zh_cn_gridLayout } from '@/pages/gridLayout/locale';
+import { zh_cn_icon } from '@/pages/icon/locale';
+import { zh_cn_message } from '@/pages/message/locale';
+import { zh_cn_notification } from '@/pages/notification/locale';
+import { zh_cn_popup } from '@/pages/popup/locale';
+import { zh_cn_radio } from '@/pages/radio/locale';
+import { zh_cn_space } from '@/pages/space/locale';
+import { zh_cn_spin } from '@/pages/spin/locale';
+import { zh_cn_tooltip } from '@/pages/tooltip/locale';
+import { zh_cn_dropdown } from '@/pages/dropdown/locale';
+import { zh_cn_modal } from '@/pages/modal/locale';
+import { zh_cn_tag } from '@/pages/tag/locale';
+import { zh_cn_input } from '@/pages/input/locale';
+import { zh_cn_drawer } from '@/pages/drawer/locale';
+import {
+  AFFIX_KEY,
+  ALERT_KEY,
+  ANCHOR_KEY,
+  BUTTON_KEY,
+  CHECKBOX_KEY,
+  DRAWER_KEY,
+  DROPDOWN_KEY,
+  EMPTY_KEY,
+  GRID_LAYOUT_KEY,
+  ICON_KEY,
+  INPUT_KEY,
+  MESSAGE_KEY,
+  MODAL_KEY,
+  NOTIFICATION_KEY,
+  POPUP_KEY,
+  RADIO_KEY,
+  SPACE_KEY,
+  SPIN_KEY,
+  TAG_KEY,
+  TOOLTIP_KEY,
+} from '@/constants';
 
 export const zh_cn = {
-  [NAME_SPACE_BUTTON]: zh_cn_button,
-  [NAME_SPACE_POPUP]: zh_cn_popup,
+  [BUTTON_KEY]: zh_cn_button,
+  [POPUP_KEY]: zh_cn_popup,
   [NAME_SPACE_SITE_MENU]: zh_cn_site_menu,
   [NAME_SPACE_STATUS]: zh_cn_status,
-  [NAME_SPACE_ICON]: zh_cn_icon,
-  [NAME_SPACE_SPIN]: zh_cn_spin,
-  [NAME_SPACE_ALERT]: zh_cn_alert,
-  [NAME_SPACE_MESSAGE]: zh_cn_message,
-  [NAME_SPACE_EMPTY]: zh_cn_empty,
-  [NAME_SPACE_AFFIX]: zh_cn_affix,
-  [NAME_SPACE_SPACE]: zh_cn_space,
-  [NAME_SPACE_NOTIFICATION]: zh_cn_notification,
-  [NAME_SPACE_ANCHOR]: zh_cn_anchor,
-  [NAME_SPACE_CHECKBOX]: zh_cn_checkbox,
-  [NAME_SPACE_RADIO]: zh_cn_radio,
-  [NAME_SPACE_TOOLTIP]: zh_cn_tooltip,
-  [NAME_SPACE_GRID_LAYOUT]: zh_cn_gridLayout,
-  [NAME_SPACE_DROPDOWN]: zh_cn_dropdown,
-  [NAME_SPACE_MODAL]: zh_cn_modal,
+  [ICON_KEY]: zh_cn_icon,
+  [SPIN_KEY]: zh_cn_spin,
+  [ALERT_KEY]: zh_cn_alert,
+  [MESSAGE_KEY]: zh_cn_message,
+  [EMPTY_KEY]: zh_cn_empty,
+  [AFFIX_KEY]: zh_cn_affix,
+  [SPACE_KEY]: zh_cn_space,
+  [NOTIFICATION_KEY]: zh_cn_notification,
+  [ANCHOR_KEY]: zh_cn_anchor,
+  [CHECKBOX_KEY]: zh_cn_checkbox,
+  [RADIO_KEY]: zh_cn_radio,
+  [TOOLTIP_KEY]: zh_cn_tooltip,
+  [GRID_LAYOUT_KEY]: zh_cn_gridLayout,
+  [DROPDOWN_KEY]: zh_cn_dropdown,
+  [MODAL_KEY]: zh_cn_modal,
   [NAME_SPACE_NAV_BAR]: zh_cn_nav_bar,
-  [NAME_SPACE_DRAWER]: zh_cn_drawer,
+  [DRAWER_KEY]: zh_cn_drawer,
+  [TAG_KEY]: zh_cn_tag,
+  [INPUT_KEY]: zh_cn_input,
 };

@@ -29,7 +29,7 @@
     "react-dom": "^16.8.0  || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@mx-design/web-utils": "0.1.2",
+    "@mx-design/web-utils": "0.1.4",
     "copy-to-clipboard": "3.3.3",
     "resize-observer-polyfill": "1.5.1"
   }

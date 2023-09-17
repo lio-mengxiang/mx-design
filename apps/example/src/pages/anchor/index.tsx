@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
 import ComponentInnerLayout from '@/components/Layout/ComponentInnerLayout';
-import { NAME_SPACE_ANCHOR } from './locale';
+import { ANCHOR_KEY } from '@/constants';
 import { useLocale } from '@/locale/useLocal/useLocal';
 import { ComponentCodeBlock } from '@/components/DemoBlock';
 import { exampleList } from './examples';
 
 function AffixExample() {
-  const [local] = useLocale<typeof NAME_SPACE_ANCHOR>({ namespace: NAME_SPACE_ANCHOR });
+  const [local] = useLocale<typeof ANCHOR_KEY>({ namespace: ANCHOR_KEY });
   const dataList = useMemo(
     () =>
       Object.keys(local).map((key) => ({

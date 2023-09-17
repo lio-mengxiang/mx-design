@@ -1,7 +1,7 @@
 import React from 'react';
 import { cs } from '@mx-design/web-utils';
 import { Button } from '../../Button';
-import { useLocale } from '../../locale/useLocal/useLocal';
+import { useLocale } from '../../Locale/useLocal/useLocal';
 import { MODAL_NAMESPACE } from '../constants';
 // type
 import type { ModalProps } from '../interface';

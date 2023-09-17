@@ -22,3 +22,5 @@ export const GridLayoutExample = load(() => import('@/pages/gridLayout'));
 export const DropDownExample = load(() => import('@/pages/dropdown'));
 export const ModalExample = load(() => import('@/pages/modal'));
 export const DrawerExample = load(() => import('@/pages/drawer'));
+export const TagExample = load(() => import('@/pages/tag'));
+export const InputExample = load(() => import('@/pages/input'));

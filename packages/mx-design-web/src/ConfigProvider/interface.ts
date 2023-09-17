@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { ZH_CN, EN_US } from '../locale/constants';
+import { ZH_CN, EN_US } from '../Locale/constants';
 import { SMALL_SIZE, MEDIUM_SIZE, LARGE_SIZE } from './constants';
 import type { EmptyProps } from '../Empty';
 import type { IconProps } from '../Icon';
@@ -21,6 +21,8 @@ import type { MessageProps, IMessageRef } from '../Message';
 import type { ModalProps } from '../Modal/interface';
 import type { IModalRef } from '../Modal';
 import type { DrawerProps, IDrawerRef } from '../Drawer';
+import type { InputProps } from '../Input/interface';
+import type { TagProps } from '../Tag/interface';
 
 // import type { TableProps } from '../Table/interface';
 
@@ -46,6 +48,8 @@ export interface ComponentConfig {
   // Table?: Partial<TableProps<any>>;
   Modal?: Partial<ModalProps>;
   Drawer?: Partial<DrawerProps>;
+  Input: Partial<InputProps>;
+  Tag: Partial<TagProps>;
 }
 
 /**

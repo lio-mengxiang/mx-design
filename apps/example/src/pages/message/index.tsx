@@ -1,12 +1,12 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import ComponentInnerLayout from '@/components/Layout/ComponentInnerLayout';
-import { NAME_SPACE_MESSAGE } from './locale';
+import { MESSAGE_KEY } from '@/constants';
 import { useLocale } from '@/locale/useLocal/useLocal';
 import { ComponentCodeBlock } from '@/components/DemoBlock';
 import { exampleList } from './examples';
 
 function SpinExample() {
-  const [local] = useLocale<typeof NAME_SPACE_MESSAGE>({ namespace: NAME_SPACE_MESSAGE });
+  const [local] = useLocale<typeof MESSAGE_KEY>({ namespace: MESSAGE_KEY });
   const dataList = useMemo(
     () =>
       Object.keys(local).map((key) => ({

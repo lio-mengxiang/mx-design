@@ -22,6 +22,8 @@ import {
   GRID_LAYOUT_KEY,
   MODAL_KEY,
   DRAWER_KEY,
+  INPUT_KEY,
+  TAG_KEY,
 } from '@/constants';
 
 export const en_us_site_menu = {
@@ -48,4 +50,6 @@ export const en_us_site_menu = {
   [GRID_LAYOUT_KEY]: 'GridLayout',
   [MODAL_KEY]: 'Modal',
   [DRAWER_KEY]: 'Drawer',
+  [INPUT_KEY]: 'Input',
+  [TAG_KEY]: 'Tag',
 };

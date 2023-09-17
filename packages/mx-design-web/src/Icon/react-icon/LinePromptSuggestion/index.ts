@@ -26,3 +26,5 @@ export * from './IconSun';
 export * from './IconTelephone';
 export * from './IconUnlock';
 export * from './IconWarning';
+export * from './IconView';
+export * from './IconViewOff';

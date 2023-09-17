@@ -12,7 +12,7 @@ const defaultProps = {
   height: 'auto',
 };
 
-function GridLayout(baseProps: GridLayoutProps) {
+function GridLayout(baseProps: GridLayoutProps, ref) {
   const { componentConfig } = useContext(ConfigContext);
   const props = useMergeProps<GridLayoutProps>(baseProps, defaultProps, componentConfig?.GridLayout);
   const { columns, height, gap, areas, alignContent, rows, justifyContent, flow, children, style, className, ...rest } = props;
@@ -47,13 +47,13 @@ function GridLayout(baseProps: GridLayoutProps) {
   };
 
   return (
-    <div {...rest} className={className} style={mergeStyle}>
+    <div {...rest} className={className} style={mergeStyle} ref={ref}>
       {children}
     </div>
   );
 }
 
-const GridLayoutComponent = React.memo(GridLayout);
+const GridLayoutComponent = React.forwardRef(GridLayout);
 
 GridLayoutComponent.displayName = 'GridLayout';
 

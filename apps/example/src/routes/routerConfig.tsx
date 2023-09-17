@@ -25,6 +25,8 @@ import {
   DropDownExample,
   ModalExample,
   DrawerExample,
+  TagExample,
+  InputExample,
 } from './routes';
 import { Page404 } from '@/components/Status/404';
 import {
@@ -39,6 +41,7 @@ import {
   EMPTY_KEY,
   GRID_LAYOUT_KEY,
   ICON_KEY,
+  INPUT_KEY,
   MESSAGE_KEY,
   MODAL_KEY,
   NOTIFICATION_KEY,
@@ -46,6 +49,7 @@ import {
   RADIO_KEY,
   SPACE_KEY,
   SPIN_KEY,
+  TAG_KEY,
   TOOLTIP_KEY,
 } from '@/constants';
 import AppLayout from '@/components/Layout/AppLayout';
@@ -84,6 +88,8 @@ export const routerConfig = [
           { path: DROPDOWN_KEY, element: <DropDownExample /> },
           { path: MODAL_KEY, element: <ModalExample /> },
           { path: DRAWER_KEY, element: <DrawerExample /> },
+          { path: TAG_KEY, element: <TagExample /> },
+          { path: INPUT_KEY, element: <InputExample /> },
           { path: '*', element: <Navigate to={BUTTON_KEY} replace /> },
         ],
       },

@@ -2,11 +2,11 @@ import React, { useMemo } from 'react';
 import ComponentInnerLayout from '@/components/Layout/ComponentInnerLayout';
 import { useLocale } from '@/locale/useLocal/useLocal';
 import { exampleList } from './examples';
-import { NAME_SPACE_POPUP } from './locale';
+import { POPUP_KEY } from '@/constants';
 import { ComponentCodeBlock } from '@/components/DemoBlock';
 
 function PopupExample() {
-  const [local] = useLocale<typeof NAME_SPACE_POPUP>({ namespace: NAME_SPACE_POPUP });
+  const [local] = useLocale<typeof POPUP_KEY>({ namespace: POPUP_KEY });
   const dataList = useMemo(
     () =>
       Object.keys(local).map((key) => ({

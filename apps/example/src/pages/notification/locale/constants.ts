@@ -1,4 +1,3 @@
-export const NAME_SPACE_NOTIFICATION = 'NOTIFICATION';
 export const Basic = 'Basic';
 export const Different = 'Different';
 export const Position = 'Position';

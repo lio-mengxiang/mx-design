@@ -12,6 +12,7 @@ import {
   EMPTY_KEY,
   GRID_LAYOUT_KEY,
   ICON_KEY,
+  INPUT_KEY,
   LAYOUT_TITLE_KEY,
   MESSAGE_KEY,
   MESSAGE_TITLE_KEY,
@@ -22,6 +23,7 @@ import {
   RADIO_KEY,
   SPACE_KEY,
   SPIN_KEY,
+  TAG_KEY,
   TOOLTIP_KEY,
 } from '@/constants';
 
@@ -97,6 +99,10 @@ export const componentsMenuList = [
         title: TOOLTIP_KEY,
         path: `/${COMPONENTS_KEY}/${TOOLTIP_KEY}`,
       },
+      {
+        title: TAG_KEY,
+        path: `/${COMPONENTS_KEY}/${TAG_KEY}`,
+      },
     ],
   },
   {
@@ -109,6 +115,10 @@ export const componentsMenuList = [
       {
         title: RADIO_KEY,
         path: `/${COMPONENTS_KEY}/${RADIO_KEY}`,
+      },
+      {
+        title: INPUT_KEY,
+        path: `/${COMPONENTS_KEY}/${INPUT_KEY}`,
       },
     ],
   },

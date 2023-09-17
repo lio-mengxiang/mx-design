@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
 import ComponentInnerLayout from '@/components/Layout/ComponentInnerLayout';
-import { NAME_SPACE_SPACE } from './locale';
+import { SPACE_KEY } from '@/constants';
 import { useLocale } from '@/locale/useLocal/useLocal';
 import { ComponentCodeBlock } from '@/components/DemoBlock';
 import { exampleList } from './examples';
 
 function AffixExample() {
-  const [local] = useLocale<typeof NAME_SPACE_SPACE>({ namespace: NAME_SPACE_SPACE });
+  const [local] = useLocale<typeof SPACE_KEY>({ namespace: SPACE_KEY });
   const dataList = useMemo(
     () =>
       Object.keys(local).map((key) => ({

@@ -1,4 +1,4 @@
-import { EN_US, ZH_CN } from '../locale/constants';
+import { EN_US, ZH_CN } from '../Locale/constants';
 
 export const ALERT_NAMESPACE = 'Alert';
 

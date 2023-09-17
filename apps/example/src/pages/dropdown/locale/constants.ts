@@ -1,4 +1,3 @@
-export const NAME_SPACE_DROPDOWN = 'DROPDOWN';
 export const Basic = 'Basic';
 export const Other = 'Other';
 export const DifferentTrigger = 'DifferentTrigger';

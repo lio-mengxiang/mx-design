@@ -1,4 +1,3 @@
-export const NAME_SPACE_SPACE = 'SPACE';
 export const Basic = 'Basic';
 export const Vertical = 'Vertical';
 export const Size = 'Size';

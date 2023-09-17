@@ -7,7 +7,7 @@ export function TutorialsDropdown(props) {
   return (
     <>
       {lists.map((list, index) => (
-        <Card {...list} key={index} onClickMenuItem={onClickMenuItem} />
+        <Card {...list} key={index} onClickMenuItem={onClickMenuItem} isLast={index === lists.length - 1} />
       ))}
     </>
   );

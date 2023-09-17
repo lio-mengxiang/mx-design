@@ -3,7 +3,7 @@ import { useMergeProps } from '@mx-design/hooks';
 import { ConfigContext } from '../../ConfigProvider/configProvider';
 import { emptyImage, getDesDefault } from '../utils';
 import { useClassNames, useStyles } from '../hooks';
-import { useLocale } from '../../locale/useLocal/useLocal';
+import { useLocale } from '../../Locale/useLocal/useLocal';
 import { EMPTY_NAMESPACE } from '../constants';
 // type
 import type { EmptyProps } from '../interface';

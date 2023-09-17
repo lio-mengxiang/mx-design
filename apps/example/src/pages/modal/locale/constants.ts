@@ -1,4 +1,3 @@
-export const NAME_SPACE_MODAL = 'Modal';
 export const Basic = 'Basic';
 export const Async = 'Async';
 export const Footer = 'Footer';

@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
 import ComponentInnerLayout from '@/components/Layout/ComponentInnerLayout';
-import { NAME_SPACE_RADIO } from './locale';
+import { RADIO_KEY } from '@/constants';
 import { useLocale } from '@/locale/useLocal/useLocal';
 import { ComponentCodeBlock } from '@/components/DemoBlock';
 import { exampleList } from './examples';
 
 function CheckboxExample() {
-  const [local] = useLocale<typeof NAME_SPACE_RADIO>({ namespace: NAME_SPACE_RADIO });
+  const [local] = useLocale<typeof RADIO_KEY>({ namespace: RADIO_KEY });
   const dataList = useMemo(
     () =>
       Object.keys(local).map((key) => ({
