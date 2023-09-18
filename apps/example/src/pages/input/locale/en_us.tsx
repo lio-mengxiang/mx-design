@@ -1,5 +1,5 @@
 import React from 'react';
-import { Basic, Status, Label, Suffix, Search, Limit } from './constants';
+import { Basic, Status, Label, Suffix, Search, Limit, Password, Normalize } from './constants';
 
 export const en_us_input = {
   [Basic]: {
@@ -42,5 +42,13 @@ export const en_us_input = {
         suffix
       </>
     ),
+  },
+  [Password]: {
+    title: 'Password',
+    desc: 'Used for password input',
+  },
+  [Normalize]: {
+    title: 'Normalize Value',
+    desc: 'Format the value entered by the user at the specified time, and when the previous and subsequent values are inconsistent, onChange will be triggered',
   },
 };

@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { isFunction, omit } from '@mx-design/web-utils';
+import { isFunction } from '@mx-design/web-utils';
 import { useComposition } from '../hooks';
 // types
 import type { InputComponentProps, InputProps } from '../interface';

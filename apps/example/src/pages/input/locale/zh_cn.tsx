@@ -1,5 +1,5 @@
 import React from 'react';
-import { Basic, Label, Status, Suffix, Search, Limit } from './constants';
+import { Basic, Label, Status, Suffix, Search, Limit, Password, Normalize } from './constants';
 
 export const zh_cn_input = {
   [Basic]: {
@@ -39,5 +39,13 @@ export const zh_cn_input = {
         后不会限制用户输入字数，但是超过最大字数会展示错误状态。 值得注意的是，如果配置了 showWordLimit，那么你将不能使用 suffix
       </>
     ),
+  },
+  [Password]: {
+    title: '密码输入',
+    desc: '用于密码的输入',
+  },
+  [Normalize]: {
+    title: '格式化输入值',
+    desc: '在指定时机对用户输入的值进行格式化处理',
   },
 };

@@ -53,6 +53,7 @@ export const InputComponent = React.forwardRef<RefInputType, InputComponentProps
     onClear,
     maxLength: propMaxLength,
     normalizeTrigger,
+    normalize,
   });
 
   // className

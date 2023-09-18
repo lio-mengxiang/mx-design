@@ -246,6 +246,7 @@ export interface InputPasswordProps extends InputProps {
   /**
    * @zh 是否显示切换密码可见状态的按钮
    * @en Whether to display the button to switch the visible state of the password
+   * @defaultValue true
    */
   visibilityToggle?: boolean;
   /**
@@ -259,11 +260,10 @@ export interface InputPasswordProps extends InputProps {
    */
   visibility?: boolean;
   /**
-   * @zh visibility 改变时触发
-   * @en Callback when visibility changes
+   * @zh 点击icon时触发
+   * @en Triggered when the icon is clicked
    */
   onVisibilityChange?: (visibility: boolean) => void;
-  _onSearch?: (value: string) => string;
 }
 
 export interface InputComponentProps extends InputProps {

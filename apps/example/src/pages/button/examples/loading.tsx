@@ -24,7 +24,7 @@ function App() {
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(3, 100px)',
+        gridTemplateColumns: 'repeat(3, 110px)',
         rowGap: 24,
         columnGap: 24,
         marginLeft: 24,

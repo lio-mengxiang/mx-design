@@ -9,6 +9,7 @@ import { useInputClassNames } from '../hooks';
 import { Search } from './search';
 // type
 import { InputProps, RefInputType } from '../interface';
+import { Password } from './password';
 
 const defaultProps: Partial<InputProps> = {
   normalizeTrigger: ['onBlur'],
@@ -110,7 +111,7 @@ function Input(baseProps: InputProps, ref) {
 
 type InputRefType = ForwardRefExoticComponent<InputProps & React.RefAttributes<RefInputType>> & {
   Search: typeof Search;
-  // Password: typeof Password;
+  Password: typeof Password;
 };
 
 const InputElement = React.forwardRef(Input) as InputRefType;
@@ -119,6 +120,6 @@ InputElement.displayName = 'Input';
 
 InputElement.Search = Search;
 
-// InputElement.Password = Password;
+InputElement.Password = Password;
 
 export { InputElement as Input };
