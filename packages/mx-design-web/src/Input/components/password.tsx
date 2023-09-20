@@ -14,13 +14,7 @@ export const Password = React.forwardRef<RefInputType, InputPasswordProps>((prop
   const prefixCls = getPrefixCls('input-password');
   const { visibility, icon } = usePasswordStore({ ...props, prefixCls });
 
-  const classNames = cs(
-    prefixCls,
-    {
-      [`${prefixCls}-visibility`]: visibilityToggle,
-    },
-    className
-  );
+  const classNames = cs(prefixCls, className);
 
   return (
     <Input

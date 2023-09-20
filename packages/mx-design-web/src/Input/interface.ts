@@ -110,7 +110,7 @@ export interface InputProps
    * @zh 输入框最大输入的长度；设置 `errorOnly`为 `true` 后，超过 `maxLength` 会展示 `error` 状态，并不限制用户输入。
    * @en The max content length；After setting `errorOnly` to `true`, if `maxLength` is exceeded, the `error` status will be displayed, and user input will not be restricted.
    */
-  maxLength?: { length: number; errorOnly?: boolean };
+  maxLength?: { length?: number; errorOnly?: boolean };
   /**
    * @zh 配合 `maxLength`，显示字数统计
    * @en With `maxLength`, Show word count.
@@ -122,94 +122,6 @@ export interface InputProps
    */
   clearIcon?: ReactNode;
   _getInputValueRef?: MutableRefObject<string>;
-}
-
-/**
- * @title Input.TextArea
- */
-export interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'onChange' | 'className' | 'maxLength'> {
-  style?: CSSProperties;
-  /**
-   * @zh 开启字数统计之后，会在 `textarea` 标签外包一层 `div`，`wrapperStyle` 用来配置这个 `div` 的样式。
-   * @en With `showWordLimit`, a `div` will be outside the `textarea` tag, and `wrapperStyle` is used to configure the style of it.
-   */
-  wrapperStyle?: CSSProperties;
-  className?: string | string[];
-  /**
-   * @zh 是否禁用
-   * @en Whether the textarea is disabled
-   */
-  disabled?: boolean;
-  /**
-   * @zh 默认值
-   * @en To set default value
-   */
-  defaultValue?: string;
-  /**
-   * @zh 值
-   * @en To set value
-   */
-  value?: string;
-  /**
-   * @zh 是否自动调整输入框的高度
-   * @en Height autoSize feature
-   */
-  autoSize?: boolean | { minRows?: number; maxRows?: number };
-  /**
-   * @zh 状态
-   * @en Status
-   * @version 2.45.0
-   */
-  status?: 'error' | 'warning';
-  /**
-   * @zh 输入框提示文字
-   * @en textarea placeholder
-   */
-  placeholder?: string;
-  /**
-   * @zh 输入时的回调
-   * @en Callback when user input
-   */
-  onChange?: (value: string, e) => void;
-  /**
-   * @zh 按下回车键的回调
-   * @en Callback when press enter key
-   */
-  onPressEnter?: (e) => void;
-  /**
-   * @zh 输入框最大输入的长度；设置 `errorOnly`为 `true` 后，超过 `maxLength` 会展示 `error` 状态，并不限制用户输入。
-   * @en The max content length；After setting `errorOnly` to `true`, if `maxLength` is exceeded, the `error` status will be displayed, and user input will not be restricted.
-   */
-  maxLength?: { length: number; errorOnly?: boolean };
-  showWordLimit?: boolean;
-  /**
-   * @zh 允许清空输入框
-   * @en Whether allow clear the content
-   */
-  allowClear?: boolean;
-  /**
-   * @zh 点击清除按钮的回调
-   * @en Callback when click clear button
-   */
-  onClear?: () => void;
-  /**
-   * @zh `allowClear` 时配置清除按钮的图标。
-   * @en Configure the icon of the clear button when `allowClear`.
-   */
-  clearIcon?: ReactNode;
-}
-
-/**
- * @title Input.Group
- */
-export interface InputGroupProps {
-  style?: CSSProperties;
-  className?: string | string[];
-  /**
-   * @zh 是否使用紧凑模式
-   * @en Whether to use compact mode
-   */
-  compact?: boolean;
 }
 
 /**
@@ -280,13 +192,4 @@ export type RefInputType = {
   focus: () => void;
   /** input dom元素 */
   dom: HTMLInputElement;
-};
-
-export type RefTextAreaType = {
-  /** 使输入框失去焦点 */
-  blur: () => void;
-  /** 使输入框获取焦点 */
-  focus: () => void;
-  /** textarea dom元素 */
-  dom: HTMLTextAreaElement;
 };

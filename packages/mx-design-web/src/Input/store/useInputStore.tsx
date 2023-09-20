@@ -65,5 +65,6 @@ export function useInputStore(props: InputComponentProps) {
     inputWrapperRef,
     hasLengthError,
     value,
+    mergedMaxLength,
   };
 }

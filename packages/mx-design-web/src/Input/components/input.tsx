@@ -22,12 +22,22 @@ function Input(baseProps: InputProps, ref) {
   const prefixCls = getPrefixCls('input');
 
   // store
-  const { needWrapper, status, onChange, value, suffixElement, isCustomHeight, setFocus, focus, inputRef, inputWrapperRef } = useInputStore(
-    {
-      prefixCls,
-      ...props,
-    }
-  );
+  const {
+    needWrapper,
+    status,
+    onChange,
+    value,
+    suffixElement,
+    isCustomHeight,
+    setFocus,
+    focus,
+    inputRef,
+    inputWrapperRef,
+    mergedMaxLength,
+  } = useInputStore({
+    prefixCls,
+    ...props,
+  });
 
   useImperativeHandle(ref, () => inputRef.current, []);
 

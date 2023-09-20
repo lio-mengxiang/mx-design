@@ -5,7 +5,7 @@ import { IconView, IconViewOff } from '../../Icon';
 import type { InputPasswordProps } from '../interface';
 
 export function usePasswordStore(props: InputPasswordProps & { prefixCls: string }) {
-  const { onVisibilityChange, visibilityToggle = true, prefixCls } = props;
+  const { onVisibilityChange, visibilityToggle = true, prefixCls, disabled } = props;
 
   const [visibility, setVisibility] = useMergeValue(false, {
     defaultValue: props.defaultVisibility,
@@ -22,6 +22,7 @@ export function usePasswordStore(props: InputPasswordProps & { prefixCls: string
   let icon = props.suffix;
 
   const handleClickVisibility = () => {
+    if (disabled) return;
     onClickVisibility(!visibility);
   };
 
@@ -33,21 +34,15 @@ export function usePasswordStore(props: InputPasswordProps & { prefixCls: string
     };
 
     if (props.suffix) {
-      icon = <span {...IconProps}>{props.suffix}</span>;
+      icon = (
+        <span {...IconProps} className={`${prefixCls}-icon-wrapper`}>
+          {props.suffix}
+        </span>
+      );
     } else {
       const IconComponent = visibility ? IconView : IconViewOff;
 
-      icon = (
-        <IconComponent
-          {...IconProps}
-          {...{
-            focusable: undefined,
-            'aria-hidden': undefined,
-            tabIndex: 0,
-            className: `${prefixCls}-visibility-icon`,
-          }}
-        />
-      );
+      icon = <IconComponent {...IconProps} tabIndex={-1} />;
     }
   }
   return {

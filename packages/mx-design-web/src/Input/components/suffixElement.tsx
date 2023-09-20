@@ -1,18 +1,17 @@
 import React from 'react';
-import { cs } from '@mx-design/web-utils';
+import { cs, isUndefined } from '@mx-design/web-utils';
 
 export function SuffixElement(props) {
   const { trueMaxLength, prefixCls, suffix, showWordLimit, valueLength, hasLengthError } = props;
 
-  if (trueMaxLength && showWordLimit) {
-    const [leftWord, rightWord] = [valueLength, trueMaxLength];
+  if (!isUndefined(trueMaxLength) && showWordLimit) {
     return (
       <span
         className={cs(`${prefixCls}-word-limit`, {
           [`${prefixCls}-word-limit-error`]: hasLengthError,
         })}
       >
-        {leftWord}/{rightWord}
+        {valueLength}/{trueMaxLength}
       </span>
     );
   }

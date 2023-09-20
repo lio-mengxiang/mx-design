@@ -1,11 +1,11 @@
 import { ChangeEventHandler, CompositionEventHandler, KeyboardEventHandler, useRef, useState } from 'react';
-import { InputProps, TextAreaProps } from '../interface';
+import { InputProps } from '../interface';
 
 interface useCompositionProps {
   value: string;
   maxLength: number;
   onChange: InputProps['onChange'];
-  onKeyDown: InputProps['onKeyDown'] | TextAreaProps['onKeyDown'];
+  onKeyDown: InputProps['onKeyDown'] | InputProps['onKeyDown'];
   onPressEnter: InputProps['onPressEnter'];
   normalizeHandler?: (type: InputProps['normalizeTrigger'][number]) => InputProps['normalize'];
 }
