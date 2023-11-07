@@ -4,14 +4,14 @@
 @checkbox-prefix-cls: ~'@{prefix}-checkbox';
 
 .@{checkbox-prefix-cls} {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   cursor: pointer;
   font-size: 14px;
   line-height: unset;
   position: relative;
 
-  >input[type='checkbox'] {
+  > input[type='checkbox'] {
     position: absolute;
     opacity: 0;
     top: 0;
@@ -27,7 +27,6 @@
   &-text {
     margin-left: var(--checkbox-text-mask-spacing);
   }
-
 
   &-mask {
     display: inline-block;
@@ -147,7 +146,6 @@
     }
   }
 
-
   &-disabled&-indeterminate &-mask {
     &::before {
       opacity: 1;
@@ -157,7 +155,6 @@
     }
   }
 
-
   &-disabled &-text {
     color: var(--checkbox-color-text_disabled);
   }
@@ -165,7 +162,7 @@
 
 // checkbox group
 .@{checkbox-prefix-cls}-group {
-  display: inline-block;
+  display: flex;
 
   .@{checkbox-prefix-cls} {
     margin-right: var(--checkbox-group-spacing);

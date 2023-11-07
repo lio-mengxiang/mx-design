@@ -37,6 +37,10 @@ export function isNull(obj: any): obj is undefined {
   return obj === null;
 }
 
+export const isNullOrUndefined = (obj: any): boolean => {
+  return obj === null || obj === undefined;
+};
+
 export function isFunction(obj: any): obj is (...args: any[]) => any {
   return typeof obj === 'function';
 }

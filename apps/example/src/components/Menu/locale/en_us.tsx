@@ -24,6 +24,7 @@ import {
   DRAWER_KEY,
   INPUT_KEY,
   TAG_KEY,
+  PAGINATION_KEY,
 } from '@/constants';
 
 export const en_us_site_menu = {
@@ -52,4 +53,5 @@ export const en_us_site_menu = {
   [DRAWER_KEY]: 'Drawer',
   [INPUT_KEY]: 'Input',
   [TAG_KEY]: 'Tag',
+  [PAGINATION_KEY]: 'Pagination',
 };

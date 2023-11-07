@@ -14,3 +14,6 @@ export * from './pick';
 export * from './noop';
 export * from './throttle';
 export * from './dom';
+export * from './on';
+export * from './off';
+export * from './merge';

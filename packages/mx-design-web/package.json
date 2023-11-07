@@ -1,6 +1,6 @@
 {
   "name": "@mx-design/web",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "mxDesign Component for React",
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -45,7 +45,7 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@mx-design/web-utils": "0.1.5",
+    "@mx-design/web-utils": "0.1.7",
     "@mx-design/hooks": "0.1.2",
     "framer-motion": "10.12.4",
     "react-fast-compare": "3.2.1",

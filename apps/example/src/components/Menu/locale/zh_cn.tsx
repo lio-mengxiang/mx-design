@@ -24,6 +24,7 @@ import {
   DRAWER_KEY,
   INPUT_KEY,
   TAG_KEY,
+  PAGINATION_KEY,
 } from '@/constants';
 
 export const zh_cn_site_menu = {
@@ -52,4 +53,5 @@ export const zh_cn_site_menu = {
   [DRAWER_KEY]: '抽屉 Drawer',
   [INPUT_KEY]: '输入框 Input',
   [TAG_KEY]: '标签 Tag',
+  [PAGINATION_KEY]: '分页 Pagination',
 };

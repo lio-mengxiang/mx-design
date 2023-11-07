@@ -1,4 +1,5 @@
 export * from './IconAdd';
+export * from './IconMinus';
 export * from './IconAddCircle';
 export * from './IconComment';
 export * from './IconElectronics';

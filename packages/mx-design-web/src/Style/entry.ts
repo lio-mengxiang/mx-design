@@ -19,3 +19,5 @@ import '../Tooltip/style/index.less';
 import '../Tag/style/index.less';
 import '../Input/style/index.less';
 import '../Input/style/search.less';
+import '../Table/style/index.less';
+import '../Pagination/style/index.less';

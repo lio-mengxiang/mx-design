@@ -11,7 +11,7 @@ export const defaultProps: Partial<TooltipProps> = {
   showArrow: true,
 };
 
-const Tooltip = forwardRef((baseProps: PropsWithChildren<TooltipProps>, ref) => {
+export const Tooltip = forwardRef((baseProps: PropsWithChildren<TooltipProps>, ref) => {
   const { getPrefixCls, componentConfig } = useContext(ConfigContext);
   const props = useMergeProps<PropsWithChildren<TooltipProps>>(baseProps, defaultProps, componentConfig?.Tooltip);
   const { showArrow, overlayClassName, children, placement, ...restProps } = props;
@@ -31,5 +31,3 @@ const Tooltip = forwardRef((baseProps: PropsWithChildren<TooltipProps>, ref) => 
 });
 
 Tooltip.displayName = 'Tooltip';
-
-export { Tooltip };

@@ -6,8 +6,9 @@ import { usePopper } from '../../Popper/use-popper';
 import { Portal } from '../../Portal';
 import { getRefDom } from '../utils';
 import { ConfigContext } from '../../ConfigProvider';
-import { useClassNames, useTrigger, useResizeObserver } from '../hooks';
+import { useClassNames, useTrigger } from '../hooks';
 import { PopupCard } from './popupCard';
+import { useResizeObserver } from '../../hooks';
 // type
 import type { PopupRef, PopupProps, PopupVisibleChangeContext } from '../interface';
 

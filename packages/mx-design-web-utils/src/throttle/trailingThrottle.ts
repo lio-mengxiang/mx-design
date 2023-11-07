@@ -3,7 +3,7 @@ export function trailingThrottle<T extends (...args: any) => any>(func: T, wait:
 
   const throttle = (...args: any[]) => {
     if (!timeout) {
-      timeout = setTimeout(function () {
+      timeout = setTimeout(() => {
         timeout = null;
         func(args);
       }, wait);

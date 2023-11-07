@@ -22,6 +22,7 @@ import { zh_cn_modal } from '@/pages/modal/locale';
 import { zh_cn_tag } from '@/pages/tag/locale';
 import { zh_cn_input } from '@/pages/input/locale';
 import { zh_cn_drawer } from '@/pages/drawer/locale';
+import { zh_cn_pagination } from '@/pages/pagination/locale';
 import {
   AFFIX_KEY,
   ALERT_KEY,
@@ -37,6 +38,7 @@ import {
   MESSAGE_KEY,
   MODAL_KEY,
   NOTIFICATION_KEY,
+  PAGINATION_KEY,
   POPUP_KEY,
   RADIO_KEY,
   SPACE_KEY,
@@ -69,4 +71,5 @@ export const zh_cn = {
   [DRAWER_KEY]: zh_cn_drawer,
   [TAG_KEY]: zh_cn_tag,
   [INPUT_KEY]: zh_cn_input,
+  [PAGINATION_KEY]: zh_cn_pagination,
 };

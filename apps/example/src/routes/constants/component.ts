@@ -19,6 +19,7 @@ import {
   MODAL_KEY,
   NAVIGATE_KEY,
   NOTIFICATION_KEY,
+  PAGINATION_KEY,
   POPUP_KEY,
   RADIO_KEY,
   SPACE_KEY,
@@ -132,6 +133,10 @@ export const componentsMenuList = [
       {
         title: ANCHOR_KEY,
         path: `/${COMPONENTS_KEY}/${ANCHOR_KEY}`,
+      },
+      {
+        title: PAGINATION_KEY,
+        path: `/${COMPONENTS_KEY}/${PAGINATION_KEY}`,
       },
     ],
   },

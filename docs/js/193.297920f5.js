@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_mx_design_example=self.webpackChunk_mx_design_example||[]).push([[193],{2193:(e,t,s)=>{s.r(t),s.d(t,{default:()=>a});var l=s(2983),n=s(1196);const a=function(){var e,t=(0,n.lk)();return l.createElement("div",null,l.createElement("strong",null,"Error ",t.status||500),": ",null!==(e=t.statusText)&&void 0!==e?e:t.message)}}}]);

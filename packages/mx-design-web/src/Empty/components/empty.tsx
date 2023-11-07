@@ -1,4 +1,4 @@
-import React, { memo, useContext, forwardRef } from 'react';
+import React, { useContext, forwardRef } from 'react';
 import { useMergeProps } from '@mx-design/hooks';
 import { ConfigContext } from '../../ConfigProvider/configProvider';
 import { emptyImage, getDesDefault } from '../utils';

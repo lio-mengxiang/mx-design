@@ -1,0 +1,170 @@
+@import (reference) '../../Style/base.less';
+@import './cssVariables.less';
+
+@pagination-prefix-cls: ~'@{prefix}-pagination';
+
+.@{pagination-prefix-cls} {
+  display: flex;
+  align-items: center;
+  font-size: var(--pagination-size-font-size);
+
+  &-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    outline: 0;
+    user-select: none;
+    border-radius: var(--pagination-item-border-radius);
+    border: var(--pagination-item-border);
+    height: var(--pagination-size);
+    min-width: var(--pagination-size);
+
+    &-prev,
+    &-next {
+      font-size: var(--pagination-size-icon-arrow-size);
+    }
+
+    &:not(&-disabled):not(&-active):hover {
+      background-color: var(--pagination-color-icon-arrow-bg-hover);
+    }
+
+    &-active {
+      transition: color 0.2s linear, background-color 0.2s linear;
+      color: var(--pagination-item-color-radius);
+      background-color: var(--pagination-item-bg-color);
+    }
+
+    &:not(:last-child) {
+      margin-right: var(--pagination-item-spacing);
+    }
+  }
+
+  &-item-prev,
+  &-item-next {
+    &:not(.@{pagination-prefix-cls}-item-disabled):hover {
+      background-color: var(--pagination-color-icon-arrow-bg-hover);
+    }
+  }
+
+  & &-item-prev&-item-disabled,
+  & &-item-next&-item-disabled {
+    color: var(--pagination-color-disabled);
+    cursor: not-allowed;
+  }
+
+  /*** 快速跳转 ***/
+  &-jumper {
+    margin-left: var(--pagination-margin-jumper-spacing);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & &-jumper-input {
+    width: var(--patination-jumper-input-width);
+    text-align: center;
+    margin-left: var(--pagination-item-spacing);
+    margin-right: var(--pagination-item-spacing);
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  // &-option {
+  //   display: inline-block;
+  //   text-align: center;
+  //   vertical-align: middle;
+  //   min-width: 0;
+  //   position: relative;
+  //   margin-left: @pagination-margin-option-left;
+
+  //   .@{prefix}-select {
+  //     width: auto;
+
+  //     &-view-value {
+  //       overflow: inherit;
+  //       padding-right: 6px;
+  //     }
+  //   }
+
+  //   font-size: var(--pagination-size-font-size);
+  //   height: var(--pagination-option-size);
+  // }
+
+  &-total-text {
+    margin-right: var(--pagination-margin-total-spacing);
+  }
+
+  // simple
+  // &-item-simple-pager {
+  //   display: inline-block;
+  //   vertical-align: middle;
+  //   margin: 0 @pagination-simple-margin-next-left 0 @pagination-simple-margin-prev-right;
+  // }
+
+  // &-item-simple-pager &-jumper-separator {
+  //   padding: 0 @pagination-simple-margin-separator-right 0 @pagination-simple-margin-separator-left;
+  // }
+
+  // &-simple &-item {
+  //   margin-right: 0;
+  // }
+
+  // &-simple &-jumper {
+  //   color: var(~'@{arco-cssvars-prefix}-color-text-1');
+  // }
+
+  // &-simple &-jumper {
+  //   margin-left: 0;
+  // }
+
+  // &-simple &-jumper &-jumper-input {
+  //   width: @pagination-simple-input-width;
+  //   margin-left: 0;
+  // }
+
+  // &-simple &-item-prev,
+  // &-simple &-item-next {
+  //   color: @pagination-simple-color-icon-arrow;
+  //   background-color: @pagination-simple-color-icon-arrow-bg;
+
+  //   &:not(.@{pagination-prefix-cls}-item-disabled):hover {
+  //     background-color: @pagination-simple-color-icon-arrow-bg_hover;
+  //     color: @pagination-simple-color-icon-arrow-text_hover;
+  //   }
+  // }
+
+  // &-simple &-item-prev&-item-disabled,
+  // &-simple &-item-next&-item-disabled {
+  //   color: @pagination-simple-color-icon-arrow-text_disabled;
+  //   background-color: @pagination-simple-color-icon-arrow-bg_disabled;
+  // }
+
+  // Disabled
+  &-disabled {
+    cursor: not-allowed;
+  }
+
+  &-disabled &-item,
+  &-disabled &-item:not(&-item-disabled):not(&-item-active):hover {
+    cursor: not-allowed;
+    background-color: var(--pagination-color-bg-item-disabled);
+    border-color: var(--pagination-color-bg-item-disabled);
+    color: var(--pagination-color-disabled);
+  }
+
+  &&-disabled &-item-active {
+    background-color: var(--pagination-color-bg-item-active-disabled);
+    border-color: var(--pagination-color-bg-item-disabled);
+    color: var(--pagination-color-item-text-active-disabled);
+  }
+}

@@ -22,6 +22,7 @@ import { en_us_modal } from '@/pages/modal/locale';
 import { en_us_drawer } from '@/pages/drawer/locale';
 import { en_us_tag } from '@/pages/tag/locale';
 import { en_us_input } from '@/pages/input/locale';
+import { en_us_pagination } from '@/pages/pagination/locale';
 import {
   AFFIX_KEY,
   ALERT_KEY,
@@ -43,6 +44,7 @@ import {
   MODAL_KEY,
   DRAWER_KEY,
   TAG_KEY,
+  PAGINATION_KEY,
 } from '@/constants';
 
 export const en_us = {
@@ -69,4 +71,5 @@ export const en_us = {
   [DRAWER_KEY]: en_us_drawer,
   [TAG_KEY]: en_us_tag,
   [INPUT_KEY]: en_us_input,
+  [PAGINATION_KEY]: en_us_pagination,
 };

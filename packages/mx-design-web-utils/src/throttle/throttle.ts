@@ -9,7 +9,6 @@ interface IOptions {
 export function throttle<T extends (...args: any) => any>(func: T, wait: number, options: IOptions) {
   if (options.trailing) {
     return trailingThrottle(func, wait);
-  } else {
-    return leadingThrottle(func, wait);
   }
+  return leadingThrottle(func, wait);
 }

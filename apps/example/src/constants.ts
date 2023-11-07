@@ -25,4 +25,5 @@ export const MODAL_KEY = 'modal';
 export const DRAWER_KEY = 'drawer';
 export const TAG_KEY = 'tag';
 export const INPUT_KEY = 'input';
+export const PAGINATION_KEY = 'pagination';
 export const DATA_INPUT_KEY = 'data-input';

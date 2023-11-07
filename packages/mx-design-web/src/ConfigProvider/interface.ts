@@ -23,8 +23,8 @@ import type { IModalRef } from '../Modal';
 import type { DrawerProps, IDrawerRef } from '../Drawer';
 import type { InputProps } from '../Input/interface';
 import type { TagProps } from '../Tag/interface';
-
-// import type { TableProps } from '../Table/interface';
+import type { TableProps } from '../Table/interface';
+import type { PaginationProps } from '../Pagination';
 
 export interface ComponentConfig {
   Empty?: Partial<EmptyProps>;
@@ -45,11 +45,12 @@ export interface ComponentConfig {
   Message?: Partial<MessageProps>;
   HorizontalMenu?: Partial<HorizontalMenuMenuProps>;
   GridLayout?: Partial<GridLayoutProps>;
-  // Table?: Partial<TableProps<any>>;
+  Table?: Partial<TableProps<any>>;
   Modal?: Partial<ModalProps>;
   Drawer?: Partial<DrawerProps>;
   Input: Partial<InputProps>;
   Tag: Partial<TagProps>;
+  Pagination: Partial<PaginationProps>;
 }
 
 /**

@@ -41,7 +41,7 @@ function Group<T extends string | number>(props: PropsWithChildren<CheckboxGroup
   };
 
   return (
-    <span className={wrapperCls} style={wrapperStyle}>
+    <div className={wrapperCls} style={wrapperStyle}>
       <CheckboxGroupContext.Provider
         value={{
           isCheckboxGroup: true,
@@ -74,7 +74,7 @@ function Group<T extends string | number>(props: PropsWithChildren<CheckboxGroup
             })
           : children}
       </CheckboxGroupContext.Provider>
-    </span>
+    </div>
   );
 }
 

@@ -29,7 +29,6 @@ function App() {
     <div>
       <CheckboxGroup
         options={options}
-        style={{ display: 'block', marginBottom: 16 }}
         onChange={(value)=> console.log(value)}
       />
     </div>

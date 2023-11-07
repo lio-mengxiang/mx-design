@@ -2,13 +2,9 @@ import { Navigate } from 'react-router-dom';
 import React from 'react';
 import {
   ErrorBoundary,
-  // IconExample,
-  // NotificationExample,
   PopupExample,
   // TableExample,
-  // AlertExample,
   ButtonExample,
-  // MessageExample,
   SpinExample,
   IconExample,
   MessageExample,
@@ -27,6 +23,7 @@ import {
   DrawerExample,
   TagExample,
   InputExample,
+  PaginationExample,
 } from './routes';
 import { Page404 } from '@/components/Status/404';
 import {
@@ -45,6 +42,7 @@ import {
   MESSAGE_KEY,
   MODAL_KEY,
   NOTIFICATION_KEY,
+  PAGINATION_KEY,
   POPUP_KEY,
   RADIO_KEY,
   SPACE_KEY,
@@ -90,6 +88,7 @@ export const routerConfig = [
           { path: DRAWER_KEY, element: <DrawerExample /> },
           { path: TAG_KEY, element: <TagExample /> },
           { path: INPUT_KEY, element: <InputExample /> },
+          { path: PAGINATION_KEY, element: <PaginationExample /> },
           { path: '*', element: <Navigate to={BUTTON_KEY} replace /> },
         ],
       },

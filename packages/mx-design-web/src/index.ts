@@ -21,4 +21,7 @@ export * from './Modal';
 export * from './Drawer';
 export * from './Tag';
 export * from './Input';
+export * from './Table';
+export * from './Pagination';
+// style
 export * from './Style';
