@@ -6,6 +6,11 @@ export const DEFAULT_PAGE_SIZE = 10;
 export const PREV = 'prev';
 export const NEXT = 'next';
 export const MORE = 'more';
+export const defaultProps = {
+  total: 0,
+  pageSizeChangeResetCurrent: true,
+  bufferSize: 2,
+};
 
 export const PAGINATION_NAMESPACE = 'Pagination';
 

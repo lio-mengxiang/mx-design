@@ -71,7 +71,7 @@
   }
 
   & &-jumper-input {
-    width: var(--patination-jumper-input-width);
+    width: var(--pagination-jumper-input-width);
     text-align: center;
     margin-left: var(--pagination-item-spacing);
     margin-right: var(--pagination-item-spacing);
@@ -105,49 +105,28 @@
   }
 
   // simple
-  // &-item-simple-pager {
-  //   display: inline-block;
-  //   vertical-align: middle;
-  //   margin: 0 @pagination-simple-margin-next-left 0 @pagination-simple-margin-prev-right;
-  // }
+  &-item-simple-pager {
+    display: flex;
+    align-items: center;
+    margin: var(--pagination-item-simple-pager-margin);
+  }
 
-  // &-item-simple-pager &-jumper-separator {
-  //   padding: 0 @pagination-simple-margin-separator-right 0 @pagination-simple-margin-separator-left;
-  // }
+  &-item-simple-pager &-jumper-separator {
+    padding: var(--pagination-jumper-separator);
+  }
 
-  // &-simple &-item {
-  //   margin-right: 0;
-  // }
+  &-simple &-item {
+    margin-right: 0;
+  }
 
-  // &-simple &-jumper {
-  //   color: var(~'@{arco-cssvars-prefix}-color-text-1');
-  // }
+  &-simple &-jumper {
+    margin-left: 0;
+  }
 
-  // &-simple &-jumper {
-  //   margin-left: 0;
-  // }
-
-  // &-simple &-jumper &-jumper-input {
-  //   width: @pagination-simple-input-width;
-  //   margin-left: 0;
-  // }
-
-  // &-simple &-item-prev,
-  // &-simple &-item-next {
-  //   color: @pagination-simple-color-icon-arrow;
-  //   background-color: @pagination-simple-color-icon-arrow-bg;
-
-  //   &:not(.@{pagination-prefix-cls}-item-disabled):hover {
-  //     background-color: @pagination-simple-color-icon-arrow-bg_hover;
-  //     color: @pagination-simple-color-icon-arrow-text_hover;
-  //   }
-  // }
-
-  // &-simple &-item-prev&-item-disabled,
-  // &-simple &-item-next&-item-disabled {
-  //   color: @pagination-simple-color-icon-arrow-text_disabled;
-  //   background-color: @pagination-simple-color-icon-arrow-bg_disabled;
-  // }
+  &-simple &-jumper &-jumper-input {
+    width: var(--pagination-simple-input-width);
+    margin-left: 0;
+  }
 
   // Disabled
   &-disabled {

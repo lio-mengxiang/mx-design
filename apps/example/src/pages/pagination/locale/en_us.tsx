@@ -1,5 +1,5 @@
 import React from 'react';
-import { Basic, PageJumper, BufferSize, Total, Size, Step } from './constants';
+import { Basic, PageJumper, BufferSize, Total, Size, Step, Simple } from './constants';
 
 export const en_us_pagination = {
   [Basic]: {
@@ -40,6 +40,14 @@ export const en_us_pagination = {
       <>
         With <code className="mx-code">bufferSize</code> you can set the number of pages between the current page and .... An ... means at
         least 2 pages are omitted
+      </>
+    ),
+  },
+  [Simple]: {
+    title: 'Simple',
+    desc: (
+      <>
+        When page space is limited, you can set <code className="mx-code">simple</code> to true
       </>
     ),
   },

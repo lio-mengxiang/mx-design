@@ -1,5 +1,5 @@
 import React from 'react';
-import { Basic, PageJumper, BufferSize, Total, Size, Step } from './constants';
+import { Basic, PageJumper, BufferSize, Total, Size, Step, Simple } from './constants';
 
 export const zh_cn_pagination = {
   [Basic]: {
@@ -39,6 +39,14 @@ export const zh_cn_pagination = {
     desc: (
       <>
         通过 <code className="mx-code">bufferSize</code> 可以设置 current 页与 ... 之间的页码个数。 一个 ... 至少代表省略 2 页
+      </>
+    ),
+  },
+  [Simple]: {
+    title: '简单分页',
+    desc: (
+      <>
+        在空间有限的场景下，可以将 <code className="mx-code">simple</code> 设置为 true
       </>
     ),
   },

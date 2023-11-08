@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useMergeValue } from '@mx-design/hooks';
+import { isUndefined } from '@mx-design/web-utils';
 import { formatValue, isLengthExceeds } from '../utils';
 import { SuffixElement } from '../components/suffixElement';
-
 // types
 import type { InputComponentProps, RefInputType } from '../interface';
 
@@ -40,16 +40,17 @@ export function useInputStore(props: InputComponentProps) {
 
   const hasLengthError = isLengthExceeds({ mergedMaxLength, valueLength, trueMaxLength });
 
-  const suffixElement = (
-    <SuffixElement
-      trueMaxLength={trueMaxLength}
-      prefixCls={prefixCls}
-      suffix={suffix}
-      showWordLimit={showWordLimit}
-      valueLength={valueLength}
-      hasLengthError={hasLengthError}
-    />
-  );
+  const suffixElement =
+    !isUndefined(trueMaxLength) && showWordLimit ? (
+      <SuffixElement
+        trueMaxLength={trueMaxLength}
+        prefixCls={prefixCls}
+        suffix={suffix}
+        showWordLimit={showWordLimit}
+        valueLength={valueLength}
+        hasLengthError={hasLengthError}
+      />
+    ) : null;
   const status = props.status || (hasLengthError ? 'error' : undefined);
   const needWrapper = addBefore || addAfter || suffixElement || prefix;
 

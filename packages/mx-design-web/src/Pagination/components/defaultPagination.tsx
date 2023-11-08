@@ -1,20 +1,16 @@
 import React, { forwardRef, useContext } from 'react';
 import { useMergeProps } from '@mx-design/hooks';
 import { cs } from '@mx-design/web-utils';
-import { PageJumper } from './page-jumper';
+import { DefaultPageJumper } from './page-default-jumper';
 import { TotalElement } from './totalElement';
 import { ConfigContext } from '../../ConfigProvider';
 import { Pager } from './pager';
 import { useDefaultPaginationStore } from '../store';
 import { pickDataAttributes } from '../../utils';
+import { defaultProps } from '../constants';
 // type
 import type { PaginationProps } from '../interface';
 
-const defaultProps = {
-  total: 0,
-  pageSizeChangeResetCurrent: true,
-  bufferSize: 2,
-};
 export const DefaultPagination = forwardRef<HTMLDivElement | null, PaginationProps>((baseProps, ref) => {
   const { getPrefixCls, componentConfig } = useContext(ConfigContext);
   const props = useMergeProps<PaginationProps>(baseProps, defaultProps, componentConfig?.Pagination);
@@ -41,7 +37,7 @@ export const DefaultPagination = forwardRef<HTMLDivElement | null, PaginationPro
       <TotalElement showTotal={showTotal} prefixCls={prefixCls} total={total} current={current} pageSize={pageSize} />
       <Pager bufferSize={bufferSize} allPages={allPages} current={current} prefixCls={prefixCls} pagerProps={pagerProps} />
       {showJumper && (
-        <PageJumper
+        <DefaultPageJumper
           disabled={disabled}
           rootPrefixCls={prefixCls}
           totalPages={allPages}
