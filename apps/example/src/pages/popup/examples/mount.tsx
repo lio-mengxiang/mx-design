@@ -8,7 +8,7 @@ function App() {
     <Space>
       <Popup
         trigger="click"
-        content="通过id选择器选择父节点(Select parent node by id selector)"
+        content={() => "通过id选择器选择父节点(Select parent node by id selector)"}
         attach='#app'
       >
         <Button>点击查看id为app的元素(Click to view the element whose id is app)</Button>

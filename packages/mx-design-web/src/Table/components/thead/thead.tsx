@@ -7,10 +7,13 @@ import { ExpandNode } from './expandNode';
 import { setRowStickyOffset, getColumnFixedStyle } from '../../utils';
 import { OperationNode } from './operationNode';
 // type
-// import type { TheadProps } from '../interface';
+import { TheadProps } from '../../interface';
+import { CHECKBOX, RADIO } from '../../constants';
 
-export function Thead<T>(props: any) {
+export function Thead<T>(props: TheadProps<T>) {
   const {
+    activeSorters,
+    onSort,
     onHeaderRow,
     expandProps,
     prefixCls,
@@ -24,8 +27,11 @@ export function Thead<T>(props: any) {
     isCheckbox,
     isCheckAll,
     expandedRowRender,
-    sorter,
-    sortDirections,
+    innerFiltersValue,
+    onHandleFilter,
+    onCheckAll,
+    selectedRowSetKeys,
+    allSelectedRowSetKeys,
   } = props;
   const { ComponentThead, ComponentHeaderRow, getHeaderComponentOperations } = useComponent(components);
 
@@ -39,9 +45,9 @@ export function Thead<T>(props: any) {
   const expandNode = (
     <ExpandNode
       expandedRowRender={expandedRowRender}
-      operationClassName={operationClassName}
       prefixCls={prefixCls}
       expandColumnTitle={expandColumnTitle}
+      outerClassName={cs(operationClassName, `${prefixCls}-expand`)}
     />
   );
 
@@ -51,29 +57,32 @@ export function Thead<T>(props: any) {
         const headerRowProps = onHeaderRow?.(row, index);
         const selectionNode = (isCheckbox || isRadio) && index === 0 && (
           <SelectionNode
-            operationClassName={operationClassName}
             prefixCls={prefixCls}
             isRadio={isRadio}
             isCheckAll={isCheckAll}
-            // data={data}
+            onCheckAll={onCheckAll}
+            allSelectedRowSetKeys={allSelectedRowSetKeys}
+            selectedRowSetKeys={selectedRowSetKeys}
+            data={data}
             rowSelection={rowSelection}
+            outerClassName={cs(operationClassName, `${prefixCls}-${isRadio ? RADIO : CHECKBOX}`)}
           />
         );
 
         const stickyClassNames = groupStickyClassNames[index];
 
-        const headerOperations = getHeaderComponentOperations({ selectionNode });
+        const headerOperations = getHeaderComponentOperations({ selectionNode, expandNode });
 
         return (
           <ComponentHeaderRow {...headerRowProps} key={index} className={`${prefixCls}-tr`}>
             {row.map((column, colIndex) => {
               const stickyOffset = setRowStickyOffset(column, stickyOffsets);
-              const stickyClassName = stickyClassNames[colIndex];
+              const stickyClassName = stickyClassNames?.[colIndex];
 
               if (column.$$isOperation) {
                 return (
-                  <OperationNode
-                    key={colIndex}
+                  <OperationNode<T>
+                    key={column.key}
                     operationClassName={operationClassName}
                     column={column}
                     headerOperations={headerOperations}
@@ -98,10 +107,14 @@ export function Thead<T>(props: any) {
                   {...column}
                   column={column}
                   headerCellProps={headerCellProps}
+                  currentSorter={activeSorters.find((item) => item.field === column.key)}
+                  onSort={onSort}
                   prefixCls={prefixCls}
                   components={components}
                   className={columnClassName}
                   columnFixedStyle={columnFixedStyle}
+                  innerFiltersValue={innerFiltersValue}
+                  onHandleFilter={onHandleFilter}
                 />
               );
             })}

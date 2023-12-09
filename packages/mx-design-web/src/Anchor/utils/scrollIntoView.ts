@@ -1,9 +1,9 @@
 import { MutableRefObject } from 'react';
+import { isWindow } from '@mx-design/web-utils';
 import { findNode } from './findNode';
 import { getOffsetTop } from './getOffsetTop';
 import { getScrollLeft } from './getScrollLeft';
 import { getScrollTop } from './getScrollTop';
-import { isWindow } from '@mx-design/web-utils';
 // type
 import type { AnchorProps } from '../interface';
 

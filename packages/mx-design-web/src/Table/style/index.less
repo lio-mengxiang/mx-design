@@ -7,33 +7,34 @@
 @table-cls-th: ~'@{table-prefix-cls}-th';
 @table-cls-td: ~'@{table-prefix-cls}-td';
 
-// .expandBtn() {
-//   width: @table-size-expand-button;
-//   height: @table-size-expand-button;
-//   line-height: @table-size-expand-button;
-//   border-radius: @table-border-radius-expand-button;
-//   display: inline-flex;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: @table-color-bg-expand-icon;
-//   color: @table-color-expand-icon;
-//   font-size: @table-font-size-expand-button;
-//   outline: none;
-//   transition: background-color @transition-duration-1 @transition-timing-function-linear;
-//   padding: 0;
-//   cursor: pointer;
-//   border: @table-border-expand-icon-width solid @table-color-expand-icon-border;
-//   box-sizing: border-box;
+.expandBtn() {
+  width: var(--table-size-expand-button);
+  height: var(--table-size-expand-button);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--table-font-size-expand-button);
+  border-radius: var(--table-border-radius-expand-button);
+  outline: none;
+  transition: background-color 0.1s linear;
+  padding: 0;
+  cursor: pointer;
+  border: var(--table-border-expand-button);
+  box-sizing: border-box;
 
-//   &:hover {
-//     background-color: @table-color-bg-expand-icon_hover;
-//     color: @table-color-expand-icon_hover;
-//     border-color: @table-color-expand-icon-border_hover;
-//   }
-// }
+  &:hover {
+    color: var(--table-color-expand-icon_hover);
+    border-color: var(--table-color-expand-icon_hover);
+  }
+}
 
 .@{table-prefix-cls}-th-item {
   padding: var(--table-size-padding-horizontal) var(--table-size-padding-vertical);
+}
+
+.@{table-prefix-cls}-cell {
+  display: flex;
+  align-items: center;
 }
 
 // .@{table-prefix-cls}-th-item.@{table-prefix-cls}-col-has-filter {
@@ -71,15 +72,14 @@
 }
 
 // expand row in fixed
-// .@{table-prefix-cls}-expand-fixed-row {
-//   margin: ~'-@{table-size-padding-vertical}' ~'-@{table-size-padding-horizontal}';
-//   padding: var(--table-size-padding-horizontal) var(--table-size-padding-vertical);
-// }
+.@{table-prefix-cls}-expand-fixed-row {
+  margin: calc(-1 * var(--table-size-padding-horizontal)) calc(-1 * var(--table-size-padding-vertical));
+  padding: var(--table-size-padding-horizontal) var(--table-size-padding-vertical);
+}
 
-// // sub table
+// sub table
 // .@{table-prefix-cls}-expand-content .@{table-cls-td} .@{table-prefix-cls} {
-//   margin: ~'-@{table-size-@{size}-padding-vertical}' ~'-@{table-size-@{size}-padding-horizontal}' ~'calc(-@{table-size-@{size}-padding-vertical} - @{table-border-width})'
-//     ~'-@{table-size-@{size}-padding-horizontal}';
+//   margin: -9px -16px -10px;
 // }
 
 // // editor row
@@ -138,9 +138,11 @@
     }
   }
 
-  .@{table-prefix-cls}-content-inner {
-    overflow-x: auto;
-    overflow-y: hidden;
+  &-layout-fixed {
+    .@{table-prefix-cls}-content-inner {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
   }
 
   thead > &-tr > &-th {
@@ -186,6 +188,12 @@
     background-color: var(--table-color-bg-body-cell);
     border-bottom: 1px solid var(--table-color-border);
     line-height: var(--table-line-height-base);
+  }
+
+  &-th-item-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   //   &-th&-col-sorted {
@@ -275,24 +283,25 @@
   //     }
   //   }
 
-  //   // Expand
-  //   &-expand-icon-cell {
-  //     button {
-  //       .expandBtn();
-  //     }
-  //   }
+  // Expand
+  &-expand-icon-cell {
+    button {
+      .expandBtn();
+    }
+  }
 
-  //   &-cell-expand-icon {
-  //     // https://github.com/arco-design/arco-design/issues/298
-  //     float: left;
+  &-cell-expand-icon {
+    display: flex;
 
-  //     button {
-  //       .expandBtn();
+    button {
+      .expandBtn();
+      margin-right: 8px;
+    }
+  }
 
-  //       margin-right: @table-spacing-expand-button-margin-right;
-  //     }
-  //   }
-
+  .@{table-prefix-cls}-expand-td {
+    padding-left: 15px;
+  }
   //   &-cell-expand-icon-hidden {
   //     display: inline-block;
   //     width: @table-size-expand-button;
@@ -304,11 +313,11 @@
   //     background-color: @table-color-bg-expand-content;
   //   }
 
-  //   &-expand-fixed-row {
-  //     position: sticky;
-  //     left: 0;
-  //     box-sizing: border-box;
-  //   }
+  &-expand-fixed-row {
+    position: sticky;
+    left: 0;
+    box-sizing: border-box;
+  }
 
   //   &-expand-content .@{table-cls-td} & {
   //     .@{table-prefix-cls}-container {
@@ -338,6 +347,7 @@
 
   &-th&-operation &-th-item,
   &-td&-operation {
+    text-align: center;
     padding: 0;
   }
 
@@ -384,11 +394,36 @@
   //     }
   //   }
 
-  //   &-sorter {
-  //     display: inline-block;
-  //     margin-left: @table-spacing-header-sorter-icon-margin-left;
-  //     vertical-align: -3px;
-  //   }
+  &-sorter-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &-sorter {
+    display: flex;
+    flex-direction: column;
+    margin-left: 6px;
+    cursor: pointer;
+    color: var(--sorter-color);
+  }
+
+  &-sorter-active {
+    color: var(--sorter-active-color);
+  }
+
+  &-sorter-top {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    top: 1px;
+  }
+
+  &-sorter-bottom {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    top: -1px;
+  }
 
   //   &-sorter&-sorter-direction-one {
   //     vertical-align: 0;
@@ -427,40 +462,24 @@
   //     }
   //   }
 
-  //   &-filters {
-  //     position: absolute;
-  //     display: flex;
-  //     justify-content: center;
-  //     align-items: center;
-  //     top: 0;
-  //     right: 0;
-  //     width: @table-size-filters-width;
-  //     height: 100%;
-  //     background-color: transparent;
-  //     line-height: 1;
-  //     vertical-align: 0;
-  //     cursor: pointer;
-  //     transition: all @transition-duration-1 @transition-timing-function-linear;
+  &-filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: transparent;
+    line-height: 1;
+    vertical-align: 0;
+    cursor: pointer;
+    transition: all 0.1s linear;
+    color: var(--filter-color);
 
-  //     &:hover,
-  //     &-open {
-  //       background-color: @table-color-bg-header-filters-icon_hover;
-  //     }
+    &-active {
+      color: var(--filter-active-color);
+    }
+  }
 
-  //     svg {
-  //       color: @table-color-header-filters-icon;
-  //       font-size: @table-font-size-filters-icon;
-  //       transition: all @transition-duration-1 @transition-timing-function-linear;
-  //     }
-
-  //     &-active {
-  //       svg {
-  //         color: @table-color-header-filters-icon_active;
-  //       }
-  //     }
-  //   }
-
-  //   /* ---- Table sorter, filter, checkbox, radio (End) ---- */
+  /* ---- Table sorter, filter, checkbox, radio (End) ---- */
 
   &-container {
     position: relative;
@@ -532,9 +551,9 @@
       border-left: 1px solid var(--table-color-border);
     }
 
-    // .@{table-prefix-cls}-expand-fixed-row {
-    //   border-left: @table-border-width @table-border-style @table-color-border;
-    // }
+    .@{table-prefix-cls}-expand-fixed-row {
+      border-left: 1px solid var(--table-color-border);
+    }
 
     .@{table-prefix-cls}-footer {
       border: 1px solid var(--table-color-border);
@@ -669,24 +688,20 @@
   //   }
   // }
 
-  // .@{table-prefix-cls}-pagination {
-  //   display: flex;
-  //   justify-content: flex-end;
+  .@{table-prefix-cls}-pagination {
+    display: flex;
+    justify-content: flex-end;
 
-  //   &-left {
-  //     justify-content: flex-start;
-  //   }
+    &-left {
+      justify-content: flex-start;
+    }
 
-  //   &-center {
-  //     justify-content: center;
-  //   }
+    &-center {
+      justify-content: center;
+    }
 
-  //   &-top {
-  //     margin-bottom: @table-spacing-pagination-margin;
-  //     margin-top: 0;
-  //   }
-
-  //   .@{prefix}-pagination {
-  //     margin-top: @table-spacing-pagination-margin;
-  //   }
+    .@{prefix}-pagination {
+      margin-top: var(--table-pagination-margin-top);
+    }
+  }
 }

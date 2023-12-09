@@ -49,6 +49,10 @@ export function isEmptyObject(obj: any): boolean {
   return isObject(obj) && Object.keys(obj).length === 0;
 }
 
+export function isEmptyArray(array: any): boolean {
+  return isArray(array) && array.length === 0;
+}
+
 export function isWindow(el: any): el is Window {
   return el && el === el.window;
 }

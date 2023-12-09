@@ -3,33 +3,44 @@ import { getFlattenColumns, getGroupColumns, getInternalColumns, isCheckAllType,
 import { HOLDER_NODE } from '../constants';
 import { useComponent } from './useComponent';
 // type
-import { TableProps } from '../interface';
+import { ColumnProps, TableProps } from '../interface';
 
-export function useColumns<T>(props: any) {
-  const { components, rowSelection, columns = [] } = props;
+interface useColumnsProps<T> {
+  components: TableProps['components'];
+  rowSelection: TableProps['rowSelection'];
+  columns: ColumnProps<T>[];
+  expandProps: TableProps['expandProps'];
+  expandedRowRender: TableProps['expandedRowRender'];
+}
 
+export function useColumns<T>(props: useColumnsProps<T>) {
+  const { components, rowSelection, columns = [], expandProps, expandedRowRender } = props;
   // data
   const { finalColumns, columnsDepth } = useMemo(() => getFlattenColumns(columns), [columns]);
   const isCheckbox = isCheckboxType(rowSelection);
   const isRadio = isRadioType(rowSelection);
   const isCheckAll = isCheckAllType(rowSelection);
   const shouldRenderSelectionCol = isCheckbox || isRadio;
+  const shouldRenderExpandCol = !!expandedRowRender;
   const { getHeaderComponentOperations, getBodyComponentOperations } = useComponent(components);
+  const { width: expandColWidth } = expandProps;
 
   const headerOperations = useMemo(
     () =>
       getHeaderComponentOperations({
         selectionNode: shouldRenderSelectionCol ? HOLDER_NODE : '',
+        expandNode: shouldRenderExpandCol ? HOLDER_NODE : '',
       }),
-    [shouldRenderSelectionCol, getHeaderComponentOperations]
+    [getHeaderComponentOperations, shouldRenderSelectionCol, shouldRenderExpandCol]
   );
 
   const bodyOperations = useMemo(
     () =>
       getBodyComponentOperations({
         selectionNode: shouldRenderSelectionCol ? HOLDER_NODE : '',
+        expandNode: shouldRenderExpandCol ? HOLDER_NODE : '',
       }),
-    [shouldRenderSelectionCol, getBodyComponentOperations]
+    [getBodyComponentOperations, shouldRenderSelectionCol, shouldRenderExpandCol]
   );
   const selectionColumnWidth = rowSelection?.columnWidth;
 
@@ -38,8 +49,17 @@ export function useColumns<T>(props: any) {
    * @en set expand and selection operator into finalColumns
    */
   const flattenColumns = useMemo(
-    () => getInternalColumns({ rows: finalColumns, operations: bodyOperations, selectionColumnWidth, shouldRenderSelectionCol }),
-    [finalColumns, bodyOperations, selectionColumnWidth, shouldRenderSelectionCol]
+    () =>
+      getInternalColumns({
+        rows: finalColumns,
+        operations: bodyOperations,
+        columnsDepth,
+        selectionColumnWidth,
+        shouldRenderSelectionCol,
+        shouldRenderExpandCol,
+        expandColWidth,
+      }),
+    [finalColumns, bodyOperations, columnsDepth, selectionColumnWidth, shouldRenderSelectionCol, shouldRenderExpandCol, expandColWidth]
   );
 
   /**
@@ -47,8 +67,16 @@ export function useColumns<T>(props: any) {
    * @en get two-dimensional array including rowSpan and other props to thead
    */
   const [groupColumns, prefixIndex] = useMemo(() => {
-    return getGroupColumns({ headerOperations, columnsDepth, columns, selectionColumnWidth, shouldRenderSelectionCol });
-  }, [headerOperations, columnsDepth, columns, selectionColumnWidth, shouldRenderSelectionCol]);
+    return getGroupColumns({
+      headerOperations,
+      columnsDepth,
+      columns,
+      selectionColumnWidth,
+      shouldRenderSelectionCol,
+      expandColWidth,
+      shouldRenderExpandCol,
+    });
+  }, [headerOperations, columnsDepth, columns, selectionColumnWidth, shouldRenderSelectionCol, expandColWidth, shouldRenderExpandCol]);
 
   return { isRadio, isCheckbox, isCheckAll, groupColumns, flattenColumns, prefixIndex };
 }

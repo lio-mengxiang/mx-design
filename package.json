@@ -1,6 +1,6 @@
 {
   "name": "@mx-design/web",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "best React UI components course",
   "private": true,
   "author": "lio_mengxiang <1334196450@qq.com>",
@@ -18,6 +18,7 @@
     "clean": "pnpm -r clean && rimraf ./node_modules",
     "build": "pnpm -r build",
     "init": "pnpm install --shamefully-flatten && pnpm build",
+    "install": "pnpm install --shamefully-flatten",
     "start:site": "cd apps/example && pnpm start",
     "prepare": "husky install"
   },

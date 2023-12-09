@@ -1,23 +1,32 @@
 import React from 'react';
-import { isFunction } from '@mx-design/web-utils';
+import { cs, isFunction } from '@mx-design/web-utils';
 import { useComponent } from '../../hooks';
+import { getNoDataTr, getOriginData, getRowSelectionType, renderTreeTrs, shouldRowExpand } from '../../utils';
 // type
 import { TbodyProps } from '../../interface';
-import { getNoDataTr, getOriginData, getRowKey, getRowSelectionType, renderTreeTrs, shouldRowExpand } from '../../utils';
 
-export function Tbody<T>(props: any) {
+export type trPropsType<T> = Omit<
+  TbodyProps<T>,
+  'fixedHeader' | 'ComponentBodyWrapper' | 'ComponentTable' | 'refTableBody' | 'scroll' | 'processedData' | 'isRadio' | 'isCheckbox'
+> & {
+  type: 'checkbox' | 'radio';
+  level: number;
+  indentSize: number;
+};
+export function Tbody<T>(
+  props: Omit<TbodyProps<T>, 'fixedHeader' | 'ComponentBodyWrapper' | 'ComponentTable' | 'refTableBody' | 'scroll'>
+) {
   const {
-    rowKey,
     components,
+    processedData,
     flattenColumns,
-    data,
     prefixCls,
     noDataElement,
-    renderEmpty,
+    expandedRowKeys,
+    onClickExpandBtn,
     placeholder,
     hasFixedColumn,
     tableViewWidth,
-    indentSize,
     stickyOffsets,
     stickyClassNames,
     childrenColumnName,
@@ -26,15 +35,22 @@ export function Tbody<T>(props: any) {
     isRadio,
     isCheckbox,
     rowSelection,
+    selectedRowSetKeys,
+    indeterminateSetKeys,
+    onCheck,
+    onCheckRadio,
+    onRow,
+    rowClassName,
+    shouldRenderTreeDataExpandRow,
+    indentSize,
   } = props;
 
   const { ComponentTbody } = useComponent(components);
   const type = getRowSelectionType(isCheckbox, isRadio);
 
-  const trProps = {
+  const trProps: trPropsType<T> = {
     components,
     flattenColumns,
-    data,
     prefixCls,
     noDataElement,
     placeholder,
@@ -46,19 +62,48 @@ export function Tbody<T>(props: any) {
     childrenColumnName,
     expandProps,
     expandedRowRender,
+    expandedRowKeys,
     rowSelection,
     type,
     level: 0,
+    selectedRowSetKeys,
+    indeterminateSetKeys,
+    onCheck,
+    onCheckRadio,
+    onClickExpandBtn,
+    onRow,
+    rowClassName,
+    shouldRenderTreeDataExpandRow,
   };
-
   const noDataTr = getNoDataTr({ prefixCls, flattenColumns, tableViewWidth, noDataElement });
+
+  const er = isFunction(expandedRowRender) ? (r, i) => expandedRowRender(getOriginData(r), i) : expandedRowRender;
 
   return (
     <ComponentTbody>
-      {data.length > 0
-        ? data.map((record, index) => {
-            const rowK = getRowKey(rowKey, record, index);
-            return <React.Fragment key={rowK}>{renderTreeTrs({ record, index, rowK, trProps })}</React.Fragment>;
+      {processedData.length > 0
+        ? processedData.map((record, index) => {
+            const shouldRenderExpandIcon =
+              shouldRowExpand<T>({ expandProps, record, index, er }) && expandedRowKeys.indexOf(record.$$key) !== -1;
+
+            return (
+              <React.Fragment key={record.$$key}>
+                {renderTreeTrs({ record, index, trProps, expandedRowKeys, er })}
+                {shouldRenderExpandIcon && (
+                  <tr className={cs(`${prefixCls}-tr`, `${prefixCls}-expand-content`)} key={`${record.$$key}-expanded`}>
+                    <td className={cs(`${prefixCls}-td`, `${prefixCls}-expand-content`)} colSpan={flattenColumns.length}>
+                      {hasFixedColumn ? (
+                        <div className={`${prefixCls}-expand-fixed-row`} style={{ width: tableViewWidth }}>
+                          {er?.(record, index)}
+                        </div>
+                      ) : (
+                        er?.(record, index)
+                      )}
+                    </td>
+                  </tr>
+                )}
+              </React.Fragment>
+            );
           })
         : noDataTr}
     </ComponentTbody>

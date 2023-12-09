@@ -7,7 +7,7 @@ function MenuContainer({ titleList }) {
 
   useEffect(() => {
     anchorRef.current?.onScroll();
-  }, [location.pathname]);
+  }, [anchorRef]);
 
   return (
     <div className={styles['anchor-list']}>

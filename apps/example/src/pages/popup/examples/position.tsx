@@ -75,29 +75,29 @@ function App() {
   };
   return (
     <div style={styles.container}>
-      <Popup content="这是Popup内容" placement="top" showArrow>
+      <Popup content={() => "这是Popup内容 top"} placement="top" showArrow>
         <Button style={styles.placementTop}>top</Button>
       </Popup>
-      <Popup content="这是Popup内容 top-start" placement="top-start" showArrow>
+      <Popup content={() => "这是Popup内容 top-start"} placement="top-start" showArrow>
         <Button style={styles.placementTopLeft}>top-start</Button>
       </Popup>
-      <Popup content="这是Popup内容 top-end" placement="top-end" showArrow>
+      <Popup content={() => "这是Popup内容 top-end"} placement="top-end" showArrow>
         <Button style={styles.placementTopRight}>top-end</Button>
       </Popup>
-      <Popup content="这是Popup内容" placement="bottom" showArrow>
+      <Popup content={() => "这是Popup内容 bottom"} placement="bottom" showArrow>
         <Button style={styles.placementBottom}>bottom</Button>
       </Popup>
-      <Popup content="这是Popup内容 bottom-start" placement="bottom-start" showArrow>
+      <Popup content={() => "这是Popup内容 bottom-start"} placement="bottom-start" showArrow>
         <Button style={styles.placementBottomLeft}>bottom-start</Button>
       </Popup>
-      <Popup content="这是Popup内容 bottom-end" placement="bottom-end" showArrow>
+      <Popup content={() => "这是Popup内容 bottom-end"} placement="bottom-end" showArrow>
         <Button style={styles.placementBottomRight}>bottom-end</Button>
       </Popup>
-      <Popup content="这是Popup内容" placement="left" showArrow>
+      <Popup content={() => "这是Popup内容 left"} placement="left" showArrow>
         <Button style={styles.placementLeft}>left</Button>
       </Popup>
       <Popup
-        content="这是Popup内容   left-start"
+        content={() => "这是Popup内容   left-start"}
         placement="left-start"
         overlayStyle={{ width: '140px' }}
         showArrow
@@ -105,18 +105,18 @@ function App() {
         <Button style={styles.placementLeftTop}>left-start</Button>
       </Popup>
       <Popup
-        content="这是Popup内容 left-end"
+        content={() => "这是Popup内容 left-end"}
         placement="left-end"
         overlayStyle={{ width: '140px' }}
         showArrow
       >
         <Button style={styles.placementLeftBottom}>left-end</Button>
       </Popup>
-      <Popup content="这是Popup内容" placement="right" showArrow>
+      <Popup content={() => "这是Popup内容"} placement="right" showArrow>
         <Button style={styles.placementRight}>right</Button>
       </Popup>
       <Popup
-        content="这是Popup内容 right-start"
+        content={() => "这是Popup内容 right-start"}
         placement="right-start"
         overlayStyle={{ width: '140px' }}
         showArrow
@@ -124,7 +124,7 @@ function App() {
         <Button style={styles.placementRightTop}>right-start</Button>
       </Popup>
       <Popup
-        content="这是Popup内容 right-end"
+        content={() => "这是Popup内容 right-end"}
         placement="right-end"
         overlayStyle={{ width: '140px' }}
         showArrow

@@ -69,12 +69,6 @@ export interface ConfigProviderProps {
    */
   lang?: typeof ZH_CN | typeof EN_US;
   /**
-   * @zh 配置组件的默认尺寸，只会对支持`size`属性的组件生效。
-   * @en Configure the default size of the component, which will only take effect for components that support the `size` property.
-   * @defaultValue medium
-   */
-  size?: typeof SMALL_SIZE | typeof MEDIUM_SIZE | typeof LARGE_SIZE;
-  /**
    * @zh 全局组件类名前缀
    * @en Global ClassName prefix
    * @defaultValue mx

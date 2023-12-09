@@ -3,9 +3,9 @@ import { cs, isString, pick } from '@mx-design/web-utils';
 import { useComponent, useGetCellChildren } from '../../hooks';
 import { getOriginData, getPaddingLeft, getStyleTd } from '../../utils';
 // type
-import { ComponentsProps, InternalColumnProps, SorterInfo } from '../../interface';
+import { ComponentsProps, INewRecord, InternalColumnProps, SorterInfo } from '../../interface';
 
-type TdType = {
+type TdType<T> = {
   prefixCls?: string;
   stickyClassName?: string;
   stickyOffset?: number;
@@ -15,7 +15,7 @@ type TdType = {
   currentSorter?: SorterInfo;
   placeholder?: ReactNode;
   indentSize?: number;
-  record?: any;
+  record?: INewRecord<T>;
   trIndex?: number;
   level?: number;
   recordHaveChildren?: boolean;
@@ -23,14 +23,13 @@ type TdType = {
   hasInlineExpandIcon?: boolean;
 };
 
-export function Td(props: TdType) {
+export function Td<T>(props: TdType<T>) {
   const {
     components,
     column,
     prefixCls,
     stickyClassName,
     stickyOffset,
-    currentSorter,
     record,
     trIndex,
     level,
@@ -45,21 +44,18 @@ export function Td(props: TdType) {
   // style
   const styleTd = getStyleTd({ column, stickyOffset });
 
-  // classnames
-  const classNameTd = cs(
-    `${prefixCls}-td`,
-    stickyClassName,
-    // {
-    //   [`${prefixCls}-col-sorted`]: currentSorter && currentSorter.direction && currentSorter.field === column.dataIndex,
-    // },
-    column.className
-  );
+  // classnamestdProps
+  const classNameTd = cs(`${prefixCls}-td`, stickyClassName, column.className);
 
   // handle event
   const { onHandleSave, ...cellEvent } = typeof column.onCell === 'function' ? column.onCell(record, trIndex) : { onHandleSave: () => {} };
 
   // content
-  const cellChildren = useGetCellChildren({ column, record, trIndex, placeholder });
+  const { cellChildren, tdProps, rowSpan, colSpan } = useGetCellChildren<T>({ column, record, trIndex, placeholder });
+
+  if (rowSpan === 0 || colSpan === 0) {
+    return null;
+  }
 
   // props
   const titleProps = column.ellipsis && isString(cellChildren) ? { title: cellChildren } : {};
@@ -73,9 +69,21 @@ export function Td(props: TdType) {
         ...cellEvent,
       };
 
-  const tdProps = (isString(ComponentBodyCell) as unknown)
-    ? {}
-    : pick(cellProps, [
+  const paddingLeft = getPaddingLeft({ hasInlineExpandIcon, level, indentSize, recordHaveChildren });
+  const content = (
+    <>
+      {paddingLeft ? <span className={`${prefixCls}-cell-indent`} style={{ paddingLeft }} /> : null}
+      {ExpandBodyTreeIcon}
+      <ComponentBodyCell {...cellProps}>{cellChildren}</ComponentBodyCell>
+    </>
+  );
+
+  return (
+    <ComponentTd
+      className={classNameTd}
+      key={column.key}
+      style={styleTd}
+      {...pick(cellProps, [
         'onClick',
         'onDoubleClick',
         'onContextMenu',
@@ -85,32 +93,15 @@ export function Td(props: TdType) {
         'onMouseMove',
         'onMouseDown',
         'onMouseUp',
-      ]);
-
-  const content = (
-    <>
-      {ExpandBodyTreeIcon}
-      <ComponentBodyCell {...cellProps}>{cellChildren}</ComponentBodyCell>
-    </>
-  );
-
-  const paddingLeft = getPaddingLeft({ hasInlineExpandIcon, level, indentSize, recordHaveChildren });
-
-  // rowSpan, colSpan
-  const { rowSpan, colSpan } = record?.tdProps || {};
-  if (rowSpan === 0 || colSpan === 0) {
-    return null;
-  }
-
-  return (
-    <ComponentTd className={classNameTd} key={column.key} style={styleTd} {...tdProps} {...record?.tdProps}>
+      ])}
+      {...tdProps}
+    >
       <div
         className={cs(`${prefixCls}-cell`, {
           [`${prefixCls}-cell-text-ellipsis`]: column.ellipsis,
         })}
         {...titleProps}
       >
-        {paddingLeft ? <span className={`${prefixCls}-cell-indent`} style={{ paddingLeft }} /> : null}
         {content}
       </div>
     </ComponentTd>

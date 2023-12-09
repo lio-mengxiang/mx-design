@@ -1,6 +1,9 @@
-import React, { ReactNode, CSSProperties } from 'react';
+import React, { ReactNode, CSSProperties, ReactElement } from 'react';
 import { SpinProps } from '../Spin';
 import { TooltipProps } from '../Tooltip';
+import { PaginationProps } from '../Pagination';
+import { FILTER, PAGINATE, SORTER } from './constants';
+import { PopupProps } from '../Popup';
 
 export type RowCallbackProps = {
   onClick?: (event) => void;
@@ -14,12 +17,17 @@ export type RowCallbackProps = {
 
 export type SorterFn = (a: any, b: any) => number;
 
+type Partial<T> = {
+  [P in keyof T]?: T[P];
+};
+
 /**
  * @title Table
  */
 export interface TableProps<T = any> {
   style?: CSSProperties;
   className?: string | string[];
+  customerTitle?: (titleNode) => ReactNode;
   /**
    * @zh 表格列冻结设置，leftFixedColumnsLength代表左边冻结几列, 如果是多行表头，以第一行为准
    * @en setting of fix column，leftFixedColumnsLength represents the frozen columns on the left, if there are multi-line header, first row shall prevail
@@ -111,6 +119,11 @@ export interface TableProps<T = any> {
    */
   loadingProps?: SpinProps;
   /**
+   * @zh 表格是否在加载中
+   * @en Whether the table is in loading
+   */
+  loading?: boolean;
+  /**
    * @zh 没有数据的时候显示的元素
    * @en Element to be displayed when there is no data
    */
@@ -144,25 +157,23 @@ export interface TableProps<T = any> {
   /**
    * @zh 分页、排序、筛选时的回调
    * @en Callback when pagination, sorting, and filtering changes
-   * @version extra in `2.19.0`
    */
   onChange?: (
-    // pagination: PaginationProps,
-    sorter: SorterInfo,
+    pagination: PaginationProps,
+    sorter: SorterInfo | SorterInfo[],
     filters: Partial<Record<keyof T, string[]>>,
-    extra: { currentData: T[]; action: 'paginate' | 'sort' | 'filter' }
+    extra: { currentData: T[]; currentAllData: T[]; action: 'paginate' | 'sort' | 'filter' }
   ) => void;
   /**
    * @zh 分页器设置，参考[Pagination组件](/react/components/pagination)，设置 `false` 不展示分页
    * @en Pagination settings, refer to [Pagination components](/react/components/pagination), set `false` to hide pagination
    */
-  // pagination?: PaginationProps | boolean;
+  pagination?: PaginationProps | boolean;
   /**
-   * @zh 自定义分页渲染。
-   * @en Customized pagination render
-   * @version 2.11.0
+   * @zh 分页渲染。
+   * @en pagination render
    */
-  renderPagination?: (paginationNode?: ReactNode) => ReactNode;
+  renderPagination?: (paginationNode: any) => ReactNode;
   /**
    * @zh
    * 设置x轴或y轴的滚动。
@@ -200,11 +211,11 @@ export interface TableProps<T = any> {
    */
   placeholder?: ReactNode;
   /**
-   * @zh 设置分页器的位置，有四个方位 `右下` `左下` `右上` `左上` `上中` `下中`
-   * @en Set the position of the pagination, there are six positions `bottom right` `bottom left` `top right` `top left` `top center` `bottom center`
+   * @zh 设置分页器的位置，有四个方位 `右下` `右上` `下中`
+   * @en Set the position of the pagination, there are three positions `bottom right` `bottom left` `bottom center`
    * @defaultValue br
    */
-  pagePosition?: 'br' | 'bl' | 'tr' | 'tl' | 'topCenter' | 'bottomCenter';
+  pagePosition?: 'tl' | 'br' | 'bl' | 'bottomCenter';
   /**
    * @zh 树形数据在 `data` 中的字段名，默认是 `children`
    * @en The field name of the tree data in `data`, default is `children`
@@ -278,7 +289,7 @@ export interface RowSelectionProps<T = any> {
    * @zh 单选或多选的选中项发生改变时的回调
    * @en Callback when the checkbox/radio changes
    */
-  onChange?: (selectedRowKeys: (string | number)[], selectedRows: T[]) => void;
+  onChange?: (selectedRowKeys: React.Key[], selectedRows: T[]) => void;
   /**
    * @zh 用户手动选择/取消选择的回调
    * @en Callback for user manual selection/deselection
@@ -307,13 +318,14 @@ export interface RowSelectionProps<T = any> {
    * @zh Table选中的项，（受控模式，需要跟 `onChange` 配合使用）
    * @en Table selected row, (controlled mode, need to be used with `onChange`)
    */
-  selectedRowKeys?: (string | number)[];
+  selectedRowKeys?: React.Key[];
+  defaultSelectedRowKeys?: React.Key[];
+  indeterminateKeys?: React.Key[];
   /**
    * @zh 多选或者单选
    * @en Multi-select or single-select
    */
   type?: 'checkbox' | 'radio';
-  pureKeys?: boolean; // TODO: remove
 }
 
 /**
@@ -373,6 +385,9 @@ export interface ColumnProps<T = any> {
    * @en ClassName of the column
    */
   className?: string | string[];
+  titleClassName?: string | string[];
+  handleAscendSort?: (currentDirection: 'ascend' | 'descend' | undefined) => void;
+  handleDescendSort?: (currentDirection: 'ascend' | 'descend' | undefined) => void;
   /**
    * @zh 设置列的对齐方式
    * @en Set the alignment of the column
@@ -470,9 +485,9 @@ export interface ColumnProps<T = any> {
   /**
    * @zh 支持的排序方式。
    * @en Supported sorting methods.
-   * @defaultValue ['ascend','descend']
+   * @defaultValue 'all'
    */
-  sortDirections?: Array<'ascend' | 'descend'>;
+  sortType?: 'ascend' | 'descend' | 'all';
   /**
    * @zh 是否可以筛选多项
    * @en Is it possible to filter multiple items
@@ -497,7 +512,7 @@ export interface ColumnProps<T = any> {
    * @zh 配置筛选弹出框的一些属性。
    * @en Configure properties of the filter popup box.
    */
-  // filterDropdownProps?: { triggerProps?: TriggerProps };
+  filterDropdownProps?: { triggerProps?: PopupProps };
   /**
    * @zh 筛选框打开关闭的回调
    * @en Callback when the visible of filter popup changes
@@ -536,19 +551,15 @@ export type InternalColumnProps<T = any> = ColumnProps<T> & {
   $$isFirstColumn?: boolean;
   $$columnIndex?: number | number[];
   $$fixed?: string;
-  node?: ReactNode;
-};
-
-export interface ColumnComponentProps<T = any> extends ColumnProps<T> {
-  onSort: (direction: string | undefined, field: string | number) => void;
-  onHandleFilter: (column: Record<string, any>, filter: Record<string, any>) => void;
-  onHandleFilterReset: (column: { [key: string]: any }) => void;
+  node?: ReactNode | ((record: any) => ReactNode);
+  onSort?: (direction: SortDirection, column: InternalColumnProps<T>) => void;
+  onHandleFilter?: (column: Record<string, any>, filter: Record<string, any>) => void;
   currentSorter?: SorterInfo;
   currentFilter?: { [key: string]: any };
   _key?: string | number;
   showSorterTooltip?: boolean | TooltipProps;
   index?: number;
-}
+};
 
 export type ComponentsProps = {
   table?: any;
@@ -567,7 +578,7 @@ export type ComponentsProps = {
   body?: {
     operations?: (nodes: { selectionNode?: ReactNode; expandNode?: ReactNode }) => {
       name?: string;
-      node?: ReactNode | ((record) => ReactNode); // 2.17.0
+      node?: ReactNode | ((record) => ReactNode);
       width?: number;
     }[];
     wrapper?: any;
@@ -577,64 +588,70 @@ export type ComponentsProps = {
     cell?: any;
   };
 };
-
-export interface TheadProps<T = any> {
-  expandedRowRender?: (record: { [key: string]: any }, index: number) => ReactNode;
-  onCheckAll: (_, e) => void;
-  onSort: (direction, field) => void;
-  data: T[];
-  onHandleFilter: (column, filter) => void;
-  onHandleFilterReset: (filter) => void;
-  currentSorter: SorterInfo;
+export interface TheadProps<T> {
+  fixedHeader?: boolean;
+  prefixCls: string;
+  ComponentHeaderWrapper?: any;
+  ComponentTable?: any;
+  flattenColumns?: InternalColumnProps<T>[];
+  refTableHead?: React.MutableRefObject<HTMLElement>;
+  onHeaderRow: TableProps<T>['onHeaderRow'];
+  components: ComponentsProps;
+  expandProps: TableProps<T>['expandProps'];
+  groupColumns: InternalColumnProps<T>[][];
+  scroll?: TableProps['scroll'];
+  data: INewRecord<T>[];
+  rowSelection: TableProps<T>['rowSelection'];
+  groupStickyClassNames: string[][];
+  stickyOffsets: number[];
+  isRadio: boolean;
+  isCheckbox: boolean;
+  isCheckAll: boolean;
+  expandedRowRender: TableProps<T>['expandedRowRender'];
+  innerFiltersValue: Partial<Record<keyof T, string[]>>;
+  onHandleFilter: (column: InternalColumnProps<T>, value: any) => void;
   activeSorters: SorterInfo[];
-  selectedRowKeys: (string | number)[];
-  onHeaderRow?: (columns, index: number) => RowCallbackProps;
-  prefixCls?: string;
-  rowSelection?: RowSelectionProps;
-  columnTitle?: string | ReactNode;
-  currentFilters?: Partial<Record<keyof T, string[]>>;
-  rowKey?: TableProps['rowKey'];
-  components?: ComponentsProps;
-  expandProps?: ExpandProps<T>;
-  allSelectedRowKeys?: (string | number)[];
-  groupColumns?: InternalColumnProps<T>[][];
-  stickyOffsets?: number[];
-  groupStickyClassNames?: string[][];
-  showSorterTooltip?: boolean | TooltipProps;
+  onSort: (direction: SortDirection, column: InternalColumnProps<T>) => void;
+  isControlledSort: boolean;
+  onCheckAll: (checked: boolean) => void;
+  selectedRowSetKeys: Set<React.Key>;
+  allSelectedRowSetKeys: Set<React.Key>;
 }
 
 export type GetRowKeyType<T> = (record: T) => string;
 
 export interface TbodyProps<T = any> {
-  data: T[];
-  selectedRowKeys: React.Key[];
-  indeterminateKeys: React.Key[];
-  components?: ComponentsProps;
-  expandedRowKeys: React.Key[];
-  flattenColumns: InternalColumnProps<T>[];
-  noDataElement?: string | ReactNode;
-  onCheck: (checked: boolean, record) => void;
-  onCheckRadio: (key, record) => void;
+  components: TableProps<T>['components'];
+  flattenColumns: TheadProps<T>['flattenColumns'];
+  processedData: INewRecord<T>[];
+  prefixCls: string;
+  noDataElement: TableProps['noDataElement'];
+  placeholder: TableProps['placeholder'];
+  hasFixedColumn: boolean;
+  tableViewWidth: number;
+  stickyOffsets: number[];
+  stickyClassNames: string[];
+  childrenColumnName: TableProps<T>['childrenColumnName'];
+  expandProps: TableProps<T>['expandProps'];
+  expandedRowRender: TableProps<T>['expandedRowRender'];
+  expandedRowKeys: TableProps<T>['expandedRowKeys'];
   onClickExpandBtn: (key: React.Key) => void;
-  // pagination?: PaginationProps | boolean;
-  scroll?: { x?: number | string | boolean; y?: number | string | boolean };
-  expandedRowRender?: (record: T, index: number) => ReactNode;
-  rowClassName?: (record: T, index: number) => string;
-  onRow?: (record: T, index: number) => RowCallbackProps;
-  prefixCls?: string;
-  rowSelection?: RowSelectionProps<T>;
-  expandProps?: ExpandProps<T>;
-  childrenColumnName?: string;
-  indentSize?: number;
-  hasFixedColumn?: boolean;
-  tableViewWidth?: number;
-  currentSorter?: SorterInfo;
-  activeSorters?: SorterInfo[];
-  stickyOffsets?: number[];
-  stickyClassNames?: string[];
-  getRowKey?: GetRowKeyType<T>;
-  placeholder?: ReactNode;
-  saveVirtualWrapperRef?: (ref: HTMLDivElement) => void;
+  isRadio: boolean;
+  isCheckbox: boolean;
+  rowSelection: TableProps<T>['rowSelection'];
+  fixedHeader: boolean;
+  ComponentBodyWrapper: any;
+  ComponentTable: any;
+  refTableBody: React.MutableRefObject<HTMLElement>;
+  scroll: TableProps<T>['scroll'];
+  selectedRowSetKeys: Set<React.Key>;
+  indeterminateSetKeys: Set<React.Key>;
+  onCheck: (checked: boolean, record: INewRecord<T>) => void;
+  onCheckRadio: (key: any, record: INewRecord<T>) => void;
+  onRow: TableProps['onRow'];
+  rowClassName: TableProps['rowClassName'];
+  shouldRenderTreeDataExpandRow: boolean;
+  indentSize: number;
 }
 
 export interface TfootProps<T = any> {
@@ -658,9 +675,25 @@ export interface SorterInfo {
   field?: string | number;
   sorterFn?: SorterFn;
   priority?: number;
+  isBackSort?: boolean;
 }
 
 export interface SummaryProps {
   fixed?: 'top' | 'bottom';
   children?: ReactNode;
 }
+
+type IBaseNewRecord<T> = {
+  __ORIGIN_DATA: T;
+  __INTERNAL_PARENT: INewRecord<T>;
+  $$key: string | number;
+};
+
+export type INewRecord<T> = IBaseNewRecord<T> & T;
+
+export type updateOnChangeType<T> = {
+  action: typeof FILTER | typeof SORTER | typeof PAGINATE;
+  sorter?: SorterInfo | SorterInfo[];
+  newPaginationProps?: PaginationProps;
+  innerFiltersValue?: Partial<Record<keyof T, string[]>>;
+};

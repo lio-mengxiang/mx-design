@@ -1,5 +1,5 @@
-import { isArray } from '@mx-design/web-utils';
+import { isChildrenNotEmpty } from './isChildrenNotEmpty';
 
-export function isChildrenNotEmpty({ expandProps, record, childrenColumnName }) {
-  return isArray(record[childrenColumnName]) && record[childrenColumnName].length;
+export function isDataHaveChildren({ data, childrenColumnName }) {
+  return data.find((d) => isChildrenNotEmpty({ record: d, childrenColumnName }));
 }

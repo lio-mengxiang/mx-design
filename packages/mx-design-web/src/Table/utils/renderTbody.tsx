@@ -1,25 +1,25 @@
 import React from 'react';
-import { TbodyNode } from '../components/tbody';
+import { Tbody } from '../components/tbody';
 import ColGroup from '../components/colgroup';
 import { getScrollStyle, getTbodyScrollStyle } from './getScrollStyle';
+import type { TbodyProps } from '../interface';
 
-export function renderTbody({
-  rowKey,
+export function renderTbody<T>({
   components,
   flattenColumns,
   processedData,
   prefixCls,
   noDataElement,
-  renderEmpty,
   placeholder,
   hasFixedColumn,
   tableViewWidth,
-  indentSize,
   stickyOffsets,
   stickyClassNames,
   childrenColumnName = 'children',
   expandProps = {},
   expandedRowRender,
+  expandedRowKeys,
+  onClickExpandBtn,
   isRadio,
   isCheckbox,
   rowSelection,
@@ -28,20 +28,25 @@ export function renderTbody({
   ComponentTable,
   refTableBody,
   scroll,
-}) {
+  selectedRowSetKeys,
+  indeterminateSetKeys,
+  onCheck,
+  onCheckRadio,
+  onRow,
+  rowClassName,
+  shouldRenderTreeDataExpandRow,
+  indentSize,
+}: TbodyProps<T>) {
   const tbody = (
-    <TbodyNode
+    <Tbody<T>
       components={components}
       flattenColumns={flattenColumns}
       processedData={processedData}
       prefixCls={prefixCls}
       noDataElement={noDataElement}
-      renderEmpty={renderEmpty}
-      rowKey={rowKey}
       placeholder={placeholder}
       hasFixedColumn={hasFixedColumn}
       tableViewWidth={tableViewWidth}
-      indentSize={indentSize}
       stickyOffsets={stickyOffsets}
       stickyClassNames={stickyClassNames}
       childrenColumnName={childrenColumnName}
@@ -50,6 +55,16 @@ export function renderTbody({
       isRadio={isRadio}
       isCheckbox={isCheckbox}
       rowSelection={rowSelection}
+      selectedRowSetKeys={selectedRowSetKeys}
+      indeterminateSetKeys={indeterminateSetKeys}
+      onCheck={onCheck}
+      onCheckRadio={onCheckRadio}
+      expandedRowKeys={expandedRowKeys}
+      onClickExpandBtn={onClickExpandBtn}
+      onRow={onRow}
+      rowClassName={rowClassName}
+      shouldRenderTreeDataExpandRow={shouldRenderTreeDataExpandRow}
+      indentSize={indentSize}
     />
   );
   const scrollStyleX = getScrollStyle(scroll);

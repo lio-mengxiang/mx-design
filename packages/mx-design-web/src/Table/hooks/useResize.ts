@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, MutableRefObject } from 'react';
 import { useResizeObserver } from '../../hooks';
 import { getScrollBarHeight, getScrollBarWidth } from '../utils';
 
@@ -6,7 +6,15 @@ import { getScrollBarHeight, getScrollBarWidth } from '../utils';
  * @zh 监听在fixedHeader情况下(也就是scroll.y 有值), 有可能tbody出现滚动条，此时tbody、thead、tfoot的右侧滚动条必须加上
  * @en When fixedHeader is true, tbody may have scrollbar.The right scroll bar of Tbody、thead and tfoot  must be add.
  */
-export function useResize({ refTableHead, refTableFoot, refTableBody, fixedHeader }) {
+export function useResize({
+  refTableHead,
+  refTableFoot,
+  refTableBody,
+}: {
+  refTableHead: MutableRefObject<HTMLElement>;
+  refTableFoot: MutableRefObject<HTMLElement>;
+  refTableBody: MutableRefObject<HTMLElement>;
+}) {
   const scrollbarChanged = useRef<boolean>(false);
 
   function setScrollBarStyle() {

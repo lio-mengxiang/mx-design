@@ -82,7 +82,7 @@ function Dropdown(baseProps: DropdownProps) {
       disabled={disabled}
       trigger={trigger}
       showArrow={false}
-      content={renderPopup()}
+      content={renderPopup}
       visible={isPopupVisible}
       overlayInnerClassName={cs(dropdownClass, className, popupProps?.overlayInnerClassName, themeStyle)}
       overlayInnerStyle={{ ...style, maxHeight, maxWidth }}

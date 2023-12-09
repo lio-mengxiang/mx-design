@@ -3,7 +3,7 @@ import { InternalColumnProps } from '../interface';
 import { INTERNAL_EXPAND_KEY, INTERNAL_SELECTION_KEY } from '../constants';
 
 function fixedWidth(width?: number | string) {
-  return typeof width === 'number'
+  return typeof width === 'number' || typeof width === 'string'
     ? {
         width,
       }
@@ -13,6 +13,7 @@ function fixedWidth(width?: number | string) {
 type ColGroupType = {
   prefixCls?: string;
   flattenColumns?: InternalColumnProps[];
+  // expandedRowKeys?: any;
 };
 
 function ColGroup(props: ColGroupType) {

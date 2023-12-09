@@ -5,7 +5,7 @@ import { Popup, Button } from '@mx-design/web';
 
 function App() {
   return (
-    <Popup trigger="hover" content="This is a popup box">
+    <Popup trigger="hover" content={()=> "This is a popup box"}>
       <Button>Hover me</Button>
     </Popup>
   )

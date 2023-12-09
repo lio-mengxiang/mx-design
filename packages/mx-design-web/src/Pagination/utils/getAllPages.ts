@@ -1,3 +1,4 @@
 export function getAllPages(pageSize, total) {
-  return Math.ceil(total / pageSize);
+  const pageNum = Math.ceil(total / pageSize);
+  return Math.max(pageNum, 0);
 }

@@ -1,14 +1,16 @@
-import React, { useContext, forwardRef } from 'react';
+import React, { useContext, forwardRef, useState, useImperativeHandle } from 'react';
 import { useMergeProps } from '@mx-design/hooks';
 import { ConfigContext } from '../../ConfigProvider';
-import { getScrollStyle, renderTbody, renderThead } from '../utils';
+import { getPageData, getProcessedData, getScrollStyle, renderTbody, renderThead } from '../utils';
 import { Spin } from '../../Spin';
 import ColGroup from './colgroup';
 import { useTable } from '../store';
-import { useResize, useTableClassName, useScroll } from '../hooks';
+import { useResize, useTableClassName, useScroll, useFilterAndSorter, usePagination, useRowSelection, useExpand } from '../hooks';
 import { pickDataAttributes } from '../../utils';
+import { BR, CHILDREN, FILTER, PAGINATE, PLACE_HOLDER, ROW_KEY, SORTER } from '../constants';
+import { useUpdate } from '../hooks/useUpdate';
 // type
-import type { TableProps } from '../interface';
+import type { TableProps, updateOnChangeType } from '../interface';
 
 export interface TableInstance {
   getRootDomElement: () => HTMLDivElement;
@@ -18,19 +20,19 @@ const defaultProps: Partial<TableProps> = {
   showHeader: true,
   border: { wrapper: true },
   hover: true,
-  rowKey: 'key',
-  pagePosition: 'br',
-  childrenColumnName: 'children',
-  indentSize: 16,
-  placeholder: '-',
+  rowKey: ROW_KEY,
+  pagePosition: BR,
+  childrenColumnName: CHILDREN,
+  placeholder: PLACE_HOLDER,
   columns: [],
+  indentSize: 16,
   data: [],
   leftFixedColumnsLength: 0,
   rightFixedColumnsLength: 0,
   expandProps: {},
 };
 
-function Table<T extends unknown>(baseProps: TableProps<T>, ref: React.Ref<TableInstance>) {
+function TableEl<T extends unknown>(baseProps: TableProps<T>, ref: React.Ref<TableInstance>) {
   const { getPrefixCls, componentConfig, renderEmpty } = useContext(ConfigContext);
   const props = useMergeProps<TableProps<T>>(baseProps, defaultProps, componentConfig?.Table);
 
@@ -43,12 +45,12 @@ function Table<T extends unknown>(baseProps: TableProps<T>, ref: React.Ref<Table
     data,
     scroll,
     showHeader,
+    pagination,
     stripe,
     hover,
     loadingProps,
     childrenColumnName,
     rowSelection,
-    indentSize,
     noDataElement,
     rowKey,
     onHeaderRow,
@@ -57,11 +59,18 @@ function Table<T extends unknown>(baseProps: TableProps<T>, ref: React.Ref<Table
     rightFixedColumnsLength,
     expandProps,
     expandedRowRender,
+    pagePosition,
+    onChange,
+    renderPagination,
+    loading,
+    onRow,
+    rowClassName,
+    indentSize,
   } = props;
 
   // state
   const {
-    processedData,
+    clonedData,
     fixedHeader,
     ComponentTable,
     ComponentHeaderWrapper,
@@ -84,7 +93,14 @@ function Table<T extends unknown>(baseProps: TableProps<T>, ref: React.Ref<Table
     hasFixedColumnRight,
     hasFixedColumnLeft,
     columns,
-  } = useTable({
+    selectedRowKeys,
+    setSelectedRowKeys,
+    indeterminateKeys,
+    setIndeterminateKeys,
+    clonedDataKeysMap,
+    flattenData,
+    shouldRenderTreeDataExpandRow,
+  } = useTable<T>({
     data,
     childrenColumnName,
     getPrefixCls,
@@ -94,9 +110,24 @@ function Table<T extends unknown>(baseProps: TableProps<T>, ref: React.Ref<Table
     leftFixedColumnsLength,
     rightFixedColumnsLength,
     originColumns,
+    rowKey,
+    expandProps,
+    expandedRowRender,
   });
 
-  useResize({ refTableHead, refTableFoot, refTableBody, fixedHeader });
+  useImperativeHandle(
+    ref,
+    () => ({
+      getRootDomElement: () => refTable.current as HTMLDivElement,
+    }),
+    [refTable]
+  );
+
+  const [updateOnChange, setUpdateOnChange] = useState<updateOnChangeType<T>>({
+    action: undefined,
+  });
+
+  useResize({ refTableHead, refTableFoot, refTableBody });
   const { tableViewWidth, tableScrollHandlerNF } = useScroll({
     hasFixedColumn,
     scroll,
@@ -112,6 +143,86 @@ function Table<T extends unknown>(baseProps: TableProps<T>, ref: React.Ref<Table
     flattenColumns,
   });
 
+  const { innerFiltersValue, onHandleFilter, compareFn, activeSorters, onSort, isControlledSort, isControlledFilter } =
+    useFilterAndSorter<T>({
+      flattenColumns,
+      setUpdateOnChange,
+    });
+
+  /**
+   * @zh 获得经过 sorter 和 filters 筛选之后的 data
+   * @en the data was processed by sorter and filters
+   */
+  const processedData = getProcessedData({
+    clonedData,
+    innerFiltersValue,
+    flattenColumns,
+    compareFn,
+    activeSorters,
+    childrenColumnName,
+    isControlledSort,
+    isControlledFilter,
+  });
+
+  const { showPagination, paginationProps, paginationEle } = usePagination<T>({
+    pagination,
+    processedData,
+    pagePosition,
+    refTableBody,
+    rowSelection,
+    selectedRowKeys,
+    setSelectedRowKeys,
+    setIndeterminateKeys,
+    setUpdateOnChange,
+    renderPagination,
+    prefixCls,
+  });
+
+  /**
+   * @zh 分页后的data
+   * @en data after paging
+   */
+  const pageData = getPageData<T>({ processedData, paginationProps, pagination, data: clonedData });
+
+  useUpdate(() => {
+    if (updateOnChange.action === FILTER) {
+      onChange?.(paginationProps, activeSorters, updateOnChange.innerFiltersValue, {
+        currentData: pageData,
+        currentAllData: processedData,
+        action: FILTER,
+      });
+      return;
+    }
+    if (updateOnChange.action === SORTER) {
+      onChange?.(paginationProps, updateOnChange.sorter, innerFiltersValue, {
+        currentData: pageData,
+        currentAllData: processedData,
+        action: SORTER,
+      });
+    }
+    if (updateOnChange.action === PAGINATE) {
+      onChange?.(updateOnChange.newPaginationProps, activeSorters, innerFiltersValue, {
+        currentData: pageData,
+        currentAllData: processedData,
+        action: PAGINATE,
+      });
+    }
+  }, [updateOnChange]);
+
+  const { selectedRowSetKeys, indeterminateSetKeys, onCheckAll, onCheck, onCheckRadio, allSelectedRowSetKeys } = useRowSelection<T>({
+    rowSelection,
+    childrenColumnName,
+    pageData,
+    clonedDataKeysMap,
+    selectedRowKeys,
+    setSelectedRowKeys,
+    indeterminateKeys,
+    setIndeterminateKeys,
+  });
+
+  // expand
+  const [expandedRowKeys, onClickExpandBtn] = useExpand<T>(props, flattenData, clonedDataKeysMap);
+
   // classnames
   const { wrapperCls } = useTableClassName({ border, prefixCls, stripe, hover, isRadio, scroll, className, columns });
 
@@ -121,7 +232,7 @@ function Table<T extends unknown>(baseProps: TableProps<T>, ref: React.Ref<Table
     const body = (
       <>
         {showHeader
-          ? renderThead({
+          ? renderThead<T>({
               fixedHeader,
               prefixCls,
               ComponentHeaderWrapper,
@@ -134,23 +245,29 @@ function Table<T extends unknown>(baseProps: TableProps<T>, ref: React.Ref<Table
               groupStickyClassNames,
               stickyOffsets,
               scroll,
-              data,
+              data: pageData,
               rowSelection,
               isRadio,
               isCheckbox,
               isCheckAll,
               expandProps,
               expandedRowRender,
+              innerFiltersValue,
+              onHandleFilter,
+              activeSorters,
+              onSort,
+              isControlledSort,
+              onCheckAll,
+              selectedRowSetKeys,
+              allSelectedRowSetKeys,
             })
           : null}
-        {renderTbody({
-          rowKey,
+        {renderTbody<T>({
           components,
           flattenColumns,
-          processedData,
+          processedData: pageData,
           prefixCls,
           noDataElement,
-          renderEmpty,
           placeholder,
           hasFixedColumn,
           tableViewWidth,
@@ -160,6 +277,8 @@ function Table<T extends unknown>(baseProps: TableProps<T>, ref: React.Ref<Table
           childrenColumnName,
           expandProps,
           expandedRowRender,
+          expandedRowKeys,
+          onClickExpandBtn,
           isRadio,
           isCheckbox,
           rowSelection,
@@ -168,6 +287,13 @@ function Table<T extends unknown>(baseProps: TableProps<T>, ref: React.Ref<Table
           ComponentTable,
           refTableBody,
           scroll,
+          selectedRowSetKeys,
+          indeterminateSetKeys,
+          onCheck,
+          onCheckRadio,
+          onRow,
+          rowClassName,
+          shouldRenderTreeDataExpandRow,
         })}
       </>
     );
@@ -194,15 +320,18 @@ function Table<T extends unknown>(baseProps: TableProps<T>, ref: React.Ref<Table
 
   return (
     <div ref={refTable} style={style} className={wrapperCls} {...pickDataAttributes(props)}>
-      {columns.length === 0 ? null : <Spin {...loadingProps}>{renderTable()}</Spin>}
+      {columns.length === 0 ? null : (
+        <Spin loading={loading} {...loadingProps}>
+          {renderTable()}
+          {showPagination && paginationEle}
+        </Spin>
+      )}
     </div>
   );
 }
 
-const TableComponent = forwardRef<TableInstance, TableProps>(Table) as <T>(
+export const TableComponent = forwardRef<TableInstance, TableProps>(TableEl) as <T>(
   props: TableProps<T> & {
     ref?: React.Ref<TableInstance>;
   }
 ) => React.ReactElement;
-
-export { TableComponent as Table };

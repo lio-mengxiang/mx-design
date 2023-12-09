@@ -1,5 +1,5 @@
 import React from 'react';
-import { PREFIX_CLS, DEFAULT_LOCALE, DEFAULT_SIZE } from './constants';
+import { PREFIX_CLS, DEFAULT_LOCALE } from './constants';
 import { renderEmpty } from './utils';
 import { lightTheme } from '../Style/lightTheme';
 // type
@@ -17,7 +17,6 @@ const _modalRef = React.createRef<IModalRef>();
 export const defaultProps: ConfigProviderProps = {
   lang: DEFAULT_LOCALE,
   prefixCls: PREFIX_CLS,
-  size: DEFAULT_SIZE,
   renderEmpty,
   globalCssVariables: lightTheme,
   getPrefixCls: (componentName: string, customPrefix?: string) => `${customPrefix || defaultProps.prefixCls}-${componentName}`,

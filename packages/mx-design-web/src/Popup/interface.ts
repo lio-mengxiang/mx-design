@@ -10,10 +10,11 @@ export interface PopupProps {
    * @default 'body'
    */
   attach?: PortalProps['attach'];
+  unmountOnExit?: any;
   /**
    * 浮层里面的内容
    */
-  content?: ReactNode;
+  content?: () => ReactNode;
   /**
    * 是否禁用组件
    */
@@ -119,4 +120,5 @@ export interface PopupRef {
   getPopupElement: () => HTMLDivElement;
   // 获取portal dom元素
   getPortalElement: () => HTMLDivElement;
+  setVisible: (visible: boolean) => void;
 }

@@ -1,23 +1,51 @@
+import { ReactNode } from 'react';
 import { getInternalColumns } from './getInternalColumns';
 import { getNodeWidthDepth } from './getNodeWidthDepth';
 // type
-import type { InternalColumnProps } from '../interface';
+import type { ColumnProps, InternalColumnProps } from '../interface';
 
-export function getGroupColumns({
+interface getGroupColumnsProps<T> {
+  headerOperations: {
+    name?: string;
+    node?: ReactNode;
+    width?: number;
+  }[];
+  columnsDepth: number;
+  columns: ColumnProps<T>[];
+  selectionColumnWidth: number;
+  shouldRenderSelectionCol: boolean;
+  expandColWidth: number;
+  shouldRenderExpandCol: boolean;
+}
+
+export function getGroupColumns<T>({
   headerOperations,
   columnsDepth,
   columns,
   selectionColumnWidth,
   shouldRenderSelectionCol,
-}): [InternalColumnProps[][], number] {
+  expandColWidth,
+  shouldRenderExpandCol,
+}: getGroupColumnsProps<T>): [InternalColumnProps[][], number] {
   const prefixIndex = Array.isArray(headerOperations) ? headerOperations.filter((opt) => opt.node).length : 0;
+
   if (columnsDepth === 1) {
     const rows = columns.map((col, index) => ({
       ...col,
       $$columnIndex: index + prefixIndex,
     }));
     return [
-      [getInternalColumns({ rows, operations: headerOperations, selectionColumnWidth, shouldRenderSelectionCol, columnsDepth })],
+      [
+        getInternalColumns({
+          rows,
+          operations: headerOperations,
+          selectionColumnWidth,
+          shouldRenderSelectionCol,
+          columnsDepth,
+          expandColWidth,
+          shouldRenderExpandCol,
+        }),
+      ],
       prefixIndex,
     ];
   }
@@ -53,6 +81,8 @@ export function getGroupColumns({
     selectionColumnWidth,
     shouldRenderSelectionCol,
     columnsDepth,
+    expandColWidth,
+    shouldRenderExpandCol,
   });
 
   return [rows, prefixIndex];

@@ -17,7 +17,7 @@ function App() {
   };
 
   return (
-    <Popup content={content} trigger="context-menu" placement="right" visible={visible}>
+    <Popup content={() => content} trigger="context-menu" placement="right" visible={visible}>
       <Button onClick={toggleContent}>Click to change content{spanVisible && <span>，click again</span>}</Button>
     </Popup>
   );

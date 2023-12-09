@@ -1,7 +1,7 @@
 import { isWindow } from '@mx-design/web-utils';
+import { MutableRefObject } from 'react';
 import { findNode } from './findNode';
 import { getContainerElement } from './getContainerElement';
-import { MutableRefObject } from 'react';
 
 interface IGetEleInViewport {
   scrollContainer: MutableRefObject<HTMLElement | Window>;
@@ -16,7 +16,7 @@ export function getEleInViewport({ linkMap, scrollContainer }: IGetEleInViewport
   const containerElement = getContainerElement(container);
   const containerRect = containerElement.getBoundingClientRect();
   const hashes = linkMap.current.keys();
-  for (let hash of hashes) {
+  for (const hash of hashes) {
     const element = findNode(document, hash);
     let inView = false;
     if (element) {

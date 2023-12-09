@@ -1,6 +1,6 @@
 {
   "name": "@mx-design/web-utils",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "web utils functions lib for mx-design",
   "main": "lib/index.js",
   "module": "esm/index.js",

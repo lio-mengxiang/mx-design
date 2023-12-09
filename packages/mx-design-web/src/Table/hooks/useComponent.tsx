@@ -8,12 +8,12 @@ const defaultComponents: ComponentsProps = {
   header: {
     operations: ({ selectionNode, expandNode }) => [
       {
-        name: SELECTION_NODE,
-        node: selectionNode,
-      },
-      {
         name: EXPAND_NODE,
         node: expandNode,
+      },
+      {
+        name: SELECTION_NODE,
+        node: selectionNode,
       },
     ],
     wrapper: 'div',
@@ -25,12 +25,12 @@ const defaultComponents: ComponentsProps = {
   body: {
     operations: ({ selectionNode, expandNode }) => [
       {
-        name: SELECTION_NODE,
-        node: selectionNode,
-      },
-      {
         name: EXPAND_NODE,
         node: expandNode,
+      },
+      {
+        name: SELECTION_NODE,
+        node: selectionNode,
       },
     ],
     wrapper: 'div',
@@ -43,7 +43,7 @@ const defaultComponents: ComponentsProps = {
 
 export function useComponent(components: ComponentsProps) {
   const _components = useMemo(
-    () => (isObject(components) ? mergeObject({}, defaultComponents, components) : defaultComponents),
+    () => (isObject(components) ? (mergeObject({}, defaultComponents, components) as ComponentsProps) : defaultComponents),
     [components]
   );
 

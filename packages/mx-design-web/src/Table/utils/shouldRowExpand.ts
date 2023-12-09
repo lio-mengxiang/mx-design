@@ -1,12 +1,21 @@
 import { isFunction } from '@mx-design/web-utils';
-import { getOriginData } from './getOriginData';
+import { ReactNode } from 'react';
+import type { ExpandProps, INewRecord } from '../interface';
 
-export function shouldRowExpand({ expandProps, record, index, expandedRowRender }) {
-  if ('rowExpandable' in expandProps && isFunction(expandProps.rowExpandable)) {
+export function shouldRowExpand<T>({
+  expandProps,
+  record,
+  index,
+  er,
+}: {
+  expandProps: ExpandProps<T>;
+  record: INewRecord<T>;
+  index: number;
+  er: (r: any, i: any) => ReactNode;
+}) {
+  if (isFunction(expandProps?.rowExpandable)) {
     return expandProps.rowExpandable(record);
   }
 
-  if (!isFunction(expandedRowRender)) return false;
-
-  return expandedRowRender(getOriginData(record), index) !== null;
+  return isFunction(er) && er(record, index) !== null;
 }

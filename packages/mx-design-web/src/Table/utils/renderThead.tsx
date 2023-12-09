@@ -1,10 +1,10 @@
 import React from 'react';
-import { isObject } from '@mx-design/web-utils';
 import ColGroup from '../components/colgroup';
-import { TheadNode } from '../components/thead/theadNode';
 import { getTheadScrollStyle } from './getScrollStyle';
+import { Thead } from '../components/thead';
+import type { TheadProps } from '../interface';
 
-export function renderThead({
+export function renderThead<T>({
   fixedHeader,
   prefixCls,
   ComponentHeaderWrapper,
@@ -24,34 +24,19 @@ export function renderThead({
   isCheckbox,
   isCheckAll,
   expandedRowRender,
-}) {
+  innerFiltersValue,
+  onHandleFilter,
+  activeSorters,
+  onSort,
+  isControlledSort,
+  onCheckAll,
+  selectedRowSetKeys,
+  allSelectedRowSetKeys,
+}: TheadProps<T>) {
   const scrollStyleX = getTheadScrollStyle(scroll);
 
-  const maxContentWidth = isObject(scroll) && scroll.x === 'max-content';
-
-  return fixedHeader ? (
-    <ComponentHeaderWrapper className={`${prefixCls}-header`}>
-      <ComponentTable ref={refTableHead} style={maxContentWidth ? {} : scrollStyleX}>
-        <ColGroup flattenColumns={flattenColumns} prefixCls={prefixCls} />
-        <TheadNode
-          onHeaderRow={onHeaderRow}
-          prefixCls={prefixCls}
-          components={components}
-          groupColumns={groupColumns}
-          data={data}
-          rowSelection={rowSelection}
-          stickyOffsets={stickyOffsets}
-          groupStickyClassNames={groupStickyClassNames}
-          isRadio={isRadio}
-          isCheckbox={isCheckbox}
-          isCheckAll={isCheckAll}
-          expandProps={expandProps}
-          expandedRowRender={expandedRowRender}
-        />
-      </ComponentTable>
-    </ComponentHeaderWrapper>
-  ) : (
-    <TheadNode
+  const TheadNode = (
+    <Thead<T>
       onHeaderRow={onHeaderRow}
       prefixCls={prefixCls}
       components={components}
@@ -65,6 +50,25 @@ export function renderThead({
       isCheckAll={isCheckAll}
       expandProps={expandProps}
       expandedRowRender={expandedRowRender}
+      innerFiltersValue={innerFiltersValue}
+      onHandleFilter={onHandleFilter}
+      activeSorters={activeSorters}
+      onSort={onSort}
+      isControlledSort={isControlledSort}
+      onCheckAll={onCheckAll}
+      selectedRowSetKeys={selectedRowSetKeys}
+      allSelectedRowSetKeys={allSelectedRowSetKeys}
     />
+  );
+
+  return fixedHeader ? (
+    <ComponentHeaderWrapper className={`${prefixCls}-header`}>
+      <ComponentTable ref={refTableHead} style={scrollStyleX}>
+        <ColGroup flattenColumns={flattenColumns} prefixCls={prefixCls} />
+        {TheadNode}
+      </ComponentTable>
+    </ComponentHeaderWrapper>
+  ) : (
+    <>{TheadNode}</>
   );
 }

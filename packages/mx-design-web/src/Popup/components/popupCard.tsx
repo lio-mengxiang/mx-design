@@ -25,6 +25,7 @@ export function PopupCard(props) {
     handleScroll,
     state,
     update,
+    children,
   } = props;
 
   useEffect(() => {
@@ -59,7 +60,7 @@ export function PopupCard(props) {
     >
       <motion.div variants={applyPopupSlide(placement)} animate="animate" exit="exit" initial="initial">
         <div ref={contentRef} className={contentRefCls} style={getOverlayStyle(overlayInnerStyle)} onScroll={handleScroll}>
-          {content}
+          {content()}
           {showArrow ? <div style={styles.arrow} className={arrowCls} /> : null}
         </div>
       </motion.div>

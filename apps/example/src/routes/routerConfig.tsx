@@ -3,7 +3,6 @@ import React from 'react';
 import {
   ErrorBoundary,
   PopupExample,
-  // TableExample,
   ButtonExample,
   SpinExample,
   IconExample,
@@ -24,6 +23,7 @@ import {
   TagExample,
   InputExample,
   PaginationExample,
+  TableExample,
 } from './routes';
 import { Page404 } from '@/components/Status/404';
 import {
@@ -47,6 +47,7 @@ import {
   RADIO_KEY,
   SPACE_KEY,
   SPIN_KEY,
+  TABLE_KEY,
   TAG_KEY,
   TOOLTIP_KEY,
 } from '@/constants';
@@ -89,6 +90,7 @@ export const routerConfig = [
           { path: TAG_KEY, element: <TagExample /> },
           { path: INPUT_KEY, element: <InputExample /> },
           { path: PAGINATION_KEY, element: <PaginationExample /> },
+          { path: TABLE_KEY, element: <TableExample /> },
           { path: '*', element: <Navigate to={BUTTON_KEY} replace /> },
         ],
       },

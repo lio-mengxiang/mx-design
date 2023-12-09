@@ -1,9 +1,11 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { MutableRefObject, useCallback, useEffect, useRef, useState } from 'react';
 import { debounce, off, on, throttle } from '@mx-design/web-utils';
 import { getRootDomElement, resetTableClassName, setFixedColumnsClassList, setTableFixedClassName } from '../utils';
 import { LEFT, RIGHT } from '../constants';
+// type
+import { InternalColumnProps, TableProps } from '../interface';
 
-export function useScroll({
+export function useScroll<T>({
   hasFixedColumn,
   scroll,
   prefixCls,
@@ -16,6 +18,19 @@ export function useScroll({
   fixedHeader,
   refTableNF,
   flattenColumns,
+}: {
+  hasFixedColumn: boolean;
+  scroll: TableProps<T>['scroll'];
+  prefixCls: string;
+  refTable: MutableRefObject<HTMLDivElement>;
+  hasFixedColumnLeft: boolean;
+  hasFixedColumnRight: boolean;
+  refTableBody: MutableRefObject<HTMLElement>;
+  refTableHead: MutableRefObject<HTMLElement>;
+  refTableFoot: MutableRefObject<HTMLDivElement>;
+  fixedHeader: boolean;
+  refTableNF: MutableRefObject<HTMLTableElement>;
+  flattenColumns: InternalColumnProps[];
 }) {
   const lastScrollLeft = useRef<number>(0);
   // state
@@ -171,7 +186,7 @@ export function useScroll({
         off(tableFoot, 'scroll', tableScrollHandler);
       }
     };
-  }, [hasFixedColumnLeft, hasFixedColumnRight, scroll?.x, flattenColumns.length]);
+  }, [hasFixedColumnLeft, hasFixedColumnRight, scroll?.x, scroll?.y, flattenColumns.length]);
 
   return { tableViewWidth, tableScrollHandlerNF };
 }

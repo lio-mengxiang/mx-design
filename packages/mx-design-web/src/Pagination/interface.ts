@@ -110,6 +110,7 @@ export interface PaginationProps {
    * @en Props of the `Select`
    */
   // selectProps?: Partial<SelectProps>;
+  selectProps?: Partial<any>;
   /**
    * @zh 设置分页器的图标
    * @en Set icon of the pager

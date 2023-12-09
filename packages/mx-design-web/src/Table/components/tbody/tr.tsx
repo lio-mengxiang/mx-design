@@ -1,36 +1,31 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import { cs, isFunction, isString } from '@mx-design/web-utils';
 import { Td } from './td';
 import { useComponent } from '../../hooks';
-import { getOriginData, isChildrenNotEmpty, shouldRowExpand } from '../../utils';
-// type
-import { TbodyProps } from '../../interface';
+import { getOriginData, isChildrenNotEmpty, isDataHaveChildren, shouldRowExpand } from '../../utils';
 import { OperationNode } from './operationNode';
 import { SelectionNode } from './selectionNode';
 import { ExpandNode } from './expandNode';
 import { CHECKBOX, RADIO } from '../../constants';
 import { ExpandBodyTreeNode } from './expandBodyTreeNode';
+// type
+import type { trPropsType } from './tbody';
+import type { INewRecord } from '../../interface';
 
-type TrType<T = any> = TbodyProps<T> & {
-  record?: T;
-  shouldRowExpand?: (record, index) => boolean;
+type TrType<T> = trPropsType<T> & {
+  key: React.Key;
+  rowK: React.Key;
+  record: INewRecord<T>;
   index?: number;
-  type?: string;
-  level?: number;
-  rowK?: React.Key;
+  er: (r: any, i: any) => React.ReactNode;
 };
 
-export const Tr = forwardRef(<T,>(props: TrType<T>, ref) => {
+export function Tr<T>(props: TrType<T>) {
   const {
     components,
     flattenColumns,
-    data,
     prefixCls,
-    noDataElement,
     placeholder,
-    hasFixedColumn,
-    tableViewWidth,
-    indentSize,
     stickyOffsets,
     stickyClassNames,
     childrenColumnName,
@@ -40,12 +35,19 @@ export const Tr = forwardRef(<T,>(props: TrType<T>, ref) => {
     level,
     rowSelection,
     onClickExpandBtn,
-    // not Tbody props
+    selectedRowSetKeys,
+    indeterminateSetKeys,
+    onCheck,
+    onCheckRadio,
+    expandedRowKeys,
+    shouldRenderTreeDataExpandRow,
     rowClassName,
     onRow,
     record,
     index,
     rowK,
+    er,
+    indentSize,
   } = props;
 
   const { ComponentBodyRow, ComponentTd, getBodyComponentOperations } = useComponent(components);
@@ -55,14 +57,15 @@ export const Tr = forwardRef(<T,>(props: TrType<T>, ref) => {
 
   // tbodyRow props
   const rowProps = onRow?.(originRecord, index) || {};
-
   // checkbox
   const checkboxProps = rowSelection && isFunction(rowSelection.checkboxProps) ? rowSelection.checkboxProps(originRecord) : {};
+  const checked = selectedRowSetKeys.has(rowK);
+  const indeterminate = indeterminateSetKeys.has(rowK);
 
   // expand
-  const shouldRenderExpandRow = shouldRowExpand({ expandProps, record, index, expandedRowRender });
-  const recordHaveChildren = isChildrenNotEmpty({ expandProps, record, childrenColumnName });
-  const shouldRenderTreeDataExpandRow = recordHaveChildren && !expandedRowRender;
+  const shouldRenderExpandRow = shouldRowExpand({ expandProps, record, index, er });
+  const recordHaveChildren = isChildrenNotEmpty({ record, childrenColumnName });
+  const expanded = expandedRowKeys.indexOf(rowK) > -1;
 
   // click expandIcon
   const rowClickProps =
@@ -78,10 +81,10 @@ export const Tr = forwardRef(<T,>(props: TrType<T>, ref) => {
   // classnames
   const classNameTr = cs(
     `${prefixCls}-tr`,
-    // {
-    //   [`${prefixCls}-row-checked`]: checked,
-    //   [`${prefixCls}-row-expanded`]: expanded,
-    // },
+    {
+      [`${prefixCls}-row-checked`]: checked,
+      [`${prefixCls}-row-expanded`]: expanded,
+    },
     rowClassName?.(originRecord, index)
   );
   const operationClassName = cs(`${prefixCls}-td`, `${prefixCls}-operation`);
@@ -97,7 +100,7 @@ export const Tr = forwardRef(<T,>(props: TrType<T>, ref) => {
   const trProps = isString(ComponentBodyRow) ? baseTrProps : { ...baseTrProps, record, index };
 
   const expandNode = (
-    <ExpandNode
+    <ExpandNode<T>
       expandedRowRender={expandedRowRender}
       getPrefixColClassName={getPrefixColClassName}
       shouldRenderExpandRow={shouldRenderExpandRow}
@@ -106,27 +109,31 @@ export const Tr = forwardRef(<T,>(props: TrType<T>, ref) => {
       rowK={rowK}
       expandProps={expandProps}
       onClickExpandBtn={onClickExpandBtn}
-      expandedRowKeys={[]}
+      expandedRowKeys={expandedRowKeys}
+      outerClassName={getPrefixColClassName('expand-icon-cell')}
     />
   );
   const selectionNode = (
-    <SelectionNode
+    <SelectionNode<T>
       record={record}
       rowK={rowK}
       type={type}
       ComponentTd={ComponentTd}
-      getPrefixColClassName={getPrefixColClassName}
       rowSelection={rowSelection}
-      checked={false}
       originRecord={originRecord}
       checkboxProps={checkboxProps}
+      checked={checked}
+      indeterminate={indeterminate}
+      onCheck={onCheck}
+      onCheckRadio={onCheckRadio}
+      outerClassName={getPrefixColClassName(type)}
     />
   );
 
   const bodyOperations = getBodyComponentOperations({ selectionNode, expandNode });
 
   return (
-    <ComponentBodyRow {...trProps} ref={ref}>
+    <ComponentBodyRow {...trProps}>
       {flattenColumns.map((col, colIndex) => {
         const stickyOffset: number = stickyOffsets[colIndex];
         const stickyClassName: string = stickyClassNames[colIndex];
@@ -135,7 +142,7 @@ export const Tr = forwardRef(<T,>(props: TrType<T>, ref) => {
 
         if (col.$$isOperation) {
           return (
-            <OperationNode
+            <OperationNode<T>
               record={record}
               key={colIndex}
               operationClassName={operationClassName}
@@ -143,21 +150,20 @@ export const Tr = forwardRef(<T,>(props: TrType<T>, ref) => {
               bodyOperations={bodyOperations}
               stickyOffset={stickyOffset}
               stickyClassName={stickyClassName}
-              getPrefixColClassName={getPrefixColClassName}
-              type={type}
             />
           );
         }
 
         const ExpandBodyTreeIcon = (
-          <ExpandBodyTreeNode
+          <ExpandBodyTreeNode<T>
             prefixCls={prefixCls}
             hasInlineExpandIcon={hasInlineExpandIcon}
             record={record}
             rowK={rowK}
             expandProps={expandProps}
-            expandedRowKeys={[]}
+            expandedRowKeys={expandedRowKeys}
             onClickExpandBtn={onClickExpandBtn}
+            recordHaveChildren={recordHaveChildren}
           />
         );
 
@@ -167,7 +173,6 @@ export const Tr = forwardRef(<T,>(props: TrType<T>, ref) => {
             prefixCls={prefixCls}
             components={components}
             placeholder={placeholder}
-            indentSize={indentSize}
             stickyClassName={stickyClassName}
             stickyOffset={stickyOffset}
             column={col}
@@ -177,9 +182,10 @@ export const Tr = forwardRef(<T,>(props: TrType<T>, ref) => {
             hasInlineExpandIcon={hasInlineExpandIcon}
             recordHaveChildren={recordHaveChildren}
             ExpandBodyTreeIcon={ExpandBodyTreeIcon}
+            indentSize={indentSize}
           />
         );
       })}
     </ComponentBodyRow>
   );
-});
+}

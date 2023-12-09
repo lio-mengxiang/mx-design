@@ -23,6 +23,7 @@ import { zh_cn_tag } from '@/pages/tag/locale';
 import { zh_cn_input } from '@/pages/input/locale';
 import { zh_cn_drawer } from '@/pages/drawer/locale';
 import { zh_cn_pagination } from '@/pages/pagination/locale';
+import { zh_cn_table } from '@/pages/table/locale';
 import {
   AFFIX_KEY,
   ALERT_KEY,
@@ -43,6 +44,7 @@ import {
   RADIO_KEY,
   SPACE_KEY,
   SPIN_KEY,
+  TABLE_KEY,
   TAG_KEY,
   TOOLTIP_KEY,
 } from '@/constants';
@@ -72,4 +74,5 @@ export const zh_cn = {
   [TAG_KEY]: zh_cn_tag,
   [INPUT_KEY]: zh_cn_input,
   [PAGINATION_KEY]: zh_cn_pagination,
+  [TABLE_KEY]: zh_cn_table,
 };

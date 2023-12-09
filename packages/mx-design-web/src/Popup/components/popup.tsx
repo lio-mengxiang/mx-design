@@ -42,6 +42,7 @@ export const Popup = forwardRef((baseProps: PopupProps, ref: React.RefObject<Pop
     onScrollToBottom,
     popperOptions,
     themeStyle,
+    unmountOnExit,
   } = props;
 
   // classnames
@@ -156,8 +157,8 @@ export const Popup = forwardRef((baseProps: PopupProps, ref: React.RefObject<Pop
         placement={placement}
         contentRefCls={contentRefCls}
         contentRef={contentRef}
-        overlayInnerStyle={overlayInnerStyle}
         content={content}
+        overlayInnerStyle={overlayInnerStyle}
         showArrow={showArrow}
         arrowCls={arrowCls}
         handleScroll={handleScroll}
@@ -167,13 +168,17 @@ export const Popup = forwardRef((baseProps: PopupProps, ref: React.RefObject<Pop
     </Portal>
   );
 
-  useImperativeHandle(ref, () => ({
-    getPopper: () => popperRef.current,
-    getPopupElement: () => popupRef.current,
-    getPortalElement: () => portalRef.current,
-    getPopupContentElement: () => contentRef.current,
-    setVisible: (visible: boolean) => setVisibleChange(visible, { trigger: 'document' }),
-  }));
+  useImperativeHandle(
+    ref,
+    () => ({
+      getPopper: () => popperRef.current,
+      getPopupElement: () => popupRef.current,
+      getPortalElement: () => portalRef.current,
+      getPopupContentElement: () => contentRef.current,
+      setVisible: (visible: boolean) => setVisibleChange(visible, { trigger: 'document' }),
+    }),
+    [setVisibleChange]
+  );
 
   return (
     <>
@@ -182,5 +187,3 @@ export const Popup = forwardRef((baseProps: PopupProps, ref: React.RefObject<Pop
     </>
   );
 });
-
-Popup.displayName = 'Popup';

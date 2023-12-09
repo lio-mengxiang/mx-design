@@ -1,32 +1,27 @@
 import { useMemo } from 'react';
 import { cs } from '@mx-design/web-utils';
 // type
-import type { ColumnComponentProps } from '../interface';
+import type { InternalColumnProps } from '../interface';
 
 interface getClassNamesProps {
   prefixCls: string;
-  ellipsis: ColumnComponentProps['ellipsis'];
-  isEnter: boolean;
-  className: ColumnComponentProps['className'];
-  nextSortDirection: any;
-  enableSort: any;
+  ellipsis: InternalColumnProps['ellipsis'];
+  className: InternalColumnProps['className'];
+  titleClassName: InternalColumnProps['titleClassName'];
 }
 
 export function useThClassNames(props: getClassNamesProps) {
-  const { ellipsis, isEnter, className, prefixCls, nextSortDirection, enableSort } = props;
+  const { ellipsis, className, prefixCls, titleClassName } = props;
 
   return useMemo(
     () => ({
       cellChildrenCls: cs(`${prefixCls}-th-item`, {
         [`${prefixCls}-cell-text-ellipsis`]: ellipsis,
-        [`${prefixCls}-cell-mouseenter`]: isEnter,
-        [`${prefixCls}-cell-next-${nextSortDirection}`]: isEnter && nextSortDirection,
-        [`${prefixCls}-col-has-sorter`]: enableSort,
         // [`${prefixCls}-col-has-filter`]: shouldRenderFilters,
       }),
       thCls: cs(`${prefixCls}-th`, className),
-      titleCls: `${prefixCls}-th-item-title`,
+      titleCls: cs(`${prefixCls}-th-item-title`, titleClassName),
     }),
-    [prefixCls, ellipsis, isEnter, nextSortDirection, enableSort, className]
+    [prefixCls, ellipsis, className, titleClassName]
   );
 }

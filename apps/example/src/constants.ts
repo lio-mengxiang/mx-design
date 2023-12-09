@@ -27,3 +27,4 @@ export const TAG_KEY = 'tag';
 export const INPUT_KEY = 'input';
 export const PAGINATION_KEY = 'pagination';
 export const DATA_INPUT_KEY = 'data-input';
+export const TABLE_KEY = 'table';

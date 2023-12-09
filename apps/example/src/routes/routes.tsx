@@ -25,3 +25,4 @@ export const DrawerExample = load(() => import('@/pages/drawer'));
 export const TagExample = load(() => import('@/pages/tag'));
 export const InputExample = load(() => import('@/pages/input'));
 export const PaginationExample = load(() => import('@/pages/pagination'));
+export const TableExample = load(() => import('@/pages/table'));
