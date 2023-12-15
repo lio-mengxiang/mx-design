@@ -11,6 +11,7 @@ import { BR, CHILDREN, FILTER, PAGINATE, PLACE_HOLDER, ROW_KEY, SORTER } from '.
 import { useUpdate } from '../hooks/useUpdate';
 // type
 import type { TableProps, updateOnChangeType } from '../interface';
+import { useStyles } from '../../hooks';
 
 export interface TableInstance {
   getRootDomElement: () => HTMLDivElement;
@@ -66,7 +67,11 @@ function TableEl<T extends unknown>(baseProps: TableProps<T>, ref: React.Ref<Tab
     onRow,
     rowClassName,
     indentSize,
+    themeStyle,
   } = props;
+
+  // style
+  const { wrapperStyle } = useStyles<TableProps<T>>({ style, themeStyle });
 
   // state
   const {
@@ -319,7 +324,7 @@ function TableEl<T extends unknown>(baseProps: TableProps<T>, ref: React.Ref<Tab
   }
 
   return (
-    <div ref={refTable} style={style} className={wrapperCls} {...pickDataAttributes(props)}>
+    <div ref={refTable} style={wrapperStyle} className={wrapperCls} {...pickDataAttributes(props)}>
       {columns.length === 0 ? null : (
         <Spin loading={loading} {...loadingProps}>
           {renderTable()}

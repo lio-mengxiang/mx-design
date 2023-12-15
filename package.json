@@ -17,8 +17,7 @@
   "scripts": {
     "clean": "pnpm -r clean && rimraf ./node_modules",
     "build": "pnpm -r build",
-    "init": "pnpm install --shamefully-flatten && pnpm build",
-    "install": "pnpm install --shamefully-flatten",
+    "init": "pnpm install --shamefully-hoist && pnpm build",
     "start:site": "cd apps/example && pnpm start",
     "prepare": "husky install"
   },

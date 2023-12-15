@@ -75,29 +75,29 @@ function App() {
   };
   return (
     <div style={styles.container}>
-      <Tooltip content="这是Tooltip内容" placement="top" showArrow>
+      <Tooltip content={() => "这是Tooltip内容"} placement="top" showArrow>
         <Button style={styles.placementTop}>top</Button>
       </Tooltip>
-      <Tooltip content="这是Tooltip内容 top-start" placement="top-start" showArrow>
+      <Tooltip content={() => "这是Tooltip内容 top-start"} placement="top-start" showArrow>
         <Button style={styles.placementTopLeft}>top-start</Button>
       </Tooltip>
-      <Tooltip content="这是Tooltip内容 top-end" placement="top-end" showArrow>
+      <Tooltip content={() => "这是Tooltip内容 top-end"} placement="top-end" showArrow>
         <Button style={styles.placementTopRight}>top-end</Button>
       </Tooltip>
-      <Tooltip content="这是Tooltip内容" placement="bottom" showArrow>
+      <Tooltip content={() => "这是Tooltip内容"} placement="bottom" showArrow>
         <Button style={styles.placementBottom}>bottom</Button>
       </Tooltip>
-      <Tooltip content="这是Tooltip内容 bottom-start" placement="bottom-start" showArrow>
+      <Tooltip content={() => "这是Tooltip内容 bottom-start"} placement="bottom-start" showArrow>
         <Button style={styles.placementBottomLeft}>bottom-start</Button>
       </Tooltip>
-      <Tooltip content="这是Tooltip内容 bottom-end" placement="bottom-end" showArrow>
+      <Tooltip content={() => "这是Tooltip内容 bottom-end"} placement="bottom-end" showArrow>
         <Button style={styles.placementBottomRight}>bottom-end</Button>
       </Tooltip>
-      <Tooltip content="这是Tooltip内容" placement="left" showArrow>
+      <Tooltip content={() => "这是Tooltip内容"} placement="left" showArrow>
         <Button style={styles.placementLeft}>left</Button>
       </Tooltip>
       <Tooltip
-        content="这是Tooltip内容   left-start"
+        content={() => "这是Tooltip内容   left-start"}
         placement="left-start"
         overlayStyle={{ width: '140px' }}
         showArrow
@@ -105,18 +105,18 @@ function App() {
         <Button style={styles.placementLeftTop}>left-start</Button>
       </Tooltip>
       <Tooltip
-        content="这是Tooltip内容 left-end"
+        content={() => "这是Tooltip内容 left-end"}
         placement="left-end"
         overlayStyle={{ width: '140px' }}
         showArrow
       >
         <Button style={styles.placementLeftBottom}>left-end</Button>
       </Tooltip>
-      <Tooltip content="这是Tooltip内容" placement="right" showArrow>
+      <Tooltip content={() => "这是Tooltip内容"} placement="right" showArrow>
         <Button style={styles.placementRight}>right</Button>
       </Tooltip>
       <Tooltip
-        content="这是Tooltip内容 right-start"
+        content={() => "这是Tooltip内容 right-start"}
         placement="right-start"
         overlayStyle={{ width: '140px' }}
         showArrow
@@ -124,7 +124,7 @@ function App() {
         <Button style={styles.placementRightTop}>right-start</Button>
       </Tooltip>
       <Tooltip
-        content="这是Tooltip内容 right-end"
+        content={() => "这是Tooltip内容 right-end"}
         placement="right-end"
         overlayStyle={{ width: '140px' }}
         showArrow

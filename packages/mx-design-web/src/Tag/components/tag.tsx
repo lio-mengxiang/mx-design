@@ -2,9 +2,10 @@ import React, { forwardRef, useContext } from 'react';
 import { useMergeProps, useMergeValue } from '@mx-design/hooks';
 import { ConfigContext } from '../../ConfigProvider';
 import { IconClose } from '../../Icon';
-import { useClassNames, useStyles } from '../hooks';
+import { useClassNames } from '../hooks';
 // type
 import type { TagProps } from '../interface';
+import { useStyles } from '../../hooks';
 
 const defaultProps: Partial<TagProps> = {
   closable: false,
@@ -38,7 +39,7 @@ export const Tag = forwardRef((baseProps: TagProps, ref: React.Ref<HTMLSpanEleme
   });
 
   // style
-  const { wrapperStyle } = useStyles({ style, themeStyle });
+  const { wrapperStyle } = useStyles<TagProps>({ style, themeStyle });
 
   // classnames
   const { wrapperCls, textCls, iconCloseCls } = useClassNames({ type, status, maxWidth, className, getPrefixCls });

@@ -3,8 +3,9 @@ import { useMergeProps } from '@mx-design/hooks';
 import { Group } from './group';
 import { BtnAnchor } from './btnAnchor';
 import { ConfigContext } from '../../ConfigProvider';
-import { useClassNames, useStyles } from '../hooks';
+import { useClassNames } from '../hooks';
 import { Loading } from '../../Loading';
+import { useStyles } from '../../hooks';
 // type
 import type { ButtonProps } from '../interface';
 
@@ -50,7 +51,7 @@ function Button(baseProps: ButtonProps, ref) {
   });
 
   // style
-  const { wrapperStyle } = useStyles({ style, themeStyle });
+  const { wrapperStyle } = useStyles<ButtonProps>({ style, themeStyle });
 
   const handleClick: MouseEventHandler = (event): void => {
     if (loading || disabled) {

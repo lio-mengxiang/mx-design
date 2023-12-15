@@ -6,7 +6,8 @@ import { ConfigContext } from '../../ConfigProvider';
 import IconCheck from './icon-check';
 import { CheckboxGroupContext } from '../checkboxGroupContext';
 import { getMergeProps } from '../utils';
-import { useClassNames, useStyles } from '../hooks';
+import { useClassNames } from '../hooks';
+import { useStyles } from '../../hooks';
 // type
 import type { CheckboxProps } from '../interface';
 import type { CheckboxGroupContextProps } from '../checkboxGroupContext';
@@ -44,7 +45,7 @@ function Checkbox<T extends string | number>(baseProps: CheckboxProps<T>, ref) {
   });
 
   // style
-  const { wrapperStyle } = useStyles({ style, themeStyle });
+  const { wrapperStyle } = useStyles<CheckboxProps>({ style, themeStyle });
 
   useEffect(() => {
     context.registerValue(value);

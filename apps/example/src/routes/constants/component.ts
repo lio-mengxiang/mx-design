@@ -24,6 +24,7 @@ import {
   RADIO_KEY,
   SPACE_KEY,
   SPIN_KEY,
+  SWITCH_KEY,
   TABLE_KEY,
   TAG_KEY,
   TOOLTIP_KEY,
@@ -125,6 +126,10 @@ export const componentsMenuList = [
       {
         title: INPUT_KEY,
         path: `/${COMPONENTS_KEY}/${INPUT_KEY}`,
+      },
+      {
+        title: SWITCH_KEY,
+        path: `/${COMPONENTS_KEY}/${SWITCH_KEY}`,
       },
     ],
   },

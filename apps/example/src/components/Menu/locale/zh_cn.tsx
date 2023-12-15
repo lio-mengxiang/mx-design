@@ -26,6 +26,7 @@ import {
   TAG_KEY,
   PAGINATION_KEY,
   TABLE_KEY,
+  SWITCH_KEY,
 } from '@/constants';
 
 export const zh_cn_site_menu = {
@@ -56,4 +57,5 @@ export const zh_cn_site_menu = {
   [TAG_KEY]: '标签 Tag',
   [PAGINATION_KEY]: '分页 Pagination',
   [TABLE_KEY]: '表格 Table',
+  [SWITCH_KEY]: '开关 Switch',
 };

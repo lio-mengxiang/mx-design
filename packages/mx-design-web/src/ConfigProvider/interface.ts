@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
 import { ZH_CN, EN_US } from '../Locale/constants';
-import { SMALL_SIZE, MEDIUM_SIZE, LARGE_SIZE } from './constants';
 import type { EmptyProps } from '../Empty';
 import type { IconProps } from '../Icon';
 import type { NotificationManagerProps, INotificationRef } from '../Notification';
@@ -21,10 +20,11 @@ import type { MessageProps, IMessageRef } from '../Message';
 import type { ModalProps } from '../Modal/interface';
 import type { IModalRef } from '../Modal';
 import type { DrawerProps, IDrawerRef } from '../Drawer';
-import type { InputProps } from '../Input/interface';
-import type { TagProps } from '../Tag/interface';
-import type { TableProps } from '../Table/interface';
+import type { InputProps } from '../Input';
+import type { TagProps } from '../Tag';
+import type { TableProps } from '../Table';
 import type { PaginationProps } from '../Pagination';
+import type { SwitchProps } from '../Switch/interface';
 
 export interface ComponentConfig {
   Empty?: Partial<EmptyProps>;
@@ -51,6 +51,7 @@ export interface ComponentConfig {
   Input: Partial<InputProps>;
   Tag: Partial<TagProps>;
   Pagination: Partial<PaginationProps>;
+  Switch: Partial<SwitchProps>;
 }
 
 /**

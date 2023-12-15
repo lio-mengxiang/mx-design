@@ -2,10 +2,11 @@ import React, { forwardRef, useContext, useState } from 'react';
 import { useMergeProps } from '@mx-design/hooks';
 import { ConfigContext } from '../../ConfigProvider';
 import { IconClose } from '../../Icon';
-import { useClassNames, useStyles } from '../hooks';
+import { useClassNames } from '../hooks';
 import { renderIcon } from '../../Common';
 // type
 import type { AlertProps } from '../interface';
+import { useStyles } from '../../hooks';
 
 type IAlertProps = AlertProps & { _onClose?: (...args: any) => void };
 
@@ -43,7 +44,7 @@ function Alert(baseProps: IAlertProps, ref) {
     useClassNames({ getPrefixCls, type, closable, className });
 
   // style
-  const { wrapperStyle } = useStyles({ style, themeStyle });
+  const { wrapperStyle } = useStyles<IAlertProps>({ style, themeStyle });
 
   return (
     <>

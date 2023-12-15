@@ -47,7 +47,9 @@ import {
   TAG_KEY,
   PAGINATION_KEY,
   TABLE_KEY,
+  SWITCH_KEY,
 } from '@/constants';
+import { en_us_switch } from '@/pages/switch/locale';
 
 export const en_us = {
   [BUTTON_KEY]: en_us_button,
@@ -75,4 +77,5 @@ export const en_us = {
   [INPUT_KEY]: en_us_input,
   [PAGINATION_KEY]: en_us_pagination,
   [TABLE_KEY]: en_us_table,
+  [SWITCH_KEY]: en_us_switch,
 };

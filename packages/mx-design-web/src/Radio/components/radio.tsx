@@ -5,9 +5,10 @@ import { Group } from './group';
 import { ConfigContext } from '../../ConfigProvider';
 import { RadioGroupContext } from '../radioContext';
 import { getMergeProps } from '../utils';
-import { useClassNames, useStyles } from '../hooks';
+import { useClassNames } from '../hooks';
 // types
 import type { RadioGroupContextProps, RadioProps } from '../interface';
+import { useStyles } from '../../hooks';
 
 const handleInputClick = (e) => {
   e.stopPropagation();
@@ -36,7 +37,7 @@ function Radio(baseProps: RadioProps) {
   const { wrapperCls, maskCls, buttonInnerCls, textCls } = useClassNames({ context, disabled, checked, className, getPrefixCls });
 
   // style
-  const { wrapperStyle } = useStyles({ style, themeStyle });
+  const { wrapperStyle } = useStyles<RadioProps>({ style, themeStyle });
 
   // function
   const onChange = (e) => {

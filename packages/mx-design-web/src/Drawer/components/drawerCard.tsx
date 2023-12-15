@@ -1,5 +1,4 @@
 import React from 'react';
-import { cs } from '@mx-design/web-utils';
 import { Footer } from './footer';
 import { IconClose } from '../../Icon';
 import { useCardClassNames } from '../hooks';

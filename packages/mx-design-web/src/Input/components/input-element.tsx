@@ -5,6 +5,7 @@ import { IconHover } from '../../Common';
 import { IconClose } from '../../Icon';
 // type
 import type { InputComponentProps, RefInputType } from '../interface';
+import { useStyles } from '../../hooks';
 
 export const InputComponent = React.forwardRef<RefInputType, InputComponentProps>(
   (props: InputComponentProps & { mergedMaxLength: number }, ref) => {
@@ -38,6 +39,7 @@ export const InputComponent = React.forwardRef<RefInputType, InputComponentProps
       normalize,
       normalizeTrigger,
       _getInputValueRef,
+      themeStyle,
       ...rest
     } = props;
 
@@ -66,7 +68,7 @@ export const InputComponent = React.forwardRef<RefInputType, InputComponentProps
       },
       hasParent ? undefined : className
     );
-
+    const { wrapperStyle } = useStyles<InputComponentProps>({ style, themeStyle });
     useImperativeHandle(
       ref,
       () => {
@@ -122,7 +124,7 @@ export const InputComponent = React.forwardRef<RefInputType, InputComponentProps
               hasParent
                 ? {}
                 : {
-                    ...style,
+                    ...wrapperStyle,
                     ...('height' in props ? { height } : {}),
                   }
             }

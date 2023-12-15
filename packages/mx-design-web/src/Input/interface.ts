@@ -9,6 +9,7 @@ export interface InputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'prefix' | 'className' | 'size' | 'height' | 'maxLength'> {
   style?: CSSProperties;
   className?: string | string[];
+  themeStyle?: Record<string, any>;
   /**
    * @zh 允许清空输入框
    * @en Whether allow clear value

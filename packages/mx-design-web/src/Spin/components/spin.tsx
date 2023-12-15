@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import { useMergeProps } from '@mx-design/hooks';
 import { ConfigContext } from '../../ConfigProvider';
 import InnerLoading from './InnerLoading';
-import { useClassNames, useDebounceLoading, useStyles } from '../hooks';
+import { useClassNames, useDebounceLoading } from '../hooks';
+import { useStyles } from '../../hooks';
 // type
 import type { SpinProps } from '../interface';
 
@@ -25,7 +26,7 @@ function Spin(baseProps: SpinProps, ref) {
     className,
   });
   // style
-  const { wrapperStyle } = useStyles({ style, themeStyle });
+  const { wrapperStyle } = useStyles<SpinProps>({ style, themeStyle });
 
   return (
     <div ref={ref} className={wrapperCls} style={wrapperStyle}>

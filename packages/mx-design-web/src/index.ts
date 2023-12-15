@@ -23,5 +23,6 @@ export * from './Tag';
 export * from './Input';
 export * from './Table';
 export * from './Pagination';
+export * from './Switch';
 // style
 export * from './Style';

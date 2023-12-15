@@ -24,6 +24,7 @@ import {
   InputExample,
   PaginationExample,
   TableExample,
+  SwitchExample,
 } from './routes';
 import { Page404 } from '@/components/Status/404';
 import {
@@ -47,6 +48,7 @@ import {
   RADIO_KEY,
   SPACE_KEY,
   SPIN_KEY,
+  SWITCH_KEY,
   TABLE_KEY,
   TAG_KEY,
   TOOLTIP_KEY,
@@ -91,6 +93,7 @@ export const routerConfig = [
           { path: INPUT_KEY, element: <InputExample /> },
           { path: PAGINATION_KEY, element: <PaginationExample /> },
           { path: TABLE_KEY, element: <TableExample /> },
+          { path: SWITCH_KEY, element: <SwitchExample /> },
           { path: '*', element: <Navigate to={BUTTON_KEY} replace /> },
         ],
       },

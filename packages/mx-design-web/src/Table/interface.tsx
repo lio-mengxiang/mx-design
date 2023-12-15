@@ -28,6 +28,7 @@ export interface TableProps<T = any> {
   style?: CSSProperties;
   className?: string | string[];
   customerTitle?: (titleNode) => ReactNode;
+  themeStyle?: Record<string, any>;
   /**
    * @zh 表格列冻结设置，leftFixedColumnsLength代表左边冻结几列, 如果是多行表头，以第一行为准
    * @en setting of fix column，leftFixedColumnsLength represents the frozen columns on the left, if there are multi-line header, first row shall prevail

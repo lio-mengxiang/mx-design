@@ -97,6 +97,7 @@ export const lightTheme = {
   '--bg-color-container-active': 'var(--gray-color-3)',
   '--bg-color-container-select': '#fff',
   '--bg-color-component': 'var(--gray-color-3)',
+  '--bg-color-component-middle': 'var(--gray-color-5)',
   '--bg-color-component-hover': 'var(--gray-color-4)',
   '--bg-color-component-active': 'var(--gray-color-6)',
   '--bg-color-component-disabled': 'var(--gray-color-2)',

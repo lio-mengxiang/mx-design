@@ -2,11 +2,12 @@ import React, { useContext, forwardRef } from 'react';
 import { useMergeProps } from '@mx-design/hooks';
 import { ConfigContext } from '../../ConfigProvider/configProvider';
 import { emptyImage, getDesDefault } from '../utils';
-import { useClassNames, useStyles } from '../hooks';
+import { useClassNames } from '../hooks';
 import { useLocale } from '../../Locale/useLocal/useLocal';
 import { EMPTY_NAMESPACE } from '../constants';
 // type
 import type { EmptyProps } from '../interface';
+import { useStyles } from '../../hooks';
 
 const defaultProps = {};
 
@@ -18,7 +19,7 @@ function Empty(baseProps: EmptyProps, ref) {
 
   const [locale] = useLocale({ namespace: EMPTY_NAMESPACE });
   const { containerCls, wrapperCls, imageCls, descriptionCls } = useClassNames({ getPrefixCls, className });
-  const { wrapperStyle } = useStyles({ style, themeStyle });
+  const { wrapperStyle } = useStyles<EmptyProps>({ style, themeStyle });
 
   const alt = getDesDefault(description);
 

@@ -121,8 +121,8 @@ export const en_us_table = {
     title: 'Uncontrolled pagination',
     desc: (
       <>
-        A button can be on <code className="mx-code">loading</code> state by setting loading. Click events are not triggered when buttons
-        are on loading state.
+        We usually use backend pagination, it is recommended to implement the page turning logic yourself, because each product has its own
+        page turning logic.
       </>
     ),
   },

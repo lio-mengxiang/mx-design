@@ -21,3 +21,4 @@ import '../Input/style/index.less';
 import '../Input/style/search.less';
 import '../Table/style/index.less';
 import '../Pagination/style/index.less';
+import '../Switch/style/index.less';

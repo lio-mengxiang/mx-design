@@ -8,6 +8,7 @@ import { Pager } from './pager';
 import { useDefaultPaginationStore } from '../store';
 import { pickDataAttributes } from '../../utils';
 import { defaultProps } from '../constants';
+import { useStyles } from '../../hooks';
 // type
 import type { PaginationProps } from '../interface';
 
@@ -19,6 +20,9 @@ export const DefaultPagination = forwardRef<HTMLDivElement | null, PaginationPro
     props,
     getPrefixCls
   );
+
+  // style
+  const { wrapperStyle } = useStyles<PaginationProps>({ style, themeStyle });
 
   if (hideOnSinglePage && allPages <= 1) {
     return null;
@@ -33,7 +37,7 @@ export const DefaultPagination = forwardRef<HTMLDivElement | null, PaginationPro
   );
 
   return (
-    <div {...pickDataAttributes(props)} className={classNames} style={{ ...style, ...themeStyle }} ref={ref}>
+    <div {...pickDataAttributes(props)} className={classNames} style={wrapperStyle} ref={ref}>
       <TotalElement showTotal={showTotal} prefixCls={prefixCls} total={total} current={current} pageSize={pageSize} />
       <Pager bufferSize={bufferSize} allPages={allPages} current={current} prefixCls={prefixCls} pagerProps={pagerProps} />
       {showJumper && (

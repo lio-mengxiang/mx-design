@@ -109,15 +109,17 @@ export const zh_cn_table = {
   },
   [BackEndMultiSort]: {
     title: '后端多列排序',
-    desc: '按钮的禁用状态',
+    desc: (
+      <>
+        模拟了后端排序，通过 <code className="mx-code">column.handleAscendSort</code> 和{' '}
+        <code className="mx-code">column.handleDescendSort</code> 来实现受控的 <code className="mx-code">column.sortOrder</code>,
+        注意多列排序一定要通过 <code className="mx-code">column.sorter.multiple </code>设置优先级
+      </>
+    ),
   },
   [UncontrolledPagination]: {
     title: '非受控翻页',
-    desc: (
-      <>
-        通过设置<code className="mx-code">loading</code>可以让一个按钮处于加载中状态。处于加载中状态的按钮不会触发点击事件
-      </>
-    ),
+    desc: <>我们通常使用后端分页，建议自己实现翻页逻辑，因为每个产品都有自己的翻页逻辑</>,
   },
   [ExpandRow]: {
     title: '展开行',

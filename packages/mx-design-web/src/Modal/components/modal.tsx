@@ -4,9 +4,10 @@ import FocusLock from 'react-focus-lock';
 import { useMergeProps } from '@mx-design/hooks';
 import { ConfigContext } from '../../ConfigProvider';
 import { duration1, duration2, maskAnimation, modalAnimation } from '../constants';
-import { useGetIcon, useModalClassNames, useOverflowHidden, useStyles } from '../hooks';
+import { useGetIcon, useModalClassNames, useOverflowHidden } from '../hooks';
 import ModalCard from './modalCard';
 import { Portal } from '../../Portal';
+import { useStyles } from '../../hooks';
 // type
 import type { ModalProps } from '../interface';
 import type { IModalRef } from './modalProvider';
@@ -60,7 +61,7 @@ export function Modal(baseProps: ModalProps, ref) {
   } = props;
 
   // style
-  const { wrapperStyle } = useStyles({ style, themeStyle });
+  const { wrapperStyle } = useStyles<ModalProps>({ style, themeStyle });
 
   // classnames
   const { maskCls, wrapperCls } = useModalClassNames({ getPrefixCls, className, mask });

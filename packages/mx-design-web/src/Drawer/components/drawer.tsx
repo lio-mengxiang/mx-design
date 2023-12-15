@@ -3,7 +3,7 @@ import React, { forwardRef, useContext, useEffect, useMemo, useRef } from 'react
 import { useMergeProps } from '@mx-design/hooks';
 import { ConfigContext } from '../../ConfigProvider';
 import { duration1, duration2, maskAnimation, drawerAnimation, sentinelStyle } from '../constants';
-import { useModalClassNames, useStyles } from '../hooks';
+import { useModalClassNames } from '../hooks';
 import { DrawerCard } from './drawerCard';
 import { Portal } from '../../Portal';
 import { useOverflowHidden } from '../../Modal/hooks';
@@ -12,6 +12,7 @@ import type { DrawerProps } from '../interface';
 import type { IDrawerRef } from './drawerProvider';
 import { useDrawer } from '../hooks/useDrawer';
 import { useDrawerStore } from '../store';
+import { useStyles } from '../../hooks';
 
 type IDrawerProps = DrawerProps & IDrawerRef['remove'];
 
@@ -66,7 +67,7 @@ export function Drawer(baseProps: DrawerProps, ref) {
   } = props;
 
   // style
-  const { wrapperStyle } = useStyles({ style, themeStyle });
+  const { wrapperStyle } = useStyles<DrawerProps>({ style, themeStyle });
 
   const {
     // functions

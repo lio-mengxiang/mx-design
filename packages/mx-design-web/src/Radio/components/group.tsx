@@ -4,9 +4,10 @@ import { isArray, isObject } from '@mx-design/web-utils';
 import { Radio } from './radio';
 import { ConfigContext } from '../../ConfigProvider';
 import { RadioGroupContext } from '../radioContext';
-import { useGroupClassNames, useStyles } from '../hooks';
+import { useGroupClassNames } from '../hooks';
 // types
 import type { RadioGroupProps } from '../interface';
+import { useStyles } from '../../hooks';
 
 function Group(props: RadioGroupProps) {
   // props
@@ -33,7 +34,7 @@ function Group(props: RadioGroupProps) {
   // classnames
   const { wrapperCls } = useGroupClassNames({ direction, className, getPrefixCls, type, mode, disabled });
   // style
-  const { wrapperStyle } = useStyles({ style, themeStyle });
+  const { wrapperStyle } = useStyles<RadioGroupProps>({ style, themeStyle });
 
   // functions
   const onChangeValue = (v: any, event): void => {

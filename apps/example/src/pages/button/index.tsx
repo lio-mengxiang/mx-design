@@ -7,6 +7,7 @@ import { ComponentCodeBlock } from '@/components/DemoBlock';
 
 function ButtonExample() {
   const [local] = useLocale<typeof BUTTON_KEY>({ namespace: BUTTON_KEY });
+
   const dataList = useMemo(
     () =>
       Object.keys(local).map((key) => ({

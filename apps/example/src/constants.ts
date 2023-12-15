@@ -28,3 +28,4 @@ export const INPUT_KEY = 'input';
 export const PAGINATION_KEY = 'pagination';
 export const DATA_INPUT_KEY = 'data-input';
 export const TABLE_KEY = 'table';
+export const SWITCH_KEY = 'switch';

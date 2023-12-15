@@ -14,10 +14,10 @@ function App() {
   }];
   return (
     <Space>
-      <Tooltip overlayInnerStyle={colors[0]} content="This is a tooltip box">
+      <Tooltip overlayInnerStyle={colors[0]} content={() => "This is a tooltip box"}>
         <Button style={colors[0]}>#165DFF</Button>
       </Tooltip>
-      <Tooltip  overlayInnerStyle={colors[1]} content="This is a tooltip box">
+      <Tooltip  overlayInnerStyle={colors[1]} content={() => "This is a tooltip box"}>
         <Button style={colors[1]}>#722ED1</Button>
       </Tooltip>
     </Space>

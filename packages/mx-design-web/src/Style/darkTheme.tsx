@@ -95,6 +95,7 @@ export const darkTheme = {
   '--bg-color-container-hover': 'var(--gray-color-12)',
   '--bg-color-container-active': 'var(--gray-color-10)',
   '--bg-color-container-select': 'var(--gray-color-9)',
+  '--bg-color-component-middle': 'var(--gray-color-8)',
   '--bg-color-component': 'var(--gray-color-11)',
   '--bg-color-component-hover': 'var(--gray-color-10)',
   '--bg-color-component-active': 'var(--gray-color-9)',

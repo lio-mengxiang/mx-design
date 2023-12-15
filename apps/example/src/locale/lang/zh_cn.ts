@@ -44,10 +44,12 @@ import {
   RADIO_KEY,
   SPACE_KEY,
   SPIN_KEY,
+  SWITCH_KEY,
   TABLE_KEY,
   TAG_KEY,
   TOOLTIP_KEY,
 } from '@/constants';
+import { zh_cn_switch } from '@/pages/switch/locale';
 
 export const zh_cn = {
   [BUTTON_KEY]: zh_cn_button,
@@ -75,4 +77,5 @@ export const zh_cn = {
   [INPUT_KEY]: zh_cn_input,
   [PAGINATION_KEY]: zh_cn_pagination,
   [TABLE_KEY]: zh_cn_table,
+  [SWITCH_KEY]: zh_cn_switch,
 };

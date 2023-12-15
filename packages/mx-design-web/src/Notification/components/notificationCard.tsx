@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import { IconClose } from '../../Icon';
-import { useCardClassNames, useStyles } from '../hooks';
+import { useCardClassNames } from '../hooks';
 import { ConfigContext } from '../../ConfigProvider';
 import { renderIcon } from '../../Common';
+import { useStyles } from '../../hooks';
 // type
 import type { NotificationCardProps } from '../interface';
 
@@ -23,7 +24,7 @@ function NotificationCard(props: Omit<NotificationCardProps, 'position'>) {
   } = useCardClassNames({ getPrefixCls, type, closable, className });
 
   // style
-  const { wrapperStyle } = useStyles({ style, themeStyle });
+  const { wrapperStyle } = useStyles<NotificationCardProps>({ style, themeStyle });
 
   return (
     <div className={itemClassNames} style={wrapperStyle} role="alert">

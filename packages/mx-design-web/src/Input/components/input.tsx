@@ -10,6 +10,7 @@ import { Search } from './search';
 // type
 import { InputProps, RefInputType } from '../interface';
 import { Password } from './password';
+import { useStyles } from '../../hooks';
 
 const defaultProps: Partial<InputProps> = {
   normalizeTrigger: ['onBlur'],
@@ -18,7 +19,7 @@ const defaultProps: Partial<InputProps> = {
 function Input(baseProps: InputProps, ref) {
   const { getPrefixCls, componentConfig } = useContext(ConfigContext);
   const props = useMergeProps<InputProps>(baseProps, defaultProps, componentConfig?.Input);
-  const { className, style, addBefore, addAfter, prefix, beforeStyle, afterStyle, height, disabled, allowClear } = props;
+  const { className, style, addBefore, addAfter, prefix, beforeStyle, afterStyle, height, disabled, allowClear, themeStyle } = props;
   const prefixCls = getPrefixCls('input');
 
   // store
@@ -44,6 +45,8 @@ function Input(baseProps: InputProps, ref) {
     focus,
   });
 
+  const { wrapperStyle } = useStyles<InputProps>({ style, themeStyle });
+
   const inputElement = (
     <InputComponent
       ref={inputRef}
@@ -65,7 +68,7 @@ function Input(baseProps: InputProps, ref) {
   );
 
   return needWrapper ? (
-    <div className={wrapperCls} style={{ ...style, ...(isCustomHeight ? { height } : {}) }}>
+    <div className={wrapperCls} style={{ ...wrapperStyle, ...(isCustomHeight ? { height } : {}) }}>
       <span className={groupCls}>
         {inputAddon(addBeforeCls, addBefore, beforeStyle)}
         <span
@@ -96,7 +99,7 @@ function Input(baseProps: InputProps, ref) {
   ) : allowClear ? (
     <span
       className={cs(className, innerWrapperCls)}
-      style={{ ...style, ...(isCustomHeight ? { height } : {}) }}
+      style={{ ...wrapperStyle, ...(isCustomHeight ? { height } : {}) }}
       onMouseDown={keepFocus}
       onClick={() => {
         inputRef.current && inputRef.current.focus();

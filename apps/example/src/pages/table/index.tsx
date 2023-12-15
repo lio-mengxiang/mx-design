@@ -5,7 +5,7 @@ import { useLocale } from '@/locale/useLocal/useLocal';
 import { exampleList } from './examples';
 import { ComponentCodeBlock } from '@/components/DemoBlock';
 
-function ButtonExample() {
+function TableExample() {
   const [local] = useLocale<typeof TABLE_KEY>({ namespace: TABLE_KEY });
   const dataList = useMemo(
     () =>
@@ -33,4 +33,4 @@ function ButtonExample() {
     </ComponentInnerLayout>
   );
 }
-export default ButtonExample;
+export default TableExample;

@@ -1,4 +1,3 @@
-import { Space, Button } from '@mx-design/web';
 import { Basic } from '../locale';
 
 const code = `

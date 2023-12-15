@@ -3,10 +3,11 @@ import { useMergeValue } from '@mx-design/hooks';
 import { isArray, isObject } from '@mx-design/web-utils';
 import { Checkbox } from './checkbox';
 import { ConfigContext } from '../../ConfigProvider';
-import { useGroupClassNames, useStyles } from '../hooks';
+import { useGroupClassNames } from '../hooks';
 import { CheckboxGroupContext } from '../checkboxGroupContext';
 // type
 import type { CheckboxGroupProps } from '../interface';
+import { useStyles } from '../../hooks';
 
 function Group<T extends string | number>(props: PropsWithChildren<CheckboxGroupProps<T>>) {
   // props
@@ -23,7 +24,7 @@ function Group<T extends string | number>(props: PropsWithChildren<CheckboxGroup
   // classnames
   const { wrapperCls } = useGroupClassNames({ error, direction, className, getPrefixCls });
   // style
-  const { wrapperStyle } = useStyles({ style, themeStyle });
+  const { wrapperStyle } = useStyles<PropsWithChildren>({ style, themeStyle });
 
   // function
   const onChange = function (optionValue, checked: boolean, e: Event) {
