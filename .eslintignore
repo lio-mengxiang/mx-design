@@ -1,0 +1,11 @@
+snapshot*
+dist/
+esm/
+lib/
+cjs/
+es/
+node_modules/
+static
+react-icon/
+docs/
+

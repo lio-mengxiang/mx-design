@@ -1,0 +1,155 @@
+@import (reference) '../../Style/base.less';
+
+@popup-prefix-cls: ~'@{prefix}-popup';
+
+.content-placement-top {
+  .@{popup-prefix-cls}[data-popper-placement^='top'] {
+    .@{popup-prefix-cls}__content {
+      margin-bottom: var(--popup-content-margin);
+
+      &--arrow {
+        margin-bottom: var(--popup-content-arrow-margin);
+      }
+    }
+  }
+}
+
+.content-placement-bottom {
+  .@{popup-prefix-cls}[data-popper-placement^='bottom'] {
+    .@{popup-prefix-cls}__content {
+      margin-top: var(--popup-content-margin);
+
+      &--arrow {
+        margin-top: var(--popup-content-arrow-margin);
+      }
+    }
+  }
+}
+
+.content-placement-left {
+  .@{popup-prefix-cls}[data-popper-placement^='left'] {
+    .@{popup-prefix-cls}__content {
+      margin-right: var(--popup-content-margin);
+
+      &--arrow {
+        margin-right: var(--popup-content-arrow-margin);
+      }
+
+      &--text {
+        max-width: 480px;
+      }
+    }
+  }
+}
+
+.content-placement-right {
+  .@{popup-prefix-cls}[data-popper-placement^='right'] {
+    .@{popup-prefix-cls}__content {
+      margin-left: var(--popup-content-margin);
+
+      &--arrow {
+        margin-left: var(--popup-content-arrow-margin);
+      }
+
+      &--text {
+        max-width: 480px;
+      }
+    }
+  }
+}
+
+.arrow-placement-top() {
+  .@{popup-prefix-cls}[data-popper-placement^='top'] .@{popup-prefix-cls}__arrow {
+    &::before {
+      border-top-left-radius: 100%;
+      border-bottom: 1px solid var(--border-level-1-color);
+      border-right: 1px solid var(--border-level-1-color);
+    }
+  }
+
+  .@{popup-prefix-cls}[data-popper-placement='top-start'] .@{popup-prefix-cls}__arrow {
+    left: var(--popup-arrow-width);
+  }
+
+  .@{popup-prefix-cls}[data-popper-placement='top'] .@{popup-prefix-cls}__arrow {
+    left: 50%;
+    margin-left: calc(-1 * var(--popup-arrow-width) / 2);
+  }
+
+  .@{popup-prefix-cls}[data-popper-placement='top-end'] .@{popup-prefix-cls}__arrow {
+    left: calc(100% - var(--popup-arrow-width) * 2);
+  }
+}
+
+.arrow-placement-bottom() {
+  .@{popup-prefix-cls}[data-popper-placement^='bottom'] .@{popup-prefix-cls}__arrow {
+    top: calc((-1 * var(--popup-arrow-width) / 2) - 1px);
+
+    &::before {
+      border-bottom-right-radius: 100%;
+      border-top: 1px solid var(--border-level-1-color);
+      border-left: 1px solid var(--border-level-1-color);
+    }
+  }
+
+  .@{popup-prefix-cls}[data-popper-placement='bottom-start'] .@{popup-prefix-cls}__arrow {
+    left: var(--popup-arrow-width);
+  }
+
+  .@{popup-prefix-cls}[data-popper-placement='bottom'] .@{popup-prefix-cls}__arrow {
+    left: 50%;
+    margin-left: calc(-1 * var(--popup-arrow-width) / 2);
+  }
+
+  .@{popup-prefix-cls}[data-popper-placement='bottom-end'] .@{popup-prefix-cls}__arrow {
+    left: calc(100% - var(--popup-arrow-width) * 2);
+  }
+}
+
+.arrow-placement-left() {
+  .@{popup-prefix-cls}[data-popper-placement^='left'] .@{popup-prefix-cls}__arrow {
+    right: calc(1 * var(--popup-arrow-width) / 2);
+
+    &::before {
+      border-top: 1px solid var(--border-level-1-color);
+      border-right: 1px solid var(--border-level-1-color);
+    }
+  }
+
+  .@{popup-prefix-cls}[data-popper-placement='left-start'] .@{popup-prefix-cls}__arrow {
+    top: var(--popup-arrow-width);
+  }
+
+  .@{popup-prefix-cls}[data-popper-placement='left'] .@{popup-prefix-cls}__arrow {
+    top: 50%;
+    margin-top: calc(-1 * var(--popup-arrow-width) / 2);
+  }
+
+  .@{popup-prefix-cls}[data-popper-placement='left-end'] .@{popup-prefix-cls}__arrow {
+    top: calc(100% - var(--popup-arrow-width) * 2);
+  }
+}
+
+.arrow-placement-right() {
+  .@{popup-prefix-cls}[data-popper-placement^='right'] .@{popup-prefix-cls}__arrow {
+    left: calc((-1 * var(--popup-arrow-width) / 2) - 1px);
+
+    &::before {
+      border-bottom: 1px solid var(--border-level-1-color);
+      border-left: 1px solid var(--border-level-1-color);
+    }
+  }
+
+  .@{popup-prefix-cls}[data-popper-placement='right-start'] .@{popup-prefix-cls}__arrow {
+    top: var(--popup-arrow-width);
+  }
+
+  .@{popup-prefix-cls}[data-popper-placement='right'] .@{popup-prefix-cls}__arrow {
+    top: 50%;
+    margin-top: calc(-1 * var(--popup-arrow-width) / 2);
+  }
+
+  .@{popup-prefix-cls}[data-popper-placement='right-end'] .@{popup-prefix-cls}__arrow {
+    top: calc(100% - var(--popup-arrow-width) * 2);
+  }
+}

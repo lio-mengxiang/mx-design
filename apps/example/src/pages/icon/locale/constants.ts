@@ -1,0 +1,9 @@
+export const Basic = 'Basic';
+export const Loading = 'Loading';
+export const Custom = 'Custom';
+export const IconFont = 'IconFont';
+export const PromptSuggestion = 'PromptSuggestion';
+export const DirectionIndicator = 'DirectionIndicator';
+export const Editable = 'Editable';
+export const InteractiveButton = 'InteractiveButton';
+export const Data = 'Data';

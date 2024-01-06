@@ -1,0 +1,48 @@
+.navbar-container {
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--bg-color-container);
+  color: var(--text-color-primary);
+  box-shadow: var(--shadow-out-bottom);
+  z-index: 1001;
+}
+
+.navbar-bar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-author {
+  color: var(--text-color-secondary);
+}
+
+.navbar-space-horizontal {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 24px;
+  height: 60px;
+}
+
+.navbar-right-content {
+  cursor: pointer;
+}
+
+.navbar-right-icon {
+  display: flex;
+  align-items: center;
+  user-select: none;
+  color: var(--text-color-primary);
+}
+
+.navbar-right-lang {
+  font-size: 14px;
+  text-align: center;
+}

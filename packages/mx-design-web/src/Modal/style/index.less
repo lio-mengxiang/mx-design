@@ -1,0 +1,134 @@
+@import (reference) '../../Style/base.less';
+@import './cssVariables.less';
+
+@modal-prefix-cls: ~'@{prefix}-modal';
+
+.@{modal-prefix-cls}-container {
+  position: fixed;
+  cursor: auto;
+  overflow: auto;
+  text-align: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  bottom: 0;
+  z-index: var(--z-index-modal);
+}
+
+.@{modal-prefix-cls}-container-no-mask {
+  pointer-events: none;
+
+  .@{modal-prefix-cls} {
+    pointer-events: auto;
+  }
+}
+
+.@{modal-prefix-cls}-mask {
+  z-index: var(--z-index-modal);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  bottom: 0;
+  background-color: var(--modal-mask-bg);
+}
+
+.@{modal-prefix-cls} {
+  box-sizing: content-box;
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  min-width: 520px;
+  width: 520px;
+  top: var(--modal-top);
+  border-radius: var(--modal-radius);
+  background-color: var(--modal-bg);
+  border: 1px solid var(--modal-border-color);
+  .icon-hover(50%, var(--modal-icon-hover-bg), var(--modal-icon-hover-size));
+}
+
+.@{modal-prefix-cls}-title-container {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--modal-title-padding);
+}
+
+.@{modal-prefix-cls}-title {
+  display: flex;
+  align-items: center;
+}
+
+.@{modal-prefix-cls}-title-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.@{modal-prefix-cls}-title-icon {
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  font-size: var(--modal-icon-size);
+}
+
+.@{modal-prefix-cls}-info-title-icon {
+  color: var(--brand-color);
+}
+
+.@{modal-prefix-cls}-warning-title-icon {
+  color: var(--warning-color);
+}
+
+.@{modal-prefix-cls}-error-title-icon {
+  color: var(--error-color);
+}
+
+.@{modal-prefix-cls}-success-title-icon {
+  color: var(--success-color);
+}
+
+.@{modal-prefix-cls}-title-border {
+  border-bottom: 1px solid var(--border-level-1-color);
+}
+
+.@{modal-prefix-cls}-icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.@{modal-prefix-cls}-content {
+  font-weight: 400;
+  line-height: 22px;
+  padding: var(--modal-content-padding);
+}
+
+.@{modal-prefix-cls}-content-border {
+  border-bottom: 1px solid var(--border-level-1-color);
+}
+
+.@{modal-prefix-cls}-footer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--modal-footer-padding);
+}
+
+.@{modal-prefix-cls}-footer-align-right {
+  justify-content: right;
+}
+
+.@{modal-prefix-cls}-footer-align-center {
+  justify-content: center;
+}
+
+.@{modal-prefix-cls}-footer-align-left {
+  justify-content: left;
+}
+
+.@{modal-prefix-cls}-btn {
+  margin-right: 8px;
+}

@@ -1,0 +1,16 @@
+.input-status(@status) {
+  &-@{status} {
+    border-color: ~'var(--input-@{status}-color)';
+
+    &:hover {
+      border-color: ~'var(--input-@{status}-color)';
+    }
+  }
+
+  &-@{status}&-focus {
+    &,
+    &:hover {
+      border-color: ~'var(--input-@{status}-color)';
+    }
+  }
+}

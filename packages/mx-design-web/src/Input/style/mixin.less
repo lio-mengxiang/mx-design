@@ -1,0 +1,50 @@
+@import (reference) './cssVariables.less';
+@import (reference) './status.less';
+
+.disabled-style() {
+  background-color: var(--input-disabled-bg-color);
+  cursor: not-allowed;
+  color: var(--input-disabled-text-color);
+  -webkit-text-fill-color: var(--input-disabled-text-color);
+  border-color: var(--input-disabled-border-color);
+
+  &:hover {
+    border-color: var(--input-disabled-border-color);
+    background-color: var(--input-disabled-bg-color);
+    color: var(--input-disabled-text-color);
+  }
+
+  &::placeholder {
+    color: var(--input-disabled-text-color);
+  }
+}
+
+.input-style() {
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0%);
+  width: 100%;
+  color: var(--input-color-text);
+  padding-left: var(--input-wrapper-padding);
+  padding-right: var(--input-wrapper-padding);
+  font-size: var(--input-font-size);
+  box-sizing: border-box;
+  transition: color 0.1s linear, border-color 0.1s linear, background-color 0.1s linear;
+  background-color: var(--input-bg-color);
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
+
+  &::placeholder {
+    color: var(--input-color-text-placeholder);
+  }
+
+  &&-focus {
+    border-color: var(--brand-color);
+  }
+
+  &:hover {
+    border-color: var(--brand-color);
+  }
+
+  .input-status(error);
+  .input-status(warning);
+}

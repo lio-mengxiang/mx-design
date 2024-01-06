@@ -1,0 +1,27 @@
+@import (reference) '../../Style/base.less';
+
+@space-prefix-cls: ~'@{prefix}-space';
+
+.@{space-prefix-cls} {
+  display: flex;
+
+  &-vertical {
+    flex-direction: column;
+  }
+
+  &-align-baseline {
+    align-items: baseline;
+  }
+
+  &-align-start {
+    align-items: flex-start;
+  }
+
+  &-align-end {
+    align-items: flex-end;
+  }
+
+  &-align-center {
+    align-items: center;
+  }
+}

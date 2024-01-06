@@ -1,0 +1,45 @@
+.card {
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+    color: var(--brand-color);
+  }
+
+  .icon {
+    display: flex;
+    padding: 6px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: left;
+    margin-right: 16px;
+    background: var(--brand-color-1);
+    border-radius: 8px;
+  }
+
+  .content-container {
+    line-height: 1.8;
+  }
+
+  .text {
+    font-size: 12px;
+  }
+
+  .title {
+    font-weight: 800;
+  }
+}
+
+.arrow {
+  transition: all 0.1s linear;
+}
+
+.rotate180 {
+  transform: rotate(180deg);
+}
+
+.bottom {
+  border-bottom: 1px solid var(--border-level-1-color);
+}

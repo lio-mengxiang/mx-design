@@ -1,0 +1,5 @@
+# @zh 定义workspace在哪个目录
+# @en Define which directory the workspace is in
+packages:
+  - "packages/*"
+  - "apps/*"

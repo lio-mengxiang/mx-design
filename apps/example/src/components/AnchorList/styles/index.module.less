@@ -1,0 +1,20 @@
+.anchor-list {
+  position: relative;
+  width: 170px;
+  flex-shrink: 0;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color: var(--bg-color-container);
+  margin-right: 20px;
+
+  &_fixed {
+    position: fixed;
+    top: 100px;
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+  }
+
+  @media screen and (max-width: 950px) {
+    display: none;
+  }
+}

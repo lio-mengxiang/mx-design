@@ -1,0 +1,31 @@
+@import (reference) '../../Style/base.less';
+@import './cssVariables.less';
+
+@empty-prefix-cls: ~'@{prefix}-empty';
+
+.@{empty-prefix-cls} {
+  width: 100%;
+  padding: 10px 0;
+  box-sizing: border-box;
+
+  & &-wrapper {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    color: var(--empty-wrapper-color);
+
+    .@{empty-prefix-cls}-image {
+      font-size: 48px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    img {
+      height: 80px;
+    }
+  }
+
+  & &-description {
+    color: var(--empty-description-color);
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "@mx-design/hooks",
+  "version": "0.1.2",
+  "description": "mx-design react hooks lib",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "types": "types/index.d.ts",
+  "license": "MIT",
+  "files": [
+    "types",
+    "lib",
+    "esm",
+    "README.md",
+    "README.zh.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "clean": "rimraf ./node_modules",
+    "build:cjs": "rimraf ./lib && tsc -p ./tsconfigCommonJS.json",
+    "build:esm": "rimraf ./esm && tsc -p ./tsconfig.json",
+    "build:types": "rimraf ./types && tsc --outDir types -d --emitDeclarationOnly",
+    "build": "npm run build:cjs && npm run build:esm && npm run build:types"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0  || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0  || ^17.0.0 || ^18.0.0"
+  },
+  "dependencies": {
+    "@mx-design/web-utils": "0.1.8",
+    "copy-to-clipboard": "3.3.3",
+    "resize-observer-polyfill": "1.5.1"
+  }
+}

@@ -1,0 +1,21 @@
+@import (reference) '../../Style/base.less';
+
+@prefixCls: ~'@{prefix}-icon';
+
+@keyframes mx-spin-anim {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.@{prefixCls} {
+  display: inline-block;
+}
+
+.@{prefixCls}-spin {
+  animation: mx-spin-anim 1s linear infinite;
+}

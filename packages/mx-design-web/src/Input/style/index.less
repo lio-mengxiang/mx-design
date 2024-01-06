@@ -1,0 +1,224 @@
+@import (reference) '../../Style/base.less';
+@import './cssVariables.less';
+@import './mixin.less';
+// @import './status.less';
+
+@input-prefix-cls: ~'@{prefix}-input';
+
+.@{input-prefix-cls} {
+  padding: var(--input-padding);
+  line-height: var(--input-line-height);
+
+  .input-style();
+
+  // 禁用样式
+  &-disabled {
+    .disabled-style();
+  }
+
+  input:disabled {
+    color: var(--input-disabled-text-color);
+  }
+
+  &-word-limit {
+    font-size: var(--input-font-tip-size);
+    padding-left: var(--input-padding-word-limit-left);
+
+    &-error {
+      color: var(--error-color);
+    }
+  }
+
+  &:read-only {
+    cursor: pointer;
+  }
+}
+
+// 清除icon
+.@{input-prefix-cls}-clear-icon {
+  font-size: var(--input-size-icon-clear);
+  cursor: pointer;
+  color: var(--input-color-icon-clear);
+
+  // &:focus-visible::before {
+  //   box-shadow: 0 0 0 2px @input-color-border_focus;
+  // }
+
+  > svg {
+    transition: color 0.1s linear;
+    position: relative;
+  }
+}
+
+.@{input-prefix-cls}-readonly {
+  cursor: pointer;
+}
+
+.@{input-prefix-cls}-inner-wrapper {
+  .input-style();
+  .icon-hover(50%, var(--input-icon-hover-bg), var(--input-icon-hover-size));
+
+  display: inline-flex;
+  width: 100%;
+  position: relative;
+  align-items: center;
+
+  .@{input-prefix-cls} {
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 0;
+    border: none;
+    background: none;
+  }
+
+  .@{input-prefix-cls}:hover,
+  .@{input-prefix-cls}:focus {
+    background: none;
+    box-shadow: none;
+  }
+
+  // 有前缀
+  &-has-prefix > .@{input-prefix-cls}-clear-wrapper .@{input-prefix-cls},
+  &-has-prefix > .@{input-prefix-cls} {
+    padding-left: var(--input-padding-horizontal);
+  }
+
+  .@{input-prefix-cls}-group-prefix,
+  .@{input-prefix-cls}-group-suffix {
+    user-select: none;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+
+    > svg {
+      font-size: var(--input-size-default-icon-suffix-size);
+    }
+  }
+
+  .@{input-prefix-cls}-group-prefix {
+    color: var(--input-color-prefix-text);
+  }
+
+  .@{input-prefix-cls}-group-suffix {
+    color: var(--input-color-suffix-text);
+  }
+
+  &-disabled {
+    // 禁用样式
+    .disabled-style();
+
+    .@{input-prefix-cls}-group-prefix,
+    .@{input-prefix-cls}-group-suffix {
+      color: inherit;
+    }
+  }
+
+  .@{input-prefix-cls}-clear-icon {
+    visibility: hidden;
+  }
+
+  &:hover {
+    .@{input-prefix-cls}-clear-icon {
+      visibility: visible;
+
+      & ~ .@{input-prefix-cls}-group-suffix {
+        margin-left: 4px;
+      }
+    }
+  }
+}
+
+.@{input-prefix-cls}-group {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+
+  > .@{input-prefix-cls}-inner-wrapper,
+  > .@{input-prefix-cls} {
+    border-radius: 0;
+  }
+
+  > :first-child {
+    border-top-left-radius: var(--input-border-radius);
+    border-bottom-left-radius: var(--input-border-radius);
+  }
+
+  > :last-child {
+    border-top-right-radius: var(--input-border-radius);
+    border-bottom-right-radius: var(--input-border-radius);
+  }
+}
+
+.@{input-prefix-cls}-group-addbefore,
+.@{input-prefix-cls}-group-addafter {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 var(--input-padding-horizontal);
+  background-color: var(--input-color-addon-bg);
+  border: 1px solid var(--input-color-addon-border_default);
+
+  > svg {
+    font-size: var(--input-size-default-icon-addon-size);
+  }
+}
+
+.@{input-prefix-cls}-group-addafter {
+  border: 1px solid var(--input-color-addon-border);
+  border-left: none;
+  background-color: var(--input-color-addon-bg);
+}
+
+.@{input-prefix-cls}-group-addbefore {
+  border: 1px solid var(--input-color-addon-border);
+  border-right: none;
+}
+
+.@{input-prefix-cls}-group-wrapper {
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+
+  .@{input-prefix-cls}-inner-wrapper {
+    height: 100%;
+  }
+
+  &.@{input-prefix-cls}-disabled {
+    cursor: not-allowed;
+  }
+}
+
+.@{input-prefix-cls}-password.@{input-prefix-cls}-group-wrapper {
+  &:not(.@{input-prefix-cls}-group-wrapper-disabled) {
+    .@{input-prefix-cls}-group-suffix {
+      cursor: pointer;
+    }
+  }
+}
+
+.@{input-prefix-cls}-password-icon-wrapper {
+  display: flex;
+  align-items: center;
+}
+// .@{prefix}-textarea {
+//   .input-style();
+
+//   font-size: @textarea-font-size;
+//   vertical-align: top;
+//   position: relative;
+//   padding: @textarea-padding-vertical @textarea-padding-horizontal;
+//   max-width: 100%;
+//   min-height: @textarea-size-min-height;
+//   height: auto;
+//   line-height: @line-height-base;
+//   resize: vertical;
+//   overflow: auto;
+
+//   // 禁用样式
+//   &-disabled {
+//     .disabled-style();
+//   }
+// }

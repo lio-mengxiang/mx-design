@@ -1,0 +1,118 @@
+@import (reference) '../../Style/base.less';
+@import './cssVariables.less';
+
+@notification-prefix-cls: ~'@{prefix}-notification';
+
+// fixed position
+.@{notification-prefix-cls}-wrapper {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  padding: 0 20px;
+  flex-direction: column;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 1003;
+
+  &-top {
+    top: 20px;
+  }
+
+  &-top-left {
+    top: 20px;
+  }
+
+  &-top-right {
+    top: 20px;
+  }
+
+  &-bottom {
+    bottom: 20px;
+  }
+
+  &-bottom-left {
+    bottom: 20px;
+  }
+
+  &-bottom-right {
+    bottom: 20px;
+  }
+}
+
+// wrap content
+.@{notification-prefix-cls} {
+  display: flex;
+  position: relative;
+  width: var(--notification-width);
+  padding: var(--notification-padding);
+  border-radius: var(--notification-border-radius);
+  margin-bottom: var(--notification-margin-bottom);
+  background-color: var(--notification-color-bg);
+  box-shadow: var(--notification-box-shadow);
+  overflow: hidden;
+  box-sizing: border-box;
+  pointer-events: auto;
+
+  &-icon {
+    font-size: var(--notification-font-size-icon);
+    display: inline-flex;
+    align-items: center;
+    color: var(--brand-color);
+  }
+
+  &-info &-icon {
+    color: var(--brand-color);
+  }
+
+
+  &-success &-icon {
+    color: var(--success-color);
+  }
+
+  &-warning &-icon {
+    color: var(--warning-color);
+  }
+
+  &-error &-icon {
+    color: var(--error-color);
+  }
+
+  &-left {
+    padding-right: 16px;
+  }
+
+  &-right {
+    flex: 1;
+    word-break: break-word;
+  }
+
+  &-title {
+    font-size: var(--notification-font-size-title);
+    font-weight: 500;
+    color: var(--notification-color-text-title);
+    margin-bottom: var(--notification-title-margin-bottom);
+  }
+
+  &-content {
+    font-size: var(--notification-font-size-content);
+    color: var(--notification-color-text-content)
+  }
+
+  &-btn-wrapper {
+    margin-top: 16px;
+    text-align: right;
+  }
+
+  & &-close-btn {
+    position: absolute;
+    cursor: pointer;
+    top: 20px;
+    right: 16px;
+    color: 16px;
+    font-size: 12px;
+
+    >svg {
+      position: relative;
+    }
+  }
+}

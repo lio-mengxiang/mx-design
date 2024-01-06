@@ -1,0 +1,103 @@
+@import '../../style/theme/default.less';
+@import '../../Input/style/token.less';
+
+/**********************************************
+ * size: mini / small / default / large
+ **********************************************/
+@input-tag-size-mini-height: @size-mini;
+@input-tag-size-small-height: @size-small;
+@input-tag-size-default-height: @size-default;
+@input-tag-size-large-height: @size-large;
+
+@input-tag-size-mini-tag-height: @size-5;
+@input-tag-size-small-tag-height: @size-5;
+@input-tag-size-default-tag-height: @size-6;
+@input-tag-size-large-tag-height: @size-7;
+
+@input-tag-size-mini-font-size: @font-size-body-1;
+@input-tag-size-small-font-size: @font-size-body-3;
+@input-tag-size-default-font-size: @font-size-body-3;
+@input-tag-size-large-font-size: @font-size-title-1;
+
+@input-tag-size-mini-padding_no_tag: @spacing-4;
+@input-tag-size-small-padding_no_tag: @spacing-6;
+@input-tag-size-default-padding_no_tag: @spacing-6;
+@input-tag-size-large-padding_no_tag: @spacing-7;
+
+/****************************************************
+ * status: default / error / disabled _ (hover / focus)
+ ****************************************************/
+// text color
+@input-tag-color-text_default: var(~'@{arco-cssvars-prefix}-color-text-1');
+@input-tag-color-text_error: var(~'@{arco-cssvars-prefix}-color-text-1');
+@input-tag-color-text_disabled: var(~'@{arco-cssvars-prefix}-color-text-4');
+
+// icon color
+@input-tag-color-placeholder: var(~'@{arco-cssvars-prefix}-color-text-3');
+@input-tag-color-icon-clear: var(~'@{arco-cssvars-prefix}-color-text-2');
+@input-tag-color-icon-clear-bg_hover: var(~'@{arco-cssvars-prefix}-color-fill-4');
+
+// border color with focus & hover
+@input-tag-color-border_default: @color-transparent;
+@input-tag-color-border_default_hover: @color-transparent;
+@input-tag-color-border_default_focus: @color-primary-6;
+@input-tag-color-border_error: @color-transparent;
+@input-tag-color-border_error_hover: @color-transparent;
+@input-tag-color-border_error_focus: @color-danger-6;
+@input-tag-color-border_disabled: @color-transparent;
+@input-tag-color-border_disabled_hover: @input-tag-color-border_disabled;
+@input-tag-color-border_disabled_focus: @input-tag-color-border_disabled;
+
+// bg color with focus & hover
+@input-tag-color-bg_default: var(~'@{arco-cssvars-prefix}-color-fill-2');
+@input-tag-color-bg_default_hover: var(~'@{arco-cssvars-prefix}-color-fill-3');
+@input-tag-color-bg_default_focus: var(~'@{arco-cssvars-prefix}-color-bg-2');
+@input-tag-color-bg_error: @color-danger-1;
+@input-tag-color-bg_error_hover: @color-danger-2;
+@input-tag-color-bg_error_focus: var(~'@{arco-cssvars-prefix}-color-bg-2');
+@input-tag-color-bg_disabled: var(~'@{arco-cssvars-prefix}-color-fill-2');
+@input-tag-color-bg_disabled_hover: @input-tag-color-bg_disabled;
+
+@input-tag-color-shadow_default_focus: @color-primary-2;
+@input-tag-color-shadow_error_focus: @color-danger-2;
+@input-tag-size-shadow_error_focus: @shadow-distance-none;
+@input-tag-size-shadow_default_focus: @shadow-distance-none;
+
+// input box
+@input-tag-tag-margin-right: @spacing-2;
+@input-tag-tag-margin-vertical: @spacing-1;
+@input-tag-padding-horizontal: @spacing-2;
+@input-tag-border-radius: @radius-small;
+@input-tag-border-width: @border-1;
+@input-tag-size-icon-clear: @size-3;
+@input-tag-size-icon-clear_hover: @size-5;
+
+// tags
+@input-tag-tag-font-size: @font-size-body-1;
+@input-tag-tag-color-bg: var(~'@{arco-cssvars-prefix}-color-bg-2');
+@input-tag-tag-color-bg_focus: var(~'@{arco-cssvars-prefix}-color-fill-2');
+@input-tag-tag-color-bg_disabled: var(~'@{arco-cssvars-prefix}-color-fill-2');
+@input-tag-tag-color-border: var(~'@{arco-cssvars-prefix}-color-fill-3');
+@input-tag-tag-color-border_disabled: var(~'@{arco-cssvars-prefix}-color-fill-3');
+@input-tag-tag-color-border_focus: var(~'@{arco-cssvars-prefix}-color-fill-2');
+@input-tag-tag-remove-icon-color-bg: var(~'@{arco-cssvars-prefix}-color-fill-2');
+@input-tag-tag-remove-icon-color-bg_focus: var(~'@{arco-cssvars-prefix}-color-fill-3');
+
+// warning
+@input-tag-color-text_warning: var(~'@{arco-cssvars-prefix}-color-text-1');
+@input-tag-color-border_warning: @input-color-border_warning;
+@input-tag-color-border_warning_hover: @input-color-border_warning_hover;
+@input-tag-color-border_warning_focus: @input-color-border_warning_focus;
+@input-tag-color-bg_warning: @input-color-bg_warning;
+@input-tag-color-bg_warning_hover: @input-color-bg_warning_hover;
+@input-tag-color-bg_warning_focus: @input-color-bg_warning_focus;
+@input-tag-color-shadow_warning_focus: @input-color-shadow_warning_focus;
+@input-tag-size-shadow_warning_focus: @input-size-shadow_warning_focus;
+
+// addon
+@input-tag-addon-padding-horizontal: @spacing-6;
+@input-tag-color-addon-bg: @input-tag-color-bg_default;
+@input-tag-color-addon-border: var(~'@{arco-cssvars-prefix}-color-border-2');
+@input-tag-color-addon-border_default: @color-transparent;
+@input-tag-border-addon-separator-width: @border-1;
+@input-tag-color-addon-text: var(~'@{arco-cssvars-prefix}-color-text-1');

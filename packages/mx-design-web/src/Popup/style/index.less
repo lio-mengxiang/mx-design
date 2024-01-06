@@ -1,0 +1,51 @@
+@import (reference) '../../Style/base.less';
+@import './mixin.less';
+@import './cssVariables.less';
+
+@popup-prefix-cls: ~'@{prefix}-popup';
+
+.@{popup-prefix-cls} {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color-primary);
+  display: inline-block;
+  z-index: var(--popup-z-index);
+
+  &__content {
+    position: relative;
+    background: var(--popup-wrapper-color);
+    border: 1px solid var(--border-level-1-color);
+    border-radius: var(--popup-border-radius);
+    padding: var(--popup-padding);
+    font-size: 14px;
+    line-height: 22px;
+    box-sizing: border-box;
+    word-break: break-all;
+  }
+}
+
+.@{popup-prefix-cls}__arrow {
+  position: absolute;
+  z-index: 1;
+  background-color: inherit;
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: var(--popup-arrow-width);
+    height: var(--popup-arrow-width);
+    transform: rotate(45deg);
+    background-color: inherit;
+  }
+}
+
+.content-placement-top();
+.content-placement-bottom();
+.content-placement-left();
+.content-placement-right();
+
+.arrow-placement-top();
+.arrow-placement-bottom();
+.arrow-placement-left();
+.arrow-placement-right();

@@ -1,0 +1,9 @@
+export const Basic = 'Basic';
+export const Different = 'Different';
+export const Position = 'Position';
+export const Close = 'Close';
+export const CustomBtn = 'CustomBtn';
+export const CustomIcon = 'CustomIcon';
+export const CustomStyle = 'CustomStyle';
+export const ShowClose = 'ShowClose';
+export const Update = 'Update';

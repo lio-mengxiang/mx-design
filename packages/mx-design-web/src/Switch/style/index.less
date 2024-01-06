@@ -1,0 +1,103 @@
+@import (reference) '../../Style/base.less';
+@import './cssVariables.less';
+
+@switch-prefix-cls: ~'@{prefix}-switch';
+
+.@{switch-prefix-cls} {
+  position: relative;
+  outline: none;
+  height: var(--switch-size);
+  line-height: var(--switch-size);
+  min-width: var(--switch-circle-width);
+  background-color: var(--switch-color-bg_off);
+  border-radius: calc(var(--switch-size) / 2);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s cubic-bezier(0.34, 0.69, 0.1, 1);
+  padding: 0;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  overflow: hidden;
+
+  &-dot {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: var(--switch-top);
+    left: var(--switch-left);
+    width: var(--switch-size-dot);
+    height: var(--switch-size-dot);
+    border-radius: 50%;
+    background-color: var(--switch-color-dot-bg);
+    color: var(--switch-color-dot-icon_off);
+    font-size: 12px;
+    transition: all 0.2s cubic-bezier(0.34, 0.69, 0.1, 1);
+  }
+
+  &-text {
+    color: var(--switch-text-color);
+    font-size: 12px;
+    padding: var(--switch-text-pd);
+    display: flex;
+  }
+
+  &-checked &-text {
+    color: var(--switch-text-color-checked);
+    padding: var(--switch-text-pd-checked);
+  }
+
+  &-checked {
+    background-color: var(--switch-color-bg_on);
+  }
+
+  &-checked &-dot {
+    color: var(--switch-color-bg_on);
+    left: calc(100% - var(--switch-size-dot) - var(--switch-left));
+  }
+
+  &[disabled] &-dot {
+    color: var(--switch-color-dot-icon_off_disabled);
+  }
+
+  &[disabled]&-checked &-dot {
+    color: var(--switch-color-dot-icon_on_disabled);
+  }
+
+  // Disabled
+  &[disabled] {
+    cursor: not-allowed;
+    background-color: var(--switch-color-bg_off_disabled);
+  }
+
+  &[disabled] &-text {
+    color: var(--switch-color-text_off_disabled);
+  }
+
+  &[disabled]&-checked {
+    background-color: var(--switch-color-bg_on_disabled);
+  }
+
+  &[disabled]&-checked &-text {
+    color: var(--switch-color-text_on_disabled);
+  }
+
+  // Loading
+  &-loading {
+    background-color: var(--switch-color-bg_off_loading);
+  }
+
+  &-loading &-dot {
+    color: var(--switch-color-dot-icon_off_loading);
+  }
+
+  &-loading&-checked {
+    background-color: var(--switch-color-bg_on_loading);
+  }
+
+  &-loading&-checked &-dot {
+    color: var(--switch-color-dot-icon_on_loading);
+  }
+}

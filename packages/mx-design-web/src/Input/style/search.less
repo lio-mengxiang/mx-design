@@ -1,0 +1,36 @@
+@import (reference) '../../Style/base.less';
+@import './cssVariables-search.less';
+
+@input-prefix-cls: ~'@{prefix}-input';
+
+.@{input-prefix-cls}-search.@{input-prefix-cls}-group-wrapper {
+  .@{input-prefix-cls}-group-addbefore {
+    transition: all 0.1s linear;
+  }
+
+  .@{input-prefix-cls}-group-addafter {
+    padding: 0;
+    border: none;
+  }
+
+  &:not(.@{input-prefix-cls}-disabled) {
+    .@{input-prefix-cls}-group-addbefore {
+      cursor: pointer;
+      color: var(--input-search-disabled-text-color);
+    }
+  }
+
+  .@{input-prefix-cls}-search-btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    color: var(--input-search-btn-color);
+  }
+}
+
+.@{input-prefix-cls}-search-button {
+  .@{input-prefix-cls}-inner-wrapper {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}

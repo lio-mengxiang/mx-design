@@ -1,0 +1,359 @@
+@import '../../style/mixin.less';
+@import './token.less';
+@import '../../_class/Draggable/style/index.less';
+@import './mixin.less';
+
+@input-tag-prefix-cls: ~'@{prefix}-input-tag';
+
+.@{input-tag-prefix-cls} {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: @input-tag-padding-horizontal;
+  padding-right: @input-tag-padding-horizontal;
+  border-radius: @input-tag-border-radius;
+  vertical-align: top;
+  cursor: text;
+  transition: all @transition-duration-1 @transition-timing-function-linear;
+
+  &-view {
+    display: flex;
+    width: 100%;
+  }
+
+  &-inner {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  &-prefix,
+  &-suffix {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-width: 22px;
+  }
+
+  &-prefix {
+    padding-left: 8px;
+    padding-right: 4px;
+  }
+
+  &-suffix {
+    padding-right: 8px;
+  }
+
+  & &-clear-icon {
+    display: none;
+    font-size: @input-tag-size-icon-clear;
+    color: @input-tag-color-icon-clear;
+    cursor: pointer;
+
+    > svg {
+      transition: color @transition-duration-1 @transition-timing-function-linear;
+      position: relative;
+    }
+  }
+
+  &:hover &-clear-icon {
+    display: block;
+
+    & ~ * {
+      display: none;
+    }
+  }
+
+  &:not(&-focus) {
+    .@{input-tag-prefix-cls}-clear-icon:hover::before {
+      background-color: @input-tag-color-icon-clear-bg_hover;
+    }
+
+    .@{prefix}-draggable-item {
+      cursor: move;
+    }
+  }
+
+  &-input {
+    width: 4px;
+    // width might be overwrite by inline-style, max-width make text-ellipsis work
+    max-width: 100%;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: inherit;
+    cursor: inherit;
+    color: inherit;
+    .text-ellipsis();
+
+    // input is the first child means that input-tag has an empty value
+    // we set width of input to 4px by default, and 100% when input-tag is empty to avoid wrap
+    // see https://github.com/arco-design/arco-design/pull/1863
+    &:first-child {
+      width: 100%;
+    }
+
+    .@{prefix}-tag + &[disabled] {
+      width: 0;
+    }
+
+    &-mirror {
+      position: absolute;
+      top: 0;
+      left: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    &::placeholder {
+      color: @input-tag-color-placeholder;
+    }
+  }
+
+  &-tag {
+    max-width: 100%;
+    margin-right: @input-tag-tag-margin-right;
+    font-size: @input-tag-tag-font-size;
+  }
+
+  // 多状态下的颜色处理
+  .status-color(@status) {
+    background-color: ~'@{input-tag-color-bg_@{status}}';
+    color: ~'@{input-tag-color-text_@{status}}';
+    border: @input-tag-border-width solid ~'@{input-tag-color-border_@{status}}';
+
+    &:hover {
+      background-color: ~'@{input-tag-color-bg_@{status}_hover}';
+      border: @input-tag-border-width solid ~'@{input-tag-color-border_@{status}_hover}';
+    }
+
+    &.@{input-tag-prefix-cls}-focus when not (@status = disabled) {
+      background-color: ~'@{input-tag-color-bg_@{status}_focus}';
+      border: @input-tag-border-width solid ~'@{input-tag-color-border_@{status}_focus}';
+      box-shadow: 0 0 0 ~'@{input-tag-size-shadow_@{status}_focus}' ~'@{input-tag-color-shadow_@{status}_focus}';
+    }
+  }
+
+  .@{prefix}-icon-hover {
+    cursor: pointer;
+
+    &.@{prefix}-icon-hover-disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  .status-tag-color() {
+    .@{input-tag-prefix-cls}-tag {
+      color: @input-tag-color-text_default;
+      border-color: @input-tag-tag-color-border;
+      background-color: @input-tag-tag-color-bg;
+    }
+
+    .@{prefix}-icon-hover:hover::before {
+      background-color: @input-tag-tag-remove-icon-color-bg;
+    }
+
+    &.@{input-tag-prefix-cls}-focus {
+      .@{input-tag-prefix-cls}-tag {
+        border-color: @input-tag-tag-color-border_focus;
+        background-color: @input-tag-tag-color-bg_focus;
+      }
+
+      .@{prefix}-icon-hover:hover::before {
+        background-color: @input-tag-tag-remove-icon-color-bg_focus;
+      }
+    }
+
+    &.@{input-tag-prefix-cls}-disabled {
+      .@{input-tag-prefix-cls}-tag {
+        color: @input-tag-color-text_disabled;
+        border-color: @input-tag-tag-color-border_disabled;
+        background-color: @input-tag-tag-color-bg_disabled;
+      }
+    }
+  }
+
+  .status-color(default);
+  .status-tag-color();
+
+  &-warning {
+    .status-color(warning);
+  }
+
+  &-error {
+    .status-color(error);
+  }
+
+  &-disabled {
+    .status-color(disabled);
+
+    cursor: not-allowed;
+
+    .@{input-tag-prefix-cls}-input::placeholder {
+      color: @input-tag-color-text_disabled;
+    }
+  }
+
+  &-readonly {
+    cursor: default;
+  }
+
+  &-wrapper {
+    display: inline-flex;
+    align-items: stretch;
+    width: 100%;
+
+    .@{input-tag-prefix-cls} {
+      min-width: 0; // 避免 .arco-input-tag 宽度超出 .arco-input-tag-wrapper
+    }
+
+    .@{input-tag-prefix-cls}:not(.@{input-tag-prefix-cls}-focused) {
+      &:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      &:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+
+  &-addafter,
+  &-addbefore {
+    display: flex;
+    align-items: center;
+    padding: 0 @input-tag-addon-padding-horizontal;
+    color: @input-tag-color-addon-text;
+    background-color: @input-tag-color-addon-bg;
+    white-space: nowrap;
+    border: 1px solid @input-tag-color-addon-border_default;
+  }
+
+  &-addbefore {
+    border-right: @input-tag-border-addon-separator-width solid @input-tag-color-addon-border;
+    border-top-left-radius: @input-tag-border-radius;
+    border-bottom-left-radius: @input-tag-border-radius;
+  }
+
+  &-addafter {
+    border-left: @input-tag-border-addon-separator-width solid @input-tag-color-addon-border;
+    border-top-right-radius: @input-tag-border-radius;
+    border-bottom-right-radius: @input-tag-border-radius;
+  }
+}
+
+.@{input-tag-prefix-cls} {
+  .size(@size) {
+    &-size-@{size} {
+      @ref-font-size: ~'input-tag-size-@{size}-font-size';
+      @ref-height: ~'input-tag-size-@{size}-height';
+      @ref-tag-height: ~'input-tag-size-@{size}-tag-height';
+      @ref-padding-horizontal_not_tag: ~'input-tag-size-@{size}-padding_no_tag';
+
+      @font-size: @@ref-font-size;
+      @height: @@ref-height;
+      @tag-height: @@ref-tag-height;
+      @padding-horizontal_not_tag: @@ref-padding-horizontal_not_tag;
+
+      font-size: @font-size;
+
+      .@{input-tag-prefix-cls}-view {
+        min-height: @height - @input-tag-border-width * 2;
+      }
+
+      .@{input-tag-prefix-cls}-inner {
+        padding-top: (@height / 2) - (@tag-height / 2) - @input-tag-border-width -
+          @input-tag-tag-margin-vertical;
+        padding-bottom: $padding-top;
+      }
+
+      .@{input-tag-prefix-cls}-tag,
+      .@{input-tag-prefix-cls}-tag + .@{input-tag-prefix-cls}-input {
+        margin-top: (@input-tag-tag-margin-vertical / 2);
+        margin-bottom: $margin-top;
+        height: @tag-height;
+        line-height: $height - 2;
+      }
+
+      &.@{input-tag-prefix-cls}-has-placeholder {
+        input,
+        .@{input-tag-prefix-cls}-input-mirror {
+          box-sizing: border-box;
+          padding-left: @padding-horizontal_not_tag - @input-tag-padding-horizontal;
+        }
+      }
+    }
+  }
+
+  .size(mini);
+  .size(default);
+  .size(small);
+  .size(large);
+}
+
+.@{input-tag-prefix-cls}-rtl {
+  direction: rtl;
+  padding-right: @input-tag-padding-horizontal;
+  padding-left: @input-tag-padding-horizontal;
+
+  .@{input-tag-prefix-cls}-prefix {
+    padding-right: 8px;
+    padding-left: 4px;
+  }
+
+  .@{input-tag-prefix-cls}-suffix {
+    padding-right: 0;
+    padding-left: 8px;
+  }
+
+  .@{input-tag-prefix-cls}-tag {
+    margin-right: 0;
+    margin-left: @input-tag-tag-margin-right;
+  }
+
+  .@{input-tag-prefix-cls}-input {
+    &-mirror {
+      right: 0;
+      left: initial;
+    }
+  }
+
+  .size(@size) {
+    @ref-padding-horizontal_not_tag: ~'input-tag-size-@{size}-padding_no_tag';
+    @padding-horizontal_not_tag: @@ref-padding-horizontal_not_tag;
+
+    &.@{input-tag-prefix-cls}-size-@{size} {
+      &.@{input-tag-prefix-cls}-has-placeholder {
+        input,
+        .@{input-tag-prefix-cls}-input-mirror {
+          padding-right: @padding-horizontal_not_tag - @input-tag-padding-horizontal;
+        }
+      }
+    }
+  }
+
+  .size(mini);
+  .size(default);
+  .size(small);
+  .size(large);
+}
+
+.@{input-tag-prefix-cls}-wrapper-rtl {
+  .@{input-tag-prefix-cls}-addbefore {
+    border-right: unset;
+    border-left: @input-tag-border-addon-separator-width solid @input-tag-color-addon-border;
+  }
+
+  .@{input-tag-prefix-cls}-addafter {
+    border-left: unset;
+    border-right: @input-tag-border-addon-separator-width solid @input-tag-color-addon-border;
+  }
+}

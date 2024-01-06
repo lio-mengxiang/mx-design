@@ -1,0 +1,117 @@
+@import (reference) '../../Style/base.less';
+@import './cssVariables.less';
+
+@alert-prefix-cls: ~'@{prefix}-alert';
+
+.@{alert-prefix-cls} {
+  display: flex;
+  position: relative;
+  padding: var(--alert-padding);
+  border-radius: var(--alert-border-radius);
+  background-color: var(--alert-color-bg);
+  box-shadow: var(--alert-box-shadow);
+  overflow: hidden;
+  box-sizing: border-box;
+  pointer-events: auto;
+  align-items: center;
+
+
+  &-icon {
+    font-size: var(--alert-font-size-icon);
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &-info {
+    background-color: var(--alert-info-bg-color);
+    color: var(--alert-info-color);
+  }
+
+  &-info &-icon {
+    color: var(--alert-info-color);
+  }
+
+  &-success {
+    background-color: var(--alert-success-bg-color);
+    color: var(--alert-success-color);
+  }
+
+  &-success &-icon {
+    color: var(--alert-success-color);
+  }
+
+  &-warning {
+    background-color: var(--alert-warning-bg-color);
+    color: var(--alert-warning-color);
+  }
+
+  &-warning &-icon {
+    color: var(--alert-warning-color);
+  }
+
+  &-error {
+    background-color: var(--alert-error-bg-color);
+    color: var(--alert-error-color);
+  }
+
+  &-error &-icon {
+    color: var(--alert-error-color);
+  }
+
+  &-loading {
+    background-color: var(--alert-loading-bg-color);
+    color: var(--alert-loading-color);
+  }
+
+  &-loading &-icon {
+    color: var(--alert-loading-color);
+  }
+
+  &-left {
+    padding-right: var(--alert-icon-padding-right);
+    display: flex;
+    align-self: start;
+  }
+
+  &-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    word-break: break-word;
+  }
+
+  &-right_padding {
+    padding-right: var(--alert-right-padding);
+  }
+
+  &-title {
+    font-size: var(--alert-font-size-title);
+    font-weight: 500;
+    margin-bottom: var(--alert-title-margin-bottom);
+    line-height: 18px;
+  }
+
+  &-info &-title {
+    color: var(--alert-info-color);
+  }
+
+  &-content {
+    font-size: var(--alert-font-size-content);
+    line-height: 1;
+  }
+
+  &-operation-wrapper {
+    margin-left: 12px
+  }
+
+  & &-close-btn {
+    height: 18px;
+    cursor: pointer;
+    align-self: start;
+    font-size: 12px;
+
+    >svg {
+      position: relative;
+    }
+  }
+}

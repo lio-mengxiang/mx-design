@@ -1,0 +1,39 @@
+@import (reference) '../../Style/base.less';
+
+@message-prefix-cls: ~'@{prefix}-message';
+
+// fixed position
+.@{message-prefix-cls}-wrapper {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  padding: 0 20px;
+  flex-direction: column;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: var(--z-index-message);
+
+  &-top {
+    top: 20px;
+  }
+
+  &-top-left {
+    top: 20px;
+  }
+
+  &-top-right {
+    top: 20px;
+  }
+
+  &-bottom {
+    bottom: 20px;
+  }
+
+  &-bottom-left {
+    bottom: 20px;
+  }
+
+  &-bottom-right {
+    bottom: 20px;
+  }
+}

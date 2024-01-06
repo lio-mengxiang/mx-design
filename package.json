@@ -1,0 +1,78 @@
+{
+  "name": "@mx-design/web",
+  "version": "0.1.1",
+  "description": "best React UI components course",
+  "private": true,
+  "author": "lio_mengxiang <1334196450@qq.com>",
+  "license": "MIT",
+  "keywords": [
+    "mx",
+    "MxDesign",
+    "react",
+    "ui",
+    "component",
+    "library",
+    "course"
+  ],
+  "scripts": {
+    "clean": "pnpm -r clean && rimraf ./node_modules",
+    "build": "pnpm -r build",
+    "init": "pnpm install --shamefully-hoist && pnpm build",
+    "start:site": "cd apps/example && pnpm start",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@mx-design/cli": "2.3.7",
+    "@types/jsdom": "21.1.1",
+    "@types/node": "18.11.10",
+    "@types/react": "18.0.26",
+    "@types/react-dom": "18.0.9",
+    "@typescript-eslint/eslint-plugin": "5.45.0",
+    "@typescript-eslint/parser": "5.45.0",
+    "cross-env": "7.0.3",
+    "eslint": "8.28.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-config-react": "1.1.7",
+    "eslint-config-react-hooks": "1.0.0",
+    "eslint-plugin-babel": "5.3.1",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jsx-a11y": "6.6.1",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-react": "7.31.11",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "husky": "^8.0.3",
+    "jsdom": "21.1.1",
+    "less": "4.1.3",
+    "lint-staged": "^13.2.3",
+    "postcss": "8.4.19",
+    "postcss-less": "4.0.1",
+    "prettier": "2.8.7",
+    "rimraf": "3.0.2",
+    "stylelint": "^14.1.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^24.0.0",
+    "ts-node": "10.9.1",
+    "typescript": "5.0.4",
+    "vite": "5.0.10",
+    "vitest": "1.0.4",
+    "@vitejs/plugin-react": "4.2.1",
+    "@testing-library/jest-dom": "^6.0.1",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@babel/core",
+        "@types/node"
+      ]
+    }
+  },
+  "lint-staged": {
+    "{apps,packages}/**/!(*react-icon)/*.{js,ts}": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ]
+  }
+}
