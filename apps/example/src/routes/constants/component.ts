@@ -13,6 +13,7 @@ import {
   GRID_LAYOUT_KEY,
   ICON_KEY,
   INPUT_KEY,
+  INPUT_TAG,
   LAYOUT_TITLE_KEY,
   MESSAGE_KEY,
   MESSAGE_TITLE_KEY,
@@ -91,6 +92,10 @@ export const componentsMenuList = [
     title: DATA_SHOW_KEY,
     children: [
       {
+        title: TABLE_KEY,
+        path: `/${COMPONENTS_KEY}/${TABLE_KEY}`,
+      },
+      {
         title: SPIN_KEY,
         path: `/${COMPONENTS_KEY}/${SPIN_KEY}`,
       },
@@ -105,10 +110,6 @@ export const componentsMenuList = [
       {
         title: TAG_KEY,
         path: `/${COMPONENTS_KEY}/${TAG_KEY}`,
-      },
-      {
-        title: TABLE_KEY,
-        path: `/${COMPONENTS_KEY}/${TABLE_KEY}`,
       },
     ],
   },
@@ -130,6 +131,10 @@ export const componentsMenuList = [
       {
         title: SWITCH_KEY,
         path: `/${COMPONENTS_KEY}/${SWITCH_KEY}`,
+      },
+      {
+        title: INPUT_TAG,
+        path: `/${COMPONENTS_KEY}/${INPUT_TAG}`,
       },
     ],
   },
