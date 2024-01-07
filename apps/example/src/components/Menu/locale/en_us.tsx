@@ -27,6 +27,7 @@ import {
   PAGINATION_KEY,
   TABLE_KEY,
   SWITCH_KEY,
+  INPUT_TAG,
 } from '@/constants';
 
 export const en_us_site_menu = {
@@ -58,4 +59,5 @@ export const en_us_site_menu = {
   [PAGINATION_KEY]: 'Pagination',
   [TABLE_KEY]: 'Table',
   [SWITCH_KEY]: 'Switch',
+  [INPUT_TAG]: 'InputTag',
 };
