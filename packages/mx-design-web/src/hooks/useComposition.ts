@@ -65,7 +65,7 @@ export function useComposition({ value, maxLength, onChange, onKeyDown, onPressE
       if (!refIsComposition.current) {
         onKeyDown?.(e);
         if (keyCode === 'Enter') {
-          onPressEnter?.(e);
+          onPressEnter?.(e.target.value, e);
           normalizeHandler && triggerValueChange(normalizeHandler('onPressEnter')(e.target.value), e);
         }
       }

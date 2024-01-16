@@ -37,6 +37,7 @@ import {
   DRAWER_KEY,
   DROPDOWN_KEY,
   EMPTY_KEY,
+  GRID_KEY,
   GRID_LAYOUT_KEY,
   ICON_KEY,
   INPUT_KEY,
@@ -55,6 +56,7 @@ import {
   TAG_KEY,
   TOOLTIP_KEY,
 } from '@/constants';
+import { zh_cn_grid } from '@/pages/grid/locale';
 
 export const zh_cn = {
   [BUTTON_KEY]: zh_cn_button,
@@ -85,4 +87,5 @@ export const zh_cn = {
   [SWITCH_KEY]: zh_cn_switch,
   [SELECT_INPUT]: zh_cn_select_input,
   [INPUT_TAG]: zh_cn_input_tag,
+  [GRID_KEY]: zh_cn_grid,
 };

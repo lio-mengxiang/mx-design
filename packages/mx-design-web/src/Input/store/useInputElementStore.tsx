@@ -19,6 +19,7 @@ export function useInputElementStore(props: InputComponentProps & { rest: Record
     normalizeTrigger,
     onClear,
     autoFitWidth,
+    _needWrapper,
     rest,
   } = props;
 

@@ -5,13 +5,30 @@
   margin: 48px 0 8px;
   display: flex;
   align-items: center;
-  color: var(--text-color-primary)
+  color: var(--text-color-primary);
 }
 
 .demo-desc {
-  color: var(--text-color-primary)
+  color: var(--text-color-primary);
 }
 
 .demo-container {
   margin-top: 24px;
+}
+
+:global {
+  .grid-demo .mx-col:nth-child(2n + 1) {
+    background-color: var(--brand-color-4);
+  }
+
+  .grid-demo .mx-col {
+    height: 48px;
+    line-height: 48px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .grid-demo .mx-col:nth-child(2n) {
+    background-color: var(--brand-color-6);
+  }
 }

@@ -64,7 +64,7 @@ export interface InputProps
    * @zh 按下回车键的回调
    * @en Callback when press enter key
    */
-  onPressEnter?: (e) => void;
+  onPressEnter?: (value, e) => void;
   /**
    * @zh 指定 normalize 执行的时机
    * @en Specify the timing of normalize execution
@@ -133,7 +133,7 @@ export interface InputProps
    * @en Configure the icon of the clear button when `allowClear`.
    */
   clearIcon?: ReactNode;
-  _getInputValueRef?: MutableRefObject<string>;
+  _needWrapper?: boolean;
 }
 
 /**

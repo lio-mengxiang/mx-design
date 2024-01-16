@@ -39,7 +39,7 @@ export const InputComponent = React.forwardRef<RefInputType, InputComponentProps
       suffix,
       normalize,
       normalizeTrigger,
-      _getInputValueRef,
+      _needWrapper,
       themeStyle,
       slot,
       customSlot,
@@ -63,6 +63,7 @@ export const InputComponent = React.forwardRef<RefInputType, InputComponentProps
         maxLength: propMaxLength,
         normalizeTrigger,
         normalize,
+        _needWrapper,
       });
 
     // className

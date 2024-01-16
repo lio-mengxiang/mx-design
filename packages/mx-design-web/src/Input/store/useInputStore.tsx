@@ -7,7 +7,7 @@ import { SuffixElement } from '../components/suffixElement';
 import type { InputComponentProps, RefInputType } from '../interface';
 
 export function useInputStore(props: InputComponentProps) {
-  const { maxLength, prefixCls, suffix, showWordLimit, addBefore, addAfter, prefix, _getInputValueRef, customSlot } = props;
+  const { maxLength, prefixCls, suffix, showWordLimit, addBefore, addAfter, prefix, _needWrapper } = props;
   const trueMaxLength = maxLength?.length;
   const mergedMaxLength = maxLength?.errorOnly ? undefined : trueMaxLength;
 
@@ -26,13 +26,6 @@ export function useInputStore(props: InputComponentProps) {
     }
     props.onChange?.(value, e);
   };
-
-  useEffect(() => {
-    // eslint-disable-next-line no-prototype-builtins
-    if (_getInputValueRef?.hasOwnProperty('current')) {
-      _getInputValueRef.current = value;
-    }
-  }, [value]);
 
   const isCustomHeight = 'height' in props;
 
@@ -55,7 +48,7 @@ export function useInputStore(props: InputComponentProps) {
   }
 
   const status = props.status || (hasLengthError ? 'error' : undefined);
-  const needWrapper = !!addBefore || !!addAfter || !!suffixElement || !!prefix || !!customSlot;
+  const needWrapper = !!addBefore || !!addAfter || !!suffixElement || !!prefix || !!_needWrapper;
 
   return {
     needWrapper,

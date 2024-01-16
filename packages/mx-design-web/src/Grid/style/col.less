@@ -1,0 +1,129 @@
+@import (reference) '../../Style/base.less';
+
+@col-prefix-cls: ~'@{prefix}-col';
+
+.@{col-prefix-cls} {
+  position: relative;
+  box-sizing: border-box;
+
+  .span(@span, @adaptation) when (@span >= 0) {
+    .span((@span - 1), @adaptation);
+
+    @usedAdaptation: if(@adaptation = '', ~'', ~'-@{adaptation}');
+
+    &@{usedAdaptation}-@{span} {
+      .col-style(@span) when (@span > 0) {
+        display: block;
+        width: (100% / 24) * @span;
+        flex: 0 0 (100% / 24) * @span;
+      }
+
+      .col-style(@span) when (@span = 0) {
+        display: none;
+      }
+
+      .col-style(@span);
+    }
+  }
+
+  .offset(@offset, @adaptation) when (@offset >= 0) {
+    .offset((@offset - 1), @adaptation);
+
+    @usedAdaptation: if(@adaptation = '', ~'', ~'-@{adaptation}');
+
+    &@{usedAdaptation}-offset-@{offset} {
+      margin-left: (100% / 24) * @offset;
+    }
+  }
+
+  .order(@order, @adaptation) when (@order >= 0) {
+    .order((@order - 1), @adaptation);
+
+    @usedAdaptation: if(@adaptation = '', ~'', ~'-@{adaptation}');
+
+    &@{usedAdaptation}-order-@{order} {
+      order: @order;
+    }
+  }
+
+  .pull(@count, @adaptation) when (@count >= 0) {
+    .pull((@count - 1), @adaptation);
+
+    @usedAdaptation: if(@adaptation = '', ~'', ~'-@{adaptation}');
+
+    &@{usedAdaptation}-pull-@{count} {
+      right: (100% / 24) * @count;
+    }
+  }
+
+  .push(@count, @adaptation) when (@count >= 0) {
+    .push((@count - 1), @adaptation);
+
+    @usedAdaptation: if(@adaptation = '', ~'', ~'-@{adaptation}');
+
+    &@{usedAdaptation}-push-@{count} {
+      left: (100% / 24) * @count;
+    }
+  }
+
+  .span(24, '');
+  .offset(23, '');
+  .order(24, '');
+  .pull(24, '');
+  .push(24, '');
+
+  // adaptation
+  .span(24, xs);
+  .offset(23, xs);
+  .order(24, xs);
+  .pull(24, xs);
+  .push(24, xs);
+
+  @media (min-width: 576px) {
+    .span(24, sm);
+    .offset(23, sm);
+    .order(24, sm);
+    .pull(24, sm);
+    .push(24, sm);
+  }
+
+  @media (min-width: 768px) {
+    .span(24, md);
+    .offset(23, md);
+    .order(24, md);
+    .pull(24, md);
+    .push(24, md);
+  }
+
+  @media (min-width: 992px) {
+    .span(24, lg);
+    .offset(23, lg);
+    .order(24, lg);
+    .pull(24, lg);
+    .push(24, lg);
+  }
+
+  @media (min-width: 1200px) {
+    .span(24, xl);
+    .offset(23, xl);
+    .order(24, xl);
+    .pull(24, xl);
+    .push(24, xl);
+  }
+
+  @media (min-width: 1600px) {
+    .span(24, xxl);
+    .offset(23, xxl);
+    .order(24, xxl);
+    .pull(24, xxl);
+    .push(24, xxl);
+  }
+
+  @media (min-width: 2000px) {
+    .span(24, xxxl);
+    .offset(23, xxxl);
+    .order(24, xxxl);
+    .pull(24, xxxl);
+    .push(24, xxxl);
+  }
+}

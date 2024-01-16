@@ -48,7 +48,7 @@ const divStyle = {
 }
 
 function App() {
-  const [selectValue, setSelectValue] = React.useState(OPTIONS[0]);
+  const [selectValue, setSelectValue] = React.useState(OPTIONS[0].label);
   const [popupVisible, setPopupVisible] = React.useState(false);
 
   const onOptionClick = (item) => {
@@ -74,15 +74,16 @@ function App() {
         value={selectValue}
         popupVisible={popupVisible}
         style={{ width: '300px' }}
-        placeholder="Please Select"
-        allowClear
-        allowInput
+        inputProps={{
+          placeholder: 'Please Select',
+          allowClear: true,
+          onClear,
+        }}
         onPopupVisibleChange={onPopupVisibleChange}
-        onClear={onClear}
         panel={
-          <div className='select-input-basic-container'>
+          <div className="select-input-basic-container">
             {OPTIONS.map((item) => (
-              <li key={item.value} onClick={() => onOptionClick(item)}>
+              <li key={item.value} onClick={() => onOptionClick(item.label)}>
                 {item.label}
               </li>
             ))}

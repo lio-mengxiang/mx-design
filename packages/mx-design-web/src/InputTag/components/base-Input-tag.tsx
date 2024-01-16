@@ -28,7 +28,7 @@ interface BaseInputTagProps {
   rest: Record<string, any>;
 }
 
-export function BaseInputTag(props: BaseInputTagProps) {
+function BaseInputTag(props: BaseInputTagProps, ref) {
   const {
     needWrapper,
     className,
@@ -65,6 +65,7 @@ export function BaseInputTag(props: BaseInputTagProps) {
         !focused && refInput.current?.focus();
         onClick?.(e);
       }}
+      ref={ref}
     >
       <div className={`${prefixCls}-view`}>
         {hasPrefix && (
@@ -105,3 +106,4 @@ export function BaseInputTag(props: BaseInputTagProps) {
     </div>
   );
 }
+export const BaseInputTagComponent = React.forwardRef<any, BaseInputTagProps>(BaseInputTag);

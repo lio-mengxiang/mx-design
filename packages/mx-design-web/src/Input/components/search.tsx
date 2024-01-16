@@ -34,7 +34,6 @@ export const Search = React.forwardRef<RefInputType, InputSearchProps>((props: I
       className={classNames}
       style={style}
       ref={ref}
-      _getInputValueRef={getInputValueRef}
       addAfter={
         searchButton ? (
           <Button
@@ -53,9 +52,9 @@ export const Search = React.forwardRef<RefInputType, InputSearchProps>((props: I
       onChange={(value, e) => {
         props.onChange?.(value, e);
       }}
-      onPressEnter={() => {
+      onPressEnter={(value, e) => {
         onSearch();
-        props.onPressEnter?.(getInputValueRef.current);
+        props.onPressEnter?.(value, e);
       }}
     />
   );
