@@ -53,7 +53,9 @@ import {
   SWITCH_KEY,
   SELECT_INPUT,
   INPUT_TAG,
+  GRID_KEY,
 } from '@/constants';
+import { en_us_grid } from '@/pages/grid/locale';
 
 export const en_us = {
   [BUTTON_KEY]: en_us_button,
@@ -84,4 +86,5 @@ export const en_us = {
   [SWITCH_KEY]: en_us_switch,
   [SELECT_INPUT]: en_us_select_input,
   [INPUT_TAG]: en_us_input_tag,
+  [GRID_KEY]: en_us_grid,
 };

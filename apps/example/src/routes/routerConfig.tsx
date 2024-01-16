@@ -27,6 +27,7 @@ import {
   SwitchExample,
   SelectInput,
   InputTag,
+  Grid,
 } from './routes';
 import { Page404 } from '@/components/Status/404';
 import {
@@ -39,6 +40,7 @@ import {
   DRAWER_KEY,
   DROPDOWN_KEY,
   EMPTY_KEY,
+  GRID_KEY,
   GRID_LAYOUT_KEY,
   ICON_KEY,
   INPUT_KEY,
@@ -100,10 +102,10 @@ export const routerConfig = [
           { path: SWITCH_KEY, element: <SwitchExample /> },
           { path: SELECT_INPUT, element: <SelectInput /> },
           { path: INPUT_TAG, element: <InputTag /> },
+          { path: GRID_KEY, element: <Grid /> },
           { path: '*', element: <Navigate to={BUTTON_KEY} replace /> },
         ],
       },
-      { path: `${COMPONENTS_KEY}/`, element: <Navigate to={`${COMPONENTS_KEY}/${BUTTON_KEY}`} replace /> },
     ],
   },
   {

@@ -1,11 +1,11 @@
-import React, { useContext, useImperativeHandle } from 'react';
+import React, { useContext, useImperativeHandle, useRef } from 'react';
 import { useMergeProps } from '@mx-design/hooks';
 import { cs } from '@mx-design/web-utils';
 import { InputComponent } from '../../Input/components/input-element';
 import { ConfigContext } from '../../ConfigProvider';
 import { handleTokenSeparators, mergedRenderTag, tryAddInputValueToTag } from '../utils';
 import { useInputTagStore } from '../store';
-import { BaseInputTag } from './base-Input-tag';
+import { BaseInputTagComponent } from './base-Input-tag';
 // type
 import type { InputTagHandle, InputTagProps, ObjectValueType } from '../interface';
 
@@ -17,6 +17,7 @@ function InputTag(baseProps: InputTagProps<string | ObjectValueType>, ref) {
   const { getPrefixCls, componentConfig } = useContext(ConfigContext);
   const props = useMergeProps<InputTagProps>(baseProps, defaultProps, componentConfig?.InputTag);
   const prefixCls = getPrefixCls('input-tag');
+  const wrapperRef = useRef();
   const {
     className,
     style,
@@ -97,18 +98,54 @@ function InputTag(baseProps: InputTagProps<string | ObjectValueType>, ref) {
       return {
         blur: refInput.current?.blur,
         focus: refInput.current?.focus,
+        dom: wrapperRef.current,
       };
     },
     []
   );
 
+  // const maxTagCountNumber = isObject(maxTagCount) ? maxTagCount.count : maxTagCount;
+
+  // const maxTagCountRender =
+  //   isObject(maxTagCount) && isFunction(maxTagCount.render) ? maxTagCount.render : (invisibleCount) => `+${invisibleCount}...`;
+
+  // const usedMaxTagCount = typeof maxTagCountNumber === 'number' ? Math.max(maxTagCountNumber, 0) : usedValue.length;
+  // const tagsToShow: ObjectValueType[] = [];
+  // let lastClosableTagIndex = -1;
+
+  // for (let i = usedValue.length - 1; i >= 0; i--) {
+  //   const v = usedValue[i];
+  //   const result = renderText(v);
+  //   if (i < usedMaxTagCount) {
+  //     tagsToShow.unshift({
+  //       value: v,
+  //       label: result.text,
+  //       closable: !result.disabled,
+  //     });
+  //   }
+  //   if (!result.disabled && lastClosableTagIndex === -1) {
+  //     lastClosableTagIndex = i;
+  //   }
+  // }
+
+  // const invisibleTagCount = usedValue.length - usedMaxTagCount;
+  // if (invisibleTagCount > 0) {
+  //   tagsToShow.push({
+  //     label: maxTagCountRender(invisibleTagCount),
+  //     closable: false,
+  //     // InputTag needs to extract value as key
+  //     value: MAX_TAG_COUNT_VALUE_PLACEHOLDER,
+  //   });
+  // }
+
   const eleInputTagCore = (
-    <BaseInputTag
+    <BaseInputTagComponent
       needWrapper={needWrapper}
       className={className}
       style={style}
       focused={focused}
       refInput={refInput}
+      ref={wrapperRef}
       onClick={onClick}
       prefixCls={prefixCls}
       hasPrefix={hasPrefix}
@@ -152,7 +189,7 @@ function InputTag(baseProps: InputTagProps<string | ObjectValueType>, ref) {
           pure: true,
           minWidth: value.length ? undefined : '100%',
         }}
-        onPressEnter={async (e) => {
+        onPressEnter={async (val, e) => {
           inputValue && e.preventDefault();
           onPressEnter?.(e);
           await tryAddInputValueToTag({ validate, inputValue, value, setInputValue, disabled, readOnly, setValue, onChange, labelInValue });
@@ -229,7 +266,7 @@ function InputTag(baseProps: InputTagProps<string | ObjectValueType>, ref) {
           });
         }}
       />
-    </BaseInputTag>
+    </BaseInputTagComponent>
   );
 
   return needWrapper ? (

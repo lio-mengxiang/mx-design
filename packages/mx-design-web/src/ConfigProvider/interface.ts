@@ -26,6 +26,7 @@ import type { PaginationProps } from '../Pagination';
 import type { SwitchProps } from '../Switch/interface';
 import type { InputTagProps } from '../InputTag';
 import { EN_US, ZH_CN } from '../Locale/constants';
+import type { ColProps, RowProps } from '../Grid';
 
 export interface ComponentConfig {
   Empty?: Partial<EmptyProps>;
@@ -54,6 +55,8 @@ export interface ComponentConfig {
   Pagination: Partial<PaginationProps>;
   Switch: Partial<SwitchProps>;
   InputTag: Partial<InputTagProps>;
+  Row: Partial<RowProps>;
+  Col: Partial<ColProps>;
 }
 
 /**

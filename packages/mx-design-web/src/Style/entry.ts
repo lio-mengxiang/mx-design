@@ -23,3 +23,4 @@ import '../Table/style/index.less';
 import '../Pagination/style/index.less';
 import '../Switch/style/index.less';
 import '../InputTag/style/index.less';
+import '../Grid/style/index.less';

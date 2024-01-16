@@ -26,5 +26,6 @@ export * from './Pagination';
 export * from './Switch';
 export * from './SelectInput';
 export * from './InputTag';
+export * from './Grid';
 // style
 export * from './Style';

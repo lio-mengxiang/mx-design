@@ -1,33 +1,15 @@
-import React, { useRef, MouseEvent, useContext } from 'react';
+import React, { useRef, MouseEvent } from 'react';
 import { useMergeValue } from '@mx-design/hooks';
-import { pick } from '@mx-design/web-utils';
 import { Input } from '../../Input';
 import { IconLoading } from '../../Icon';
-import { getInputValue } from '../utils';
-import { ConfigContext } from '../../ConfigProvider';
-import { useSingleClassNames } from './useSingleClassNames';
-import { COMMON_PROPERTIES } from '../constants';
-import type { SelectInputCommonProperties, SelectInputProps } from '../interface';
+import type { SelectInputProps } from '../interface';
 import type { InputProps } from '../../Input';
 
-export function useSingle(props: SelectInputProps) {
-  const { getPrefixCls } = useContext(ConfigContext);
-  const {
-    value,
-    keys,
-    loading,
-    inputValue: controlledInputValue,
-    defaultInputValue,
-    inputProps,
-    onEnter,
-    onFocus,
-    onClear,
-    suffix,
-    valueDisplay,
-    allowInput,
-    className,
-    popupVisible,
-  } = props;
+export function useSingle(
+  props: Pick<SelectInputProps, 'value' | 'loading' | 'inputProps' | 'inputValue' | 'defaultInputValue' | 'disabled'> & { visible: boolean }
+) {
+  const { value, loading, inputProps, inputValue: controlledInputValue, defaultInputValue, disabled, visible } = props;
+  const { suffix, onClear, placeholder, customSlot, onFocus, onPressEnter, status, readOnly = true } = inputProps;
 
   const inputRef = useRef();
   const [inputValue, setInputValue] = useMergeValue('', {
@@ -35,59 +17,45 @@ export function useSingle(props: SelectInputProps) {
     defaultValue: defaultInputValue,
   });
 
-  const commonInputProps: SelectInputCommonProperties = {
-    ...pick(props, COMMON_PROPERTIES),
-    suffix: loading ? <IconLoading spin /> : suffix,
-  };
-
   const onInnerClear = (e: MouseEvent<SVGSVGElement>) => {
-    e?.stopPropagation();
     onClear?.(e);
     setInputValue('');
   };
 
   const onInnerInputChange: InputProps['onChange'] = (value) => {
-    if (props.allowInput) {
-      setInputValue(value);
-    }
+    if (readOnly || disabled) return;
+    setInputValue(value);
   };
 
-  const { inputCls } = useSingleClassNames({ getPrefixCls, className, popupVisible });
-
-  const renderSelectSingle = (popupVisible: boolean) => {
-    const displayedValue = popupVisible && props.allowInput ? inputValue : getInputValue(value, keys);
+  const renderSelect = () => {
+    const displayedValue = visible && !readOnly ? inputValue : value;
 
     return (
       <Input
         ref={inputRef}
-        {...commonInputProps}
-        placeholder={valueDisplay ? '' : props.placeholder}
-        value={valueDisplay ? ' ' : displayedValue}
-        customSlot={
-          <>
-            {props.label}
-            {valueDisplay}
-          </>
-        }
-        onChange={onInnerInputChange}
-        readOnly={!allowInput}
-        onClear={onInnerClear}
+        disabled={disabled}
+        readOnly={readOnly}
+        status={status}
+        placeholder={customSlot ? '' : placeholder}
+        value={customSlot ? ' ' : (displayedValue as string)}
+        customSlot
         onFocus={(e) => {
           onFocus?.(value, { e });
         }}
         onPressEnter={(e) => {
-          onEnter?.(value, { e });
+          onPressEnter?.(value, { e });
         }}
         {...inputProps}
-        className={inputCls}
+        onChange={onInnerInputChange}
+        onClear={onInnerClear}
+        suffix={loading ? <IconLoading spin /> : suffix}
+        _needWrapper
       />
     );
   };
 
   return {
     inputRef,
-    commonInputProps,
-    onInnerClear,
-    renderSelectSingle,
+    renderSelect,
   };
 }

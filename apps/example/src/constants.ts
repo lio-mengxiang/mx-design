@@ -31,3 +31,4 @@ export const TABLE_KEY = 'table';
 export const SWITCH_KEY = 'switch';
 export const SELECT_INPUT = 'select-input';
 export const INPUT_TAG = 'input-tag';
+export const GRID_KEY = 'grid';

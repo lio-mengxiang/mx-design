@@ -1,0 +1,10 @@
+export const Basic = 'Basic';
+export const OffsetOfCol = 'OffsetOfCol';
+export const PushPull = 'PushPull';
+export const IntervalOfGrid = 'IntervalOfGrid';
+export const HorizontalLayout = 'HorizontalLayout';
+export const VerticalLayout = 'VerticalLayout';
+export const ResponsiveLayout = 'ResponsiveLayout';
+export const Order = 'Order';
+export const AdvancedResponsiveLayout = 'AdvancedResponsiveLayout';
+export const Flex = 'Flex';
