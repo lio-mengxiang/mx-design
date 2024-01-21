@@ -9,6 +9,7 @@ import {
   DATA_INPUT_KEY,
   DATA_SHOW_KEY,
   DRAWER_KEY,
+  DROPDOWN_KEY,
   EMPTY_KEY,
   GRID_LAYOUT_KEY,
   ICON_KEY,
@@ -152,6 +153,10 @@ export const componentsMenuList = [
       {
         title: PAGINATION_KEY,
         path: `/${COMPONENTS_KEY}/${PAGINATION_KEY}`,
+      },
+      {
+        title: DROPDOWN_KEY,
+        path: `/${COMPONENTS_KEY}/${DROPDOWN_KEY}`,
       },
     ],
   },

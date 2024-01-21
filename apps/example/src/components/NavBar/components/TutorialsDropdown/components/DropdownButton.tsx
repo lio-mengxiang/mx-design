@@ -17,8 +17,8 @@ export function DropdownButton() {
           strategy: 'fixed',
         },
       }}
-      visibleStatus
       customElement={<TutorialsDropdown lists={lists} />}
+      addVisibleStatus
     >
       <TutorialsButton />
     </Dropdown>

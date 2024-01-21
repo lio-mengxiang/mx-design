@@ -28,6 +28,7 @@ import {
   TABLE_KEY,
   SWITCH_KEY,
   INPUT_TAG,
+  DROPDOWN_KEY,
 } from '@/constants';
 
 export const en_us_site_menu = {
@@ -60,4 +61,5 @@ export const en_us_site_menu = {
   [TABLE_KEY]: 'Table',
   [SWITCH_KEY]: 'Switch',
   [INPUT_TAG]: 'InputTag',
+  [DROPDOWN_KEY]: 'Dropdown',
 };

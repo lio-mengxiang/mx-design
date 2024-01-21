@@ -31,7 +31,7 @@ export const responsiveObserve = {
       token,
       func,
     });
-    // screens includes which media size is current window
+    // screens includes what media size is in current window
     func(screens, null);
     return token;
   },

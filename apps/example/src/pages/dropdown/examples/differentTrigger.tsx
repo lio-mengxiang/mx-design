@@ -29,8 +29,8 @@ function App() {
       <Dropdown trigger="click" droplist={droplist}>
         <Button>Click me</Button>
       </Dropdown>
-      <Dropdown trigger="click" droplist={droplist}>
-        <Button>Click me</Button>
+      <Dropdown trigger="focus" droplist={droplist} >
+        <Input style={{ width: 350 }} placeholder="Please Enter something" />
       </Dropdown>
       <Dropdown trigger="context-menu" droplist={droplist}>
         <Button>Right Click</Button>

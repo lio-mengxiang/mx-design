@@ -1,4 +1,4 @@
-import React, { useContext, forwardRef, useMemo, useState } from 'react';
+import React, { useContext, forwardRef, useMemo } from 'react';
 import { useMergeProps, useMergeValue } from '@mx-design/hooks';
 import { cs } from '@mx-design/web-utils';
 import { ConfigContext } from '../../ConfigProvider';
@@ -6,7 +6,7 @@ import MenuContext from './context';
 import { generateInfoMap } from './utils';
 import HorizontalItem from './horizontalItem';
 import SubMenu from './subMenu';
-import { DropdownProps } from '../../Dropdown';
+// import { DropdownProps } from '../../Dropdown';
 // type
 import type { HorizontalMenuMenuProps } from './interface';
 
@@ -15,8 +15,8 @@ export type MenuMenuProps = HorizontalMenuMenuProps & {
     keyPath?: string[];
   };
   prefixCls: string;
-  maxHeight?: DropdownProps['maxHeight'];
-  maxWidth?: DropdownProps['maxWidth'];
+  // maxHeight?: DropdownProps['maxHeight'];
+  // maxWidth?: DropdownProps['maxWidth'];
   isDropDown?: boolean;
 };
 
@@ -41,8 +41,6 @@ function HorizontalMenu(baseProps: MenuMenuProps, ref) {
     menuList,
     popupProps,
     placement,
-    maxHeight,
-    maxWidth,
     isDropDown,
     disabled,
     ...rest
@@ -81,8 +79,8 @@ function HorizontalMenu(baseProps: MenuMenuProps, ref) {
           prefixCls,
           menuInfoMap,
           selectable,
-          maxHeight,
-          maxWidth,
+          // maxHeight,
+          // maxWidth,
           disabled,
           isDropDown,
           onClickMenuItem: (key, event) => {

@@ -30,3 +30,4 @@ export const SwitchExample = load(() => import('@/pages/switch'));
 export const SelectInput = load(() => import('@/pages/selectInput'));
 export const InputTag = load(() => import('@/pages/inputTag'));
 export const Grid = load(() => import('@/pages/grid'));
+export const Dropdown = load(() => import('@/pages/dropdown'));

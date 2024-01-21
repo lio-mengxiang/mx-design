@@ -5,7 +5,7 @@ import { Button } from '@mx-design/web';
 
 const rowStyle = {
   marginBottom: 40,
- backgroundColor: 'var(--bg-color-component)'
+  backgroundColor: 'var(--bg-color-component)'
 };
 const titleStyle = {
   fontSize: 12,

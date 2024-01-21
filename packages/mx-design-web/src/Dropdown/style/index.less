@@ -6,11 +6,12 @@
 .@{dropdown-prefix-cls} {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding: var(--dropdown-padding);
   list-style: none;
   font-size: var(--dropdown-text-font-size);
   position: relative;
   box-shadow: var(--dropdown-box-shadow);
+  background: var(--dropdown-bg);
   border-radius: var(--dropdown-border-radius);
 
   &-menu {
@@ -35,8 +36,8 @@
 
   &-item {
     box-sizing: border-box;
-    height: 36px;
-    line-height: 36px;
+    height: var(--dropdown-item-height);
+    line-height: var(--dropdown-item-height);
     cursor: pointer;
     user-select: none;
     outline: none;
