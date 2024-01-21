@@ -32,7 +32,7 @@ function App() {
 
   return (
     <Space>
-      <Dropdown droplist={droplist} style={{ width: '220px' }} trigger="click">
+      <Dropdown droplist={droplist} style={{ width: '220px' }}>
         <Button>Hover me</Button>
       </Dropdown>
     </Space>
