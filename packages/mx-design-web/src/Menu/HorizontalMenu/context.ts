@@ -11,8 +11,8 @@ const HorizontalMenuMenuContext = createContext<
       };
     };
     selectable?: HorizontalMenuMenuProps['selectable'];
-    maxHeight?: MenuMenuProps['maxHeight'];
-    maxWidth?: MenuMenuProps['maxWidth'];
+    // maxHeight?: MenuMenuProps['maxHeight'];
+    // maxWidth?: MenuMenuProps['maxWidth'];
     ellipsis?: boolean;
     isDropDown?: MenuMenuProps['isDropDown'];
     disabled?: HorizontalMenuMenuProps['disabled'];

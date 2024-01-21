@@ -28,6 +28,7 @@ import {
   SelectInput,
   InputTag,
   Grid,
+  Dropdown,
 } from './routes';
 import { Page404 } from '@/components/Status/404';
 import {
@@ -102,6 +103,7 @@ export const routerConfig = [
           { path: SWITCH_KEY, element: <SwitchExample /> },
           { path: SELECT_INPUT, element: <SelectInput /> },
           { path: INPUT_TAG, element: <InputTag /> },
+          { path: DROPDOWN_KEY, element: <Dropdown /> },
           { path: GRID_KEY, element: <Grid /> },
           { path: '*', element: <Navigate to={BUTTON_KEY} replace /> },
         ],

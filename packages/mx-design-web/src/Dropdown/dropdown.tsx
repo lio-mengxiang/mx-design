@@ -35,7 +35,7 @@ function Dropdown(baseProps: DropdownProps) {
     maxWidth,
     customElement,
     themeStyle,
-    visibleStatus,
+    addVisibleStatus,
   } = props;
 
   // classnames
@@ -54,7 +54,7 @@ function Dropdown(baseProps: DropdownProps) {
 
   const renderPopup = () => {
     if (customElement) {
-      return visibleStatus
+      return addVisibleStatus
         ? React.cloneElement(customElement, {
             ...(typeof disabled === 'boolean' ? { disabled, visible: isPopupVisible } : { visible: isPopupVisible }),
             onClickMenuItem: handleMenuClick,
@@ -66,8 +66,8 @@ function Dropdown(baseProps: DropdownProps) {
       <HorizontalMenu
         isDropDown
         disabled={disabled}
-        maxHeight={maxHeight}
-        maxWidth={maxWidth}
+        // maxHeight={maxHeight}
+        // maxWidth={maxWidth}
         prefixCls={dropdownClass}
         menuList={droplist}
         selectable
@@ -78,19 +78,20 @@ function Dropdown(baseProps: DropdownProps) {
 
   return (
     <Popup
+      isDropDown
       placement={placement}
       disabled={disabled}
       trigger={trigger}
       showArrow={false}
       content={renderPopup}
       visible={isPopupVisible}
-      overlayInnerClassName={cs(dropdownClass, className, popupProps?.overlayInnerClassName, themeStyle)}
-      overlayInnerStyle={{ ...style, maxHeight, maxWidth }}
+      overlayInnerClassName={cs(dropdownClass, className, popupProps?.overlayInnerClassName)}
+      overlayInnerStyle={{ ...style, ...themeStyle, maxHeight: maxHeight || style?.maxHeight, maxWidth: maxWidth || style?.maxWidth }}
       onVisibleChange={changePopupVisible}
       {...omit(popupProps, ['children', 'content', 'visible', 'isCloseClickAway'])}
     >
       {React.isValidElement(arrayChildren?.[0])
-        ? visibleStatus
+        ? addVisibleStatus
           ? React.cloneElement(arrayChildren?.[0] as ReactElement, {
               ...(typeof disabled === 'boolean' ? { disabled, visible: isPopupVisible } : { visible: isPopupVisible }),
             })

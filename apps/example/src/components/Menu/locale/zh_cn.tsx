@@ -28,6 +28,7 @@ import {
   TABLE_KEY,
   SWITCH_KEY,
   INPUT_TAG,
+  DROPDOWN_KEY,
 } from '@/constants';
 
 export const zh_cn_site_menu = {
@@ -60,4 +61,5 @@ export const zh_cn_site_menu = {
   [TABLE_KEY]: '表格 Table',
   [SWITCH_KEY]: '开关 Switch',
   [INPUT_TAG]: '标签输入框 InputTag',
+  [DROPDOWN_KEY]: '下拉菜单 Dropdown',
 };

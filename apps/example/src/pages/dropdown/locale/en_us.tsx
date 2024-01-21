@@ -1,5 +1,5 @@
 import React from 'react';
-import { Basic, Position, Disabled, DifferentTrigger } from './constants';
+import { Basic, Position, Disabled, DifferentTrigger, GetDisabledStatus, ItemStyle } from './constants';
 
 export const en_us_dropdown = {
   [Basic]: {
@@ -31,43 +31,25 @@ export const en_us_dropdown = {
       </>
     ),
   },
-  // [FloatingLayer]: {
-  //   title: 'Style and className',
-  //   desc: (
-  //     <div>
-  //       <div>
-  //         Overlay style can be controlled by <code className="mx-code">overlayClassName</code>、
-  //         <code className="mx-code">overlayStyle</code>、<code className="mx-code"> overlayInnerStyle</code>
-  //       </div>
-  //       <div className="mt4">1、overlayClassName is used to define the overlay className</div>
-  //       <div className="mt4">2、overlayStyle is used to define the style of the overlay</div>
-  //       <div className="mt4">3、 overlayInnerStyle is used to define some styles of the content of the overlay layer</div>
-  //     </div>
-  //   ),
-  // },
-  // [Controlled]: {
-  //   title: 'Controlled',
-  //   desc: (
-  //     <>
-  //       You can freely control the display or hiding of the pop-up layer through<code className="mx-code">visible</code>
-  //     </>
-  //   ),
-  // },
-  // [Mount]: {
-  //   title: 'Mount parent',
-  //   desc: (
-  //     <>
-  //       The default parent node of the floating layer is body , you can freely adjust the mounted parent node element through{' '}
-  //       <code className="mx-code">attach</code>
-  //     </>
-  //   ),
-  // },
-  // [Disabled]: {
-  //   title: 'Disabled',
-  //   desc: 'When the component is disabled, the pop-up layer will no longer be displayed',
-  // },
-  // [Dynamic]: {
-  //   title: 'Dynamic Adaptive',
-  //   desc: 'When the trigger or popup display content changes dynamically, adjust the position adaptively',
-  // },
+  [GetDisabledStatus]: {
+    title: 'The child component gets the disabled and visible states',
+    desc: (
+      <div>
+        Firstly, child component need to be wrapped by <code className="mx-code">React.forwardRef</code> and be passed{' '}
+        <code className="mx-code">ref</code>.Then child component's<code className="mx-code">props</code>
+        include <code className="mx-code">disabled</code>
+        param that represent disabled status for and <code className="mx-code">visible</code>
+        param that represent if dropdown is show, finally we should pass some event <code className="mx-code">props</code> in the props to
+        child component
+      </div>
+    ),
+  },
+  [ItemStyle]: {
+    title: 'Custom style',
+    desc: (
+      <>
+        Passing <code className="mx-code">style</code> property to custom style
+      </>
+    ),
+  },
 };

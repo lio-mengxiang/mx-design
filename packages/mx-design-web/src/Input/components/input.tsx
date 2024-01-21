@@ -49,7 +49,7 @@ function Input(baseProps: InputProps, ref) {
     () => {
       return {
         ...inputRef.current,
-        dom: wrapperRef.current,
+        dom: wrapperRef.current || inputRef.current.inputDom,
       };
     },
     []

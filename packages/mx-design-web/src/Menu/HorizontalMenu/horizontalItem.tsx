@@ -6,7 +6,7 @@ import { MenuItemProps } from './interface';
 
 function HorizontalItem(props: MenuItemProps) {
   const { uid, className, style, title, disabled, icon, divider, ...rest } = props;
-  const { prefixCls, selectedKeys, onClickMenuItem, ellipsis, menuInfoMap } = useContext(MenuContext);
+  const { prefixCls, selectedKeys, onClickMenuItem, ellipsis } = useContext(MenuContext);
   const isSelected = selectedKeys && ~selectedKeys.indexOf(uid);
 
   const menuItemClickHandler = (event) => {
@@ -22,22 +22,19 @@ function HorizontalItem(props: MenuItemProps) {
         tabIndex={-1}
         role="menuitem"
         data-key={uid}
-        style={style}
-        className={cs(
-          `${prefixCls}-item`,
-          {
-            [`${prefixCls}-item-disabled`]: disabled,
-            [`${prefixCls}-item-selected`]: isSelected,
-          },
-          className
-        )}
+        className={cs(`${prefixCls}-item`, {
+          [`${prefixCls}-item-disabled`]: disabled,
+          [`${prefixCls}-item-selected`]: isSelected,
+        })}
         onClick={menuItemClickHandler}
         {...omit(rest, ['keyPath'])}
       >
         {icon ? <div className={`${prefixCls}-dropdown-item-icon`}>{icon}</div> : null}
-        <span className={cs({ [`${prefixCls}-item-text`]: ellipsis })}>{title}</span>
+        <div style={style} className={cs({ [`${prefixCls}-item-text`]: ellipsis, className })}>
+          {title}
+        </div>
       </div>
-      {divider ? <div className={cs(`${prefixCls}-item`)} /> : null}
+      {divider ? <div className={cs(`${prefixCls}-divider`)} /> : null}
     </>
   );
 

@@ -11,6 +11,7 @@ export interface PopupProps {
    */
   attach?: PortalProps['attach'];
   unmountOnExit?: any;
+  isDropDown?: boolean;
   /**
    * 浮层里面的内容
    */

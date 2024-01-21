@@ -43,6 +43,7 @@ export const Popup = forwardRef((baseProps: PopupProps, ref: React.RefObject<Pop
     popperOptions,
     themeStyle,
     unmountOnExit,
+    isDropDown,
   } = props;
 
   // classnames
@@ -51,6 +52,7 @@ export const Popup = forwardRef((baseProps: PopupProps, ref: React.RefObject<Pop
     showArrow,
     overlayInnerClassName,
     overlayClassName,
+    isDropDown,
   });
 
   const [visible, onVisibleChange] = useMergeValue(false, {

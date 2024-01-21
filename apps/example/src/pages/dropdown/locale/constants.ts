@@ -6,4 +6,5 @@ export const FloatingLayer = 'FloatingLayer';
 export const Controlled = 'Controlled';
 export const Mount = 'Mount';
 export const Disabled = 'Disabled';
-export const Dynamic = 'Dynamic';
+export const GetDisabledStatus = 'GetDisabledStatus';
+export const ItemStyle = 'ItemStyle';
