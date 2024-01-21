@@ -10,16 +10,6 @@ function App() {
       uid: 1,
       title: 'ChengDu',
       divider: true,
-      children: [
-        {
-          uid: 5,
-          title: 'XiAn'
-        },
-        {
-          uid: 6,
-          title: 'DongBei'
-        }
-      ]
     },
     {
       uid: 2,

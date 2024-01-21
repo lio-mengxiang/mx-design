@@ -8,21 +8,21 @@ function App() {
   const droplist = [
     {
       uid: 1,
-      title: 'ChengDu',
-      children: [
-        {
-          uid: 5,
-          title: 'XiAn'
-        },
-        {
-          uid: 6,
-          title: 'DongBei'
-        }
-      ]
+      title: 'Beijing',
     },
     {
       uid: 2,
-      title: 'XiAn'
+      title: 'Chengdu',
+      children: [
+        {
+          uid: 5,
+          title: 'ShuangLiu'
+        },
+        {
+          uid: 6,
+          title: 'WUHou'
+        }
+      ]
     },
     {
       uid: 3,
