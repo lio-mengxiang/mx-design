@@ -105,6 +105,7 @@ function Demo(props) {
         placeholder: 'Please Select',
         allowClear: true,
         onClear,
+        readOnly: props.readOnly
         ...props,
       }}
       onPopupVisibleChange={onPopupVisibleChange}

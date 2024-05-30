@@ -4,8 +4,8 @@ import ora from 'ora';
 /**
  * Because ora currently only supports the es module, this function cannot be used under the commonjs module
  */
-export function withOra(
-  promiseFn: () => Promise<any>,
+export function withOra<T>(
+  promiseFn: () => Promise<T>,
   { text, successText, failText, startText }: { text: string; successText: string; failText: string; startText?: string }
 ) {
   return new Promise((resolve, reject) => {

@@ -27,5 +27,6 @@ export * from './Switch';
 export * from './SelectInput';
 export * from './InputTag';
 export * from './Grid';
+export * from './Menu';
 // style
 export * from './Style';

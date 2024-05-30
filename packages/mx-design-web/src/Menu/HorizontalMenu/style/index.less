@@ -1,0 +1,70 @@
+@import (reference) '../../../Style/base.less';
+@import './cssVariables.less';
+
+@menu-prefix-cls: ~'@{prefix}-menu';
+
+.@{menu-prefix-cls} {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.5715;
+  transition: width 0.2s cubic-bezier(0.34, 0.69, 0.1, 1);
+}
+
+.@{menu-prefix-cls}-transformRotate180 {
+  transform: rotate(180deg);
+}
+
+.@{menu-prefix-cls}-hz-icon-suffix {
+  margin-left: 12px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s cubic-bezier(0.34, 0.69, 0.1, 1);
+}
+
+.@{menu-prefix-cls}-horizontal {
+  width: auto;
+  height: auto;
+
+  .@{menu-prefix-cls}-inner {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 14px 20px;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .@{menu-prefix-cls}-item:not(:first-child) {
+    margin-left: 12px;
+  }
+
+  .@{menu-prefix-cls}-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    color: var(--text-color-primary);
+    cursor: pointer;
+    text-overflow: ellipsis;
+    border-radius: var(--border-radius-medium);
+    padding: 0 16px;
+
+    &.@{menu-prefix-cls}-selected {
+      color: var(--brand-color);
+      background-color: var(--brand-color-1);
+    }
+
+    &-selected {
+      color: var(--brand-color);
+      background-color: var(--brand-color-1);
+    }
+
+    &:hover:not(.@{menu-prefix-cls}-item-disabled):not(.@{menu-prefix-cls}-item-selected)::not(.@{menu-prefix-cls}-selected) {
+      background-color: var(--bg-color-container-hover);
+    }
+  }
+}

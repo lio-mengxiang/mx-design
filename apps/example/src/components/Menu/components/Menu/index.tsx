@@ -17,7 +17,7 @@ export function Menu({ isOpen, menuList }) {
     <motion.div
       animate={isOpen ? 'open' : 'closed'}
       variants={menu_variants}
-      className="mx-menu thin-scroll"
+      className="mx-site-menu thin-scroll"
       transition={{ damping: 0, stiffness: 0, duration: 0.2 }}
     >
       <div className="mx-menu-inner-container">

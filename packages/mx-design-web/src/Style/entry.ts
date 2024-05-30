@@ -24,3 +24,4 @@ import '../Pagination/style/index.less';
 import '../Switch/style/index.less';
 import '../InputTag/style/index.less';
 import '../Grid/style/index.less';
+import '../Menu/HorizontalMenu/style/index.less';

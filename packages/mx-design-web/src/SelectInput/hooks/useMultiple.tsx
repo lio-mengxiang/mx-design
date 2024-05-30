@@ -10,7 +10,7 @@ export default function useMultiple(
 ) {
   const { value, inputTagProps, inputValue: controlledInputValue, defaultInputValue, disabled, visible } = props;
 
-  const { onChange, readOnly, onClear, status } = inputTagProps;
+  const { onChange, readOnly, onClear, status, onPressEnter } = inputTagProps;
   const tagInputRef = useRef<InputTagHandle>();
 
   const [inputValue, setInputValue] = useMergeValue('', {

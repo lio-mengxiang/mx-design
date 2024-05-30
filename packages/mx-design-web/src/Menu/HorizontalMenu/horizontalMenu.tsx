@@ -2,9 +2,9 @@ import React, { useContext, forwardRef, useMemo } from 'react';
 import { useMergeProps, useMergeValue } from '@mx-design/hooks';
 import { cs } from '@mx-design/web-utils';
 import { ConfigContext } from '../../ConfigProvider';
-import MenuContext from './context';
+import MenuContext, { MenuExtraContext } from './context';
 import { generateInfoMap } from './utils';
-import HorizontalItem from './horizontalItem';
+import { HorizontalItem } from './horizontalItem';
 import SubMenu from './subMenu';
 // import { DropdownProps } from '../../Dropdown';
 // type
@@ -15,14 +15,15 @@ export type MenuMenuProps = HorizontalMenuMenuProps & {
     keyPath?: string[];
   };
   prefixCls: string;
-  // maxHeight?: DropdownProps['maxHeight'];
-  // maxWidth?: DropdownProps['maxWidth'];
   isDropDown?: boolean;
+  _menuInfoMap?: MenuExtraContext['menuInfoMap'];
+  _isPopupVisible?: boolean;
 };
 
 const defaultProps: Partial<MenuMenuProps> = {
   selectable: true,
   ellipsis: true,
+  placement: 'bottom',
 };
 
 function HorizontalMenu(baseProps: MenuMenuProps, ref) {
@@ -43,14 +44,21 @@ function HorizontalMenu(baseProps: MenuMenuProps, ref) {
     placement,
     isDropDown,
     disabled,
+    _isPopupVisible,
+    _menuInfoMap,
     ...rest
   } = props;
 
-  const menuInfoMap = useMemo(() => generateInfoMap(menuList), [menuList]);
+  const { menuInfoMap: menuInfoContextMap, selectedKeys: selectedContextKeys } = useContext(MenuContext);
+
+  const menuInfoMap = useMemo(() => {
+    if (Object.keys(menuInfoContextMap).length) return menuInfoContextMap;
+    return generateInfoMap(menuList);
+  }, [menuInfoContextMap, menuList]);
 
   const [selectedKeys, setSelectedKeys] = useMergeValue([], {
     defaultValue: defaultSelectedKeys,
-    value: propSelectedKeys,
+    value: selectedContextKeys || propSelectedKeys,
   });
 
   const prefixCls = customPrefixCls || getPrefixCls('menu');
@@ -60,7 +68,7 @@ function HorizontalMenu(baseProps: MenuMenuProps, ref) {
     for (let i = 0; i < menuList.length; i++) {
       const { children } = menuList[i];
       if (children && Array.isArray(children)) {
-        result.push(<SubMenu {...menuList[i]} key={menuList[i].uid} />);
+        result.push(<SubMenu {...menuList[i]} key={menuList[i].uid} _isHorizontal />);
       } else {
         result.push(<HorizontalItem {...menuList[i]} key={menuList[i].uid} />);
       }
@@ -70,42 +78,35 @@ function HorizontalMenu(baseProps: MenuMenuProps, ref) {
   };
 
   return (
-    <div role="menu" {...rest} ref={ref} style={style} className={cs(`${prefixCls}-menu`, `${prefixCls}-horizontal`, className)}>
-      <MenuContext.Provider
-        // eslint-disable-next-line react/jsx-no-constructed-context-values
-        value={{
-          selectedKeys,
-          popupProps,
-          prefixCls,
-          menuInfoMap,
-          selectable,
-          // maxHeight,
-          // maxWidth,
-          disabled,
-          isDropDown,
-          onClickMenuItem: (key, event) => {
-            selectable && setSelectedKeys([key]);
-            onClickMenuItem?.(key, event, menuInfoMap[key]?.keyPath);
-          },
-          onClickSubMenu: (key) => {
-            onClickSubMenu?.(key, menuInfoMap[key]?.keyPath);
-          },
-        }}
-      >
-        {renderChildren()}
-      </MenuContext.Provider>
+    <div role="menu" {...rest} ref={ref} style={style} className={cs(`${prefixCls}-horizontal`, className)}>
+      <div className={cs(`${prefixCls}-inner`)}>
+        <MenuContext.Provider
+          // eslint-disable-next-line react/jsx-no-constructed-context-values
+          value={{
+            selectedKeys,
+            popupProps,
+            prefixCls,
+            menuInfoMap,
+            selectable,
+            disabled,
+            isDropDown,
+            placement,
+            onClickMenuItem: (key, event) => {
+              selectable && setSelectedKeys(menuInfoMap[key]?.keyPath);
+              onClickMenuItem?.(key, event, menuInfoMap[key]?.keyPath);
+            },
+            onClickSubMenu: (key) => {
+              onClickSubMenu?.(key, menuInfoMap[key]?.keyPath);
+            },
+          }}
+        >
+          {renderChildren()}
+        </MenuContext.Provider>
+      </div>
     </div>
   );
 }
 
 const ForwardRefMenu = forwardRef<unknown, MenuMenuProps>(HorizontalMenu);
 
-const MenuComponent = ForwardRefMenu as typeof ForwardRefMenu & {
-  Item: typeof HorizontalItem;
-};
-
-MenuComponent.displayName = 'HorizontalMenu';
-
-MenuComponent.Item = HorizontalItem;
-
-export default MenuComponent;
+export { ForwardRefMenu as HorizontalMenu };

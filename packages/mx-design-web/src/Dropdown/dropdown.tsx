@@ -4,7 +4,7 @@ import { useMergeProps } from '@mx-design/hooks';
 import { Popup } from '../Popup';
 import { ConfigContext } from '../ConfigProvider';
 import { useDropdownStore } from './store';
-import HorizontalMenu from '../Menu/HorizontalMenu/horizontalMenu';
+import { HorizontalMenu } from '../Menu/HorizontalMenu/horizontalMenu';
 // type
 import { DropdownProps } from './interface';
 
@@ -36,6 +36,7 @@ function Dropdown(baseProps: DropdownProps) {
     customElement,
     themeStyle,
     addVisibleStatus,
+    _menuInfoMap,
   } = props;
 
   // classnames
@@ -66,11 +67,11 @@ function Dropdown(baseProps: DropdownProps) {
       <HorizontalMenu
         isDropDown
         disabled={disabled}
-        // maxHeight={maxHeight}
-        // maxWidth={maxWidth}
         prefixCls={dropdownClass}
         menuList={droplist}
+        placement="right-start"
         selectable
+        _menuInfoMap={_menuInfoMap}
         onClickMenuItem={handleMenuClick}
       />
     );
