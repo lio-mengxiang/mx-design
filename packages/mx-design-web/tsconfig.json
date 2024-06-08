@@ -3,5 +3,5 @@
   "compilerOptions": {
     "outDir": "types"
   },
-  "include": ["src", "src/Notice/.tsx", "../mx-design-hooks/src/useKeyboardEvent.ts"]
+  "include": ["src"]
 }

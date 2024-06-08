@@ -20,10 +20,12 @@ export function generateInfoMap(
 
     if (!currItem.uid) currItem.uid = `${deep}-${i}`;
 
-    const _keyPath = [currItem.uid, ...keyPath];
+    const _keyPath = [...keyPath, currItem.uid];
+
     currItem.keyPath = _keyPath;
 
     if (Array.isArray(currItem.children)) {
+      result[currItem.uid] = currItem;
       currItem.childrenMap = generateInfoMap(currItem.children, _keyPath, deep + 1, result);
     } else {
       result[currItem.uid] = currItem;

@@ -4,10 +4,12 @@ import MenuContext from './context';
 // type
 import { MenuItemProps } from './interface';
 
-function HorizontalItem(props: MenuItemProps) {
+export function HorizontalItem(props: MenuItemProps) {
   const { uid, className, style, title, disabled, icon, divider, ...rest } = props;
   const { prefixCls, selectedKeys, onClickMenuItem, ellipsis } = useContext(MenuContext);
-  const isSelected = selectedKeys && ~selectedKeys.indexOf(uid);
+  const isSelected = selectedKeys.includes(uid);
+  console.log('uid: ', uid);
+  console.log('selectedKeys: ', selectedKeys);
 
   const menuItemClickHandler = (event) => {
     if (!disabled) {
@@ -40,9 +42,3 @@ function HorizontalItem(props: MenuItemProps) {
 
   return itemElement;
 }
-
-HorizontalItem.displayName = 'HorizontalItem';
-
-HorizontalItem.menuType = 'HorizontalItem';
-
-export default HorizontalItem;

@@ -73,4 +73,5 @@ export interface MenuItemProps extends Omit<HTMLAttributes<HTMLElement>, 'classN
    */
   children?: MenuItemProps[];
   divider?: boolean;
+  _isHorizontal?: boolean;
 }

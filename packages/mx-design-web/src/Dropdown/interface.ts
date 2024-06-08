@@ -3,6 +3,7 @@ import React from 'react';
 import type { CSSProperties, ReactElement } from 'react';
 import type { MenuItemProps } from '../Menu/HorizontalMenu/interface';
 import type { PopupProps, PopupVisibleChangeContext } from '../Popup';
+import { MenuExtraContext } from '../Menu/HorizontalMenu/context';
 
 export interface DropdownProps {
   style?: CSSProperties;
@@ -65,4 +66,5 @@ export interface DropdownProps {
   popupVisible?: boolean;
   addVisibleStatus?: boolean;
   children: React.ReactNode;
+  _menuInfoMap?: MenuExtraContext['menuInfoMap'];
 }
