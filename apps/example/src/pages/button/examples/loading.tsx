@@ -1,7 +1,7 @@
 import { Loading } from '../locale';
 
 const code = `
-import { Button } from '@mx-design/web';
+import { Space, Button } from '@mx-design/web';
 
 function App() {
   const [loading1, setLoading1] = React.useState(false);
@@ -23,29 +23,30 @@ function App() {
   return (
     <div
       style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(3, 110px)',
-        rowGap: 24,
-        columnGap: 24,
-        marginLeft: 24,
+        display: 'flex',
+        gap: 16,
       }}
     >
-      <Button type="brand" loading>
-        Loading
-      </Button>
-      <Button type="outline" loading>
-        Loading
-      </Button>
-      <Button type="text" loading>
-        Loading
-      </Button>
+      <Space direction="vertical" size={16}>
+        <Button type="brand" loading>
+          Loading
+        </Button>
+        <Button type="outline" loading>
+          Loading
+        </Button>
+        <Button type="text" loading>
+          Loading
+        </Button>
+      </Space>
 
-      <Button type="brand" loading={loading1} onClick={onClickBtn1}>
-        Click Me
-      </Button>
-      <Button type="brand" loading={loading2} onClick={onClickBtn2}>
-        {!loading2 && <IconAdd />}Click Me
-      </Button>
+      <Space direction="vertical" size={16}>
+        <Button type="brand" loading={loading1} onClick={onClickBtn1}>
+          Click Me
+        </Button>
+        <Button type="brand" loading={loading2} onClick={onClickBtn2}>
+          {!loading2 && <IconAdd />}Click Me
+        </Button>
+      </Space>
     </div>
   );
 }`;

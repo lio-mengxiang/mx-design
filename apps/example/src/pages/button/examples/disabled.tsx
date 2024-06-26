@@ -7,61 +7,68 @@ function App() {
   return (
     <div
       style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(3, 100px)',
-        gridRowGap: 24,
-        gridColumnGap: 24,
+        display: 'flex',
+        gap: 16,
       }}
     >
-      <Button type="brand" disabled>
-        Brand
-      </Button>
-      <Button type="outline" disabled>
-        Brand
-      </Button>
-      <Button type="text" disabled>
-        Brand
-      </Button>
+      <Space direction="vertical" size={16}>
+        <Button type="brand" disabled>
+          Brand
+        </Button>
+        <Button type="outline" disabled>
+          Brand
+        </Button>
+        <Button type="text" disabled>
+          Brand
+        </Button>
+      </Space>
 
-      <Button type="brand" status="warning" disabled>
-        Warning
-      </Button>
-      <Button type="outline" status="warning" disabled>
-        Warning
-      </Button>
-      <Button type="text" status="warning" disabled>
-        Warning
-      </Button>
+      <Space direction="vertical" size={16}>
+        <Button type="brand" status="warning" disabled>
+          Warning
+        </Button>
+        <Button type="outline" status="warning" disabled>
+          Warning
+        </Button>
+        <Button type="text" status="warning" disabled>
+          Warning
+        </Button>
+      </Space>
 
-      <Button type="brand" status="error" disabled>
-        Error
-      </Button>
-      <Button type="outline" status="error" disabled>
-        Error
-      </Button>
-      <Button type="text" status="error" disabled>
-        Error
-      </Button>
+      <Space direction="vertical" size={16}>
+        <Button type="brand" status="error" disabled>
+          Error
+        </Button>
+        <Button type="outline" status="error" disabled>
+          Error
+        </Button>
+        <Button type="text" status="error" disabled>
+          Error
+        </Button>
+      </Space>
 
-      <Button type="brand" status="success" disabled>
-        Success
-      </Button>
-      <Button type="outline" status="success" disabled>
-        Success
-      </Button>
-      <Button type="text" status="success" disabled>
-        Success
-      </Button>
-
-      <Button type="brand" status="default" disabled>
-        Default
-      </Button>
-      <Button type="outline" status="default" disabled>
-        Default
-      </Button>
-      <Button type="text" status="default" disabled>
-        Default
-      </Button>
+      <Space direction="vertical" size={16}>
+        <Button type="brand" status="success" disabled>
+          Success
+        </Button>
+        <Button type="outline" status="success" disabled>
+          Success
+        </Button>
+        <Button type="text" status="success" disabled>
+          Success
+        </Button>
+      </Space>
+      <Space direction="vertical" size={16}>
+        <Button type="brand" status="default" disabled>
+          Default
+        </Button>
+        <Button type="outline" status="default" disabled>
+          Default
+        </Button>
+        <Button type="text" status="default" disabled>
+          Default
+        </Button>
+      </Space>
     </div>
   );
 }`;
