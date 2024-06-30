@@ -1,5 +1,5 @@
 import React from 'react';
-import { Basic, Disabled, Group, Icon, Loading, Long, Status } from './constants';
+import { Basic, Disabled, Group, Icon, Loading, Long, Status, Compact } from './constants';
 
 export const en_us_button = {
   [Basic]: {
@@ -50,5 +50,15 @@ export const en_us_button = {
   [Long]: {
     title: 'Long',
     desc: <>The button width adapts to the container width</>,
+  },
+  [Compact]: {
+    title: 'Compact Mode',
+    desc: (
+      <>
+        By setting <code className="mx-code">compact</code>, you can make a button lose its padding. It is generally used for displaying
+        some text-type buttons in a <code className="mx-code">Table</code>
+        (after removing the padding, the buttons can be better <b>aligned to the left</b>).
+      </>
+    ),
   },
 };
