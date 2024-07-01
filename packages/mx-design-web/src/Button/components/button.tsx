@@ -32,6 +32,7 @@ function Button(baseProps: ButtonProps, ref) {
     iconOnly,
     onClick,
     long,
+    compact,
     themeStyle,
     ...rest
   } = props;
@@ -39,6 +40,7 @@ function Button(baseProps: ButtonProps, ref) {
   const iconNode = loading ? <Loading size="14px" borderWidth="2px" /> : icon;
   const { wrapperCls } = useClassNames({
     long,
+    compact,
     status,
     loading,
     children,
