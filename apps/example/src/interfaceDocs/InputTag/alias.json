@@ -1,0 +1,32 @@
+[
+  {
+    "name": "ObjectValueType",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "{\n  value?: any;\n  label?: ReactNode;\n  closable?: boolean;\n}",
+    "typeParameters": [],
+    "kind": 38
+  },
+  {
+    "name": "ValueChangeReason",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "'add' | 'remove' | 'clear' | 'sort'",
+    "typeParameters": [],
+    "kind": 38
+  },
+  {
+    "name": "InputTagHandle",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "{\n  focus: () => void;\n  blur: () => void;\n}",
+    "typeParameters": [],
+    "kind": 38
+  }
+]

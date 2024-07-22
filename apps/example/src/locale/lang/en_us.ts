@@ -56,6 +56,7 @@ import {
   GRID_KEY,
 } from '@/constants';
 import { en_us_grid } from '@/pages/grid/locale';
+import { en_us_api_list, NAME_SPACE_API_LIST } from '@/components/APIList/locale';
 
 export const en_us = {
   [BUTTON_KEY]: en_us_button,
@@ -87,4 +88,5 @@ export const en_us = {
   [SELECT_INPUT]: en_us_select_input,
   [INPUT_TAG]: en_us_input_tag,
   [GRID_KEY]: en_us_grid,
+  [NAME_SPACE_API_LIST]: en_us_api_list,
 };

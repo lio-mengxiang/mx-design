@@ -10,7 +10,7 @@ export function MessageSingleDirection({ state, position, getPrefixCls, props, r
 
   return (
     <div role="region" aria-live="polite" key={position} className={wrapperClassNames}>
-      <AnimatePresence initial={false}>
+      <AnimatePresence mode="popLayout">
         {messages.map((notice) => (
           <MessageCardContainer key={notice.id} position={position} {...props} {...notice} remove={remove} />
         ))}

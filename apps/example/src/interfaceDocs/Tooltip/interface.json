@@ -1,0 +1,39 @@
+[
+  {
+    "name": "TooltipProps",
+    "data": [
+      {
+        "name": "placement",
+        "type": "PopupProps['placement']",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n浮层出现位置",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "default",
+              "text": "top"
+            }
+          ]
+        }
+      },
+      {
+        "name": "showArrow",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n是否显示浮层箭头",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "default",
+              "text": "true"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

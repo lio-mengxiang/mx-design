@@ -25,7 +25,12 @@ export const en_us_message = {
   },
   [Update]: {
     title: 'Update',
-    desc: 'By specifying the id, the existing Message can be updated',
+    desc: (
+      <>
+        By specifying the id, the existing Message can be updated。Tip: The value of <code className="mx-code">duration</code> is{' '}
+        <code className="mx-code">null</code> mean that current message will not close automatically
+      </>
+    ),
   },
   [Position]: {
     title: 'Position',

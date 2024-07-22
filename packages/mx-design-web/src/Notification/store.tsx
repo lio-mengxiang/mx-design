@@ -1,8 +1,7 @@
-import { useState } from 'react';
 import { BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT, TOP, TOP_LEFT, TOP_RIGHT } from './constants';
 import { getId, findToast, getToastPosition } from './utils';
 // types
-import type { IPosition, NotificationProps, NotificationState } from './interface';
+import type { NotificationProps, NotificationState } from './interface';
 
 // state
 const initialState = {
@@ -14,11 +13,36 @@ const initialState = {
   [BOTTOM_RIGHT]: [],
 };
 
-function useStore(defaultPosition: IPosition) {
-  const [state, setState] = useState<NotificationState>({ ...initialState });
+const copyInitialState = { ...initialState };
 
+export const store = createStore(initialState);
+
+export const NotificationStore = {
+  add: store.add,
+  update: store.update,
+  remove: store.remove,
+  clearAll: store.clearAll,
+};
+
+function createStore(initialState: NotificationState) {
+  let state = initialState;
+  const listeners = new Set<() => void>();
+
+  const setState = (setStateFn: (values: NotificationState) => NotificationState) => {
+    state = setStateFn(state);
+    listeners.forEach((l) => l());
+  };
   return {
-    state,
+    getState: () => state,
+
+    subscribe: (listener) => {
+      listeners.add(listener);
+      return () => {
+        setState(() => copyInitialState);
+        listeners.delete(listener);
+      };
+    },
+
     add: (noticeProps: NotificationProps) => {
       const id: number = getId(noticeProps);
       setState((preState) => {
@@ -26,8 +50,8 @@ function useStore(defaultPosition: IPosition) {
           const isExist = getToastPosition<NotificationState>(preState, noticeProps.id);
           if (isExist) return preState;
         }
-        const position = noticeProps['position'] || defaultPosition;
-        const isTop = position.includes('top');
+        const position = noticeProps.position || TOP;
+        const isTop = position.includes(TOP);
         const toasts = isTop
           ? [{ ...noticeProps, id }, ...(preState[position] ?? [])]
           : [...(preState[position] ?? []), { ...noticeProps, id }];
@@ -40,7 +64,7 @@ function useStore(defaultPosition: IPosition) {
       return noticeProps?.id ? noticeProps?.id : id;
     },
 
-    update: (id: number, options: NotificationProps) => {
+    update: (id: NotificationProps['id'], options: NotificationProps) => {
       if (!id) return;
 
       setState((prevState) => {
@@ -59,7 +83,7 @@ function useStore(defaultPosition: IPosition) {
     },
 
     clearAll: () => {
-      setState({ ...initialState });
+      setState(() => ({ ...copyInitialState }));
     },
 
     remove: (id: number) => {
@@ -77,5 +101,3 @@ function useStore(defaultPosition: IPosition) {
     },
   };
 }
-
-export default useStore;

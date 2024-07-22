@@ -1,7 +1,7 @@
 import { getCalcBottom } from './getCalcBottom';
 import { getCalcTop } from './getCalcTop';
 // type
-import type { ScrollContainerElement } from './getScrollContainer';
+import type { ScrollContainerElement } from '../interface';
 
 interface ICalcTopAndBottomProps {
   affixWrap: HTMLDivElement;

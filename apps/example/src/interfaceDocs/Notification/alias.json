@@ -1,0 +1,22 @@
+[
+  {
+    "name": "IPosition",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "typeof TOP | typeof TOP_LEFT | typeof TOP_RIGHT | typeof BOTTOM_LEFT | typeof BOTTOM | typeof BOTTOM_RIGHT",
+    "typeParameters": [],
+    "kind": 38
+  },
+  {
+    "name": "NotificationState",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "{\n  [K in keyof NoticesState]: NoticesState[K];\n}",
+    "typeParameters": [],
+    "kind": 38
+  }
+]

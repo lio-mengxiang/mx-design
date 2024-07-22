@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
-import { IconSuccessFilling, IconPromptFilling, IconWarningFilling, IconDeleteFilling } from '../Icon';
-import { Loading } from '../Loading';
+import { IconSuccessFilling, IconPromptFilling, IconWarningFilling, IconDeleteFilling, IconLoading } from '../Icon';
 
 export function renderIcon({ showIcon, type, icon, iconClassNames, size = '18px' }) {
   let iconContent: ReactNode;
@@ -21,7 +20,7 @@ export function renderIcon({ showIcon, type, icon, iconClassNames, size = '18px'
         iconContent = <IconWarningFilling size={size} />;
         break;
       case 'loading':
-        iconContent = <Loading size={size} borderWidth="3px" />;
+        iconContent = <IconLoading size={size} spin />;
         break;
       default:
         break;

@@ -1,21 +1,31 @@
-import { useEffect, useCallback, useRef } from 'react';
-import { debounceByRaf } from '@mx-design/hooks';
-import { isFunction, isWindow } from '@mx-design/web-utils';
+import { useEffect, useRef } from 'react';
+import { debounceByRaf, isFunction, isWindow } from '@mx-design/web-utils';
+import { useEvent } from '@mx-design/hooks';
 import {
   getScrollContainer,
   calcTopAndBottom,
-  fixedDom,
   getFixedTop,
-  fixedPlaceholder,
   isNeedListParent,
   addScrollEvent,
   removeScrollEvent,
+  handleFixedToggle,
 } from './utils';
-// type
-import type { ScrollContainerElement } from './utils';
 import { isHTMLElement } from '../Popper-js/utils/isHTMLElement';
+// type
+import type { ConfigProviderProps } from '../ConfigProvider/interface';
+import type { AffixProps, ScrollContainerElement } from './interface';
 
-export function useStore(props) {
+interface useStoreProps {
+  getPrefixCls: ConfigProviderProps['getPrefixCls'];
+  zIndex?: number;
+  container: AffixProps['container'];
+  offsetBottom: AffixProps['offsetBottom'];
+  offsetTop: AffixProps['offsetTop'];
+  onFixedChange: AffixProps['onFixedChange'];
+  isInScrollContainer: AffixProps['isInScrollContainer'];
+}
+
+export function useStore(props: useStoreProps) {
   // data
   const { getPrefixCls, zIndex, container, offsetBottom, offsetTop, onFixedChange, isInScrollContainer } = props;
   // dom ref
@@ -26,7 +36,7 @@ export function useStore(props) {
 
   const prefixCls = getPrefixCls('affix');
 
-  const handleScroll = useCallback(
+  const handleScroll = useEvent(
     debounceByRaf(() => {
       const affixDom = affixRef.current;
       const affixWrapDom = affixWrapRef.current;
@@ -42,44 +52,25 @@ export function useStore(props) {
       });
 
       const fixedTop = getFixedTop({ calcTop, offsetTop, calcBottom, containerToTop, wrapToTop });
-
       const affixed = fixedTop !== false;
-      let placeholderStatus = affixWrapDom.contains(placeholderEL.current);
-      const prePlaceholderStatus = placeholderStatus;
 
-      if (affixed) {
-        /**
-         * @zh 定位
-         * @en position
-         */
-        fixedDom({ affixDom, prefixCls, fixedTop, wrapWidth, wrapHeight, zIndex });
+      const isPlaceholderStatusChange = handleFixedToggle({
+        affixDom,
+        prefixCls,
+        fixedTop,
+        wrapWidth,
+        wrapHeight,
+        zIndex,
+        placeholderDom,
+        affixWrapDom,
+        placeholderEL,
+        affixed,
+      });
 
-        /**
-         * @zh 插入占位节点
-         * @en Insert the placeholder node
-         */
-        if (!placeholderStatus) {
-          fixedPlaceholder({ placeholderDom, affixWrapDom, wrapWidth, wrapHeight });
-          placeholderStatus = true;
-        }
-      } else if (affixDom.hasAttribute('class')) {
-        affixDom.removeAttribute('class');
-        affixDom.removeAttribute('style');
-
-        /**
-         * @zh 删除占位节点
-         * @en Delete the placeholder node
-         */
-        if (placeholderStatus) {
-          placeholderDom.remove();
-          placeholderStatus = false;
-        }
-      }
-      if (prePlaceholderStatus !== placeholderStatus && isFunction(onFixedChange)) {
+      if (isPlaceholderStatusChange && isFunction(onFixedChange)) {
         onFixedChange(affixed, { top: +fixedTop });
       }
-    }),
-    [offsetBottom, offsetTop, onFixedChange, prefixCls, zIndex]
+    })
   );
 
   useEffect(() => {
@@ -105,7 +96,7 @@ export function useStore(props) {
         window.removeEventListener('resize', handleScroll);
       };
     }
-  }, [container, handleScroll, isInScrollContainer, scrollContainer]);
+  }, [container, handleScroll, isInScrollContainer]);
 
   return {
     handleScroll,

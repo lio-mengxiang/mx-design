@@ -1,0 +1,345 @@
+[
+  {
+    "name": "CheckboxProps",
+    "data": [
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "themeStyle",
+        "type": "Record<string, any>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否禁用"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to disable"
+            }
+          ]
+        }
+      },
+      {
+        "name": "error",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "错误样式"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to show in error style"
+            }
+          ]
+        }
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否选中"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether the checkbox is checked"
+            }
+          ]
+        }
+      },
+      {
+        "name": "defaultChecked",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "默认是否选中"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "To set default checked"
+            }
+          ]
+        }
+      },
+      {
+        "name": "indeterminate",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "半选状态"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The indeterminate state of checkbox"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onChange",
+        "type": "(checked: boolean, e: Event) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "点击复选框的回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when the state changes"
+            }
+          ]
+        }
+      },
+      {
+        "name": "value",
+        "type": "T",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "复选框的 value 属性"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "To set checkbox value"
+            }
+          ]
+        }
+      },
+      {
+        "name": "checkboxGroupValue",
+        "type": "T[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "onGroupChange",
+        "type": "(value: T, checked: boolean) => void",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "isCheckboxGroup",
+        "type": "boolean",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode | ((value: { checked: boolean; indeterminate: boolean }) => ReactNode)",
+        "isOptionnal": "?"
+      }
+    ]
+  },
+  {
+    "name": "CheckboxGroupProps",
+    "data": [
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "themeStyle",
+        "type": "Record<string, any>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "整组失效"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to disable all checkboxes in the group"
+            }
+          ]
+        }
+      },
+      {
+        "name": "direction",
+        "type": "'horizontal' | 'vertical'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "方向"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Arrangement direction"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "horizontal"
+            }
+          ]
+        }
+      },
+      {
+        "name": "error",
+        "type": "boolean",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "defaultValue",
+        "type": "T[]",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "默认选中的选项"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Initial selected value"
+            }
+          ]
+        }
+      },
+      {
+        "name": "options",
+        "type": "(T | { label: ReactNode; value: T; disabled?: boolean })[]",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "可选项"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Specifies options"
+            }
+          ]
+        }
+      },
+      {
+        "name": "value",
+        "type": "T[]",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "选中的选项（受控模式）"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "To set value"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onChange",
+        "type": "(value: T[], e: Event) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "变化时的回调函数"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when the state changes"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

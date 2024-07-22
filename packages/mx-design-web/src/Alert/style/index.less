@@ -15,7 +15,6 @@
   pointer-events: auto;
   align-items: center;
 
-
   &-icon {
     font-size: var(--alert-font-size-icon);
     display: inline-flex;
@@ -68,7 +67,6 @@
   }
 
   &-left {
-    padding-right: var(--alert-icon-padding-right);
     display: flex;
     align-self: start;
   }
@@ -78,6 +76,7 @@
     display: flex;
     flex-direction: column;
     word-break: break-word;
+    padding-left: var(--alert-content-padding-left);
   }
 
   &-right_padding {
@@ -97,11 +96,11 @@
 
   &-content {
     font-size: var(--alert-font-size-content);
-    line-height: 1;
+    line-height: 18px;
   }
 
   &-operation-wrapper {
-    margin-left: 12px
+    margin-left: 12px;
   }
 
   & &-close-btn {
@@ -110,7 +109,7 @@
     align-self: start;
     font-size: 12px;
 
-    >svg {
+    > svg {
       position: relative;
     }
   }

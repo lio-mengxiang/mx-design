@@ -1,15 +1,14 @@
 import { Close } from '../locale';
 
 const code = `
-import { useMessage, Button, Space } from '@mx-design/web';
+import { MessageStore, Button, Space } from '@mx-design/web';
 
 function App() {
-  const Message = useMessage();
   return (
     <Space>
       <Button
         onClick={() => {
-          Message.add({
+          MessageStore.add({
             id: 'aa',
             type: 'info',
             content: 'This is an info message!',
@@ -21,7 +20,7 @@ function App() {
       <Button
         status="default"
         onClick={() => {
-          Message.remove('aa');
+          MessageStore.remove('aa');
         }}
       >
         Close Message

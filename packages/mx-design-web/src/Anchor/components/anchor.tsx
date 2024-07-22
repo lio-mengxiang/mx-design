@@ -3,7 +3,7 @@ import { useMergeProps } from '@mx-design/hooks';
 import { Affix } from '../../Affix';
 import { ConfigContext } from '../../ConfigProvider';
 import AnchorContext from '../context';
-import { createNestedLink } from '../utils';
+import { addLink, createNestedLink } from '../utils';
 import { useClassNames, useStyles } from '../hooks';
 import { useStore } from '../store';
 import { Link } from './link';
@@ -46,7 +46,7 @@ function Anchor(baseProps: AnchorPropsWithChildren, ref) {
   const { wrapperStyle } = useStyles({ style, themeStyle });
 
   // store
-  const { onScroll, currentLink, addLink, removeLink, onLinkClick, wrapperRef, sliderLineRef, scrollContainer } = useStore({
+  const { onScroll, currentLink, onLinkClick, wrapperRef, sliderLineRef, scrollContainer, linkMap } = useStore({
     propScrollContainer,
     onSelect,
     onChange,
@@ -58,8 +58,9 @@ function Anchor(baseProps: AnchorPropsWithChildren, ref) {
     ref,
     () => ({
       onScroll,
+      onLinkClick,
     }),
-    [onScroll]
+    [onLinkClick, onScroll]
   );
 
   const content = (
@@ -68,8 +69,7 @@ function Anchor(baseProps: AnchorPropsWithChildren, ref) {
       <AnchorContext.Provider
         value={{
           currentLink,
-          addLink,
-          removeLink,
+          linkMap,
           onLinkClick,
         }}
       >
@@ -92,8 +92,6 @@ const ForwardRefAnchor = forwardRef<unknown, AnchorPropsWithChildren>(Anchor);
 const AnchorComponent = ForwardRefAnchor as typeof ForwardRefAnchor & {
   Link: typeof Link;
 };
-
-AnchorComponent.displayName = 'Anchor';
 
 AnchorComponent.Link = Link;
 

@@ -1,0 +1,716 @@
+[
+  {
+    "name": "InputProps",
+    "data": [
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "themeStyle",
+        "type": "Record<string, any>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "allowClear",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "允许清空输入框"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether allow clear value"
+            }
+          ]
+        }
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否禁用"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether the input is disabled"
+            }
+          ]
+        }
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否只读"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether the input is readOnly"
+            }
+          ]
+        }
+      },
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "默认值"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The initial input content"
+            }
+          ]
+        }
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "输入框提示文字"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Input box prompt text"
+            }
+          ]
+        }
+      },
+      {
+        "name": "status",
+        "type": "'error' | 'warning'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "状态"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Status"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onChange",
+        "type": "(value: string, e) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n  /**",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "输入时的回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when user input"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onClear",
+        "type": "(e) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "点击清除按钮的回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when click clear button"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onFocus",
+        "type": "(value: any, e) => void",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "onBlur",
+        "type": "(value: any, e) => void",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "onPaste",
+        "type": "(e: ClipboardEvent<HTMLDivElement>) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n粘贴事件",
+          "tags": []
+        }
+      },
+      {
+        "name": "onPressEnter",
+        "type": "(value, e) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "按下回车键的回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when press enter key"
+            }
+          ]
+        }
+      },
+      {
+        "name": "normalizeTrigger",
+        "type": "('onBlur' | 'onPressEnter')[]",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "指定 normalize 执行的时机"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Specify the timing of normalize execution"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "['onBlur']"
+            }
+          ]
+        }
+      },
+      {
+        "name": "normalize",
+        "type": "(value: string) => string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "在指定时机对用户输入的值进行格式化处理。前后值不一致时，会触发 onChange"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Format the value entered by the user at the specified time, and when the previous and subsequent values are inconsistent, onChange will be triggered"
+            }
+          ]
+        }
+      },
+      {
+        "name": "addBefore",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "输入框前添加元素"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The label text displayed before (on the left side of) the input field"
+            }
+          ]
+        }
+      },
+      {
+        "name": "addAfter",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "输入框后添加元素"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The label text displayed after (on the right side of) the input field"
+            }
+          ]
+        }
+      },
+      {
+        "name": "prefix",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "添加前缀文字或者图标"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The prefix icon or text for the Input"
+            }
+          ]
+        }
+      },
+      {
+        "name": "customSlot",
+        "type": "ReactNode",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "customSlotClassName",
+        "type": "string",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "suffix",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "添加后缀文字或者图标"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The suffix icon or text for the Input"
+            }
+          ]
+        }
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "输入框的值，受控模式"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The input content value"
+            }
+          ]
+        }
+      },
+      {
+        "name": "beforeStyle",
+        "type": "object",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "输入框前添加元素的样式"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The additional css style of the `addBefore` element"
+            }
+          ]
+        }
+      },
+      {
+        "name": "afterStyle",
+        "type": "object",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "输入框后添加元素的样式"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The additional css style of the `addAfter` element"
+            }
+          ]
+        }
+      },
+      {
+        "name": "height",
+        "type": "number | string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "自定义输入框高度"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Custom input height"
+            }
+          ]
+        }
+      },
+      {
+        "name": "maxLength",
+        "type": "{ length?: number; errorOnly?: boolean }",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "输入框最大输入的长度；设置 `errorOnly`为 `true` 后，超过 `maxLength` 会展示 `error` 状态，并不限制用户输入。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The max content length；After setting `errorOnly` to `true`, if `maxLength` is exceeded, the `error` status will be displayed, and user input will not be restricted."
+            }
+          ]
+        }
+      },
+      {
+        "name": "showWordLimit",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "配合 `maxLength`，显示字数统计"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "With `maxLength`, Show word count."
+            }
+          ]
+        }
+      },
+      {
+        "name": "clearIcon",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "`allowClear` 时配置清除按钮的图标。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Configure the icon of the clear button when `allowClear`."
+            }
+          ]
+        }
+      },
+      {
+        "name": "_needWrapper",
+        "type": "boolean",
+        "isOptionnal": "?"
+      }
+    ]
+  },
+  {
+    "name": "InputSearchProps",
+    "data": [
+      {
+        "name": "loading",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "搜索时展示加载状态"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Show loading status when searching"
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.6.0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onSearch",
+        "type": "(value: string) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "点击搜索按钮的回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when click search button"
+            }
+          ]
+        }
+      },
+      {
+        "name": "searchButton",
+        "type": "boolean | ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "搜索按钮"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Search button"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "InputPasswordProps",
+    "data": [
+      {
+        "name": "visibilityToggle",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否显示切换密码可见状态的按钮"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to display the button to switch the visible state of the password"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "true"
+            }
+          ]
+        }
+      },
+      {
+        "name": "defaultVisibility",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "初始是否显示"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "To set default visibility"
+            }
+          ]
+        }
+      },
+      {
+        "name": "visibility",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否显示"
+            },
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "To set visibility"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onVisibilityChange",
+        "type": "(visibility: boolean) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "点击icon时触发"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Triggered when the icon is clicked"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "InputComponentProps",
+    "data": [
+      {
+        "name": "prefixCls",
+        "type": "string",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "hasParent",
+        "type": "boolean",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "autoFitWidth",
+        "type": "| boolean\n    | {\n        minWidth?: CSSProperties['minWidth'];\n        maxWidth?: CSSProperties['maxWidth'];\n        pure?: boolean; // 是否只测量内容宽度，排除 padding ，border 等因素\n        delay: number | ((width: number, prevWidth: number) => number);\n      }",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "wrapperRef",
+        "type": "MutableRefObject<any>",
+        "isOptionnal": "?"
+      }
+    ]
+  }
+]

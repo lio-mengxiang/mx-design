@@ -1,0 +1,44 @@
+[
+  {
+    "name": "AnchorButtonProps",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "{\n  href: string;\n  target?: string;\n  anchorProps?: HTMLProps<HTMLAnchorElement>;\n} & BaseButtonProps &\n  Omit<AnchorHTMLAttributes<any>, 'type' | 'onClick' | 'className'>",
+    "typeParameters": [],
+    "kind": 38
+  },
+  {
+    "name": "FinalButtonProps",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "{\n  /**\n   * @zh 按钮原生的 html type 类型\n   * @en html button type\n   * @defaultValue button\n   */\n  htmlType?: 'button' | 'submit' | 'reset';\n} & BaseButtonProps &\n  Omit<ButtonHTMLAttributes<any>, 'type' | 'onClick' | 'className'>",
+    "typeParameters": [],
+    "kind": 38
+  },
+  {
+    "name": "ButtonProps",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [
+      {
+        "kind": 24,
+        "description": "",
+        "tags": [
+          {
+            "kind": 25,
+            "tagName": "title",
+            "text": "Button"
+          }
+        ]
+      }
+    ],
+    "type": "Partial<FinalButtonProps & AnchorButtonProps>",
+    "typeParameters": [],
+    "kind": 38
+  }
+]

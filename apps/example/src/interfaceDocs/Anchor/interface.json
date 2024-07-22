@@ -1,0 +1,352 @@
+[
+  {
+    "name": "AnchorProps",
+    "data": [
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "themeStyle",
+        "type": "Record<string, any>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "scrollContainer",
+        "type": "string | HTMLElement | Window",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "滚动容器。传入选择器或者dom元素。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Scrolling container. Pass in selector or DOM Element"
+            }
+          ]
+        }
+      },
+      {
+        "name": "affix",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否固定。当设置为 `true`时，锚点组件将会嵌套在[固钉](/react/components/affix) 组件内"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to wrap anchor within [Affix](/react/components/affix)"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "true"
+            }
+          ]
+        }
+      },
+      {
+        "name": "affixStyle",
+        "type": "CSSProperties",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "通过该属性可以设置 `Affix` 组件的样式"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The style to be applied to `Affix`"
+            }
+          ]
+        }
+      },
+      {
+        "name": "offsetTop",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "距离窗口顶部达到指定偏移量后触发。即 `Affix` 固钉组件的 `offsetTop` 属性"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Offset from the top of the viewport (in pixels). i.e. `Affix`'s `offsetTop` props"
+            }
+          ]
+        }
+      },
+      {
+        "name": "offsetBottom",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "距离窗口底部达到指定偏移量后触发。 `Affix` 固钉组件的 `offsetBottom` 属性"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Offset from the bottom of the viewport (in pixels). i.e. `Affix`'s `offsetBottom` props"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onChange",
+        "type": "(newLink: string, oldLink: string) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "滚动时锚点改变或点击锚点时触发"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback fired when anchor state changes"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onSelect",
+        "type": "(newLink: string, oldLink: string) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "点击锚点时候触发"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback fired when anchor is clicked"
+            }
+          ]
+        }
+      },
+      {
+        "name": "lineless",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "没有左侧轴线的样式。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to hide axis line of the left"
+            }
+          ]
+        }
+      },
+      {
+        "name": "offset",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "滚动至距离目标锚点位置指定的偏移量 `offset` 时触发"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Fired when scrolling to the specified offset `offset` from the target anchor position"
+            }
+          ]
+        }
+      },
+      {
+        "name": "items",
+        "type": "baseAnchorLinkProps[]"
+      }
+    ]
+  },
+  {
+    "name": "baseAnchorLinkProps",
+    "data": [
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "锚点链接"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The target that the hyperlink points to"
+            }
+          ]
+        }
+      },
+      {
+        "name": "title",
+        "type": "string | React.ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "文本内容。可以是字符串或者自定义节点。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The content of the hyperlink"
+            }
+          ]
+        }
+      },
+      {
+        "name": "key",
+        "type": "string | number",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "children",
+        "type": "baseAnchorLinkProps[]",
+        "isOptionnal": "?"
+      }
+    ]
+  },
+  {
+    "name": "AnchorLinkProps",
+    "data": [
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "锚点链接"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The target that the hyperlink points to"
+            }
+          ]
+        }
+      },
+      {
+        "name": "title",
+        "type": "string | React.ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "文本内容。可以是字符串或者自定义节点。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The content of the hyperlink"
+            }
+          ]
+        }
+      },
+      {
+        "name": "key",
+        "type": "string | number",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "isOptionnal": "?"
+      }
+    ]
+  }
+]

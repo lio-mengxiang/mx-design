@@ -1,8 +1,5 @@
 import { isString } from '@mx-design/web-utils';
-import { isHTMLElement } from '../../Popper-js/utils/isHTMLElement';
-
-export type ScrollContainerElement = Window | HTMLElement;
-export type ScrollContainer = (() => ScrollContainerElement) | string;
+import type { ScrollContainer, ScrollContainerElement } from '../interface';
 
 export const getScrollContainer = (container: ScrollContainer = 'body'): ScrollContainerElement => {
   if (isString(container)) {

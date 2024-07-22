@@ -1,0 +1,22 @@
+[
+  {
+    "name": "baseIconProps",
+    "isExported": false,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "{\n  /**\n   * @zh icon的大小, 单位 \"em,px\"\n   * @en icon size\n   */\n  size?: string | string[];\n  /**\n   * Default props automatically passed to the component; overwriteable\n   */\n  style?: React.CSSProperties;\n  /**\n   * The icon `svg` fill color\n   * @default \"none\"\n   */\n  className?: string;\n  spin?: boolean;\n}",
+    "typeParameters": [],
+    "kind": 38
+  },
+  {
+    "name": "IconProps",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "baseIconProps & Omit<React.SVGAttributes<SVGElement>, keyof baseIconProps>",
+    "typeParameters": [],
+    "kind": 38
+  }
+]

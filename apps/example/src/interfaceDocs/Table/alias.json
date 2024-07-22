@@ -1,0 +1,145 @@
+[
+  {
+    "name": "RowCallbackProps",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "{\n  onClick?: (event) => void;\n  onDoubleClick?: (event) => void;\n  onContextMenu?: (event) => void;\n  onMouseEnter?: (event) => void;\n  onMouseLeave?: (event) => void;\n  onHandleSave?: (row) => void;\n  [name: string]: any;\n}",
+    "typeParameters": [],
+    "kind": 38
+  },
+  {
+    "name": "SorterFn",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "(a: any, b: any) => number",
+    "typeParameters": [],
+    "kind": 38
+  },
+  {
+    "name": "Partial",
+    "isExported": false,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "{\n  [P in keyof T]?: T[P];\n}",
+    "typeParameters": [
+      {
+        "name": "T",
+        "kind": 39,
+        "isConst": false,
+        "variance": 0
+      }
+    ],
+    "kind": 38
+  },
+  {
+    "name": "InternalColumnProps",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "ColumnProps<T> & {\n  $$isOperation?: boolean;\n  $$isFirstColumn?: boolean;\n  $$columnIndex?: number | number[];\n  $$fixed?: string;\n  node?: ReactNode | ((record: any) => ReactNode);\n  onSort?: (direction: SortDirection, column: InternalColumnProps<T>) => void;\n  onHandleFilter?: (column: Record<string, any>, filter: Record<string, any>) => void;\n  currentSorter?: SorterInfo;\n  currentFilter?: { [key: string]: any };\n  _key?: string | number;\n  showSorterTooltip?: boolean | TooltipProps;\n  index?: number;\n}",
+    "typeParameters": [
+      {
+        "name": "T",
+        "kind": 39,
+        "isConst": false,
+        "default": "any",
+        "variance": 0
+      }
+    ],
+    "kind": 38
+  },
+  {
+    "name": "ComponentsProps",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "{\n  table?: any;\n  header?: {\n    operations?: (nodes: { selectionNode?: ReactNode; expandNode?: ReactNode }) => {\n      name?: string;\n      node?: ReactNode;\n      width?: number;\n    }[];\n    wrapper?: any;\n    thead?: any;\n    row?: any;\n    th?: any;\n    cell?: any;\n  };\n  body?: {\n    operations?: (nodes: { selectionNode?: ReactNode; expandNode?: ReactNode }) => {\n      name?: string;\n      node?: ReactNode | ((record) => ReactNode);\n      width?: number;\n    }[];\n    wrapper?: any;\n    tbody?: any;\n    row?: any;\n    td?: any;\n    cell?: any;\n  };\n}",
+    "typeParameters": [],
+    "kind": 38
+  },
+  {
+    "name": "GetRowKeyType",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "(record: T) => string",
+    "typeParameters": [
+      {
+        "name": "T",
+        "kind": 39,
+        "isConst": false,
+        "variance": 0
+      }
+    ],
+    "kind": 38
+  },
+  {
+    "name": "SortDirection",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": true,
+    "docs": [],
+    "type": "'descend' | 'ascend'",
+    "typeParameters": [],
+    "kind": 38
+  },
+  {
+    "name": "IBaseNewRecord",
+    "isExported": false,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "{\n  __ORIGIN_DATA: T;\n  __INTERNAL_PARENT: INewRecord<T>;\n  $$key: string | number;\n}",
+    "typeParameters": [
+      {
+        "name": "T",
+        "kind": 39,
+        "isConst": false,
+        "variance": 0
+      }
+    ],
+    "kind": 38
+  },
+  {
+    "name": "INewRecord",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "IBaseNewRecord<T> & T",
+    "typeParameters": [
+      {
+        "name": "T",
+        "kind": 39,
+        "isConst": false,
+        "variance": 0
+      }
+    ],
+    "kind": 38
+  },
+  {
+    "name": "updateOnChangeType",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "{\n  action: typeof FILTER | typeof SORTER | typeof PAGINATE;\n  sorter?: SorterInfo | SorterInfo[];\n  newPaginationProps?: PaginationProps;\n  innerFiltersValue?: Partial<Record<keyof T, string[]>>;\n}",
+    "typeParameters": [
+      {
+        "name": "T",
+        "kind": 39,
+        "isConst": false,
+        "variance": 0
+      }
+    ],
+    "kind": 38
+  }
+]

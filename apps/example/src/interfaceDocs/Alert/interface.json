@@ -1,0 +1,225 @@
+[
+  {
+    "name": "AlertProps",
+    "data": [
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "themeStyle",
+        "type": "Record<string, any>",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "单独设置组件css自定义变量"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Set component custom css variables individually"
+            }
+          ]
+        }
+      },
+      {
+        "name": "title",
+        "type": "ReactNode | string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "通知标题"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Notification title"
+            }
+          ]
+        }
+      },
+      {
+        "name": "content",
+        "type": "ReactNode | string",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "通知内容"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Notification content"
+            }
+          ]
+        }
+      },
+      {
+        "name": "showIcon",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否显示图标"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to show the icon"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "true"
+            }
+          ]
+        }
+      },
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "自定义图标"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Custom icon"
+            },
+            {
+              "kind": 25,
+              "tagName": "default",
+              "text": "true"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onClose",
+        "type": "(...args: any) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "关闭时的回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when close"
+            }
+          ]
+        }
+      },
+      {
+        "name": "operation",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "添加操作按钮"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Add action button"
+            }
+          ]
+        }
+      },
+      {
+        "name": "closable",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否显示关闭按钮"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to show the close button"
+            },
+            {
+              "kind": 25,
+              "tagName": "default",
+              "text": "false"
+            }
+          ]
+        }
+      },
+      {
+        "name": "type",
+        "type": "'info' | 'success' | 'error' | 'warning' | 'loading'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "Alert类型"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Alert type"
+            },
+            {
+              "kind": 25,
+              "tagName": "default",
+              "text": "info"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

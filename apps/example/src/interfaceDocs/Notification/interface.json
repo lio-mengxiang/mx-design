@@ -1,0 +1,313 @@
+[
+  {
+    "name": "NotificationProps",
+    "data": [
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "title",
+        "type": "ReactNode | string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "通知标题"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Notification title"
+            }
+          ]
+        }
+      },
+      {
+        "name": "content",
+        "type": "ReactNode | string",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "通知内容"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Notification content"
+            }
+          ]
+        }
+      },
+      {
+        "name": "showIcon",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否显示图标"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to show the icon"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "true"
+            }
+          ]
+        }
+      },
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "自定义图标"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Custom icon"
+            }
+          ]
+        }
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "自动关闭的时间，单位为 `ms`"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Automatic shutdown time, the unit is `ms`"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "3000"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onClose",
+        "type": "(...args: any) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "关闭时的回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when close"
+            }
+          ]
+        }
+      },
+      {
+        "name": "id",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "当前通知的唯一标识，可以用来更新消息"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The unique identifier of the current notification, which can be used to update the message"
+            }
+          ]
+        }
+      },
+      {
+        "name": "btn",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "添加操作按钮"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Add action button"
+            }
+          ]
+        }
+      },
+      {
+        "name": "closable",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否显示关闭按钮"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to show the close button"
+            }
+          ]
+        }
+      },
+      {
+        "name": "type",
+        "type": "'info' | 'success' | 'error' | 'warning' | 'loading'",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "position",
+        "type": "IPosition",
+        "isOptionnal": "?"
+      }
+    ]
+  },
+  {
+    "name": "NotificationManagerProps",
+    "data": [
+      {
+        "name": "position",
+        "type": "IPosition",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "消息的位置，分为 `topLeft` 左上方、`topRight` 右上方、`bottomLeft` 左下方和 `bottomRight` 右下方"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The position of the message"
+            }
+          ]
+        }
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "showIcon",
+        "type": "boolean",
+        "isOptionnal": "?"
+      }
+    ]
+  },
+  {
+    "name": "NotificationCardProps",
+    "data": [
+      {
+        "name": "remove",
+        "type": "(...args: any[]) => void"
+      },
+      {
+        "name": "position",
+        "type": "IPosition"
+      },
+      {
+        "name": "componentName",
+        "type": "'Notification' | 'Toaster'",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "themeStyle",
+        "type": "Record<string, any>",
+        "isOptionnal": "?"
+      }
+    ]
+  },
+  {
+    "name": "NoticesState",
+    "data": [
+      {
+        "name": "[TOP]",
+        "type": "NotificationProps[]"
+      },
+      {
+        "name": "[TOP_LEFT]",
+        "type": "NotificationProps[]"
+      },
+      {
+        "name": "[TOP_RIGHT]",
+        "type": "NotificationProps[]"
+      },
+      {
+        "name": "[BOTTOM_LEFT]",
+        "type": "NotificationProps[]"
+      },
+      {
+        "name": "[BOTTOM]",
+        "type": "NotificationProps[]"
+      },
+      {
+        "name": "[BOTTOM_RIGHT]",
+        "type": "NotificationProps[]"
+      }
+    ]
+  }
+]

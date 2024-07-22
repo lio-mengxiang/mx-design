@@ -1,0 +1,666 @@
+[
+  {
+    "name": "InputTagProps",
+    "data": [
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "预设文案"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Placeholder of input element"
+            }
+          ]
+        }
+      },
+      {
+        "name": "status",
+        "type": "'error' | 'warning'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "状态"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Status"
+            }
+          ]
+        }
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否禁用"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether the input is disabled"
+            }
+          ]
+        }
+      },
+      {
+        "name": "autoFocus",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "自动聚焦"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether the input is focused by default"
+            }
+          ]
+        }
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否只读"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether the input is read only"
+            }
+          ]
+        }
+      },
+      {
+        "name": "allowClear",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否允许清除"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to allow clear input value"
+            }
+          ]
+        }
+      },
+      {
+        "name": "saveOnBlur",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否在失焦时自动存储正在输入的文本"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to automatically store the text entering when blur InputTag"
+            }
+          ]
+        }
+      },
+      {
+        "name": "defaultValue",
+        "type": "T[]",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "默认值"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "To set default value"
+            }
+          ]
+        }
+      },
+      {
+        "name": "value",
+        "type": "T[]",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "控件值"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "To set value"
+            }
+          ]
+        }
+      },
+      {
+        "name": "inputValue",
+        "type": "string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "控件的输入框内的值"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "To set input value"
+            }
+          ]
+        }
+      },
+      {
+        "name": "labelInValue",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "设置传入和回调出的值均为 `{ label: '', value: ''}` 格式。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "If true, the incoming and callback values will be `{label: '', value: '')` format"
+            }
+          ]
+        }
+      },
+      {
+        "name": "dragToSort",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否可以通过拖拽为 Tag 排序"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Weather it is possible to sort tags by drag"
+            }
+          ]
+        }
+      },
+      {
+        "name": "prefix",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "添加前缀文字或者图标"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The prefix icon or text for the input-tag"
+            }
+          ]
+        }
+      },
+      {
+        "name": "suffix",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "后缀"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The suffix for the InputTag"
+            }
+          ]
+        }
+      },
+      {
+        "name": "addBefore",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "输入框前添加元素"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The label text displayed before (on the left side of) the input-tag field"
+            }
+          ]
+        }
+      },
+      {
+        "name": "addAfter",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "输入框后添加元素"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The label text displayed after (on the right side of) the input-tag field"
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.47.0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "tokenSeparators",
+        "type": "string[]",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "触发自动分词的分隔符"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Separator used to tokenize"
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.44.0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "validate",
+        "type": "(inputValue: string, values: T[]) => boolean | Promise<boolean> | T | Promise<T>",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "校验函数，默认在 按下enter时候触发。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Function to check user's input, which is triggered when `Enter` is pressed"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "(inputValue, values) => inputValue && values.every((item) => item !== inputValue)"
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "return type T and `Promise<T>` in 2.37.0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "renderTag",
+        "type": "(\n    props: {\n      value: any;\n      label: ReactNode;\n      closable: boolean;\n      onClose: (event) => void;\n    },\n    index: number,\n    values: ObjectValueType[]\n  ) => ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "自定义标签渲染，`props` 为当前标签属性，`index` 为当前标签的顺序，`values` 为所有标签的值."
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Custom tag rendering, `props` is the current tag attribute, `index` is the order of the current tag, `values` is the value of all tags"
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "index、values added in 2.15.0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onRemove",
+        "type": "(value: T, index: number, event) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "移除某一个标签时改变时触发"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when a tag is removed"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onChange",
+        "type": "(value: T[], reason: ValueChangeReason) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "控件值改变时触发"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when value changes"
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "`reason` in 2.27.0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onBlur",
+        "type": "(e) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "失去焦点时候触发"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when input is blurred"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onFocus",
+        "type": "(e) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "聚焦时触发"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when input is focused"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onPressEnter",
+        "type": "(e) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "按 enter 键触发"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when `Enter` key is pressed"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onInputChange",
+        "type": "(inputValue: string, event?) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "输入框文本改变的回调。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when the value of input changes"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onKeyDown",
+        "type": "(e) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "键盘事件回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when the keyboard is pressed"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onPaste",
+        "type": "(e) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "输入框文本粘贴的回调。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when you paste text in input box"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onClear",
+        "type": "() => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "点击清除按钮的回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when clear button is clicked"
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.20.0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onClick",
+        "type": "(e) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "单击组件的回调。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when the component is clicked"
+            }
+          ]
+        }
+      },
+      {
+        "name": "tagClassName",
+        "type": "string",
+        "isOptionnal": "?"
+      }
+    ]
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "name": "IEmptyImage",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "({ imgSrc, alt, icon }: { imgSrc: EmptyProps['imgSrc']; alt: string; icon?: EmptyProps['icon'] }) => ReactNode",
+    "typeParameters": [],
+    "kind": 38
+  }
+]

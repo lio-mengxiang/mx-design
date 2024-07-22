@@ -1,4 +1,4 @@
-import type { ScrollContainerElement } from './getScrollContainer';
+import type { ScrollContainerElement } from '../interface';
 
 interface IGetCalcTopProps {
   scrollContainer: ScrollContainerElement;

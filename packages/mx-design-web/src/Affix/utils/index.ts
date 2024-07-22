@@ -7,3 +7,4 @@ export * from './isNeedListParent';
 export * from './fixedDom';
 export * from './addScrollEvent';
 export * from './removeScrollEvent';
+export * from './handleFixedToggle';

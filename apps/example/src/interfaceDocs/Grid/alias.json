@@ -1,0 +1,32 @@
+[
+  {
+    "name": "GridResponsiveBreakpoint",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "'xxxl' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'",
+    "typeParameters": [],
+    "kind": 38
+  },
+  {
+    "name": "GridRowGutter",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "number | Partial<Record<GridResponsiveBreakpoint, number>>",
+    "typeParameters": [],
+    "kind": 38
+  },
+  {
+    "name": "FlexType",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "string | number | 'auto' | 'none'",
+    "typeParameters": [],
+    "kind": 38
+  }
+]

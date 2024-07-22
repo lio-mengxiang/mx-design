@@ -1,0 +1,85 @@
+[
+  {
+    "name": "EmptyProps",
+    "data": [
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "themeStyle",
+        "type": "Record<string, any>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "description",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "显示文案"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Description of empty content"
+            }
+          ]
+        }
+      },
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "自定义显示图案"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Custom icon"
+            }
+          ]
+        }
+      },
+      {
+        "name": "imgSrc",
+        "type": "string | undefined",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "将图标替换为图片"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Replace icon with picture"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

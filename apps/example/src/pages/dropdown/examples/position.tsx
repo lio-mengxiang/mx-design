@@ -1,10 +1,9 @@
 import { Position } from '../locale';
 
 const code = `
-import { Dropdown, Message, Button } from '@mx-design/web';
+import { Dropdown, MessageStore, Button } from '@mx-design/web';
 
 function App() {
-  const Message = useMessage();
   const droplist = [
     {
       uid: 1,
@@ -24,7 +23,7 @@ function App() {
     }
   ]
   const clickHandler = (key) => {
-    Message.add({
+    MessageStore.add({
       type: 'success',
       content: \`选中【\${key}】\`
     });

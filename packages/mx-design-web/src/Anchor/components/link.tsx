@@ -4,14 +4,14 @@ import { useMergeRefs } from '@mx-design/hooks';
 import AnchorContext from '../context';
 import { AnchorLinkProps } from '../interface';
 import { ConfigContext } from '../../ConfigProvider';
-import { isNotNullUndefined } from '../utils';
+import { addLink, isNotNullUndefined, removeLink } from '../utils';
 import { useLinkClassNames } from '../hooks';
 
 function Link(baseProps: AnchorLinkProps, ref) {
   // context
   const { getPrefixCls } = useContext(ConfigContext);
   const anchorContext = useContext(AnchorContext);
-  const { currentLink, addLink, removeLink, onLinkClick } = anchorContext;
+  const { currentLink, onLinkClick, linkMap } = anchorContext;
 
   // props
   const { className, style, href, children, title, ...rest } = baseProps;
@@ -23,11 +23,11 @@ function Link(baseProps: AnchorLinkProps, ref) {
   const linkRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    addLink && addLink(href, linkRef.current);
+    addLink(linkMap, href, linkRef.current);
     return () => {
-      removeLink && removeLink(href);
+      removeLink(linkMap, href);
     };
-  }, [addLink, href, removeLink]);
+  }, [href, linkMap]);
 
   return (
     <div className={linkCls} style={style} ref={useMergeRefs(ref, linkRef)} {...rest}>

@@ -1,8 +1,7 @@
 import { CSSProperties, ReactNode } from 'react';
-import type { ScrollContainer } from './utils';
 
 /**
- * @title Affix
+ * @title AffixProps
  */
 export interface AffixProps {
   /**
@@ -42,6 +41,9 @@ export interface AffixProps {
   style?: CSSProperties;
   children?: ReactNode;
 }
+
+export type ScrollContainerElement = Window | HTMLElement;
+export type ScrollContainer = (() => ScrollContainerElement) | string;
 
 export interface AffixRef {
   handleScroll: () => void;

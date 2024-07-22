@@ -1,19 +1,17 @@
 import { Update } from '../locale';
 
 const code = `
-import { useNotification, Button } from '@mx-design/web';
+import { Button } from '@mx-design/web';
 
 function App() {
-  const Notification = useNotification();
-
   function updateMessage() {
-    const id = Notification.add({
+    const id = NotificationStore.add({
       title: 'Title',
       type: 'loading',
       content: 'Will update after 1 seconds...',
     });
     setTimeout(() => {
-      Notification.update(id, {
+      NotificationStore.update(id, {
         title: 'Title',
         type: 'success',
         content: 'Update success!',

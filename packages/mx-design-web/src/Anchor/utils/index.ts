@@ -6,3 +6,5 @@ export * from './getEleInViewport';
 export * from './scrollIntoView';
 export * from './isNotNullUndefined';
 export * from './createNestedLink';
+export * from './addLink';
+export * from './removeLink';

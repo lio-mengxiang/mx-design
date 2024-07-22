@@ -1,11 +1,10 @@
 import { Async } from '../locale';
 
 const code = `
-import { useModal, Button, useMessage } from '@mx-design/web';
+import { useModal, Button, MessageStore } from '@mx-design/web';
 
 function App() {
   const Modal = useModal();
-  const Message = useMessage();
   return (
     <Button
       onClick={() => {
@@ -22,7 +21,7 @@ function App() {
                 res('complete');
               }, 2000);
             }).then((data) => {
-              Message.add({
+              MessageStore.add({
                 type: 'success',
                 content: data,
               });

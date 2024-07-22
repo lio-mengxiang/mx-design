@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { forwardRef, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { useTimer } from '../hooks';
 import { applyNotificationSlide, getCardStyle } from '../utils';
@@ -6,7 +6,7 @@ import NotificationCard from './notificationCard';
 // type
 import type { NotificationCardProps } from '../interface';
 
-function NotificationWrapper(props: NotificationCardProps) {
+function _NotificationWrapper(props: NotificationCardProps, ref) {
   const { onMouseEnter, onMouseLeave } = useTimer(props);
   const { icon, type, style, themeStyle, title, content, btn, closable, showIcon, className, remove, id, onClose, position } = props;
 
@@ -23,6 +23,7 @@ function NotificationWrapper(props: NotificationCardProps) {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       style={toastStyle}
+      ref={ref}
     >
       <NotificationCard
         icon={icon}
@@ -43,6 +44,4 @@ function NotificationWrapper(props: NotificationCardProps) {
   );
 }
 
-NotificationWrapper.displayName = 'NotificationWrapper';
-
-export default NotificationWrapper;
+export const NotificationWrapper = forwardRef(_NotificationWrapper);

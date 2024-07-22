@@ -5,7 +5,6 @@ import { disabled } from './disabled';
 import { loading } from './loading';
 import { group } from './group';
 import { long } from './long';
-import { compact } from './compact';
 
 export const exampleList = {
   [basic.namespace]: basic,
@@ -15,5 +14,4 @@ export const exampleList = {
   [loading.namespace]: loading,
   [group.namespace]: group,
   [long.namespace]: long,
-  [compact.namespace]: compact,
 };

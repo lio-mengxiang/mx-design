@@ -26,7 +26,12 @@ export const zh_cn_message = {
   },
   [Update]: {
     title: '更新全局提醒内容',
-    desc: '通过指定 id，可以更新已经存在的全局提示',
+    desc: (
+      <>
+        通过指定 id，可以更新已经存在的全局提示。注意，<code className="mx-code">duration</code> 值为 <code className="mx-code">null</code>{' '}
+        会取消当前 message 消息自动关闭功能
+      </>
+    ),
   },
   [Position]: {
     title: '全局提示的位置',

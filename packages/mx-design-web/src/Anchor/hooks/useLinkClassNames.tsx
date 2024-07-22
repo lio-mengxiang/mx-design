@@ -26,6 +26,6 @@ export function useLinkClassNames(props: getClassNamesProps) {
       ),
       titleCls: `${prefixCls}-title`,
     }),
-    [getPrefixCls, currentLink, href, className]
+    [prefixCls, currentLink, href, className]
   );
 }

@@ -1,0 +1,300 @@
+[
+  {
+    "name": "ComponentConfig",
+    "data": [
+      {
+        "name": "Empty",
+        "type": "Partial<EmptyProps>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "Icon",
+        "type": "Partial<IconProps>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "Notification",
+        "type": "Partial<NotificationManagerProps>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "Button",
+        "type": "Partial<ButtonProps>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "Popup",
+        "type": "Partial<PopupProps>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "Spin",
+        "type": "Partial<SpinProps>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "Space",
+        "type": "Partial<SpaceProps>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "Tooltip",
+        "type": "Partial<TooltipProps>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "Dropdown",
+        "type": "Partial<DropdownProps>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "Checkbox",
+        "type": "Partial<CheckboxProps>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "Radio",
+        "type": "Partial<RadioProps>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "Alert",
+        "type": "Partial<AlertProps>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "Affix",
+        "type": "Partial<AffixProps>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "Anchor",
+        "type": "Partial<AnchorProps>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "Message",
+        "type": "Partial<MessageProps>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "HorizontalMenu",
+        "type": "Partial<HorizontalMenuMenuProps>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "GridLayout",
+        "type": "Partial<GridLayoutProps>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "Table",
+        "type": "Partial<TableProps<any>>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "Modal",
+        "type": "Partial<ModalProps>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "Drawer",
+        "type": "Partial<DrawerProps>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "Input",
+        "type": "Partial<InputProps>"
+      },
+      {
+        "name": "Tag",
+        "type": "Partial<TagProps>"
+      },
+      {
+        "name": "Pagination",
+        "type": "Partial<PaginationProps>"
+      },
+      {
+        "name": "Switch",
+        "type": "Partial<SwitchProps>"
+      },
+      {
+        "name": "InputTag",
+        "type": "Partial<InputTagProps>"
+      },
+      {
+        "name": "Row",
+        "type": "Partial<RowProps>"
+      },
+      {
+        "name": "Col",
+        "type": "Partial<ColProps>"
+      }
+    ]
+  },
+  {
+    "name": "ConfigProviderProps",
+    "data": [
+      {
+        "name": "componentConfig",
+        "type": "ComponentConfig",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "globalCssVariables",
+        "type": "Record<string, any>",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n全局组件库主题色",
+          "tags": []
+        }
+      },
+      {
+        "name": "lang",
+        "type": "typeof ZH_CN | typeof EN_US",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "当前语言"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Current language"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "zh_cn"
+            }
+          ]
+        }
+      },
+      {
+        "name": "prefixCls",
+        "type": "string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "全局组件类名前缀"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Global ClassName prefix"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "mx"
+            }
+          ]
+        }
+      },
+      {
+        "name": "getPrefixCls",
+        "type": "(componentName: string, customPrefix?: string) => string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "获取组件类名前缀的方法"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Global ClassName prefix"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "mx-组件名"
+            }
+          ]
+        }
+      },
+      {
+        "name": "container",
+        "type": "HTMLElement",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "全局弹出框挂载的父级节点。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The parent node of the global popup."
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "() => document.body"
+            }
+          ]
+        }
+      },
+      {
+        "name": "renderEmpty",
+        "type": "(componentName?: string) => ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "全局配置组件内的空组件。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Empty component in component."
+            }
+          ]
+        }
+      },
+      {
+        "name": "_messageRef",
+        "type": "React.RefObject<IMessageRef>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "_notificationRef",
+        "type": "React.RefObject<INotificationRef>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "_modalRef",
+        "type": "React.RefObject<IModalRef>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "_drawerRef",
+        "type": "React.RefObject<IDrawerRef>",
+        "isOptionnal": "?"
+      }
+    ]
+  }
+]

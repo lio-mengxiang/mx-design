@@ -59,11 +59,11 @@ export interface BaseButtonProps {
    * @en Whether the width of the button should adapt to the container.
    */
   long?: boolean;
-  /**
-   * @zh 将按钮设置为紧凑模式，会失去内边距和悬浮时的阴影效果。
-   * @en Setting a button to compact mode will remove the padding and the shadow effect when hovered over.
-   */
-  compact?: boolean;
+  // /**
+  //  * @zh 将按钮设置为紧凑模式，会失去内边距和悬浮时的阴影效果。
+  //  * @en Setting a button to compact mode will remove the padding and the shadow effect when hovered over.
+  //  */
+  // compact?: boolean;
   /**
    * @zh 点击按钮的回调
    * @en Callback fired when the button is clicked

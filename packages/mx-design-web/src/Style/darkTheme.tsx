@@ -116,9 +116,9 @@ export const darkTheme = {
   // border color
   '--border-level-2-color': 'var(--gray-color-9)',
   // shadow color
-  '--shadow-1': '0 4px 6px rgba(0, 0, 0, 6%), 0 1px 10px rgba(0, 0, 0, 8%), 0 2px 4px rgba(0, 0, 0, 12%)',
-  '--shadow-2': '0 8px 10px rgba(0, 0, 0, 12%), 0 3px 14px rgba(0, 0, 0, 10%), 0 5px 5px rgba(0, 0, 0, 16%)',
-  '--shadow-3': '0 16px 24px rgba(0, 0, 0, 14%), 0 6px 30px rgba(0, 0, 0, 12%), 0 8px 10px rgba(0, 0, 0, 20%)',
+  '--shadow-1': '0px 2px 10px 0px rgba(0,0,0,.06), 0px 0px 1px 0px rgba(0,0,0,.3)',
+  '--shadow-2': '0px 2px 30px 0px rgba(0,0,0,.08), 0px 0px 1px 0px rgba(0,0,0,.3)',
+  '--shadow-3': '0px 30px 60px 0px rgba(0,0,0,.12), 0px 0px 1px 0px rgba(0,0,0,.3)',
   '--shadow-inset-top': 'inset 0 .5px 0 #5e5e5e',
   '--shadow-inset-right': 'inset .5px 0 0 #5e5e5e',
   '--shadow-inset-bottom': 'inset 0 -.5px 0 #5e5e5e',

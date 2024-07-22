@@ -1,13 +1,11 @@
 import { CustomBtn } from '../locale';
 
 const code = `
-import { useNotification, Space, Button } from '@mx-design/web';
+import { NotificationStore, Space, Button } from '@mx-design/web';
 
 function App() {
-  const Notification = useNotification();
-
   function updateNotification() {
-    const id = Notification.add({
+    const id = NotificationStore.add({
       title: 'Notification',
       type: 'info',
       content: 'This is a notification!',
@@ -16,12 +14,12 @@ function App() {
         <span>
           <Button
             status='default'
-            onClick={() => Notification.remove(id)}
+            onClick={() => NotificationStore.remove(id)}
             style={{ margin: '0 12px' }}
           >
             Cancel
           </Button>
-          <Button onClick={() => Notification.remove(id)}>
+          <Button onClick={() => NotificationStore.remove(id)}>
             Ok
           </Button>
         </span>

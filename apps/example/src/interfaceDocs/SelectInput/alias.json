@@ -1,0 +1,22 @@
+[
+  {
+    "name": "SelectInputValue",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "string | number | boolean | Date | Object | Array<any> | Array<SelectInputValue>",
+    "typeParameters": [],
+    "kind": 38
+  },
+  {
+    "name": "TagInputValue",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "Array<string | number>",
+    "typeParameters": [],
+    "kind": 38
+  }
+]

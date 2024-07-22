@@ -81,7 +81,7 @@
   white-space: nowrap;
   transition: all 0.2s @transition-timing-function-standard;
   box-sizing: border-box;
-  line-height: 1.5715;
+  line-height: var(--btn-lineHeight);
   border-radius: @btn-radius;
 
   > a:only-child {
@@ -105,12 +105,6 @@
   &-long {
     display: block;
     width: 100%;
-  }
-
-  &-compact {
-    padding: 0;
-    height: auto;
-    line-height: normal;
   }
 
   &-loading {
@@ -174,7 +168,6 @@
 .btn-status(text, error);
 .btn-status(text, success);
 .btn-status(text, default);
-
 
 .@{btn-prefix-cls}-group {
   display: inline-block;

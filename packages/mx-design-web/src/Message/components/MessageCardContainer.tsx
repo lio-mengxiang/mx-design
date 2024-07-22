@@ -1,13 +1,14 @@
-import React, { useMemo } from 'react';
-import { motion } from 'framer-motion';
+import React, { forwardRef, useMemo } from 'react';
+import { motion, useIsPresent } from 'framer-motion';
 import { useTimer } from '../hooks';
 import { applyNotificationSlide, getCardStyle } from '../utils';
 import { Alert } from '../../Alert';
 // type
 import type { MessageCardProps } from '../interface';
 
-export function MessageCardContainer(props: MessageCardProps) {
+function _MessageCardContainer(props: MessageCardProps, ref) {
   const { onMouseEnter, onMouseLeave } = useTimer(props);
+
   const { icon, type, style, title, content, operation, closable, showIcon, className, remove, id, onClose, position, themeStyle } = props;
 
   const toastStyle = useMemo(() => getCardStyle(position), [position]);
@@ -23,6 +24,7 @@ export function MessageCardContainer(props: MessageCardProps) {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       style={toastStyle}
+      ref={ref}
     >
       <Alert
         icon={icon}
@@ -35,11 +37,13 @@ export function MessageCardContainer(props: MessageCardProps) {
         closable={closable}
         showIcon={showIcon}
         className={className}
-        _onClose={() => {
+        onClose={() => {
           remove?.(id);
+          onClose?.();
         }}
-        onClose={onClose}
       />
     </motion.div>
   );
 }
+
+export const MessageCardContainer = forwardRef(_MessageCardContainer);

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "ScrollContainerElement",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "Window | HTMLElement",
+    "typeParameters": [],
+    "kind": 38
+  },
+  {
+    "name": "ScrollContainer",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "(() => ScrollContainerElement) | string",
+    "typeParameters": [],
+    "kind": 38
+  }
+]

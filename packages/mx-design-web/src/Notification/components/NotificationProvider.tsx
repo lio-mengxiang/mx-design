@@ -1,12 +1,12 @@
-import React, { forwardRef, useContext } from 'react';
+import React, { forwardRef, useContext, useSyncExternalStore } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { useMergeProps } from '@mx-design/hooks';
-import useStore from '../store';
+import { store } from '../store';
 import { ConfigContext } from '../../ConfigProvider';
 import { useClassNames } from '../hooks';
 import { TOP_RIGHT } from '../constants';
 import { Portal } from '../../Portal';
-import NotificationWrapper from './notificationWrapper';
+import { NotificationWrapper } from './notificationWrapper';
 // types
 import { IPosition, NotificationManagerProps, NotificationProps } from '../interface';
 
@@ -24,7 +24,7 @@ function NotificationItem({ state, position, getPrefixCls, props, remove }) {
 
   return (
     <div role="region" aria-live="polite" key={position} className={wrapperClassNames}>
-      <AnimatePresence initial={false}>
+      <AnimatePresence mode="popLayout">
         {notifications.map((notice) => (
           <NotificationWrapper key={notice.id} position={position} {...props} {...notice} remove={remove} />
         ))}
@@ -46,20 +46,12 @@ function NotificationProvider(baseProps: NotificationManagerProps, ref) {
   const { position } = props;
 
   // state
-  const { add, remove, state, clearAll, update } = useStore(position);
+  const state = useSyncExternalStore(store.subscribe, store.getState, store.getState);
 
   const stateKeys = Object.keys(state) as Array<keyof typeof state>;
   const notificationList = stateKeys.map((position, index) => (
-    <NotificationItem key={index} state={state} position={position} getPrefixCls={getPrefixCls} props={props} remove={remove} />
+    <NotificationItem key={index} state={state} position={position} getPrefixCls={getPrefixCls} props={props} remove={store.remove} />
   ));
-
-  if (!ref.current)
-    ref.current = {
-      add,
-      remove,
-      clearAll,
-      update,
-    };
 
   return <Portal attach={document.body}>{notificationList}</Portal>;
 }

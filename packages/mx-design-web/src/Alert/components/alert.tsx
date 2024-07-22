@@ -4,37 +4,23 @@ import { ConfigContext } from '../../ConfigProvider';
 import { IconClose } from '../../Icon';
 import { useClassNames } from '../hooks';
 import { renderIcon } from '../../Common';
+import { useStyles } from '../../hooks';
 // type
 import type { AlertProps } from '../interface';
-import { useStyles } from '../../hooks';
 
-type IAlertProps = AlertProps & { _onClose?: (...args: any) => void };
+type IAlertProps = AlertProps;
 
 const defaultProps = {
   type: 'info' as const,
   showIcon: true,
+  closable: false,
 };
 
 function Alert(baseProps: IAlertProps, ref) {
   // props
   const { getPrefixCls, componentConfig } = useContext(ConfigContext);
   const props = useMergeProps<IAlertProps>(baseProps, defaultProps, componentConfig?.Alert);
-  const {
-    icon,
-    type,
-    style,
-    title,
-    content,
-    operation,
-    closable,
-    showIcon,
-    className,
-    themeStyle,
-    onClose,
-    _onClose = () => {
-      setShow(false);
-    },
-  } = props;
+  const { icon, type, style, title, content, operation, closable, showIcon, className, themeStyle, onClose } = props;
 
   // state
   const [isShow, setShow] = useState(true);
@@ -62,7 +48,7 @@ function Alert(baseProps: IAlertProps, ref) {
             <IconClose
               className={closeBtnClassName}
               onClick={() => {
-                _onClose?.();
+                setShow(false);
                 onClose?.();
               }}
             />
@@ -74,6 +60,5 @@ function Alert(baseProps: IAlertProps, ref) {
 }
 
 const AlertComponent = forwardRef(Alert);
-AlertComponent.displayName = 'NotificationCardComponent';
 
 export { AlertComponent as Alert };

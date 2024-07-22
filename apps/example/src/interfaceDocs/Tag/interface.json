@@ -1,0 +1,119 @@
+[
+  {
+    "name": "TagProps",
+    "data": [
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "themeStyle",
+        "type": "Record<string, any>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n组件子元素",
+          "tags": []
+        }
+      },
+      {
+        "name": "closable",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n标签是否可关闭",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "default",
+              "text": "false"
+            }
+          ]
+        }
+      },
+      {
+        "name": "icon",
+        "type": "React.ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n标签中的图标，可自定义图标呈现",
+          "tags": []
+        }
+      },
+      {
+        "name": "maxWidth",
+        "type": "string | number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n标签最大宽度，宽度超出后会出现省略号。示例：'50px' / 80",
+          "tags": []
+        }
+      },
+      {
+        "name": "status",
+        "type": "'default' | 'brand' | 'warning' | 'danger' | 'success'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n组件风格，用于描述组件不同的应用场景",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "default",
+              "text": "default"
+            }
+          ]
+        }
+      },
+      {
+        "name": "type",
+        "type": "'fill' | 'light' | 'outline' | 'light-outline'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n标签风格变体",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "default",
+              "text": "dark"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onClose",
+        "type": "(e) => Promise<any> | void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n如果关闭按钮存在，点击关闭按钮时触发",
+          "tags": []
+        }
+      },
+      {
+        "name": "visible",
+        "type": "boolean",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "defaultVisible",
+        "type": "boolean",
+        "isOptionnal": "?"
+      }
+    ]
+  }
+]

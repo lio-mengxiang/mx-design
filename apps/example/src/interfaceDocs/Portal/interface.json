@@ -1,0 +1,32 @@
+[
+  {
+    "name": "PortalProps",
+    "data": [
+      {
+        "name": "attach",
+        "type": "AttachNodeReturnValue",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "指定挂载的 HTML 节点, 默认挂载在 body"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Specifies the mounted HTML node, which is mounted in the body by default"
+            }
+          ]
+        }
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode"
+      }
+    ]
+  }
+]

@@ -1,10 +1,9 @@
 import { CustomIcon } from '../locale';
 
 const code = `
-import { useNotification, Space, Button } from '@mx-design/web';
+import { NotificationStore, Space, Button } from '@mx-design/web';
 
 function App() {
-  const Notification = useNotification();
 
   const IconFace = createIcon({
     viewBox: '0 0 36 36',
@@ -35,7 +34,7 @@ function App() {
   return (
     <Button
       onClick={() =>
-        Notification.add({
+        NotificationStore.add({
           icon: <IconFace />,
           title: 'Upgrade',
           content: 'Ready to upgrade ArcoDesign 2.0',

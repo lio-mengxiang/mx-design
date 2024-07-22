@@ -1,0 +1,478 @@
+[
+  {
+    "name": "PaginationProps",
+    "data": [
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "themeStyle",
+        "type": "Record<string, any>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "pageItemStyle",
+        "type": "CSSProperties",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "分页按钮样式"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Pagination button style"
+            }
+          ]
+        }
+      },
+      {
+        "name": "activePageItemStyle",
+        "type": "CSSProperties",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "被选中的分页按钮样式"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The style of the selected page button"
+            }
+          ]
+        }
+      },
+      {
+        "name": "current",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "当前页"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Current page"
+            }
+          ]
+        }
+      },
+      {
+        "name": "pageSize",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "每页数据条数"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Number of data items per page"
+            }
+          ]
+        }
+      },
+      {
+        "name": "total",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "数据总数"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Total number of data"
+            }
+          ]
+        }
+      },
+      {
+        "name": "defaultCurrent",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "当前页默认值"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "To set default current page"
+            }
+          ]
+        }
+      },
+      {
+        "name": "defaultPageSize",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "默认每页数据条数"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "To set default number of data per page"
+            }
+          ]
+        }
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否禁用"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to disable"
+            }
+          ]
+        }
+      },
+      {
+        "name": "hideOnSinglePage",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否在只有一页的情况下隐藏"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to hide when there is only one page"
+            }
+          ]
+        }
+      },
+      {
+        "name": "itemRender",
+        "type": "(page: number, type: 'page' | 'more' | 'prev' | 'next', originElement: ReactNode) => ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "定制分页按钮的结构"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Customized pagination button structure"
+            }
+          ]
+        }
+      },
+      {
+        "name": "showTotal",
+        "type": "boolean | ((total: number, range: number[]) => ReactNode)",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否显示数据总数"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to display the total number of data"
+            }
+          ]
+        }
+      },
+      {
+        "name": "sizeCanChange",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否可以改变每页条数"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Is it possible to change page size"
+            }
+          ]
+        }
+      },
+      {
+        "name": "sizeOptions",
+        "type": "number[]",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "每页可以显示数据条数"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The number of data items that can be displayed per page"
+            }
+          ]
+        }
+      },
+      {
+        "name": "bufferSize",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "`current` 页与 `...` 之间的页码个数"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "the number of pages between the `current` page and `...`"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "2"
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.32.0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onChange",
+        "type": "(pageNumber: number, pageSize: number) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "变化时的回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when page changes"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onPageSizeChange",
+        "type": "(size: number, current: number) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "pageSize 变化时的回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when pageSize changes"
+            }
+          ]
+        }
+      },
+      {
+        "name": "pageSizeChangeResetCurrent",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "`pageSize` 改变的时候重置当前页码为 `1`"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "When pageSize changes, resets the current page number to `1`"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "true"
+            }
+          ]
+        }
+      },
+      {
+        "name": "simple",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否应用精简分页模式"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to use simplified pagination mode"
+            }
+          ]
+        }
+      },
+      {
+        "name": "showJumper",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否显示快速跳转到某页，在 `simple` 模式下默认为 true"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to display quick jump. Defaults to true in `simple` mode"
+            }
+          ]
+        }
+      },
+      {
+        "name": "selectProps",
+        "type": "Partial<any>",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "用于配置弹出框的属性"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Props of the `Select`"
+            }
+          ]
+        }
+      },
+      {
+        "name": "icons",
+        "type": "{\n    prev?: ReactNode;\n    next?: ReactNode;\n    more?: ReactNode;\n  }",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "设置分页器的图标"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Set icon of the pager"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

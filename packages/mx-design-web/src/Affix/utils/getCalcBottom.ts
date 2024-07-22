@@ -1,5 +1,5 @@
 import { isNumber } from '@mx-design/web-utils';
-import type { ScrollContainerElement } from './getScrollContainer';
+import type { ScrollContainerElement } from '../interface';
 
 interface IGetCalcBottomProps {
   scrollContainer: ScrollContainerElement;

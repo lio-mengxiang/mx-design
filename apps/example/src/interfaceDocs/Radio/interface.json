@@ -1,0 +1,378 @@
+[
+  {
+    "name": "RadioProps",
+    "data": [
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "themeStyle",
+        "type": "Record<string, any>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否禁用"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether the radio is disabled"
+            }
+          ]
+        }
+      },
+      {
+        "name": "value",
+        "type": "T",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "控件的 `value`"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The value of radio"
+            }
+          ]
+        }
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否选中（受控模式）"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether the radio is checked (Controlled)"
+            }
+          ]
+        }
+      },
+      {
+        "name": "defaultChecked",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "初始是否选中"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether the radio is initially selected"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onChange",
+        "type": "(checked: boolean, event: ChangeEvent) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "值变化的回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when radio status change"
+            }
+          ]
+        }
+      },
+      {
+        "name": "children",
+        "type": "ReactNode | ((value: { checked: boolean }) => ReactNode)",
+        "isOptionnal": "?"
+      }
+    ]
+  },
+  {
+    "name": "RadioGroupProps",
+    "data": [
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "themeStyle",
+        "type": "Record<string, any>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "`Radio` 的 name"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "`Radio`'s name attr"
+            }
+          ]
+        }
+      },
+      {
+        "name": "type",
+        "type": "'radio' | 'button'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "单选的类型，是单选还是按钮"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "type of `Radio`"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "radio"
+            }
+          ]
+        }
+      },
+      {
+        "name": "direction",
+        "type": "'vertical' | 'horizontal'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "方向"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Arrangement direction"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "horizontal"
+            }
+          ]
+        }
+      },
+      {
+        "name": "size",
+        "type": "'small' | 'default' | 'large' | 'mini'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "按钮类型的单选框尺寸（只在按钮类型下生效）"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The size of radio button style(Only effective under `button` type)"
+            }
+          ]
+        }
+      },
+      {
+        "name": "mode",
+        "type": "'outline' | 'fill'",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "onChange",
+        "type": "(value: any, event: ChangeEvent) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "点击单选的回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when radio status change"
+            }
+          ]
+        }
+      },
+      {
+        "name": "defaultValue",
+        "type": "any",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "默认选中的值"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "To set default value"
+            }
+          ]
+        }
+      },
+      {
+        "name": "value",
+        "type": "any",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "选中的值（受控模式）"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "To set value"
+            }
+          ]
+        }
+      },
+      {
+        "name": "options",
+        "type": "(string | number | { label: ReactNode; value: any; disabled?: boolean })[]",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "以数组配置的形式来设置单选组"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Set children options"
+            }
+          ]
+        }
+      },
+      {
+        "name": "children",
+        "type": "ReactNode"
+      }
+    ]
+  },
+  {
+    "name": "RadioGroupContextProps",
+    "data": [
+      {
+        "name": "type",
+        "type": "'radio' | 'button'"
+      },
+      {
+        "name": "value",
+        "type": "any",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "group",
+        "type": "boolean",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "name",
+        "type": "RadioGroupProps['name']",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "onChangeValue",
+        "type": "(value: any, event: ChangeEvent) => void",
+        "isOptionnal": "?"
+      }
+    ]
+  }
+]

@@ -1,14 +1,13 @@
 import { Basic } from '../locale';
 
 const code = `
-import { useNotification, Button } from '@mx-design/web';
+import { NotificationStore, Button } from '@mx-design/web';
 
 function App() {
-  const Notification = useNotification();
   return (
     <Button
       onClick={() => {
-        Notification.add({
+        NotificationStore.add({
           type: 'info',
           title: 'Title',
           content: 'This is an notification!'

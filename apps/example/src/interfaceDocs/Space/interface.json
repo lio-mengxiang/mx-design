@@ -1,0 +1,105 @@
+[
+  {
+    "name": "SpaceProps",
+    "data": [
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "align",
+        "type": "'start' | 'end' | 'center' | 'baseline'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "对齐方式"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Alignment of items"
+            }
+          ]
+        }
+      },
+      {
+        "name": "direction",
+        "type": "'vertical' | 'horizontal'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "间距方向"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The space direction"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "horizontal"
+            }
+          ]
+        }
+      },
+      {
+        "name": "size",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "尺寸"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The space size."
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "8px"
+            }
+          ]
+        }
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "split",
+        "type": "ReactNode",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "lastOneStyle",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      }
+    ]
+  }
+]

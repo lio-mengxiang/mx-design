@@ -1,0 +1,269 @@
+[
+  {
+    "name": "DrawerProps",
+    "data": [
+      {
+        "name": "id",
+        "type": "string | number",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "visible",
+        "type": "boolean",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "headerStyle",
+        "type": "CSSProperties",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "头部的样式"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The additional css style for header"
+            }
+          ]
+        }
+      },
+      {
+        "name": "closeIcon",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "自定义右上角关闭按钮"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Custom the close button on top-right of the drawer dialog"
+            }
+          ]
+        }
+      },
+      {
+        "name": "bodyStyle",
+        "type": "CSSProperties",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "内容区域的样式"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The additional css style for content"
+            }
+          ]
+        }
+      },
+      {
+        "name": "mask",
+        "type": "boolean",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "okLoading",
+        "type": "boolean",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "title",
+        "type": "ReactNode | string",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "maskStyle",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "maskClosable",
+        "type": "boolean",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "hideCancelBtn",
+        "type": "boolean",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "showCloseIcon",
+        "type": "boolean",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "okText",
+        "type": "string",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "cancelText",
+        "type": "string",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "okButtonProps",
+        "type": "ButtonProps",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "cancelButtonProps",
+        "type": "ButtonProps",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "footer",
+        "type": "ReactNode",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "footerAlign",
+        "type": "DrawerAlignType",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "focusLock",
+        "type": "boolean",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "onCancel",
+        "type": "() => void",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "onOk",
+        "type": "<T = any>(e?: MouseEvent) => T",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "afterOpen",
+        "type": "() => void",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "afterClose",
+        "type": "() => void",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "themeStyle",
+        "type": "Record<string, any>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "content",
+        "type": "ReactNode"
+      },
+      {
+        "name": "placement",
+        "type": "DrawerPlacement"
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "抽屉的宽度，`placement`为 `left` `right` 时生效"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The width of the drawer dialog. Only works when `placement` is `left` or `right`"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "332"
+            }
+          ]
+        }
+      },
+      {
+        "name": "height",
+        "type": "string | number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "抽屉的高度，`placement`为 `top` `bottom` 时生效"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The height of the drawer dialog. Only works when `placement` is `top` or `bottom`"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "332"
+            }
+          ]
+        }
+      },
+      {
+        "name": "getMountContainer",
+        "type": "() => HTMLElement",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "指定弹出框挂载的父节点"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Specify the parent node of the Modal"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "() => document.body"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -17,3 +17,5 @@ export * from './dom';
 export * from './on';
 export * from './off';
 export * from './merge';
+export * from './debounceByRaf';
+export * from './partial';

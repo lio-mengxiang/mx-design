@@ -10,9 +10,9 @@
     "move": "rimraf -rf ../../docs && mv ./dist ../../docs"
   },
   "dependencies": {
-    "@mx-design/web-utils": "0.1.8",
-    "@mx-design/hooks": "0.1.2",
-    "@mx-design/web": "0.1.9",
+    "@mx-design/web-utils": "workspace:*",
+    "@mx-design/hooks": "workspace:*",
+    "@mx-design/web": "workspace:*",
     "react": "^18.2.0 ",
     "react-dom": "^18.2.0",
     "react-router-dom": "6.11.2",

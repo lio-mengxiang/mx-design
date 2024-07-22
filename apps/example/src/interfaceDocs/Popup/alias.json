@@ -1,0 +1,22 @@
+[
+  {
+    "name": "PopupTriggerEvent",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "MouseEvent<HTMLDivElement> | FocusEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>",
+    "typeParameters": [],
+    "kind": 38
+  },
+  {
+    "name": "PopupTriggerSource",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "| 'document'\n  | 'trigger-element-click'\n  | 'trigger-element-hover'\n  | 'trigger-element-blur'\n  | 'trigger-element-focus'\n  | 'trigger-element-mousedown'\n  | 'context-menu'\n  | 'keydown-esc'",
+    "typeParameters": [],
+    "kind": 38
+  }
+]

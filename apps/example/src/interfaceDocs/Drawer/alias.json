@@ -1,0 +1,22 @@
+[
+  {
+    "name": "DrawerAlignType",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "'left' | 'center' | 'right' | ''",
+    "typeParameters": [],
+    "kind": 38
+  },
+  {
+    "name": "DrawerPlacement",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "'top' | 'bottom' | 'left' | 'right'",
+    "typeParameters": [],
+    "kind": 38
+  }
+]

@@ -1,15 +1,14 @@
 import { Different } from '../locale';
 
 const code = `
-import { useNotification, Space, Button } from '@mx-design/web';
+import { NotificationStore, Space, Button } from '@mx-design/web';
 
 function App() {
-  const Notification = useNotification();
   return (
     <Space>
       <Button
         onClick={() => {
-          Notification.add({
+          NotificationStore.add({
             title: 'Title',
             type: 'info',
             content: 'This is an info notification!',
@@ -20,7 +19,7 @@ function App() {
       </Button>
       <Button
         onClick={() => {
-          Notification.add({
+          NotificationStore.add({
             title: 'Title',
             type: 'warning',
             content: 'This is an warning notification!',
@@ -32,7 +31,7 @@ function App() {
       </Button>
       <Button
         onClick={() => {
-          Notification.add({
+          NotificationStore.add({
             title: 'Title',
             type: 'success',
             content: 'This is an success notification!',
@@ -44,7 +43,7 @@ function App() {
       </Button>
       <Button
         onClick={() => {
-          Notification.add({
+          NotificationStore.add({
             title: 'Title',
             type: 'error',
             content: 'This is an error notification!',
@@ -56,7 +55,7 @@ function App() {
       </Button>
       <Button
         onClick={() => {
-          Notification.add({
+          NotificationStore.add({
             title: 'Title',
             type: 'loading',
             content: 'This is an loading notification!',

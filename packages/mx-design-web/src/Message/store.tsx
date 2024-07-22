@@ -1,9 +1,7 @@
-import { useState } from 'react';
 import { BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT, TOP, TOP_LEFT, TOP_RIGHT } from './constants';
 import { getId, findToast, getToastPosition } from './utils';
 // types
 import type { MessageStates, MessageProps } from './interface';
-import type { IPosition } from '../Notification';
 
 // state
 const initialState = {
@@ -14,12 +12,37 @@ const initialState = {
   [BOTTOM]: [],
   [BOTTOM_RIGHT]: [],
 };
+const copyInitialState = { ...initialState };
 
-function useStore(defaultPosition: IPosition) {
-  const [state, setState] = useState<MessageStates>({ ...initialState });
+export const store = createStore(initialState);
+
+export const MessageStore = {
+  add: store.add,
+  update: store.update,
+  remove: store.remove,
+  clearAll: store.clearAll,
+};
+
+function createStore(initialState: MessageStates) {
+  let state = initialState;
+  const listeners = new Set<() => void>();
+
+  const setState = (setStateFn: (values: MessageStates) => MessageStates) => {
+    state = setStateFn(state);
+    listeners.forEach((l) => l());
+  };
 
   return {
-    state,
+    getState: () => state,
+
+    subscribe: (listener) => {
+      listeners.add(listener);
+      return () => {
+        setState(() => copyInitialState);
+        listeners.delete(listener);
+      };
+    },
+
     add: (noticeProps: MessageProps) => {
       const id: number = getId(noticeProps);
       setState((preState) => {
@@ -27,8 +50,8 @@ function useStore(defaultPosition: IPosition) {
           const isExist = getToastPosition<MessageStates>(preState, noticeProps.id);
           if (isExist) return preState;
         }
-        const position = noticeProps.position || defaultPosition;
-        const isTop = position.includes('top');
+        const position = noticeProps.position || TOP;
+        const isTop = position.includes(TOP);
         const toasts = isTop
           ? [{ ...noticeProps, id }, ...(preState[position] ?? [])]
           : [...(preState[position] ?? []), { ...noticeProps, id }];
@@ -60,7 +83,7 @@ function useStore(defaultPosition: IPosition) {
     },
 
     clearAll: () => {
-      setState({ ...initialState });
+      setState(() => ({ ...copyInitialState }));
     },
 
     remove: (id: number) => {
@@ -76,5 +99,3 @@ function useStore(defaultPosition: IPosition) {
     },
   };
 }
-
-export default useStore;

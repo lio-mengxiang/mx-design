@@ -1,0 +1,158 @@
+[
+  {
+    "name": "SpinProps",
+    "data": [
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "themeStyle",
+        "type": "Record<string, any>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否为加载状态"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether is loading status"
+            }
+          ]
+        }
+      },
+      {
+        "name": "size",
+        "type": "string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "加载动画的尺寸"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The size of loading icon"
+            }
+          ]
+        }
+      },
+      {
+        "name": "element",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "自定义元素，非图标，不附带旋转效果。可用于设置为 gif 图片等。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Customize element which won't be rotated automatically, such as image/gif."
+            }
+          ]
+        }
+      },
+      {
+        "name": "tip",
+        "type": "string | ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "加载的文案"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Customize description content when Spin has children"
+            }
+          ]
+        }
+      },
+      {
+        "name": "delay",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "延迟显示加载的时间 (ms)"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Specifies a delay(ms) for loading state"
+            }
+          ]
+        }
+      },
+      {
+        "name": "block",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否为块级元素"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether it is a block-level element"
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.29.0"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,2342 @@
+[
+  {
+    "name": "TableProps",
+    "data": [
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "customerTitle",
+        "type": "(titleNode) => ReactNode",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "themeStyle",
+        "type": "Record<string, any>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "leftFixedColumnsLength",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "表格列冻结设置，leftFixedColumnsLength代表左边冻结几列, 如果是多行表头，以第一行为准"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "setting of fix column，leftFixedColumnsLength represents the frozen columns on the left, if there are multi-line header, first row shall prevail"
+            },
+            {
+              "kind": 25,
+              "tagName": "default",
+              "text": "0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "rightFixedColumnsLength",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "表格列冻结设置，rightFixedColumnsLength代表右边冻结几列, 如果是多行表头，以第一行为准"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "setting of fix column， rightFixedColumnsLength represents the frozen columns on the right. if there are multi-line header, first row shall prevail"
+            },
+            {
+              "kind": 25,
+              "tagName": "default",
+              "text": "0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "rowKey",
+        "type": "React.Key | ((record: T) => React.Key)",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "表格行 key 的取值字段"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Table row key"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "key"
+            }
+          ]
+        }
+      },
+      {
+        "name": "columns",
+        "type": "ColumnProps<T>[]",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "列描述数据对象的数组"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "An array of column objects"
+            }
+          ]
+        }
+      },
+      {
+        "name": "components",
+        "type": "ComponentsProps",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "覆盖原生表格标签"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Override native table tag"
+            }
+          ]
+        }
+      },
+      {
+        "name": "data",
+        "type": "T[]",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "表格数据"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Data record array to be displayed"
+            }
+          ]
+        }
+      },
+      {
+        "name": "border",
+        "type": "{ wrapper?: boolean; headerCell?: boolean; bodyCell?: boolean; cell?: boolean }",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "边框设置"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Configure border"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "true"
+            }
+          ]
+        }
+      },
+      {
+        "name": "borderCell",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否显示单元格边框，作用等同于 `border={{ cell: true }}`"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to display the table cell border, equivalent to `border={{ cell: true }}`"
+            }
+          ]
+        }
+      },
+      {
+        "name": "hover",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否开启鼠标悬浮效果"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to enable the hover style"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "true"
+            }
+          ]
+        }
+      },
+      {
+        "name": "defaultExpandAllRows",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "默认展开所有可展开的行"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Expand all expandable rows by default"
+            }
+          ]
+        }
+      },
+      {
+        "name": "expandedRowKeys",
+        "type": "(string | number)[]",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "展开的行（受控）"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "To set expanded rows."
+            }
+          ]
+        }
+      },
+      {
+        "name": "defaultExpandedRowKeys",
+        "type": "(string | number)[]",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "默认展开的行"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "To set default expanded rows"
+            }
+          ]
+        }
+      },
+      {
+        "name": "expandedRowRender",
+        "type": "(record: T, index: number) => ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "点击展开额外的行，渲染函数。返回值为 `null` 时，不会渲染展开按钮"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Click to expand additional rows, rendering functions. When the return value is `null`, the expand button will not be rendered"
+            }
+          ]
+        }
+      },
+      {
+        "name": "expandProps",
+        "type": "ExpandProps<T>",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "自定义展开/关闭列的图标，宽度，标题，具体用法看[这个例子](/react/components/table#定制展开参数)"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Customize the icon, width, and title of the expandable column, see [this example](/react/components/table#custom expand parameters) for usage"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onExpand",
+        "type": "(record: T, expanded: boolean) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "点击展开的回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when click to expand"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onExpandedRowsChange",
+        "type": "(expandedRows: (string | number)[]) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "点击展开时触发，参数为展开行数组"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when expanded button is clicked, the parameter is an array of expanded rows"
+            }
+          ]
+        }
+      },
+      {
+        "name": "loadingProps",
+        "type": "SpinProps",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "表格是否在加载中"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether the table is in loading"
+            }
+          ]
+        }
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "表格是否在加载中"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether the table is in loading"
+            }
+          ]
+        }
+      },
+      {
+        "name": "noDataElement",
+        "type": "string | ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "没有数据的时候显示的元素"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Element to be displayed when there is no data"
+            }
+          ]
+        }
+      },
+      {
+        "name": "showHeader",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否显示表头"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to show the header"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "true"
+            }
+          ]
+        }
+      },
+      {
+        "name": "showSorterTooltip",
+        "type": "boolean | TooltipProps",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "\n表头是否显示下一次排序的 tooltip 提示。可以设置对象，可以传 `Tooltip` 组件的所有参数。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "\nWhether the header shows the tooltip for the next sorting. The object can be set,\nand all the parameters of the `Tooltip` component can be passed."
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.19.0"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "true"
+            }
+          ]
+        }
+      },
+      {
+        "name": "stripe",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否开启斑马纹"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to show stripe style"
+            }
+          ]
+        }
+      },
+      {
+        "name": "size",
+        "type": "'default' | 'middle' | 'small' | 'mini'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "表格尺寸，分为 默认，`默认` `中` `小` `迷你` 四个尺寸"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The table size is divided into four sizes, `default` `medium` `small` `mini`"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onChange",
+        "type": "(\n    pagination: PaginationProps,\n    sorter: SorterInfo | SorterInfo[],\n    filters: Partial<Record<keyof T, string[]>>,\n    extra: { currentData: T[]; currentAllData: T[]; action: 'paginate' | 'sort' | 'filter' }\n  ) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "分页、排序、筛选时的回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when pagination, sorting, and filtering changes"
+            }
+          ]
+        }
+      },
+      {
+        "name": "pagination",
+        "type": "PaginationProps | boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "分页器设置，参考[Pagination组件](/react/components/pagination)，设置 `false` 不展示分页"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Pagination settings, refer to [Pagination components](/react/components/pagination), set `false` to hide pagination"
+            }
+          ]
+        }
+      },
+      {
+        "name": "renderPagination",
+        "type": "(paginationNode: any) => ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "分页渲染。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "pagination render"
+            }
+          ]
+        }
+      },
+      {
+        "name": "scroll",
+        "type": "{ x?: number; y?: number }",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "\n设置x轴或y轴的滚动。\n`y` 设置为 `true`，表头和表身会分离，放在两个 table 中"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "\nSet the scroll of x-axis or y-axis. Setting `x` to `true` will add `table-layout: fixed` to the table and `overflow: auto` to the parent element.\nIf `y` is set to `true`, the header and body will be separated and placed in two tables"
+            }
+          ]
+        }
+      },
+      {
+        "name": "rowClassName",
+        "type": "(record: T, index: number) => string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "表格行的类名"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "ClassName of table row"
+            }
+          ]
+        }
+      },
+      {
+        "name": "rowSelection",
+        "type": "RowSelectionProps<T>",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "设置表格行是否可选，选中事件等。[配置项](#rowselection)"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Set whether the table row is selectable, select event, etc. [Configuration item](#rowselection)"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onHeaderRow",
+        "type": "(columns: ColumnProps<T>[], index: number) => RowCallbackProps",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "设置表头行单元格的各项事件回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Set the event callback of the header row"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onRow",
+        "type": "(record: T, index: number) => RowCallbackProps",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "设置表格行的各项事件回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Set the event callback of the table row"
+            }
+          ]
+        }
+      },
+      {
+        "name": "prefixCls",
+        "type": "string",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "placeholder",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "当单元格内容为空时，显示占位符，优先级低于 `column.placeholder`。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "When the cell content is empty, a placeholder is displayed, and the priority is lower than `column.placeholder`."
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.23.0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "pagePosition",
+        "type": "'tl' | 'br' | 'bl' | 'bottomCenter'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "设置分页器的位置，有四个方位 `右下` `右上` `下中`"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Set the position of the pagination, there are three positions `bottom right` `bottom left` `bottom center`"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "br"
+            }
+          ]
+        }
+      },
+      {
+        "name": "childrenColumnName",
+        "type": "string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "树形数据在 `data` 中的字段名，默认是 `children`"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The field name of the tree data in `data`, default is `children`"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "children"
+            }
+          ]
+        }
+      },
+      {
+        "name": "indentSize",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "树形数据每个层级向左偏移的像素"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The pixel offset to the left of each level of the tree data"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "15"
+            }
+          ]
+        }
+      },
+      {
+        "name": "footer",
+        "type": "(currentPageDate) => ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "表格尾部"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The footer of the table"
+            }
+          ]
+        }
+      },
+      {
+        "name": "summary",
+        "type": "(currentData?: T[]) => ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "总结栏"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Table Summary"
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.17.0"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "RowSelectionProps",
+    "data": [
+      {
+        "name": "checkAll",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "多选模式下是否开启全选功能"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to show check all button"
+            }
+          ]
+        }
+      },
+      {
+        "name": "checkStrictly",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "设置为 `false` 的时候父子选择会自动关联。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "When set to `false`, parent-child selections are automatically associated."
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.33.0"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "true"
+            }
+          ]
+        }
+      },
+      {
+        "name": "checkCrossPage",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "多选模式下的复选框是否跨分页，只在非受控模式下生效。配合 preserveSelectedRowKeys: true 使用，可在受控模式下生效。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether the checkboxes in multi-select mode cross pages, only works in uncontrolled mode, but also works in controlled mode with preserveSelectedRowKeys: true."
+            }
+          ]
+        }
+      },
+      {
+        "name": "columnTitle",
+        "type": "string | ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "自定义列表选择的标题"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Customize the title of the selection column"
+            }
+          ]
+        }
+      },
+      {
+        "name": "columnWidth",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "选择框列的宽度"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The width of the selection column"
+            }
+          ]
+        }
+      },
+      {
+        "name": "checkboxProps",
+        "type": "(record: T) => { [key: string]: any }",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "选择框的属性配置"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Configure the selection checkbox"
+            }
+          ]
+        }
+      },
+      {
+        "name": "fixed",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否固定选择列到左边"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to fix column to the left"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onChange",
+        "type": "(selectedRowKeys: React.Key[], selectedRows: T[]) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "单选或多选的选中项发生改变时的回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when the checkbox/radio changes"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onSelect",
+        "type": "(selected: boolean, record: T, selectedRows: T[]) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "用户手动选择/取消选择的回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback for user manual selection/deselection"
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.22.0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onSelectAll",
+        "type": "(selected: boolean, selectedRows) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "用户手动选择/取消选择所有行的回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when the user to manually select/deselect all rows"
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.6.0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "preserveSelectedRowKeys",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "在数据项被删除时仍然保留选项的 `key`"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The `key` is still retained in `selectedRowKeys` when the data item is deleted"
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.19.0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "renderCell",
+        "type": "(originNode, checked: boolean, record: T) => ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "定制复选框，用法与 `column.render` 相同。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Customize checkbox, the usage is same as `column.render`."
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.19.0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "selectedRowKeys",
+        "type": "React.Key[]",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "Table选中的项，（受控模式，需要跟 `onChange` 配合使用）"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Table selected row, (controlled mode, need to be used with `onChange`)"
+            }
+          ]
+        }
+      },
+      {
+        "name": "defaultSelectedRowKeys",
+        "type": "React.Key[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "indeterminateKeys",
+        "type": "React.Key[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "type",
+        "type": "'checkbox' | 'radio'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "多选或者单选"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Multi-select or single-select"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "ExpandProps",
+    "data": [
+      {
+        "name": "icon",
+        "type": "(props: { expanded: boolean; record: Record<string, any> }) => ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "定制展开按钮的图标"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Customize the icon of the expand button"
+            }
+          ]
+        }
+      },
+      {
+        "name": "width",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "展开按钮列的宽度"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The width of expand icon column"
+            }
+          ]
+        }
+      },
+      {
+        "name": "columnTitle",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "展开按钮列的表头标题"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The table header title of expand icon column"
+            }
+          ]
+        }
+      },
+      {
+        "name": "rowExpandable",
+        "type": "(record: T) => boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "\n是否允许行展开。如果不指定该参数，会以 expandedRowRender 是否有返回值决定。当出现性能问题时，建议使用 rowExpandable。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "\nWhether to allow row expansion. If this parameter is not specified,\nit will be determined by whether expandedRowRender has a return value. When performance problems occur, rowExpandable is recommended."
+            }
+          ]
+        }
+      },
+      {
+        "name": "expandRowByClick",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "支持通过点击行来展开"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Clicking on the row to expand"
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.19.0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "strictTreeData",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "树形数据时，只有 `children` 是数组且长度大于 1 才显示展开图标。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "For tree data, only when `children` is an array and the length is greater than 1, the expand icon will be displayed."
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "true"
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.27.0"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "ColumnProps",
+    "data": [
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "列的类名"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "ClassName of the column"
+            }
+          ]
+        }
+      },
+      {
+        "name": "titleClassName",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "handleAscendSort",
+        "type": "(currentDirection: 'ascend' | 'descend' | undefined) => void",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "handleDescendSort",
+        "type": "(currentDirection: 'ascend' | 'descend' | undefined) => void",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "align",
+        "type": "'left' | 'center' | 'right'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "设置列的对齐方式"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Set the alignment of the column"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "left"
+            }
+          ]
+        }
+      },
+      {
+        "name": "ellipsis",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "\n单元格内容超出长度后，是否自动省略，显示 `...`。设置这个属性后，table 的 `table-layout` 将自动变成 `fixed`。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "\nIf the cell content exceeds the length, whether it is automatically omitted and displays `...`.\nAfter setting this property, the `table-layout` of the table will automatically become `fixed`."
+            }
+          ]
+        }
+      },
+      {
+        "name": "headerCellStyle",
+        "type": "CSSProperties",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "表头单元格自定义样式"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Table header cell style"
+            }
+          ]
+        }
+      },
+      {
+        "name": "bodyCellStyle",
+        "type": "CSSProperties",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "表身单元格自定义样式"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Table body cell style"
+            }
+          ]
+        }
+      },
+      {
+        "name": "title",
+        "type": "React.ReactNode",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "列标题"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Column title"
+            }
+          ]
+        }
+      },
+      {
+        "name": "width",
+        "type": "number | string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "列宽度"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Column width"
+            }
+          ]
+        }
+      },
+      {
+        "name": "dataIndex",
+        "type": "string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "\n列数据在数据项中对应的 `key`，用于取值显示，支持 `a[0].b.c[1]` 的嵌套写法，\n详情看 [lodash.get](https://www.npmjs.com/package/lodash.get)。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "\nThe `key` corresponding to the column data in the data item is used to display the value.\nIt supports the nested writing of `a[0].bc[1]`, see [lodash.get](https:// www.npmjs.com/package/lodash.get)."
+            }
+          ]
+        }
+      },
+      {
+        "name": "key",
+        "type": "string | number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "React的 key值，如果不指定，默认取 `dataIndex` 的值"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "React key value, if not specified, the default value of `dataIndex` is taken"
+            }
+          ]
+        }
+      },
+      {
+        "name": "render",
+        "type": "(col, item: T, index: number) => any",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "自定义单元格显示的内容"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Customize the content displayed in the cell"
+            }
+          ]
+        }
+      },
+      {
+        "name": "placeholder",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "当单元格内容为空时，显示占位符，优先级低于 `render`。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "When the cell content is empty, a placeholder is displayed, and the priority is lower than `render`."
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.22.0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "sorter",
+        "type": "SorterFn | boolean | { compare?: SorterFn; multiple?: number }",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "排序函数，如果想要服务端排序或者添加更多自定义操作，设置为true，利用`onChange`函数进行自定义排序"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Sorting function, if you want server-side sorting or adding more custom operations, set to true and use the `onChange` function for custom sorting"
+            }
+          ]
+        }
+      },
+      {
+        "name": "filters",
+        "type": "{\n    text?: ReactNode;\n    value?: any;\n    [key: string]: any;\n  }[]",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "筛选项，需要配合 `onFilter` 或者 `onChange` 使用"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Filter items, need to be used with `onFilter` or `onChange`"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "[]"
+            }
+          ]
+        }
+      },
+      {
+        "name": "defaultFilters",
+        "type": "string[]",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "默认筛选条件"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "To set default filters"
+            }
+          ]
+        }
+      },
+      {
+        "name": "defaultSortOrder",
+        "type": "'ascend' | 'descend'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "默认排序方式"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "To set default sort order"
+            }
+          ]
+        }
+      },
+      {
+        "name": "filteredValue",
+        "type": "string[]",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "筛选的受控属性，值为筛选的 value 数组"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "To set filtered value, the value is the filtered value array"
+            }
+          ]
+        }
+      },
+      {
+        "name": "sortOrder",
+        "type": "'ascend' | 'descend'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "排序的受控属性，可以控制列的排序，可设置为 `ascend` `descend`"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "To set sort order, which can control the sorting of columns, can be set to `ascend` `descend`"
+            }
+          ]
+        }
+      },
+      {
+        "name": "sortType",
+        "type": "'ascend' | 'descend' | 'all'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "支持的排序方式。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Supported sorting methods."
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "'all'"
+            }
+          ]
+        }
+      },
+      {
+        "name": "filterMultiple",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否可以筛选多项"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Is it possible to filter multiple items"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "true"
+            }
+          ]
+        }
+      },
+      {
+        "name": "filterIcon",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "自定义筛选图标。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Custom filter icon."
+            }
+          ]
+        }
+      },
+      {
+        "name": "filterDropdown",
+        "type": "(props: {\n    filterKeys?: string[];\n    setFilterKeys?: (filterKeys: string[], callback?: Function) => void;\n    confirm?: Function;\n  }) => ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "自定义筛选框。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Custom filter popup box."
+            }
+          ]
+        }
+      },
+      {
+        "name": "filterDropdownProps",
+        "type": "{ triggerProps?: PopupProps }",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "配置筛选弹出框的一些属性。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Configure properties of the filter popup box."
+            }
+          ]
+        }
+      },
+      {
+        "name": "onFilterDropdownVisibleChange",
+        "type": "(visible: boolean) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "筛选框打开关闭的回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when the visible of filter popup changes"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onFilter",
+        "type": "(value, row) => any",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "筛选函数，配合`filters`"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when filter changes"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onHeaderCell",
+        "type": "(column, index) => RowCallbackProps",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "设置头部单元格的各项事件回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Set the event callback of the table head cell"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onCell",
+        "type": "(record, index) => RowCallbackProps",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "设置表身单元格的各项事件回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Set the event callback of the table body cell"
+            }
+          ]
+        }
+      },
+      {
+        "name": "children",
+        "type": "ColumnProps<T>[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "rowSpan",
+        "type": "number",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "colSpan",
+        "type": "number",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "headerCellProps",
+        "type": "RowCallbackProps",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "editable",
+        "type": "boolean",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "prefixCls",
+        "type": "string",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "currentFilters",
+        "type": "{ [key: string]: any }",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "components",
+        "type": "ComponentsProps",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "columnFixedStyle",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "column",
+        "type": "any",
+        "isOptionnal": "?"
+      }
+    ]
+  },
+  {
+    "name": "TheadProps",
+    "data": [
+      {
+        "name": "fixedHeader",
+        "type": "boolean",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "prefixCls",
+        "type": "string"
+      },
+      {
+        "name": "ComponentHeaderWrapper",
+        "type": "any",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "ComponentTable",
+        "type": "any",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "flattenColumns",
+        "type": "InternalColumnProps<T>[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "refTableHead",
+        "type": "React.MutableRefObject<HTMLElement>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "onHeaderRow",
+        "type": "TableProps<T>['onHeaderRow']"
+      },
+      {
+        "name": "components",
+        "type": "ComponentsProps"
+      },
+      {
+        "name": "expandProps",
+        "type": "TableProps<T>['expandProps']"
+      },
+      {
+        "name": "groupColumns",
+        "type": "InternalColumnProps<T>[][]"
+      },
+      {
+        "name": "scroll",
+        "type": "TableProps['scroll']",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "data",
+        "type": "INewRecord<T>[]"
+      },
+      {
+        "name": "rowSelection",
+        "type": "TableProps<T>['rowSelection']"
+      },
+      {
+        "name": "groupStickyClassNames",
+        "type": "string[][]"
+      },
+      {
+        "name": "stickyOffsets",
+        "type": "number[]"
+      },
+      {
+        "name": "isRadio",
+        "type": "boolean"
+      },
+      {
+        "name": "isCheckbox",
+        "type": "boolean"
+      },
+      {
+        "name": "isCheckAll",
+        "type": "boolean"
+      },
+      {
+        "name": "expandedRowRender",
+        "type": "TableProps<T>['expandedRowRender']"
+      },
+      {
+        "name": "innerFiltersValue",
+        "type": "Partial<Record<keyof T, string[]>>"
+      },
+      {
+        "name": "onHandleFilter",
+        "type": "(column: InternalColumnProps<T>, value: any) => void"
+      },
+      {
+        "name": "activeSorters",
+        "type": "SorterInfo[]"
+      },
+      {
+        "name": "onSort",
+        "type": "(direction: SortDirection, column: InternalColumnProps<T>) => void"
+      },
+      {
+        "name": "isControlledSort",
+        "type": "boolean"
+      },
+      {
+        "name": "onCheckAll",
+        "type": "(checked: boolean) => void"
+      },
+      {
+        "name": "selectedRowSetKeys",
+        "type": "Set<React.Key>"
+      },
+      {
+        "name": "allSelectedRowSetKeys",
+        "type": "Set<React.Key>"
+      }
+    ]
+  },
+  {
+    "name": "TbodyProps",
+    "data": [
+      {
+        "name": "components",
+        "type": "TableProps<T>['components']"
+      },
+      {
+        "name": "flattenColumns",
+        "type": "TheadProps<T>['flattenColumns']"
+      },
+      {
+        "name": "processedData",
+        "type": "INewRecord<T>[]"
+      },
+      {
+        "name": "prefixCls",
+        "type": "string"
+      },
+      {
+        "name": "noDataElement",
+        "type": "TableProps['noDataElement']"
+      },
+      {
+        "name": "placeholder",
+        "type": "TableProps['placeholder']"
+      },
+      {
+        "name": "hasFixedColumn",
+        "type": "boolean"
+      },
+      {
+        "name": "tableViewWidth",
+        "type": "number"
+      },
+      {
+        "name": "stickyOffsets",
+        "type": "number[]"
+      },
+      {
+        "name": "stickyClassNames",
+        "type": "string[]"
+      },
+      {
+        "name": "childrenColumnName",
+        "type": "TableProps<T>['childrenColumnName']"
+      },
+      {
+        "name": "expandProps",
+        "type": "TableProps<T>['expandProps']"
+      },
+      {
+        "name": "expandedRowRender",
+        "type": "TableProps<T>['expandedRowRender']"
+      },
+      {
+        "name": "expandedRowKeys",
+        "type": "TableProps<T>['expandedRowKeys']"
+      },
+      {
+        "name": "onClickExpandBtn",
+        "type": "(key: React.Key) => void"
+      },
+      {
+        "name": "isRadio",
+        "type": "boolean"
+      },
+      {
+        "name": "isCheckbox",
+        "type": "boolean"
+      },
+      {
+        "name": "rowSelection",
+        "type": "TableProps<T>['rowSelection']"
+      },
+      {
+        "name": "fixedHeader",
+        "type": "boolean"
+      },
+      {
+        "name": "ComponentBodyWrapper",
+        "type": "any"
+      },
+      {
+        "name": "ComponentTable",
+        "type": "any"
+      },
+      {
+        "name": "refTableBody",
+        "type": "React.MutableRefObject<HTMLElement>"
+      },
+      {
+        "name": "scroll",
+        "type": "TableProps<T>['scroll']"
+      },
+      {
+        "name": "selectedRowSetKeys",
+        "type": "Set<React.Key>"
+      },
+      {
+        "name": "indeterminateSetKeys",
+        "type": "Set<React.Key>"
+      },
+      {
+        "name": "onCheck",
+        "type": "(checked: boolean, record: INewRecord<T>) => void"
+      },
+      {
+        "name": "onCheckRadio",
+        "type": "(key: any, record: INewRecord<T>) => void"
+      },
+      {
+        "name": "onRow",
+        "type": "TableProps['onRow']"
+      },
+      {
+        "name": "rowClassName",
+        "type": "TableProps['rowClassName']"
+      },
+      {
+        "name": "shouldRenderTreeDataExpandRow",
+        "type": "boolean"
+      },
+      {
+        "name": "indentSize",
+        "type": "number"
+      }
+    ]
+  },
+  {
+    "name": "TfootProps",
+    "data": [
+      {
+        "name": "prefixCls",
+        "type": "string",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "summary",
+        "type": "(currentData?: T[]) => ReactNode",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "data",
+        "type": "T[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "columns",
+        "type": "InternalColumnProps<T>[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "stickyOffsets",
+        "type": "number[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "stickyClassNames",
+        "type": "string[]",
+        "isOptionnal": "?"
+      }
+    ]
+  },
+  {
+    "name": "SorterResult",
+    "data": [
+      {
+        "name": "direction",
+        "type": "SortDirection",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "field",
+        "type": "string",
+        "isOptionnal": "?"
+      }
+    ]
+  },
+  {
+    "name": "SorterInfo",
+    "data": [
+      {
+        "name": "direction",
+        "type": "SortDirection",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "field",
+        "type": "string | number",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "sorterFn",
+        "type": "SorterFn",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "priority",
+        "type": "number",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "isBackSort",
+        "type": "boolean",
+        "isOptionnal": "?"
+      }
+    ]
+  },
+  {
+    "name": "SummaryProps",
+    "data": [
+      {
+        "name": "fixed",
+        "type": "'top' | 'bottom'",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "isOptionnal": "?"
+      }
+    ]
+  }
+]

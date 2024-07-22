@@ -1,0 +1,12 @@
+[
+  {
+    "name": "RefInputType",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "{\n  /** 使输入框失去焦点 */\n  blur: () => void;\n  /** 使输入框获取焦点 */\n  focus: () => void;\n  /** input dom元素 */\n  inputDom: HTMLInputElement;\n}",
+    "typeParameters": [],
+    "kind": 38
+  }
+]

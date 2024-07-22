@@ -1,0 +1,109 @@
+[
+  {
+    "name": "GridLayoutProps",
+    "data": [
+      {
+        "name": "columns",
+        "type": "number | string"
+      },
+      {
+        "name": "rows",
+        "type": "number | string",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "gap",
+        "type": "string",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "areas",
+        "type": "string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "alignContent",
+        "type": "string",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "justifyContent",
+        "type": "string",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "flow",
+        "type": "string",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "height",
+        "type": "string",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "style",
+        "type": "Record<string, any>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "isOptionnal": "?"
+      }
+    ]
+  },
+  {
+    "name": "CellProps",
+    "data": [
+      {
+        "name": "width",
+        "type": "number",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "area",
+        "type": "string",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "middle",
+        "type": "boolean",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "style",
+        "type": "Record<string, any>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "left",
+        "type": "number",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "top",
+        "type": "number",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "isOptionnal": "?"
+      }
+    ]
+  }
+]

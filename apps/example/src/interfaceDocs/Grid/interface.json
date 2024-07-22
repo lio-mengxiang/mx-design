@@ -1,0 +1,586 @@
+[
+  {
+    "name": "RowProps",
+    "data": [
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "gutter",
+        "type": "GridRowGutter | Array<GridRowGutter>",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "\n栅格间隔，单位是`px` 栅格间隔。可传入响应式对象写法 { xs: 4, sm: 6, md: 12}，传入数组 [ 水平间距， 垂直间距 ] 来设置两个方向。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "\nSpacing between grids, could be a number or a object like { xs: 8, sm: 16, md: 24}.\nOr you can use array to make horizontal and vertical spacing work at the same time [horizontal, vertical]"
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "vertical gutter in 2.5.0"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "div",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "开启这个选项 `<Row>` 和 `<Col>` 都会被当作 div 而不会附带任何 Grid 相关的类和样式"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "If true, `<Row>` and `<Col>` will be treated as a div without any Grid related classes and styles"
+            }
+          ]
+        }
+      },
+      {
+        "name": "align",
+        "type": "'start' | 'center' | 'end' | 'stretch'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "竖直对齐方式 ( `align-items` )"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Vertical alignment, same as css `align-items`"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "start"
+            }
+          ]
+        }
+      },
+      {
+        "name": "justify",
+        "type": "'start' | 'center' | 'end' | 'space-around' | 'space-between'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "水平对齐方式 (`justify-content`)"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Horizontal alignment, same as css `justify-content`"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "start"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "ColProps",
+    "data": [
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "span",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "栅格占位格数"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Raster number of cells to occupy"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "24"
+            }
+          ]
+        }
+      },
+      {
+        "name": "offset",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "栅格左侧的间隔格数，间隔内不可以有栅格"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The number of cells to offset Col from the left"
+            }
+          ]
+        }
+      },
+      {
+        "name": "order",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "对元素进行排序"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Raster order"
+            }
+          ]
+        }
+      },
+      {
+        "name": "push",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "对元素进行排序"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Raster order"
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.20.0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "pull",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "对元素进行排序"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Raster order"
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.20.0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "xs",
+        "type": "number | { [key: string]: any }",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "< 576px 响应式栅格"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "`screen < 576px`"
+            }
+          ]
+        }
+      },
+      {
+        "name": "sm",
+        "type": "number | { [key: string]: any }",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": ">= 576px 响应式栅格"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "`screen >= 576px`"
+            }
+          ]
+        }
+      },
+      {
+        "name": "md",
+        "type": "number | { [key: string]: any }",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": ">= 768px 响应式栅格"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "`screen >= 768px`"
+            }
+          ]
+        }
+      },
+      {
+        "name": "lg",
+        "type": "number | { [key: string]: any }",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": ">= 992px 响应式栅格"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "`screen >= 992px`"
+            }
+          ]
+        }
+      },
+      {
+        "name": "xl",
+        "type": "number | { [key: string]: any }",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": ">= 1200px 响应式栅格"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "`screen >= 1200px`"
+            }
+          ]
+        }
+      },
+      {
+        "name": "xxl",
+        "type": "number | { [key: string]: any }",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": ">= 1600px 响应式栅格"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "`screen >= 1600px`"
+            }
+          ]
+        }
+      },
+      {
+        "name": "xxxl",
+        "type": "number | { [key: string]: any }",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": ">= 2000px 响应式栅格"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "`screen >= 2000px`"
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.40.0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "flex",
+        "type": "FlexType",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "设置 flex 布局属性"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Set flex layout properties"
+            },
+            {
+              "kind": 25,
+              "tagName": "version",
+              "text": "2.26.0"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "ResponsiveValue",
+    "data": [
+      {
+        "name": "xxxl",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": ">= 2000px 响应式栅格"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "`screen >= 2000px`"
+            }
+          ]
+        }
+      },
+      {
+        "name": "xxl",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": ">= 1600px 响应式配置"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": ">= 1600px responsive configuration"
+            }
+          ]
+        }
+      },
+      {
+        "name": "xl",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": ">= 1200px 响应式配置"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": ">= 1200px responsive configuration"
+            }
+          ]
+        }
+      },
+      {
+        "name": "lg",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": ">= 992px 响应式配置"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": ">= 992px responsive configuration"
+            }
+          ]
+        }
+      },
+      {
+        "name": "md",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": ">= 768px 响应式配置"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": ">= 768px responsive configuration"
+            }
+          ]
+        }
+      },
+      {
+        "name": "sm",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": ">= 576px 响应式配置"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": ">= 576px responsive configuration"
+            }
+          ]
+        }
+      },
+      {
+        "name": "xs",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "< 576px 响应式配置"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "< 576px responsive configuration"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

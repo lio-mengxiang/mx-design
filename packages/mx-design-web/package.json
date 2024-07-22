@@ -45,21 +45,22 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@mx-design/web-utils": "0.1.8",
-    "@mx-design/hooks": "0.1.2",
-    "framer-motion": "10.12.4",
-    "react-fast-compare": "3.2.1",
+    "@mx-design/hooks": "workspace:*",
+    "@mx-design/web-utils": "workspace:*",
     "dayjs": "1.11.7",
-    "react-focus-lock": "^2.8.1",
+    "framer-motion": "11.2.13",
+    "react-fast-compare": "3.2.1",
+    "react-focus-lock": "2.8.1",
     "resize-observer-polyfill": "1.5.1"
   },
   "devDependencies": {
     "@babel/runtime": "7.20.6",
-    "@mx-design/node-utils": "0.1.3",
+    "@mx-design/node-utils": "workspace:*",
     "@types/node": "18.11.12",
+    "jsdom": "20.0.3",
     "rimraf": "3.0.2",
+    "ts-morph": "^23.0.0",
     "typescript": "4.9.3",
-    "vitest": "0.25.3",
-    "jsdom": "20.0.3"
+    "vitest": "0.25.3"
   }
 }

@@ -1,15 +1,14 @@
 import { Different } from '../locale';
 
 const code = `
-import { useMessage, Space, Button } from '@mx-design/web';
+import { MessageStore, Space, Button } from '@mx-design/web';
 
 function App() {
-  const Message = useMessage();
   return (
     <Space>
       <Button
         onClick={() => {
-          Message.add({
+          MessageStore.add({
             type: 'info',
             content: 'This is an info message!',
           });
@@ -19,7 +18,7 @@ function App() {
       </Button>
       <Button
         onClick={() => {
-          Message.add({
+          MessageStore.add({
             type: 'warning',
             content: 'This is an warning message!',
           });
@@ -30,7 +29,7 @@ function App() {
       </Button>
       <Button
         onClick={() => {
-          Message.add({
+          MessageStore.add({
             type: 'success',
             content: 'This is an success message!',
           });
@@ -41,7 +40,7 @@ function App() {
       </Button>
       <Button
         onClick={() => {
-          Message.add({
+          MessageStore.add({
             type: 'error',
             content: 'This is an error message!',
           });
@@ -52,7 +51,7 @@ function App() {
       </Button>
       <Button
         onClick={() => {
-          Message.add({
+          MessageStore.add({
             type: 'loading',
             content: 'This is an loading message!',
           });

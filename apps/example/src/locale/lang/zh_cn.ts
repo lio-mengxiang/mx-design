@@ -57,6 +57,7 @@ import {
   TOOLTIP_KEY,
 } from '@/constants';
 import { zh_cn_grid } from '@/pages/grid/locale';
+import { NAME_SPACE_API_LIST, zh_cn_api_list } from '@/components/APIList/locale';
 
 export const zh_cn = {
   [BUTTON_KEY]: zh_cn_button,
@@ -88,4 +89,5 @@ export const zh_cn = {
   [SELECT_INPUT]: zh_cn_select_input,
   [INPUT_TAG]: zh_cn_input_tag,
   [GRID_KEY]: zh_cn_grid,
+  [NAME_SPACE_API_LIST]: zh_cn_api_list,
 };

@@ -1,0 +1,266 @@
+[
+  {
+    "name": "PopupProps",
+    "data": [
+      {
+        "name": "children",
+        "type": "ReactNode"
+      },
+      {
+        "name": "themeStyle",
+        "type": "Record<string, any>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "attach",
+        "type": "PortalProps['attach']",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n制定挂载节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "default",
+              "text": "'body'"
+            }
+          ]
+        }
+      },
+      {
+        "name": "unmountOnExit",
+        "type": "any",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "isDropDown",
+        "type": "boolean",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "content",
+        "type": "() => ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n浮层里面的内容",
+          "tags": []
+        }
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n是否禁用组件",
+          "tags": []
+        }
+      },
+      {
+        "name": "overlayClassName",
+        "type": "string | string[]",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n浮层类名，示例：'name1 name2 name3' 或 `['name1', 'name2']`",
+          "tags": []
+        }
+      },
+      {
+        "name": "overlayInnerClassName",
+        "type": "string | string[]",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n浮层内容部分类名，示例：'name1 name2 name3' 或 `['name1', 'name2']`",
+          "tags": []
+        }
+      },
+      {
+        "name": "overlayInnerStyle",
+        "type": "CSSProperties | ((triggerElement: HTMLElement, popupElement: HTMLElement) => CSSProperties)",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n浮层内容部分样式，第一个参数 `triggerElement` 表示触发元素 DOM 节点，第二个参数 `popupElement` 表示浮层元素 DOM 节点",
+          "tags": []
+        }
+      },
+      {
+        "name": "overlayStyle",
+        "type": "CSSProperties | ((triggerElement: HTMLElement, popupElement: HTMLElement) => CSSProperties)",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n浮层样式，第一个参数 `triggerElement` 表示触发元素 DOM 节点，第二个参数 `popupElement` 表示浮层元素 DOM 节点",
+          "tags": []
+        }
+      },
+      {
+        "name": "placement",
+        "type": "| 'left'\n    | 'right'\n    | 'bottom'\n    | 'top'\n    | 'top-start'\n    | 'top-end'\n    | 'bottom-start'\n    | 'bottom-end'\n    | 'right-start'\n    | 'right-end'\n    | 'left-start'\n    | 'left-end'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n浮层出现位置",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "default",
+              "text": "top"
+            }
+          ]
+        }
+      },
+      {
+        "name": "popperOptions",
+        "type": "object",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\npopper 初始化配置，详情参考 https://popper.js.org/docs/",
+          "tags": []
+        }
+      },
+      {
+        "name": "showArrow",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n是否显示浮层箭头",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "default",
+              "text": "false"
+            }
+          ]
+        }
+      },
+      {
+        "name": "trigger",
+        "type": "'hover' | 'click' | 'focus' | 'mousedown' | 'context-menu'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n触发浮层出现的方式",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "default",
+              "text": "hover"
+            }
+          ]
+        }
+      },
+      {
+        "name": "triggerElement",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n触发元素。值类型为字符串表示元素选择器",
+          "tags": []
+        }
+      },
+      {
+        "name": "visible",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n是否显示浮层",
+          "tags": []
+        }
+      },
+      {
+        "name": "defaultVisible",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n是否显示浮层，非受控属性",
+          "tags": []
+        }
+      },
+      {
+        "name": "zIndex",
+        "type": "number",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n组件层级，Web 侧样式默认为 5500，移动端和小程序样式默认为 1500",
+          "tags": []
+        }
+      },
+      {
+        "name": "onScroll",
+        "type": "(context: { e: WheelEvent<HTMLDivElement> }) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n下拉选项滚动事件",
+          "tags": []
+        }
+      },
+      {
+        "name": "onScrollToBottom",
+        "type": "(context: { e: WheelEvent<HTMLDivElement> }) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n下拉滚动触底事件，常用于滚动到底执行具体业务逻辑",
+          "tags": []
+        }
+      },
+      {
+        "name": "onVisibleChange",
+        "type": "(visible: boolean, context: PopupVisibleChangeContext) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n当浮层隐藏或显示时触发，`trigger=document` 表示点击非浮层元素触发；`trigger=context-menu` 表示右击触发",
+          "tags": []
+        }
+      }
+    ]
+  },
+  {
+    "name": "PopupVisibleChangeContext",
+    "data": [
+      {
+        "name": "e",
+        "type": "PopupTriggerEvent",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "trigger",
+        "type": "PopupTriggerSource",
+        "isOptionnal": "?"
+      }
+    ]
+  },
+  {
+    "name": "PopupRef",
+    "data": [
+      {
+        "name": "getPopper",
+        "type": "() => ReturnType<typeof usePopper>"
+      },
+      {
+        "name": "getPopupElement",
+        "type": "() => HTMLDivElement"
+      },
+      {
+        "name": "getPortalElement",
+        "type": "() => HTMLDivElement"
+      },
+      {
+        "name": "setVisible",
+        "type": "(visible: boolean) => void"
+      }
+    ]
+  }
+]

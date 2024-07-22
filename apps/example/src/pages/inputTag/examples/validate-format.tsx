@@ -1,10 +1,9 @@
 import { ValidateFormat } from '../locale';
 
 const code = `
-import { Space, InputTag, useMessage } from '@mx-design/web';
+import { Space, InputTag, MessageStore } from '@mx-design/web';
 
 function App() {
-  const Message = useMessage();
   return (
     <Space>
       <InputTag
@@ -13,7 +12,7 @@ function App() {
         placeholder="Please input"
         validate={(v) => {
           if (!v || v.length < 3) {
-            Message.add({
+            MessageStore.add({
               type: 'error',
               content: 'length of value should be greater than 3',
             });
@@ -32,7 +31,7 @@ function App() {
           return { word: v };
         }}
         onChange={(value) => {
-          Message.add({
+          MessageStore.add({
             type: 'info',
             content: \`Paramster of onChange: \${JSON.stringify(value)}\`,
           });

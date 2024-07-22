@@ -1,0 +1,12 @@
+[
+  {
+    "name": "AttachNodeReturnValue",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "HTMLElement | Element | Document | string",
+    "typeParameters": [],
+    "kind": 38
+  }
+]

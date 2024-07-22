@@ -1,0 +1,22 @@
+[
+  {
+    "name": "ModalAlignType",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "'left' | 'center' | 'right' | ''",
+    "typeParameters": [],
+    "kind": 38
+  },
+  {
+    "name": "ModalType",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "'info' | 'error' | 'success' | 'warning'",
+    "typeParameters": [],
+    "kind": 38
+  }
+]

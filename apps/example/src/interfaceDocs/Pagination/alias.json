@@ -1,0 +1,12 @@
+[
+  {
+    "name": "itemRenderType",
+    "isExported": true,
+    "isDefaultExport": false,
+    "hasDeclareKeyword": false,
+    "docs": [],
+    "type": "(page: number, type: 'page' | 'more' | 'prev' | 'next', originElement: ReactNode) => ReactNode",
+    "typeParameters": [],
+    "kind": 38
+  }
+]

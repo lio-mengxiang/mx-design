@@ -1,10 +1,9 @@
 import { ItemStyle } from '../locale';
 
 const code = `
-import { Dropdown, Message, Button } from '@mx-design/web';
+import { Dropdown, Button } from '@mx-design/web';
 
 function App() {
-  const Message = useMessage();
   const droplist = [
     {
       uid: 1,

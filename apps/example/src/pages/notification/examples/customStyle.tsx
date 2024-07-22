@@ -1,14 +1,13 @@
 import { CustomStyle } from '../locale';
 
 const code = `
-import { useNotification, Button } from '@mx-design/web';
+import { NotificationStore, Button } from '@mx-design/web';
 
 function App() {
-  const Notification = useNotification();
   return (
     <Button
       onClick={() => {
-        Notification.add({
+        NotificationStore.add({
           type: 'info',
           closable: true,
           style: { width: 500 },

@@ -1,0 +1,226 @@
+[
+  {
+    "name": "SwitchProps",
+    "data": [
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "themeStyle",
+        "type": "Record<string, any>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否禁用"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to disable"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onChange",
+        "type": "(value: boolean, event) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "点击开关的回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback when click"
+            }
+          ]
+        }
+      },
+      {
+        "name": "checkedElement",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "开关打开时的文案，small 尺寸不生效。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The text when the switch is turned on, the small size does not work."
+            }
+          ]
+        }
+      },
+      {
+        "name": "unCheckedElement",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "开关关闭时的文案，small 尺寸不生效。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The text when the switch is turned off, the small size does not work."
+            }
+          ]
+        }
+      },
+      {
+        "name": "uncheckedIcon",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "开关关闭时，按钮上显示的图标"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The icon displayed on the button when the switch is off"
+            }
+          ]
+        }
+      },
+      {
+        "name": "checkedIcon",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "开关打开时，按钮上显示的图标"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The icon displayed on the button when the switch is turned on"
+            }
+          ]
+        }
+      },
+      {
+        "name": "defaultChecked",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "默认是否选中"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "To set default checked"
+            }
+          ]
+        }
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "开关是否打开"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "To set checked"
+            }
+          ]
+        }
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "加载中状态"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Loading state"
+            }
+          ]
+        }
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "loadingIconSize",
+        "type": "string",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "loadingIconBorderWidth",
+        "type": "string",
+        "isOptionnal": "?"
+      }
+    ]
+  }
+]

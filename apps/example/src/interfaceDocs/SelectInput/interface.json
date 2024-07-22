@@ -1,0 +1,206 @@
+[
+  {
+    "name": "SelectInputProps",
+    "data": [
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "popupProps",
+        "type": "PopupProps",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n透传 Popup 浮层组件全部属性",
+          "tags": []
+        }
+      },
+      {
+        "name": "popupVisible",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n是否显示下拉框",
+          "tags": []
+        }
+      },
+      {
+        "name": "borderless",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n无边框模式",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "default",
+              "text": "false"
+            }
+          ]
+        }
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n是否禁用",
+          "tags": []
+        }
+      },
+      {
+        "name": "allowDropDown",
+        "type": "boolean",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "panel",
+        "type": "MNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n下拉框内容，可完全自定义",
+          "tags": []
+        }
+      },
+      {
+        "name": "inputValue",
+        "type": "string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n输入框的值",
+          "tags": []
+        }
+      },
+      {
+        "name": "defaultInputValue",
+        "type": "string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n输入框的值，非受控属性",
+          "tags": []
+        }
+      },
+      {
+        "name": "value",
+        "type": "SelectInputValue",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n全部标签值。值为数组表示多个标签，值为非数组表示单个数值",
+          "tags": []
+        }
+      },
+      {
+        "name": "inputProps",
+        "type": "InputProps",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n透传 Input 输入框组件全部属性",
+          "tags": []
+        }
+      },
+      {
+        "name": "inputTagProps",
+        "type": "InputTagProps",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n透传 Input 输入框组件全部属性",
+          "tags": []
+        }
+      },
+      {
+        "name": "multiple",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "\n是否为多选模式，默认为单选",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "default",
+              "text": "false"
+            }
+          ]
+        }
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "onPopupVisibleChange",
+        "type": "(visible: boolean, context: PopupVisibleChangeContext) => void",
+        "isOptionnal": "?"
+      }
+    ]
+  },
+  {
+    "name": "SelectInputKeys",
+    "data": [
+      {
+        "name": "label",
+        "type": "string",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "children",
+        "type": "string",
+        "isOptionnal": "?"
+      }
+    ]
+  },
+  {
+    "name": "SelectInputCommonProperties",
+    "data": []
+  },
+  {
+    "name": "SelectInputFocusContext",
+    "data": [
+      {
+        "name": "tagInputValue",
+        "type": "TagInputValue",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "e",
+        "type": "FocusEvent<HTMLInputElement>"
+      }
+    ]
+  },
+  {
+    "name": "SelectInputKeyboardContext",
+    "data": [
+      {
+        "name": "tagInputValue",
+        "type": "TagInputValue",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "e",
+        "type": "KeyboardEvent<HTMLDivElement>"
+      }
+    ]
+  }
+]

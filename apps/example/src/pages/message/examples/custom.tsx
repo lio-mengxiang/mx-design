@@ -1,17 +1,16 @@
 import { Custom } from '../locale';
 
 const code = `
-import { useMessage, Space, Button, IconSmile, IconSun } from '@mx-design/web';
+import { MessageStore, Space, Button, IconSmile, IconSun } from '@mx-design/web';
 
 function App() {
-  const Message = useMessage();
   return (
     <Space>
       <Button
         onClick={() => {
-          Message.add({
+          MessageStore.add({
             type: 'info',
-            icon: <IconSmile />,
+            icon: <IconSmile size="18px" />,
             content: 'This is an info message!',
           });
         }}
@@ -20,9 +19,9 @@ function App() {
       </Button>
       <Button
         onClick={() => {
-          Message.add({
+          MessageStore.add({
             type: 'warning',
-            icon: <IconStop />,
+            icon: <IconStop size="18px" />,
             content: 'This is an warning message!',
           });
         }}
@@ -32,9 +31,9 @@ function App() {
       </Button>
       <Button
         onClick={() => {
-          Message.add({
+          MessageStore.add({
             type: 'success',
-            icon: <IconSun />,
+            icon: <IconSun size="18px" />,
             content: 'This is an success message!',
           });
         }}

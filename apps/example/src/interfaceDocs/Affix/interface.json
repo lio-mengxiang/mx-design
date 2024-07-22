@@ -1,0 +1,172 @@
+[
+  {
+    "name": "AffixProps",
+    "data": [
+      {
+        "name": "container",
+        "type": "ScrollContainer",
+        "isOptional": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "指定滚动的容器。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Specify the scroll container. If the data type is String, it will be treated as a selector and node query will be performed. Example:'body' or () => document.body"
+            },
+            {
+              "kind": 25,
+              "tagName": "default",
+              "text": "() => (() => window)"
+            }
+          ]
+        }
+      },
+      {
+        "name": "offsetTop",
+        "type": "number",
+        "isOptional": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "距离容器顶部达到指定距离后触发固定"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "When the distance from the top of the container reaches the specified distance, the trigger is fixed"
+            },
+            {
+              "kind": 25,
+              "tagName": "default",
+              "text": "0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "offsetBottom",
+        "type": "number",
+        "isOptional": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "距离容器底部达到指定距离后触发固定"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "When the distance from the bottom of the container reaches the specified distance, the trigger is fixed"
+            },
+            {
+              "kind": 25,
+              "tagName": "default",
+              "text": "0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "zIndex",
+        "type": "number",
+        "isOptional": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "固钉定位层级，样式默认为 1000"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Pin positioning level, style default is 1000"
+            }
+          ]
+        }
+      },
+      {
+        "name": "onFixedChange",
+        "type": "(affixed: boolean, context: { top: number }) => void",
+        "isOptional": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "固定状态发生变化时触发"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Triggered when the fixed state changes"
+            }
+          ]
+        }
+      },
+      {
+        "name": "isInScrollContainer",
+        "type": "boolean",
+        "isOptional": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "如果固钉元素container，也就是指定滚动的容器不是window,并且希望滚动的时候不超出滚动容器，请设置这个参数为true"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "et this parameter to true if the pinned container element specifies a scroll container other than window and you want to scroll within the scroll container"
+            }
+          ]
+        }
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "isOptional": "?"
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptional": "?"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "isOptional": "?"
+      }
+    ]
+  },
+  {
+    "name": "AffixRef",
+    "data": [
+      {
+        "name": "handleScroll",
+        "type": "() => void"
+      }
+    ]
+  }
+]

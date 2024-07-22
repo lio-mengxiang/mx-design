@@ -1,5 +1,5 @@
 import React from 'react';
-import { Basic, Disabled, Group, Icon, Loading, Long, Status, Compact } from './constants';
+import { Basic, Disabled, Group, Icon, Loading, Status } from './constants';
 
 export const zh_cn_button = {
   [Basic]: {
@@ -44,15 +44,5 @@ export const zh_cn_button = {
   [Group]: {
     title: '组合按钮',
     desc: <>可用在同级多项操作，以按钮组合方式出现</>,
-  },
-  [Compact]: {
-    title: '紧凑模式',
-    desc: (
-      <>
-        通过设置<code className="mx-code">compact</code>
-        可以让一个按钮失去内边距。一般用于在<code className="mx-code">Table</code>
-        中展示一些文本类型的按钮(去掉内边距后，可以让按钮较好地实现<b>左对齐</b>)
-      </>
-    ),
   },
 };

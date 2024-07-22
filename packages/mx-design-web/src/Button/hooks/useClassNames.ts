@@ -6,7 +6,6 @@ import type { ButtonProps } from '../interface';
 interface getClassNamesProps {
   getPrefixCls: ConfigProviderProps['getPrefixCls'];
   long: ButtonProps['long'];
-  compact: ButtonProps['compact'];
   children: ButtonProps['children'];
   status: ButtonProps['status'];
   loading: ButtonProps['loading'];
@@ -18,7 +17,7 @@ interface getClassNamesProps {
 }
 
 export function useClassNames(props: getClassNamesProps) {
-  const { long, compact, status, loading, children, iconOnly, disabled, className, iconNode, type, getPrefixCls } = props;
+  const { long, status, loading, children, iconOnly, disabled, className, iconNode, type, getPrefixCls } = props;
   const prefixCls = getPrefixCls('btn');
 
   return useMemo(
@@ -28,7 +27,6 @@ export function useClassNames(props: getClassNamesProps) {
         prefixCls,
         `${prefixCls}-${type}`,
         {
-          [`${prefixCls}-compact`]: compact,
           [`${prefixCls}-long`]: long,
           [`${prefixCls}-status-${status}`]: status,
           [`${prefixCls}-icon-only`]: iconOnly || (!children && children !== 0 && iconNode),
@@ -38,6 +36,6 @@ export function useClassNames(props: getClassNamesProps) {
         className
       ),
     }),
-    [type, children, className, disabled, iconNode, iconOnly, loading, long, compact, prefixCls, status]
+    [type, children, className, disabled, iconNode, iconOnly, loading, long, prefixCls, status]
   );
 }

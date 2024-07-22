@@ -1,17 +1,16 @@
 import { Position } from '../locale';
 
 const code = `
-import { useNotification, Button } from '@mx-design/web';
+import { Button } from '@mx-design/web';
 
 function App() {
-  const Notification = useNotification();
   return (
     <Space direction="vertical">
       <Space>
         <Button
           status="warning"
           onClick={() => {
-            Notification.add({
+            NotificationStore.add({
               type: 'warning',
               title: 'Notification',
               position: 'top-left',
@@ -24,7 +23,7 @@ function App() {
         <Button
           status="success"
           onClick={() => {
-            Notification.add({
+            NotificationStore.add({
               type: 'success',
               title: 'Notification',
               position: 'top',
@@ -37,7 +36,7 @@ function App() {
         <Button
           status="default"
           onClick={() => {
-            Notification.add({
+            NotificationStore.add({
               type: 'loading',
               title: 'Notification',
               position: 'top-right',
@@ -52,7 +51,7 @@ function App() {
         <Button
           status="warning"
           onClick={() => {
-            Notification.add({
+            NotificationStore.add({
               type: 'warning',
               title: 'Notification',
               position: 'bottom-left',
@@ -65,7 +64,7 @@ function App() {
         <Button
           status="success"
           onClick={() => {
-            Notification.add({
+            NotificationStore.add({
               type: 'success',
               title: 'Notification',
               position: 'bottom',
@@ -78,7 +77,7 @@ function App() {
         <Button
           status="default"
           onClick={() => {
-            Notification.add({
+            NotificationStore.add({
               type: 'loading',
               title: 'Notification',
               position: 'bottom-right',

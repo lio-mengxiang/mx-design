@@ -1,0 +1,288 @@
+[
+  {
+    "name": "BaseButtonProps",
+    "data": [
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "themeStyle",
+        "type": "Record<string, any>",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "type",
+        "type": "'brand' | 'text' | 'outline'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "按钮主要分为六种按钮类型：主要按钮、次级按钮、虚框按钮、文字按钮、线性按钮，`default` 为次级按钮。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "A variety of button types are available: `primary`, `secondary`, `dashed`,`text`, `linear` and `default` which is the secondary."
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "default"
+            }
+          ]
+        }
+      },
+      {
+        "name": "status",
+        "type": "'warning' | 'error' | 'success' | 'default'",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "按钮状态"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Status of the button"
+            },
+            {
+              "kind": 25,
+              "tagName": "defaultValue",
+              "text": "default"
+            }
+          ]
+        }
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "添加跳转链接，设置此属性，button表现跟a标签一致"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The button behaves like `<a>` with href as target url."
+            }
+          ]
+        }
+      },
+      {
+        "name": "target",
+        "type": "string",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "a 链接的 target 属性，href 存在时生效"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The target attribute of the link, which takes effect when href exists."
+            }
+          ]
+        }
+      },
+      {
+        "name": "anchorProps",
+        "type": "HTMLProps<HTMLAnchorElement>",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "a 链接的原生属性，href 存在时生效"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "The native attribute of the link, which takes effect when href exists"
+            }
+          ]
+        }
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "是否禁用"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to disable the button"
+            }
+          ]
+        }
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "按钮是否是加载状态"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether the button is in the loading state"
+            }
+          ]
+        }
+      },
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "设置按钮的图标"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Icon of the button"
+            }
+          ]
+        }
+      },
+      {
+        "name": "iconOnly",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "只有图标，按钮宽高相等。如果指定 `icon` 且没有 children，`iconOnly` 默认为 true"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether to show icon only, in which case the button width and height are equal. If `icon` is specified and there are no children, `iconOnly` defaults to `true`"
+            }
+          ]
+        }
+      },
+      {
+        "name": "long",
+        "type": "boolean",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "按钮宽度随容器自适应。"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Whether the width of the button should adapt to the container."
+            }
+          ]
+        }
+      },
+      {
+        "name": "onClick",
+        "type": "(e: React.MouseEvent<Element, MouseEvent>) => void",
+        "isOptionnal": "?",
+        "jsdoc": {
+          "kind": 24,
+          "description": "",
+          "tags": [
+            {
+              "kind": 25,
+              "tagName": "zh",
+              "text": "点击按钮的回调"
+            },
+            {
+              "kind": 25,
+              "tagName": "en",
+              "text": "Callback fired when the button is clicked"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "ButtonGroupProps",
+    "data": [
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "className",
+        "type": "string | string[]",
+        "isOptionnal": "?"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "isOptionnal": "?"
+      }
+    ]
+  }
+]

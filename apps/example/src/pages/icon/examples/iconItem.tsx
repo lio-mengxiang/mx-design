@@ -1,13 +1,11 @@
 import React from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import copy from 'copy-to-clipboard';
-import { useMessage } from '@mx-design/web';
+import { MessageStore } from '@mx-design/web';
 import styles from '../style/index.module.less';
 
 function IconItem({ Icon, Item }) {
   const controls = useAnimation();
-
-  const Message = useMessage();
 
   const handleHover = () => {
     controls.start({ scale: 1.2 });
@@ -19,7 +17,7 @@ function IconItem({ Icon, Item }) {
 
   const handleClick = (Item) => {
     copy(`<${Item} />`) &&
-      Message.add({
+      MessageStore.add({
         type: 'success',
         content: `copy success <${Item} /> `,
       });
