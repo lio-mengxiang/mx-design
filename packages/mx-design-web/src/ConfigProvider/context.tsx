@@ -14,5 +14,4 @@ export const defaultProps: ConfigProviderProps = {
   renderEmpty,
   globalCssVariables: lightTheme,
   getPrefixCls: (componentName: string, customPrefix?: string) => `${customPrefix || defaultProps.prefixCls}-${componentName}`,
-  _modalRef,
 };
