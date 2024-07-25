@@ -1,21 +1,20 @@
 import { Async } from '../locale';
 
 const code = `
-import { useModal, Button, MessageStore } from '@mx-design/web';
+import { ModalStore, Button, MessageStore } from '@mx-design/web';
 
 function App() {
-  const Modal = useModal();
   return (
     <Button
       onClick={() => {
-        const modalId = Modal.add({
+        const modalId = ModalStore.add({
           title: 'Modal Title',
           content: <div>Form xxx</div>,
           visible: true,
-          onCancel: () => Modal.remove(modalId),
+          onCancel: () => ModalStore.remove(modalId),
           okLoading: false,
           onOk: () => {
-            Modal.update(modalId, { okLoading: true });
+            ModalStore.update(modalId, { okLoading: true });
             new Promise((res) => {
               setTimeout(() => {
                 res('complete');
@@ -25,7 +24,7 @@ function App() {
                 type: 'success',
                 content: data,
               });
-              Modal.remove(modalId);
+              ModalStore.remove(modalId);
             });
           },
         });

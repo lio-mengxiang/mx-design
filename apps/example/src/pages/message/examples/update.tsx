@@ -15,8 +15,9 @@ function App() {
       MessageStore.update(id, {
         type: 'success',
         content: 'Update success!',
+        duration: 2000
       });
-    },3000);
+    },2000);
   }
 
   return (

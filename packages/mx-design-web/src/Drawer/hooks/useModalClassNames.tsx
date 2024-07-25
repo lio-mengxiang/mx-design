@@ -6,7 +6,6 @@ import { DrawerProps } from '../interface';
 interface getClassNamesProps {
   getPrefixCls: ConfigProviderProps['getPrefixCls'];
   className: DrawerProps['className'];
-  visible: DrawerProps['visible'];
   mask: DrawerProps['mask'];
   placement: DrawerProps['placement'];
   isFixed: boolean;
@@ -24,6 +23,7 @@ export function useModalClassNames(props: getClassNamesProps) {
         [`${prefixCls}-root-wrapper-no-mask`]: !mask,
       }),
       maskCls: cs(`${prefixCls}-mask`),
+      innerWrapperCls: cs(`${prefixCls}-inner-wrapper`),
       wrapperCls: cs(`${prefixCls}`, `${prefixCls}-${placement}`),
       containerCls: cs(className, `${prefixCls}-container`),
     }),

@@ -1,5 +1,5 @@
 import React, { forwardRef, useMemo } from 'react';
-import { motion, useIsPresent } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useTimer } from '../hooks';
 import { applyNotificationSlide, getCardStyle } from '../utils';
 import { Alert } from '../../Alert';

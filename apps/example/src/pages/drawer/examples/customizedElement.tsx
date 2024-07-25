@@ -1,10 +1,9 @@
 import { CustomizedElement } from '../locale';
 
 const code = `
-import { useDrawer, Space, Button, Checkbox } from '@mx-design/web';
+import { DrawerStore, Space, Button, Checkbox } from '@mx-design/web';
 
 function App() {
-  const Drawer = useDrawer();
   const [hasHeader, setHeader] = React.useState(true);
   const [hasFooter, setFooter] = React.useState(true);
   const [hasClose, setClose] = React.useState(true);
@@ -37,7 +36,7 @@ function App() {
       </Space>
       <Button
         onClick={() => {
-          const drawerId = Drawer.add({
+          const drawerId = DrawerStore.add({
             title: hasHeader ? 'Drawer Title' : null,
             footer: hasFooter ? <Button>Ok</Button> : null,
             showCloseIcon: hasClose,
@@ -47,8 +46,7 @@ function App() {
                 <div>Here is an example text.</div>
               </>
             ),
-            visible: true,
-            onCancel: () => Drawer.remove(drawerId),
+            onCancel: () => DrawerStore.remove(drawerId),
           });
         }}
       >

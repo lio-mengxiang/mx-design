@@ -7,7 +7,6 @@ export type ModalType = 'info' | 'error' | 'success' | 'warning';
 export interface ModalProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title' | 'id'> {
   id?: string | number;
   type?: ModalType;
-  visible?: boolean;
   withoutLine?: boolean;
   withoutPadding?: boolean;
   mask?: boolean;

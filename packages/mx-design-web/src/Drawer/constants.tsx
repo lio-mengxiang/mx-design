@@ -9,14 +9,18 @@ export function drawerAnimation(placement?: DrawerPlacement): Variants {
   switch (placement) {
     case 'top':
       originY = '-100%';
+      originX = 0;
       break;
     case 'bottom':
       originY = '100%';
+      originX = 0;
       break;
     case 'left':
+      originY = 0;
       originX = '-100%';
       break;
     case 'right':
+      originY = 0;
       originX = '100%';
       break;
     default:
@@ -64,7 +68,9 @@ export const DRAWER_LOCAL = {
 };
 
 export const duration1 = { duration: 0.1 };
-export const duration2 = { ease: 'easeOut', duration: 0.2 };
+export const duration2 = { duration: 0.2 };
+export const TAB = 'tab';
+export const Escape = 'escape';
 export const sentinelStyle: React.CSSProperties = {
   width: 0,
   height: 0,

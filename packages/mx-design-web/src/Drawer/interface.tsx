@@ -6,7 +6,6 @@ export type DrawerPlacement = 'top' | 'bottom' | 'left' | 'right';
 
 export interface DrawerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title' | 'id'> {
   id?: string | number;
-  visible?: boolean;
   /**
    * @zh 头部的样式
    * @en The additional css style for header

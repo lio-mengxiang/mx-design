@@ -77,7 +77,6 @@ function createStore(initialState: MessageStates) {
             ...options,
           };
         }
-
         return nextState;
       });
     },

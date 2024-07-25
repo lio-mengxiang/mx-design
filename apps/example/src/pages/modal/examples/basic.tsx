@@ -1,14 +1,13 @@
 import { Basic } from '../locale';
 
 const code = `
-import { useModal, Button } from '@mx-design/web';
+import { ModalStore, Button } from '@mx-design/web';
 
 function App() {
-  const Modal = useModal();
   return (
     <Button
       onClick={() => {
-        const modalId = Modal.add({
+        const modalId = ModalStore.add({
           title: 'Modal Title',
           content: (
             <div>
@@ -17,7 +16,7 @@ function App() {
             </div>
           ),
           visible: true,
-          onCancel: () => Modal.remove(modalId),
+          onCancel: () => ModalStore.remove(modalId),
         });
       }}
     >

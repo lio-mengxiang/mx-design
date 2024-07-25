@@ -9,14 +9,16 @@ function App() {
       title: 'Title',
       type: 'loading',
       content: 'Will update after 1 seconds...',
+      duration: null
     });
     setTimeout(() => {
       NotificationStore.update(id, {
         title: 'Title',
         type: 'success',
         content: 'Update success!',
+        duration: 2000
       });
-    },1000);
+    },2000);
   }
 
   return (

@@ -1,22 +1,21 @@
 import { Feedback } from '../locale';
 
 const code = `
-import { useModal, Button, Space } from '@mx-design/web';
+import { ModalStore, Button, Space } from '@mx-design/web';
 
 function App() {
-  const Modal = useModal();
   return (
     <Space>
       <Button
         onClick={() => {
-          const modalId = Modal.add({
+          const modalId = ModalStore.add({
             title: 'Info Modal Title',
             type: 'info',
             content: <div>Info Modal</div>,
             visible: true,
             hideCancelBtn: true,
-            onCancel: () => Modal.remove(modalId),
-            onOk: () => Modal.remove(modalId),
+            onCancel: () => ModalStore.remove(modalId),
+            onOk: () => ModalStore.remove(modalId),
           });
         }}
       >
@@ -26,14 +25,14 @@ function App() {
         type="brand"
         status="warning"
         onClick={() => {
-          const modalId = Modal.add({
+          const modalId = ModalStore.add({
             title: 'Warning Modal Title',
             type: 'warning',
             content: <div>Warning Modal</div>,
             visible: true,
             hideCancelBtn: true,
-            onCancel: () => Modal.remove(modalId),
-            onOk: () => Modal.remove(modalId),
+            onCancel: () => ModalStore.remove(modalId),
+            onOk: () => ModalStore.remove(modalId),
           });
         }}
       >
@@ -43,14 +42,14 @@ function App() {
         type="brand"
         status="error"
         onClick={() => {
-          const modalId = Modal.add({
+          const modalId = ModalStore.add({
             title: 'Error Modal Title',
             type: 'error',
             content: <div>Error Modal</div>,
             visible: true,
             hideCancelBtn: true,
-            onCancel: () => Modal.remove(modalId),
-            onOk: () => Modal.remove(modalId),
+            onCancel: () => ModalStore.remove(modalId),
+            onOk: () => ModalStore.remove(modalId),
           });
         }}
       >
@@ -61,14 +60,14 @@ function App() {
         type="brand"
         status="success"
         onClick={() => {
-          const modalId = Modal.add({
+          const modalId = ModalStore.add({
             title: 'Error Modal Title',
             type: 'success',
             content: <div>Success Modal</div>,
             visible: true,
             hideCancelBtn: true,
-            onCancel: () => Modal.remove(modalId),
-            onOk: () => Modal.remove(modalId),
+            onCancel: () => ModalStore.remove(modalId),
+            onOk: () => ModalStore.remove(modalId),
           });
         }}
       >

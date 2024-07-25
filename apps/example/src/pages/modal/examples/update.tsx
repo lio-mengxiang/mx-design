@@ -1,10 +1,9 @@
 import { Update } from '../locale';
 
 const code = `
-import { Modal, Button, IconLoading } from '@mx-design/web';
+import { ModalStore, Button, IconLoading } from '@mx-design/web';
 
 function App() {
-  const Modal = useModal();
   const sleep = async (time) => {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -14,7 +13,7 @@ function App() {
   };
 
   async function updateModal() {
-    const modalId = Modal.add({
+    const modalId = ModalStore.add({
       title: 'Modal Title',
       content: (
         <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -26,12 +25,12 @@ function App() {
       footer: null,
     });
     await sleep(1500);
-    Modal.update(modalId, {
+    ModalStore.update(modalId, {
       type: 'success',
       content: 'Update success!',
     });
     await sleep(500);
-    Modal.remove(modalId);
+    ModalStore.remove(modalId);
   }
 
   return <Button onClick={updateModal}>Update message</Button>;

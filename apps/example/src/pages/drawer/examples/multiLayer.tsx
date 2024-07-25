@@ -1,20 +1,19 @@
 import { MultiLayer } from '../locale';
 
 const code = `
-import { useDrawer, Button } from '@mx-design/web';
+import { DrawerStore, Button } from '@mx-design/web';
 
 function App() {
-  const Drawer = useDrawer();
   return (
     <Button
       onClick={() => {
-        const drawerId = Drawer.add({
+        const drawerId = DrawerStore.add({
           title: 'Drawer Title',
           width: 600,
           content: (
             <Button
               onClick={() => {
-                const drawerId = Drawer.add({
+                const drawerId = DrawerStore.add({
                   title: 'Drawer Title',
                   content: (
                     <>
@@ -22,16 +21,14 @@ function App() {
                       <div>Here is an example text.</div>
                     </>
                   ),
-                  visible: true,
-                  onCancel: () => Drawer.remove(drawerId),
+                  onCancel: () => DrawerStore.remove(drawerId),
                 });
               }}
             >
               Open Drawer
             </Button>
           ),
-          visible: true,
-          onCancel: () => Drawer.remove(drawerId),
+          onCancel: () => DrawerStore.remove(drawerId),
         });
       }}
     >

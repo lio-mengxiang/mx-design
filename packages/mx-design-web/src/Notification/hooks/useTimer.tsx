@@ -25,7 +25,7 @@ export function useTimer(props: NotificationCardProps) {
   useEffect(() => {
     startTimer();
     return () => removeTimer();
-  }, []);
+  }, [duration]);
 
   const onMouseEnter = () => {
     removeTimer();

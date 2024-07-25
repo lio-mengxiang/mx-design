@@ -13,7 +13,7 @@ const defaultProps: SpaceProps = {
 function Space(baseProps: SpaceProps, ref) {
   const { getPrefixCls, componentConfig } = useContext(ConfigContext);
   const props = useMergeProps<SpaceProps>(baseProps, defaultProps, componentConfig?.Space);
-  const { className, style, children, size, direction, align, split, lastOneStyle, ...rest } = props;
+  const { className, style, children, size, direction, align, split, lastOneStyle, wrap, ...rest } = props;
 
   const prefixCls = getPrefixCls('space');
 
@@ -24,6 +24,7 @@ function Space(baseProps: SpaceProps, ref) {
     {
       [`${prefixCls}-${direction}`]: direction,
       [`${prefixCls}-align-${innerAlign}`]: innerAlign,
+      [`${prefixCls}-wrap`]: wrap,
     },
     className
   );
@@ -59,7 +60,5 @@ function Space(baseProps: SpaceProps, ref) {
 }
 
 const SpaceComponent = forwardRef<unknown, SpaceProps>(Space);
-
-SpaceComponent.displayName = 'Space';
 
 export { SpaceComponent as Space };

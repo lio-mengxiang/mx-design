@@ -1,15 +1,14 @@
 import { Footer } from '../locale';
 
 const code = `
-import { useModal, Button, Space } from '@mx-design/web';
+import { ModalStore, Button, Space } from '@mx-design/web';
 
 function App() {
-  const Modal = useModal();
   return (
     <Space>
       <Button
         onClick={() => {
-          const modalId = Modal.add({
+          const modalId = ModalStore.add({
             title: 'Modal Title',
             content: (
               <div>
@@ -17,8 +16,8 @@ function App() {
               </div>
             ),
             visible: true,
-            onCancel: () => Modal.remove(modalId),
-            footer: <Button onClick={() => Modal.remove(modalId)}>OK</Button>
+            onCancel: () => ModalStore.remove(modalId),
+            footer: <Button onClick={() => ModalStore.remove(modalId)}>OK</Button>
           });
         }}
       >
@@ -26,7 +25,7 @@ function App() {
       </Button>
       <Button
         onClick={() => {
-          const modalId = Modal.add({
+          const modalId = ModalStore.add({
             title: 'Modal Title',
             content: (
               <div>
@@ -35,8 +34,8 @@ function App() {
             ),
             visible: true,
             footerAlign: 'left',
-            onCancel: () => Modal.remove(modalId),
-            footer: <Button onClick={() => Modal.remove(modalId)}>I'm left</Button>
+            onCancel: () => ModalStore.remove(modalId),
+            footer: <Button onClick={() => ModalStore.remove(modalId)}>I'm left</Button>
           });
         }}
       >
@@ -44,7 +43,7 @@ function App() {
       </Button>
       <Button
         onClick={() => {
-          const modalId = Modal.add({
+          const modalId = ModalStore.add({
             title: 'Modal Title',
             content: (
               <div>
@@ -52,7 +51,7 @@ function App() {
               </div>
             ),
             visible: true,
-            onCancel: () => Modal.remove(modalId),
+            onCancel: () => ModalStore.remove(modalId),
             footer: null
           });
         }}

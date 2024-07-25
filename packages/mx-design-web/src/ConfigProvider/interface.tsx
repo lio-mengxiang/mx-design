@@ -15,10 +15,10 @@ import type { AnchorProps } from '../Anchor';
 import type { RadioProps } from '../Radio';
 import type { HorizontalMenuMenuProps } from '../Menu/HorizontalMenu/interface';
 import type { GridLayoutProps } from '../GridLayout';
-import type { MessageProps, IMessageRef } from '../Message';
+import type { MessageProps } from '../Message';
 import type { ModalProps } from '../Modal/interface';
 import type { IModalRef } from '../Modal';
-import type { DrawerProps, IDrawerRef } from '../Drawer';
+import type { DrawerProps } from '../Drawer';
 import type { InputProps } from '../Input';
 import type { TagProps } from '../Tag';
 import type { TableProps } from '../Table';
@@ -98,8 +98,4 @@ export interface ConfigProviderProps {
    * @en Empty component in component.
    */
   renderEmpty?: (componentName?: string) => ReactNode;
-  _messageRef?: React.RefObject<IMessageRef>;
-  _notificationRef?: React.RefObject<INotificationRef>;
-  _modalRef?: React.RefObject<IModalRef>;
-  _drawerRef?: React.RefObject<IDrawerRef>;
 }

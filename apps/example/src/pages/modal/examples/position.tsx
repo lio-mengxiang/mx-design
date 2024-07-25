@@ -1,15 +1,14 @@
 import { Position } from '../locale';
 
 const code = `
-import { useModal, Space, Button } from '@mx-design/web';
+import { ModalStore, Space, Button } from '@mx-design/web';
 
 function App() {
-  const Modal = useModal();
   return (
     <Space>
       <Button
         onClick={() => {
-          const modalId = Modal.add({
+          const modalId = ModalStore.add({
             title: 'Modal Title',
             content: (
               <div>
@@ -18,7 +17,7 @@ function App() {
             ),
             visible: true,
             themeStyle: { '--modal-top': '50px' },
-            onCancel: () => Modal.remove(modalId),
+            onCancel: () => ModalStore.remove(modalId),
           });
         }}
       >
@@ -26,7 +25,7 @@ function App() {
       </Button>
       <Button
         onClick={() => {
-          const modalId = Modal.add({
+          const modalId = ModalStore.add({
             title: 'Modal Title',
             content: (
               <div>
@@ -35,7 +34,7 @@ function App() {
             ),
             visible: true,
             themeStyle: { '--modal-top': 'calc(50% - 104px)' },
-            onCancel: () => Modal.remove(modalId),
+            onCancel: () => ModalStore.remove(modalId),
           });
         }}
       >
