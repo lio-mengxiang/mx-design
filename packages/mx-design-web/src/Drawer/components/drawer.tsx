@@ -1,20 +1,19 @@
 import { motion } from 'framer-motion';
-import React, { forwardRef, useContext, useEffect, useMemo, useRef } from 'react';
+import React, { forwardRef, useContext, useRef } from 'react';
 import { useMergeProps } from '@mx-design/hooks';
 import { ConfigContext } from '../../ConfigProvider';
-import { duration1, duration2, maskAnimation, drawerAnimation, sentinelStyle } from '../constants';
+import { duration1, duration2, maskAnimation, drawerAnimation } from '../constants';
 import { useModalClassNames } from '../hooks';
 import { DrawerCard } from './drawerCard';
 import { Portal } from '../../Portal';
 import { useOverflowHidden } from '../../Modal/hooks';
-// type
-import type { DrawerProps } from '../interface';
-import type { IDrawerRef } from './drawerProvider';
-import { useDrawer } from '../hooks/useDrawer';
 import { useDrawerStore } from '../store';
 import { useStyles } from '../../hooks';
+import { useFocusTrap } from '../../hooks/useFocusTarp';
+// type
+import type { DrawerProps } from '../interface';
 
-type IDrawerProps = DrawerProps & IDrawerRef['remove'];
+type IDrawerProps = DrawerProps;
 
 const defaultProps: Partial<IDrawerProps> = {
   mask: true,
@@ -23,18 +22,17 @@ const defaultProps: Partial<IDrawerProps> = {
   placement: 'right',
   focusLock: true,
   showCloseIcon: true,
-  width: 332,
-  height: 332,
+  width: 420,
+  height: 420,
   getMountContainer: () => document.body,
 };
 
-export function Drawer(baseProps: DrawerProps, ref) {
+function Drawer(baseProps: DrawerProps, ref) {
   // props
   const { getPrefixCls, componentConfig } = useContext(ConfigContext);
   const props = useMergeProps(baseProps, defaultProps, componentConfig?.Drawer);
 
   const {
-    visible,
     mask,
     title,
     okLoading,
@@ -71,27 +69,25 @@ export function Drawer(baseProps: DrawerProps, ref) {
 
   const {
     // functions
-    onEscExit,
+    onKeyDown,
     onClickMask,
     // states
     prefixCls,
     isFixed,
     drawerWrapperRef,
-    sentinelStartRef,
-    sentinelEndRef,
-  } = useDrawerStore({ getMountContainer, getPrefixCls, maskClosable, mask, visible, onCancel });
-
+  } = useDrawerStore({ getMountContainer, getPrefixCls, maskClosable, mask, onCancel });
+  const focusRef = useRef(null);
+  useFocusTrap(focusRef, true);
   // classnames
-  const { maskCls, wrapperCls, rootWrapperCls } = useModalClassNames({
+  const { maskCls, wrapperCls, rootWrapperCls, innerWrapperCls } = useModalClassNames({
     getPrefixCls,
     isFixed,
     className,
-    visible,
     mask,
     placement,
   });
 
-  useOverflowHidden(getMountContainer, visible && mask);
+  useOverflowHidden(getMountContainer, mask);
 
   const element = (
     <DrawerCard
@@ -117,61 +113,55 @@ export function Drawer(baseProps: DrawerProps, ref) {
 
   return (
     <>
-      {visible && (
-        <Portal attach={getMountContainer()}>
-          <div className={rootWrapperCls} onKeyDown={onEscExit} ref={drawerWrapperRef} tabIndex={-1} style={wrapperStyle}>
-            {mask ? (
-              <motion.div
-                className={maskCls}
-                style={maskStyle}
-                variants={maskAnimation}
-                animate="animate"
-                exit="exit"
-                initial="initial"
-                onClick={onClickMask}
-                transition={duration1}
-                tabIndex={-1}
-              />
-            ) : null}
+      <Portal attach={getMountContainer()}>
+        <div className={rootWrapperCls} onKeyDown={onKeyDown} ref={drawerWrapperRef} tabIndex={-1} style={wrapperStyle}>
+          {mask ? (
             <motion.div
-              tabIndex={-1}
-              className={wrapperCls}
-              ref={ref}
-              role="dialog"
-              style={placement === 'left' || placement === 'right' ? { width } : { height }}
-              variants={drawerAnimation(placement)}
-              transition={duration2}
+              className={maskCls}
+              style={maskStyle}
+              variants={maskAnimation}
               animate="animate"
               exit="exit"
               initial="initial"
-              onAnimationComplete={(definition) => {
-                if (definition === 'animate') {
-                  afterOpen?.();
-                }
-                if (definition === 'exit') {
-                  afterClose?.();
-                }
-              }}
-            >
-              {focusLock ? (
-                <>
-                  <div tabIndex={0} ref={sentinelStartRef} style={sentinelStyle} aria-hidden="true" data-sentinel="start" />
-                  {element}
-                  <div tabIndex={0} ref={sentinelEndRef} style={sentinelStyle} aria-hidden="true" data-sentinel="end" />
-                </>
-              ) : (
-                element
-              )}
-            </motion.div>
-          </div>
-        </Portal>
-      )}
+              onClick={onClickMask}
+              transition={duration1}
+              tabIndex={-1}
+            />
+          ) : null}
+          <motion.div
+            tabIndex={-1}
+            className={wrapperCls}
+            ref={ref}
+            role="dialog"
+            style={placement === 'left' || placement === 'right' ? { width } : { height }}
+            variants={drawerAnimation(placement)}
+            transition={duration2}
+            animate="animate"
+            exit="exit"
+            initial="initial"
+            onAnimationComplete={(definition) => {
+              if (definition === 'animate') {
+                afterOpen?.();
+              }
+              if (definition === 'exit') {
+                afterClose?.();
+              }
+            }}
+          >
+            {focusLock ? (
+              <div ref={focusRef} className={innerWrapperCls}>
+                {element}
+              </div>
+            ) : (
+              element
+            )}
+          </motion.div>
+        </div>
+      </Portal>
     </>
   );
 }
 
 const DrawerProviderComponent = forwardRef<HTMLElement, DrawerProps>(Drawer);
-
-DrawerProviderComponent.displayName = 'DrawerProviderComponent';
 
 export default DrawerProviderComponent;

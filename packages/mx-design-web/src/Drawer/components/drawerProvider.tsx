@@ -1,33 +1,15 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useSyncExternalStore } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { Drawer } from './drawer';
-import { useProviderStore } from '../store';
-// type
-import type { DrawerProps } from '../interface';
-
-export interface IDrawerRef {
-  add: (drawerProps: DrawerProps) => DrawerProps['id'];
-  remove: (id: DrawerProps['id']) => void;
-  clearAll: () => void;
-  update: (id: DrawerProps['id'], options: DrawerProps) => void;
-}
+import { store } from '../store';
+import Drawer from './drawer';
 
 function DrawerProvider(_, ref) {
   // state
-  const { add, remove, drawers, clearAll, update } = useProviderStore();
-
-  if (!ref.current) {
-    ref.current = {
-      add,
-      remove,
-      clearAll,
-      update,
-    };
-  }
+  const state = useSyncExternalStore(store.subscribe, store.getState, store.getState);
 
   return (
     <AnimatePresence>
-      {drawers.map((drawerProps) => (
+      {state.map((drawerProps) => (
         <Drawer {...drawerProps} key={drawerProps.id} />
       ))}
     </AnimatePresence>
@@ -35,7 +17,5 @@ function DrawerProvider(_, ref) {
 }
 
 const DrawerComponent = forwardRef(DrawerProvider);
-
-DrawerComponent.displayName = 'DrawerProvider';
 
 export { DrawerComponent as DrawerProvider };

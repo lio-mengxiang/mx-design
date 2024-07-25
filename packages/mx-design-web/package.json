@@ -50,7 +50,6 @@
     "dayjs": "1.11.7",
     "framer-motion": "11.2.13",
     "react-fast-compare": "3.2.1",
-    "react-focus-lock": "2.8.1",
     "resize-observer-polyfill": "1.5.1"
   },
   "devDependencies": {

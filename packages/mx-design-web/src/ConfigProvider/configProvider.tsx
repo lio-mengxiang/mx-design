@@ -15,7 +15,7 @@ export const ConfigContext = createContext<ConfigProviderProps>({
 
 export function MxConfigProvider(baseProps: PropsWithChildren<ConfigProviderProps>) {
   const props = useMemo(() => ({ ...defaultProps, ...baseProps }), [baseProps]);
-  const { prefixCls, globalCssVariables, children, _notificationRef, _modalRef, _drawerRef } = props;
+  const { prefixCls, globalCssVariables, children } = props;
   const getPrefixCls = useCallback(
     (componentName: string, customPrefix?: string) => `${customPrefix || prefixCls || defaultProps.prefixCls}-${componentName}`,
     [prefixCls]
@@ -34,9 +34,9 @@ export function MxConfigProvider(baseProps: PropsWithChildren<ConfigProviderProp
   return (
     <ConfigContext.Provider value={config}>
       <MessageProvider />
-      <DrawerProvider ref={_drawerRef} />
-      <NotificationProvider ref={_notificationRef} />
-      <ModalProvider ref={_modalRef} />
+      <DrawerProvider />
+      <NotificationProvider />
+      <ModalProvider />
       {children}
     </ConfigContext.Provider>
   );

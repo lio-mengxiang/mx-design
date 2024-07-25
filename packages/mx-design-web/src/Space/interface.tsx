@@ -25,5 +25,6 @@ export interface SpaceProps {
   size?: number;
   children?: ReactNode;
   split?: ReactNode;
+  wrap?: boolean;
   lastOneStyle?: CSSProperties;
 }

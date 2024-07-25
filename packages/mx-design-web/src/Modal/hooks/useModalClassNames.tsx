@@ -17,6 +17,7 @@ export function useModalClassNames(props: getClassNamesProps) {
     () => ({
       maskCls: cs(`${prefixCls}-mask`),
       wrapperCls: cs(`${prefixCls}-container`, { [`${prefixCls}-container-no-mask`]: !mask }, className),
+      innerWrapperCls: cs(`${prefixCls}-inner-wrapper`),
     }),
     [className, prefixCls, mask]
   );

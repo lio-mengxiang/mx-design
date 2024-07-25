@@ -1,10 +1,9 @@
 import { Position } from '../locale';
 
 const code = `
-import { useDrawer, Space, Button, Radio } from '@mx-design/web';
+import { DrawerStore, Space, Button, Radio } from '@mx-design/web';
 
 function App() {
-  const Drawer = useDrawer();
   const [placement, setPlacement] = React.useState('right');
   return (
     <Space direction="vertical">
@@ -16,7 +15,7 @@ function App() {
       </Radio.Group>
       <Button
         onClick={() => {
-          const drawerId = Drawer.add({
+          const drawerId = DrawerStore.add({
             title: 'Drawer Title',
             placement,
             content: (
@@ -25,8 +24,7 @@ function App() {
                 <div>Here is an example text.</div>
               </>
             ),
-            visible: true,
-            onCancel: () => Drawer.remove(drawerId),
+            onCancel: () => DrawerStore.remove(drawerId),
           });
         }}
       >

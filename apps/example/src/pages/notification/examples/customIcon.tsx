@@ -35,7 +35,8 @@ function App() {
     <Button
       onClick={() =>
         NotificationStore.add({
-          icon: <IconFace />,
+          // must define unique key
+          icon: <IconFace key="face" />,
           title: 'Upgrade',
           content: 'Ready to upgrade ArcoDesign 2.0',
         })
