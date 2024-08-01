@@ -7,9 +7,11 @@ function App() {
   const [visible, setVisible] = React.useState(true);
 
   return (
-    <Popup content={() => "This is the popup content"} trigger="context-menu" placement="right" visible={visible}>
-      <Button onClick={()=> setVisible(!visible)}>一直显示(Always show)</Button>
-    </Popup>
+    <div id="wrapper">
+      <Popup content={() => "This is the popup content"} trigger="context-menu" placement="right" attach={document.getElementById('wrapper')} visible={visible}>
+        <Button onClick={()=> setVisible(!visible)}>一直显示(Always show)</Button>
+      </Popup>
+    </div>
   );
 }`;
 
