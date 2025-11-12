@@ -1,8 +1,1 @@
-This project has been migrated to [t-ui](https://github.com/lio-mengxiang/t-ui)
-<div align="center" style="margin-bottom: 24px">
-    <img alt="Mx Design Logo" width="300" src="./assets/logo.png#gh-light-mode-only"/>
-    <img alt="Mx Design Logo" width="300" src="./assets/logo.dark.png#gh-light-mode-only#gh-dark-mode-only"/>
-</div>
-
-<div align="center">
-<br />
+这个项目已经重构为 headless 组件库，详情见 [t-ui](https://github.com/lio-mengxiang/t-ui)
