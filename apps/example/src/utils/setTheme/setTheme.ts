@@ -3,7 +3,8 @@ import { THEME } from './constants';
 
 export function setTheme(_setTheme) {
   return (themeName) => {
-    setLocalStorage(THEME, themeName);
+    localStorage.setItem(THEME, themeName);
+
     _setTheme(themeName);
   };
 }
