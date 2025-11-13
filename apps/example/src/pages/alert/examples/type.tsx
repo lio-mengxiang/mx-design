@@ -10,7 +10,7 @@ function App() {
       <Alert type="warning" content="Here is a warning text" />
       <Alert type="success" content="Here is a success text" />
       <Alert type="error" content="Here is an error text" />
-      <Alert type="loading" content="Here is an error text" />
+      <Alert type="loading" content="Here is an loading text" />
     </Space>
   );
 }`;
